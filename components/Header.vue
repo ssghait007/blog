@@ -25,10 +25,10 @@
       <nav
         class="md:ml-auto flex flex-wrap items-center text-lg justify-center"
       >
-        <a class="mr-5 hover:text-purple-900">FrontEnd </a>
-        <a class="mr-5 hover:text-purple-900">Backend </a>
-        <a class="mr-5 hover:text-purple-900">Databases </a>
-        <a class="mr-5 hover:text-purple-900">Proxies </a>
+        <a class="mr-5 hover:text-blue-600">Frontend </a>
+        <a class="mr-5 hover:text-blue-600">Backend </a>
+        <a class="mr-5 hover:text-blue-600">Databases </a>
+        <a class="mr-5 hover:text-blue-600">Proxies </a>
       </nav>
     </div>
   </header>

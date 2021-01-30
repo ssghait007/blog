@@ -1,5 +1,5 @@
 <template>
-  <footer class="left-0 bottom-0 text-gray-600 body-font">
+  <footer class="text-gray-600 body-font">
     <div
       class="px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col"
     >
@@ -16,17 +16,17 @@
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            class="w-10 h-10 text-white p-2 bg-blue-500 rounded-full"
+            class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full fill-current"
             viewBox="0 0 24 24"
           >
             <path
               d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
             ></path>
           </svg>
-          <span class="ml-3 text-xl">Tailblocks</span>
+          <span class="ml-3 text-xl">Sachin Ghait</span>
         </a>
-        <p class="mt-2 text-sm text-gray-500">
-          Air plant banjo lyft occupy retro adaptogen indego
+        <p class="mt-2 text-sm text-gray-600">
+          Knowledge shared is knowledge squared.
         </p>
       </div>
       <div
@@ -38,19 +38,20 @@
           class="lg:w-1/4 md:w-1/2 w-full px-4"
         >
           <h2
-            class="title-font font-medium text-gray-900 tracking-widest text-lg mb-3"
+            class="title-font font-medium text-gray-800 hover:text-blue-600 tracking-widest text-lg mb-3"
           >
             {{ i }}
           </h2>
           <nav class="list-none mb-10">
-            <li v-for="j in [1, 2, 3, 4]" :key="j">
-              <a class="text-gray-600 hover:text-gray-800">Subtopic</a>
+            <li v-for="i in [1, 2, 3, 4]" :key="i">
+              <a class="text-gray-600 hover:text-blue-600">Subtopic</a>
             </li>
           </nav>
         </div>
       </div>
     </div>
-    <div class="bg-gray-100">
+
+    <div class="bg-gray-200">
       <div class="mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
         <p class="text-gray-500 text-sm text-center sm:text-left">
           © 2021 Sachin Ghait —
