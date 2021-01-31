@@ -24,7 +24,7 @@
                 {{ post.description }}
               </p>
               <div class="flex items-center flex-wrap">
-                <NuxtLink to="/blog">
+                <NuxtLink :to="`/blog/${post.slug}`">
                   <a
                     class="text-indigo-500 hover:text-indigo-900 inline-flex items-center md:mb-2 lg:mb-0"
                     >Learn More
@@ -43,7 +43,7 @@
                   </a>
                 </NuxtLink>
                 <span
-                  class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 2 border-gray-200"
+                  class="text-gray-500 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 2 border-gray-200"
                 >
                   {{ post.createdAt | formatDate }}
                 </span>
@@ -75,7 +75,7 @@ export default {
     },
   },
   props: {
-    posts: Object,
+    posts: Array,
   },
 }
 </script>
