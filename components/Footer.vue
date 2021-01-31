@@ -43,7 +43,7 @@
             {{ i }}
           </h2>
           <nav class="list-none mb-10">
-            <li v-for="i in [1, 2, 3, 4]" :key="i">
+            <li v-for="j in [1, 2, 3, 4]" :key="j">
               <a class="text-gray-600 hover:text-blue-600">Subtopic</a>
             </li>
           </nav>
@@ -66,7 +66,7 @@
         <span
           class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start"
         >
-          <a class="text-gray-500">
+          <a class="text-gray-500" href="https://www.facebook.com/ssghait">
             <svg
               fill="currentColor"
               stroke-linecap="round"
@@ -80,7 +80,7 @@
               ></path>
             </svg>
           </a>
-          <a class="ml-3 text-gray-500">
+          <a class="ml-3 text-gray-500" href="https://twitter.com/">
             <svg
               fill="currentColor"
               stroke-linecap="round"
@@ -94,7 +94,10 @@
               ></path>
             </svg>
           </a>
-          <a class="ml-3 text-gray-500">
+          <a
+            class="ml-3 text-gray-500"
+            href="https://www.instagram.com/sachin_ghait/"
+          >
             <svg
               fill="none"
               stroke="currentColor"
@@ -110,7 +113,10 @@
               ></path>
             </svg>
           </a>
-          <a class="ml-3 text-gray-500">
+          <a
+            class="ml-3 text-gray-500"
+            href="https://in.linkedin.com/in/sachin-ghait-02977794"
+          >
             <svg
               fill="currentColor"
               stroke="currentColor"
