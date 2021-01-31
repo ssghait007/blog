@@ -2,27 +2,26 @@
   <section class="text-gray-600 body-font">
     <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-wrap -m-4">
-        <div v-for="i in [1, 2, 3, 4]" :key="i" class="p-4 md:w-1/3">
+        <div v-for="post in posts" :key="post.slug" class="p-4 md:w-1/3">
           <div
             class="shadow-md h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden hover:shadow-md hover:rounded hover:border-purple-300 transition duration-300 transform hover:-translate-y-3"
           >
             <img
               class="lg:h-48 md:h-36 w-full object-cover object-center"
-              src="https://dummyimage.com/720x400"
+              :src="post.image"
               alt="blog"
             />
             <div class="p-6">
               <h2
-                class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"
+                class="tracking-widest text-xs title-font font-medium text-gray-500 mb-1"
               >
-                CATEGORY
+                {{ post.category }}
               </h2>
               <h1 class="title-font text-lg font-medium text-gray-900 mb-3">
-                The Catalyzer
+                {{ post.title }}
               </h1>
               <p class="leading-relaxed mb-3">
-                Photo booth fam kinfolk cold-pressed sriracha leggings jianbing
-                microdosing tousled waistcoat.
+                {{ post.description }}
               </p>
               <div class="flex items-center flex-wrap">
                 <NuxtLink to="/blog">
@@ -60,3 +59,11 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  props: {
+    posts: Object,
+  },
+}
+</script>

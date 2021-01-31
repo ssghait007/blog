@@ -30,8 +30,8 @@
       <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
         <img
           class="object-cover object-center rounded-md"
-          alt="hero"
-          src="https://www.sapphirewebsolutions.com/wp-content/uploads/2019/09/Web-Development-Trends.jpg"
+          alt="webDevTrends"
+          src="../assets/webDevTrends.jpg"
         />
       </div>
     </div>
