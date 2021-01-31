@@ -42,6 +42,11 @@
                     </svg>
                   </a>
                 </NuxtLink>
+                <span
+                  class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 2 border-gray-200"
+                >
+                  {{ post.createdAt | formatDate }}
+                </span>
               </div>
             </div>
           </div>
@@ -61,7 +66,14 @@
 </template>
 
 <script>
+import { format } from 'date-fns'
+
 export default {
+  filters: {
+    formatDate() {
+      return format(new Date(), 'dd MMM yyyy')
+    },
+  },
   props: {
     posts: Object,
   },
