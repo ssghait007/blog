@@ -20,7 +20,7 @@ Nuxt.js is a free and open source web application framework based on Vue.js, Nod
 You can also create Static sites and server side rendered webapp with nuxt.
 It abstracts most of the complex configuration involved in managing things like asynchronous data, middleware, and routing.
 ### Create nuxt app
-1. Create nuxt app using below command 
+Create nuxt app using below command 
 ```
 yarn create nuxt-app <project-name>
 ```
@@ -100,3 +100,13 @@ You can easily host project from github on netlify.
 -   Choose any commands that need to be run. —  _in our case its `npm run generate`_
 -   Choose the directory that you will publish from. It will contain files such as index.html. —  _in our case its `dist`._
 -   Select “Build Site”.
+### Source code
+- https://github.com/ssghait007/blog
+### Useful links
+
+
+- https://nuxtjs.org/
+- https://content.nuxtjs.org/
+- https://tailwindcss.com/
+- https://tailblocks.cc/
+- https://www.netlify.com/
