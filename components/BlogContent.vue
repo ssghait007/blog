@@ -75,7 +75,12 @@ export default {
     },
   },
   props: {
-    posts: Array,
+    posts: {
+      type: Array,
+      default() {
+        return []
+      },
+    },
   },
 }
 </script>

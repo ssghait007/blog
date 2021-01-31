@@ -17,7 +17,7 @@
         alt="hero"
         :src="post.image"
       />
-      <nuxt-content class="text-left" :document="post" />
+      <nuxt-content class="text-left prose" :document="post" />
     </div>
   </section>
 </template>
@@ -32,13 +32,12 @@ export default {
   },
   async asyncData({ $content, params }) {
     const post = await $content('blog', params.slug).fetch()
-    console.log(post)
     return { post }
   },
 }
 </script>
 <style>
-.nuxt-content {
+/* .nuxt-content {
   width: 700px;
 }
 .nuxt-content h4 {
@@ -61,9 +60,7 @@ a {
   text-decoration: underline;
   text-decoration-skip: ink;
 }
-/* .nuxt-content h1 {
-  @apply title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900;
-} */
+
 .nuxt-content p {
   margin-top: 5px;
 }
@@ -89,5 +86,5 @@ ul {
   list-style-type: disc;
   margin: 1.2em 0;
   padding: 20px 40px;
-}
+} */
 </style>
