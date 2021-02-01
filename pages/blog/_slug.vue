@@ -37,7 +37,7 @@ export default {
 }
 </script>
 <style>
-.nuxt-content-container {
+.nuxt-content {
   /* margin: auto; */
   width: 100%;
 }
