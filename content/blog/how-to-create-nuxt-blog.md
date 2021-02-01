@@ -92,7 +92,7 @@ npm run generate
 
 ### Bonus: Hosting on netlify
 You can easily host project from github on netlify.
--   Go to  [www.netlify.com](http://www.netlify.com%2C/)  and login or signup.
+-   Go to  [www.netlify.com](http://www.netlify.com/)  and login or signup.
 -   Select “New site from git”.
 -   Choose your provider (e.g. GitHub) — You may need to authenticate here.
 -   Select the git repository you want to create a site from.
