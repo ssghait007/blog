@@ -10,14 +10,14 @@
       </nuxt-link>
     </div>
     <div
-      class="text-left container mx-auto flex flex-col px-5 py-12 justify-center items-center"
+      class="text-left overflow-hidden container mx-auto flex flex-col px-5 py-12 justify-center items-center"
     >
       <img
         class="lg:w-4/6 md:w-5/6 w-6/6 mb-10 object-cover object-center rounded"
         alt="hero"
         :src="post.image"
       />
-      <nuxt-content class="text-left prose" :document="post" />
+      <nuxt-content class="m-auto text-left prose" :document="post" />
     </div>
   </section>
 </template>
@@ -37,6 +37,10 @@ export default {
 }
 </script>
 <style>
+.nuxt-content-container {
+  /* margin: auto; */
+  width: 100%;
+}
 /* .nuxt-content {
   width: 700px;
 }
