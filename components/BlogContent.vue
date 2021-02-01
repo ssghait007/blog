@@ -27,7 +27,7 @@
               </p>
               <div class="flex items-center flex-wrap">
                 <a
-                  href="`{post.slug}`"
+                  :href="post.slug"
                   class="text-indigo-500 hover:text-indigo-900 inline-flex items-center md:mb-2 lg:mb-0"
                   >Learn More
                   <svg
