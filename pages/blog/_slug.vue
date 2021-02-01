@@ -38,57 +38,6 @@ export default {
 </script>
 <style>
 .nuxt-content {
-  /* margin: auto; */
   width: 100%;
 }
-/* .nuxt-content {
-  width: 700px;
-}
-.nuxt-content h4 {
-  font-weight: bold;
-  font-size: 20px;
-  margin-top: 15px;
-  margin: 1.8em 0;
-  line-height: 1.33;
-}
-.nuxt-content h1 {
-  font-weight: bold;
-
-  font-size: 30px;
-  margin-top: 15px;
-  border-bottom: 1px solid rgb(226, 217, 217);
-}
-
-a {
-  color: #0c93e4;
-  text-decoration: underline;
-  text-decoration-skip: ink;
-}
-
-.nuxt-content p {
-  margin-top: 5px;
-}
-pre > code {
-  background-color: rgba(0, 0, 0, 0.05);
-  display: block;
-  padding: 0.5em;
-  -webkit-text-size-adjust: none;
-  overflow-x: auto;
-  white-space: pre;
-}
-
-code {
-  background-color: rgba(0, 0, 0, 0.05);
-  border-radius: 3px;
-  padding: 2px 4px;
-}
-li {
-  display: list-item;
-  text-align: -webkit-match-parent;
-}
-ul {
-  list-style-type: disc;
-  margin: 1.2em 0;
-  padding: 20px 40px;
-} */
 </style>
