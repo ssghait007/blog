@@ -3,7 +3,7 @@
     <div class="flex md:ml-10 p-5 sm:ml-0">
       <nuxt-link :to="'/blog'">
         <button
-          class="rounded-full inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+          class="rounded-full inline-flex text-white bg-gradient-to-r from-green-400 to-blue-500 border-0 py-2 px-6 focus:outline-none rounded text-lg"
         >
           &larr; Back
         </button>
