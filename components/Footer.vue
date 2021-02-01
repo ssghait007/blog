@@ -44,7 +44,7 @@
           </h2>
           <nav class="list-none mb-10">
             <li v-for="j in [1, 2, 3, 4]" :key="j">
-              <a class="text-gray-600 hover:text-blue-600">Subtopic</a>
+              <a class="text-gray-600 hover:text-blue-600">Coming soon..</a>
             </li>
           </nav>
         </div>
