@@ -1,0 +1,9 @@
+/* purgecss start ignore */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+/* purgecss end ignore */
+@import 'tailwindcss/utilities';
+
+.btn {
+  @apply bg-gradient-to-r from-green-400 to-blue-500 rounded-full inline-flex text-white border-0 py-2 px-6 text-lg;
+}

@@ -19,11 +19,7 @@
         </p>
         <div class="flex justify-center">
           <nuxt-link :to="'/blog'">
-            <button
-              class="bg-gradient-to-r from-green-400 to-blue-500 rounded-full inline-flex text-white border-0 py-2 px-6 focus:outline-none rounded text-lg"
-            >
-              Blog
-            </button>
+            <button class="btn focus:outline-none">Blog</button>
           </nuxt-link>
         </div>
       </div>

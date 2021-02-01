@@ -55,11 +55,7 @@
     </div>
     <div class="flex justify-center">
       <nuxt-link :to="'/'">
-        <button
-          class="rounded-full inline-flex text-white border-0 py-2 px-6 focus:outline-none bg-gradient-to-r from-green-400 to-blue-500 rounded text-lg"
-        >
-          Home
-        </button>
+        <button class="btn focus:outline-none">Home</button>
       </nuxt-link>
     </div>
   </section>
