@@ -1,7 +1,7 @@
 <template>
   <header class="text-gray-600 body-font w-full">
     <div
-      class="bg-green-200 mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
+      class="bg-gradient-to-r from-green-400 to-blue-500 mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
     >
       <a
         class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
@@ -26,10 +26,10 @@
       <nav
         class="md:ml-auto flex flex-wrap items-center text-lg justify-center"
       >
-        <a class="mr-5 hover:text-blue-600">Frontend </a>
-        <a class="mr-5 hover:text-blue-600">Backend </a>
-        <a class="mr-5 hover:text-blue-600">Databases </a>
-        <a class="mr-5 hover:text-blue-600">Proxies </a>
+        <a class="mr-5 text-gray-300">Frontend </a>
+        <a class="mr-5 text-gray-300">Backend </a>
+        <a class="mr-5 text-gray-300">Databases </a>
+        <a class="mr-5 text-gray-300">Proxies </a>
       </nav>
     </div>
   </header>
