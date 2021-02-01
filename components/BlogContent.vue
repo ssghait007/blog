@@ -6,11 +6,13 @@
           <div
             class="shadow-md h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden hover:shadow-md hover:rounded hover:border-purple-300 transition duration-300 transform hover:-translate-y-3"
           >
-            <img
-              class="lg:h-48 md:h-36 w-full object-cover object-center"
-              :src="post.image"
-              alt="blog"
-            />
+            <nuxt-link :to="`/blog/${post.slug}`">
+              <img
+                class="lg:h-48 md:h-36 w-full object-cover object-center"
+                :src="post.image"
+                alt="blog"
+              />
+            </nuxt-link>
             <div class="p-6">
               <h2
                 class="tracking-widest text-xs title-font font-medium text-gray-500 mb-1"
