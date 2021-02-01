@@ -26,10 +26,11 @@
                 {{ post.description }}
               </p>
               <div class="flex items-center flex-wrap">
-                <a
-                  :href="post.slug"
+                <nuxt-link
+                  :to="`/blog/${post.slug}`"
                   class="text-indigo-500 hover:text-indigo-900 inline-flex items-center md:mb-2 lg:mb-0"
-                  >Learn More
+                >
+                  Learn More
                   <svg
                     class="w-4 h-4 ml-2"
                     viewBox="0 0 24 24"
@@ -42,7 +43,7 @@
                     <path d="M5 12h14"></path>
                     <path d="M12 5l7 7-7 7"></path>
                   </svg>
-                </a>
+                </nuxt-link>
 
                 <span
                   class="text-gray-500 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 2 border-gray-200"
