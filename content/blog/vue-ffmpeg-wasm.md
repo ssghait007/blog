@@ -1,6 +1,6 @@
 ---
 title: ffmpeg wasm - convert video to gif
-description: The post describes how I created this blog using nuxt and tailwind css. 
+description: This post describes how to use Ffmpeg directly in browser.
 category: Frontend
 createdAt: 2021-02-06T07:00:13.392Z
 image: https://blog.scottlogic.com/ceberhardt/assets/featured/ffmpeg-wasm.png
@@ -10,7 +10,8 @@ image: https://blog.scottlogic.com/ceberhardt/assets/featured/ffmpeg-wasm.png
 
 # How to convert video to gif using ffmpeg wasm
 
-This post describes how to Ffmpeg directly in browser
+This post describes how to use Ffmpeg directly in browser, and use native commands.
+Ffmpeg loads web assembly script in browser, and gives APIs that we can consume. 
 
 ## What is Ffmpeg ?
 FFmpeg is a free and open-source software project consisting of a large suite of libraries and programs for handling video, audio, and other multimedia files and streams.
