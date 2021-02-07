@@ -26,11 +26,25 @@
       <nav
         class="md:ml-auto flex flex-wrap items-center text-lg justify-center"
       >
-        <a class="mr-5 text-gray-300">Frontend </a>
-        <a class="mr-5 text-gray-300">Backend </a>
-        <a class="mr-5 text-gray-300">Databases </a>
-        <a class="mr-5 text-gray-300">Proxies </a>
+        <nuxt-link
+          v-for="category in categories"
+          :key="category"
+          class="mr-5 text-gray-300"
+          :to="`/blog?category=${category}`"
+        >
+          {{ category }}</nuxt-link
+        >
       </nav>
     </div>
   </header>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      categories: ['Frontend', 'Backend', 'Databases', 'Developer'],
+    }
+  },
+}
+</script>
