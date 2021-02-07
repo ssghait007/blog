@@ -2,6 +2,7 @@
 title: Create a blog using Nuxt and TailwindCSS
 description: The post describes how I created this blog using nuxt and tailwind css. 
 category: Frontend
+createdAt: 2021-02-01T07:00:13.392Z
 image: https://miro.medium.com/max/2048/1*umfDjexzJPFVE002NYld0g.jpeg
 ---
 

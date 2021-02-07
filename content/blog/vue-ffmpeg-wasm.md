@@ -2,6 +2,7 @@
 title: ffmpeg wasm - convert video to gif
 description: The post describes how I created this blog using nuxt and tailwind css. 
 category: Frontend
+createdAt: 2021-02-06T07:00:13.392Z
 image: https://blog.scottlogic.com/ceberhardt/assets/featured/ffmpeg-wasm.png
 ---
 
