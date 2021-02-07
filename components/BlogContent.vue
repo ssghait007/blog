@@ -1,7 +1,7 @@
 <template>
   <section class="text-gray-600 body-font">
     <div class="container px-5 py-12 mx-auto">
-      <div class="flex flex-wrap -m-4">
+      <div v-if="posts.length" class="flex flex-wrap -m-4">
         <div v-for="post in posts" :key="post.slug" class="p-4 md:w-1/3">
           <div
             class="shadow-md h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden hover:shadow-md hover:rounded hover:border-purple-300 transition duration-300 transform hover:-translate-y-3"
@@ -55,6 +55,7 @@
           </div>
         </div>
       </div>
+      <div v-else class="flex flex-wrap -m-4">No posts in this section</div>
     </div>
     <div class="flex justify-center">
       <nuxt-link :to="'/'">
