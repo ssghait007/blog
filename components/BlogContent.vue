@@ -69,8 +69,8 @@ import { format } from 'date-fns'
 
 export default {
   filters: {
-    formatDate() {
-      return format(new Date(), 'dd MMM yyyy')
+    formatDate(date) {
+      return format(new Date(date), 'dd MMM yyyy')
     },
   },
   props: {
