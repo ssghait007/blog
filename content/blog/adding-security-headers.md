@@ -45,4 +45,4 @@ More explanation can `Additional Information` section at https://securityheaders
 
 This is the score after adding all required security headers
 
-![image alt text](/_nuxt/assets/securityHeaders.jpg)
+![image alt text](https://raw.githubusercontent.com/ssghait007/blog/main/assets/securityHeaders.jpg)
