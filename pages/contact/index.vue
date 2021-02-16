@@ -13,7 +13,12 @@
         </p>
       </div>
       <div class="lg:w-1/2 md:w-2/3 mx-auto">
-        <form name="contact" method="POST" data-netlify="true">
+        <form
+          name="contact"
+          method="post"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
           <div class="flex flex-wrap -m-2">
             <div class="p-2 w-1/2">
               <div class="relative">
