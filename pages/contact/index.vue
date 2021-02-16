@@ -8,8 +8,8 @@
           Contact Us
         </h1>
         <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
-          Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
-          gentrify.
+          Email any query or feedback that you have, post message feature is in
+          development
         </p>
       </div>
       <div class="lg:w-1/2 md:w-2/3 mx-auto">
@@ -59,9 +59,7 @@
             class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center"
           >
             <a class="text-indigo-500">sachinghaitblog@gmail.com</a>
-            <p class="leading-normal my-5">
-              49 Smith St. <br />Saint Cloud, MH 56301
-            </p>
+            <p class="leading-normal my-5">Pune, MH 411006</p>
             <Social></Social>
           </div>
         </div>
