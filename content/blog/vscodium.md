@@ -32,6 +32,7 @@ https://github.com/VSCodium/vscodium/releases
 
 1. Install chocolatey
    Head over to chocolatey website https://chocolatey.org/install
+
    Copy below command and run in powershell (run as admin)
 
 ```bash{1,3-5}
@@ -52,13 +53,17 @@ choco install vscodium
 ## Migrating settings from VSCode to VSCodium
 
 https://github.com/VSCodium/vscodium/blob/master/DOCS.md#migrating
+
 Your settings are stored in json file `settings.josn` in location `%APPDATA%\Code\User`
+
 Keep a backup of this file and Copy this file to `%APPDATA%\VSCodium\User`
+
 Same can be done for `keybindings.json`
 
 ## Conclusion
 
 I liked the performace of VSCodium. Noticed some performace boost than VSCode.
+
 After Checking in control panel found the size of installation for VSCode is 3MB more than VSCodium.
 So some extra things must be there in VSCode package.
 
