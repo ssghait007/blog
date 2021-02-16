@@ -15,8 +15,8 @@
       <div class="lg:w-1/2 md:w-2/3 mx-auto">
         <form
           name="contact"
-          action="post"
-          data-netlify="true"
+          method="POST"
+          netlify
           data-netlify-honeypot="bot-field"
         >
           <div class="flex flex-wrap -m-2">
