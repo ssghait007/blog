@@ -58,10 +58,11 @@ Same can be done for `keybindings.json`
 
 ## Conclusion
 
-I liked the performace of VSCodium. Noticed minor performace boost than VSCodium.
+I liked the performace of VSCodium. Noticed some performace boost than VSCode.
 After Checking in control panel found the size of installation for VSCode is 3MB more than VSCodium.
+So some extra things must be there in VSCode package.
 
-There are some caveats like some extensions might not be directly installed from VSCodium,
+There are some caveats with VSCodium like some extensions might not be directly installed from VSCodium,
 But those can be install using vsix files. Downloading directly from marketplace and then install by command
 
 ```
