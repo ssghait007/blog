@@ -3,7 +3,7 @@ title: Switching to VSCodium from VSCode
 description: This post describes how and why I switched to VSCodium from VSCode.
 category: Developer
 createdAt: 2021-02-16T07:00:13.392Z
-image: https://github.com/ssghait007/blog/blob/main/assets/vscodium.png
+image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/vscodium.png
 ---
 
 
