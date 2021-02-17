@@ -8,8 +8,7 @@
           Contact Us
         </h1>
         <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
-          Email any query or feedback that you have, post message feature is in
-          development
+          Drop your feedback or query using the form below.
         </p>
       </div>
       <div class="lg:w-1/2 md:w-2/3 mx-auto">
