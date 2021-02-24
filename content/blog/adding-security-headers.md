@@ -1,12 +1,11 @@
 ---
-title:  Security headers for website
-description: The post describes how to add security headers to website. 
+title: Security headers for website
+description: The post describes how to add security headers to website.
 category: Frontend
+published: true
 createdAt: 2021-02-02T07:00:13.392Z
 image: https://www.keycdn.com/img/blog/http-security-headers.png
 ---
-
-
 
 # Adding security headers to your site
 
@@ -22,6 +21,7 @@ If you have A in the score, then you are doing good.
 For other scores securityheaders will suggest what things can be added.
 
 For hosting my site on netlify I have added headers as below
+
 ```
 [[headers]]
   for = "/*"
@@ -40,7 +40,7 @@ For hosting my site on netlify I have added headers as below
     no-store,
     must-revalidate'''
 ```
- 
+
 Some important headers to set are `Content-Security-Policy, Permissions-Policy, Referrer-Policy, Strict-Transport-Security`
 More explanation can `Additional Information` section at https://securityheaders.com/
 
