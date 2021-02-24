@@ -16,7 +16,7 @@
           I am Sachin Ghait. I am software developer by profession. I believe in
           learning something new day by day. I have started writing this blog to
           document my learnings related to full stack developement ( Frontend ,
-          Backend, Databases, Developer Efficiency )
+          Backend, Cloud, Developer Efficiency )
         </p>
         <span
           class="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6"

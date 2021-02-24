@@ -31,7 +31,7 @@
           v-for="category in categories"
           :key="category"
           class="mr-5 text-gray-300"
-          :to="`/blog?category=${category}`"
+          :to="`/blog/${category.toLowerCase()}`"
         >
           {{ category }}</nuxt-link
         >
@@ -44,7 +44,7 @@
 export default {
   data() {
     return {
-      categories: ['Frontend', 'Backend', 'Databases', 'Developer'],
+      categories: ['Frontend', 'Backend', 'Cloud', 'Developer'],
     }
   },
 }

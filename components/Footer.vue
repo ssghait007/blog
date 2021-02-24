@@ -33,7 +33,7 @@
         class="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first"
       >
         <div
-          v-for="i in ['Frontend', 'Backend', 'Databases']"
+          v-for="i in ['Frontend', 'Backend', 'Cloud']"
           :key="i"
           class="lg:w-1/4 md:w-1/2 w-full px-4"
         >
