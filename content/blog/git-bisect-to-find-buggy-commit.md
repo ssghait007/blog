@@ -31,7 +31,7 @@ Here is the recent commit history
 
 1. You need to tell git you want to start bisect, then you need to provide which is the bad commit (recent one most times) and which was the good commit.
 
-```
+```bash{1,3-5}
 $ git bisect start
 $ git bisect bad
 /* I have not provided any bad commit,
@@ -48,7 +48,7 @@ $ git bisect good db32414
 
 4. Now you can check files changed in this commit and easily find out what caused it.
 
-```
+```bash{1,3-5}
 $ git show commitID
 ```
 
@@ -58,8 +58,16 @@ I can see this commit has changed the `to` path to incorrect value.
 
 5. When you are done you need to tell git to stop the bisect process
 
-```
+```bash{1,3-5}
 $ git bisect reset
+```
+
+## Gotchas
+
+1. There can be a case in git bisect when your commit is faling build process and you are not able to test if commit is bad or good, But you know this commit is nothing to do with the bug, You can skip this commit and move to next one.
+
+```bash{1,3-5}
+$ git bisect skip
 ```
 
 ## Conclusion
