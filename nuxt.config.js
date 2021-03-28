@@ -1,4 +1,4 @@
-const PRIMARY_HOSTS = `https://sachin-ghait-blog.netlify.app/`
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -62,29 +62,4 @@ export default {
       id: process.env.GOOGLE_ANALYTICS_ID,
     },
   },
-  render: {
-    csp: {
-      reportOnly: true,
-      hashAlgorithm: 'sha256',
-      policies: {
-        'default-src': ["'self'"],
-        'img-src': ['https:', '*.google-analytics.com'],
-        'worker-src': ["'self'", `blob:`, PRIMARY_HOSTS],
-        'style-src': ["'self'", "'unsafe-inline'", PRIMARY_HOSTS],
-        'script-src': [
-          "'self'",
-          PRIMARY_HOSTS,
-          '*.google-analytics.com',
-        ],
-        'connect-src': [PRIMARY_HOSTS, '*.google-analytics.com'],
-        'form-action': ["'self'"],
-        'frame-ancestors': ["'none'"],
-        'object-src': ["'none'"],
-        'base-uri': [PRIMARY_HOSTS],
-        'report-uri': [
-          ''
-        ]
-      }
-    }
-  }
 }
