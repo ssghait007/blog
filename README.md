@@ -1,5 +1,7 @@
 # Blog (Nuxt+Tailwind)
 
+## With this blog, I document my learnings.
+
 ## Build Setup
 
 ```bash
@@ -19,7 +21,6 @@ $ yarn generate
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
-
 ## Hosting
 
-Netlify -  Automated deployments 
+Netlify - Automated deployments
