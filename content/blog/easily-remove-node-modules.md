@@ -1,6 +1,6 @@
 ---
 title: Easily find and delete old node_modules folders.
-description: The post describes how npkill helped me save time on deleting node_modules folders manually.
+description: The post describes how npkill helps save time on deleting node_modules folders manually.
 category: Developer
 published: true
 createdAt: 2021-05-05T07:00:13.392Z
