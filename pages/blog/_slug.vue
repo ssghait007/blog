@@ -30,6 +30,18 @@ export default {
     const post = await $content('blog', params.slug).fetch()
     return { post }
   },
+  head() {
+    return {
+      title: this.post.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.post.description,
+        },
+      ],
+    }
+  },
 }
 </script>
 <style>
