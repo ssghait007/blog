@@ -4,7 +4,7 @@ description: The post describes how to add security headers to website.
 category: Frontend
 published: true
 createdAt: 2021-02-02T07:00:13.392Z
-image: https://www.keycdn.com/img/blog/http-security-headers.png
+image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/http-security-headers.png
 ---
 
 # Adding security headers to your site

@@ -4,7 +4,7 @@ description: This post describes how to use Ffmpeg directly in browser.
 category: Frontend
 published: true
 createdAt: 2021-02-06T07:00:13.392Z
-image: https://blog.scottlogic.com/ceberhardt/assets/featured/ffmpeg-wasm.png
+image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/ffmpeg-wasm.png
 ---
 
 # How to convert video to gif using ffmpeg wasm

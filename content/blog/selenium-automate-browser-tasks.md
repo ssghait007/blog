@@ -4,7 +4,7 @@ description: How you can use python selenium module to automate browser based ta
 category: Backend
 published: true
 createdAt: 2021-04-13T07:00:13.392Z
-image: https://blog.testproject.io/wp-content/uploads/2020/06/16-06-A.jpg
+image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/selenium.jpg
 ---
 
 # Automate browser based tasks using selenium.

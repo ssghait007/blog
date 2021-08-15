@@ -9,7 +9,7 @@ published: true
 
 createdAt: 2021-06-19T07:00:13.392Z
 
-image: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDeAZp9JxxFgE3SHJBhlWA6ERAa-fWvPrrj6RqyfHQi9kom_zLuJ2zd7WQq8Y2LbtL2wE&usqp=CAU
+image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/stegano.jpg
 ---
 
 # Steganography - Hide text data inside image

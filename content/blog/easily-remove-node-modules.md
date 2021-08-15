@@ -4,7 +4,7 @@ description: The post describes how npkill helps save time on deleting node_modu
 category: Developer
 published: true
 createdAt: 2021-05-05T07:00:13.392Z
-image: https://tsh.io/wp-content/uploads/2019/06/node-modules-app-performance_.png
+image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/node-modules-app-performance_.png
 ---
 
 # Remove node modules from old projects easily

@@ -4,7 +4,7 @@ description: The post describes how I created this blog using nuxt and tailwind 
 category: Frontend
 published: true
 createdAt: 2021-02-01T07:00:13.392Z
-image: https://miro.medium.com/max/2048/1*umfDjexzJPFVE002NYld0g.jpeg
+image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/nuxt.jpeg
 ---
 
 # How to Create a blog using Nuxt and Tailwind CSS
