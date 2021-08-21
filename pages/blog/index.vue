@@ -6,7 +6,6 @@
 export default {
   async asyncData({ $content }) {
     const posts = await $content('blog')
-      .where({ published: { $eq: true } })
       .sortBy('createdAt', 'desc')
       .fetch()
     return {
