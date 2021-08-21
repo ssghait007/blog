@@ -1,8 +1,8 @@
 <template>
   <section class="text-gray-600 body-font">
     <div class="container px-5 py-12 mx-auto">
-      <div v-if="posts.length" class="flex flex-wrap -m-4">
-        <div v-for="post in posts" :key="post.slug" class="p-4 md:w-1/3">
+      <div v-if="filteredPosts.length" class="flex flex-wrap -m-4">
+        <div v-for="post in filteredPosts" :key="post.slug" class="p-4 md:w-1/3">
           <div
             class="shadow-md h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden hover:shadow-md hover:rounded hover:border-purple-300 transition duration-300 transform hover:-translate-y-3"
           >
@@ -82,5 +82,14 @@ export default {
       },
     },
   },
+  computed:{
+    filteredPosts(){
+      const show = typeof window !== 'undefined' ? localStorage.getItem('show') : null
+      if(show){
+        return this.posts
+      }
+      return this.posts.filter((a) =>  a.published)
+    }
+  }
 }
 </script>
