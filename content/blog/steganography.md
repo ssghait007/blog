@@ -1,5 +1,5 @@
 ---
-title: Steganography - Hide text data inside image
+title: Steganography - The Art of Hiding Data in Plain Sight
 
 description: The post discusses how to hide data inside image, and some methods in Steganography.
 
@@ -12,7 +12,7 @@ createdAt: 2021-06-19T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/stegano.jpg
 ---
 
-# Steganography - Hide text data inside image
+# Steganography - The Art of Hiding Data in Plain Sight
 
 I was watching a web-show(`Mr-Robot`) on a weekend. It's a story of how a guy hacks into data servers of big conglomerate, and encrypts all data with a cryptographic keys. After the hack was successful he stores the RSA keys to decrypt this data `inside an image`.
 
