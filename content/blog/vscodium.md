@@ -1,5 +1,5 @@
 ---
-title: Switching to VSCodium from VSCode
+title: Meet VSCodium. A Visual Studio Code Alternative.
 description: This post describes how and why I switched to VSCodium from VSCode.
 category: Developer
 published: true
@@ -7,7 +7,7 @@ createdAt: 2021-02-16T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/vscodium.png
 ---
 
-# Switching to VSCodium from VSCode
+# Meet VSCodium. A Visual Studio Code Alternative.
 
 This post describes how and why I switched to VSCodium from VSCode.
 
