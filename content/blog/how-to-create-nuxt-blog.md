@@ -1,5 +1,5 @@
 ---
-title: Create a blog using Nuxt and TailwindCSS
+title: Build a blog using Nuxt and Tailwind CSS
 description: The post describes how I created this blog using nuxt and tailwind css.
 category: Frontend
 published: true
@@ -7,7 +7,7 @@ createdAt: 2021-02-01T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/nuxt.jpeg
 ---
 
-# How to Create a blog using Nuxt and Tailwind CSS
+# Build a blog using Nuxt and Tailwind CSS
 
 In this post I will walk you through how I created this blog
 
