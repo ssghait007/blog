@@ -1,5 +1,5 @@
 ---
-title: Slack tips and tricks that are really useful
+title: The complete guide for Slack productivity.
 description: The post discusses useful slack tips and tricks that have helped me a lot.
 category: Developer
 published: true
@@ -7,7 +7,7 @@ createdAt: 2021-05-09T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/slack_logo.png
 ---
 
-# Slack tips and tricks that are really useful
+# The complete guide for Slack productivity.
 
 Slack has become much more than a communication platform.
 There are tons of features and integrations in slack.
