@@ -1,5 +1,5 @@
 ---
-title: Automate browser based tasks using selenium.
+title: Selenium - Web automation made easy.
 description: How you can use python selenium module to automate browser based tasks.
 category: Backend
 published: true
@@ -7,7 +7,7 @@ createdAt: 2021-04-13T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/selenium.jpg
 ---
 
-# Automate browser based tasks using selenium.
+# Selenium - Web automation made easy.
 
 I went through a course on udemy ( Automate boring stuff with python ) back in 2018, from there I got that we can automate many tasks from daily life.
 
