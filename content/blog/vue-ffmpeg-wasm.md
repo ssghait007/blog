@@ -1,5 +1,5 @@
 ---
-title: ffmpeg wasm - convert video to gif
+title: Convert Video to GIF with FFmpeg
 description: This post describes how to use Ffmpeg directly in browser.
 category: Frontend
 published: true
@@ -7,7 +7,7 @@ createdAt: 2021-02-06T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/ffmpeg-wasm.png
 ---
 
-# How to convert video to gif using ffmpeg wasm
+# Convert Video to GIF with FFmpeg
 
 This post describes how to use Ffmpeg directly in browser, and use native commands.
 Ffmpeg loads web assembly script in browser, and gives APIs that we can consume.
