@@ -1,5 +1,5 @@
 ---
-title: Block Ads on your whole network.
+title: Ad Blocker for Your Whole Network.
 description: The post describes how you can run pihole on raspberry-pi to block ads.
 category: Developer
 published: true
@@ -7,7 +7,7 @@ createdAt: 2021-09-11T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/block-ads.webp
 ---
 
-# Block Ads on your whole network. 🛡️
+# Ad Blocker for Your Whole Network. 🛡️
 
 The Online advertising market was valued at USD 304.0 billion in 2019 and is expected to reach USD 982.82 billion by 2025, at a CAGR of 21.6%. With increase in smartphone users these predictions look obvious.
 
