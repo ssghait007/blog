@@ -1,5 +1,5 @@
 ---
-title: Block search engine crawler bots from indexing your website (In google search).
+title: Block Google search bots from indexing your website.
 description: This post describes how to block search engine bots to index your website.
 category: Frontend
 published: true
@@ -7,7 +7,7 @@ createdAt: 2021-08-01T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/block-crawlers.jpg
 ---
 
-# Block search engine crawler bots from indexing your website (In google search).
+# Block Google search bots from indexing your website.
 
 I recently come across a use case where I had to remove listing a website from google search. This was a rare use case so I looked for the ways we could achieve this.
 
