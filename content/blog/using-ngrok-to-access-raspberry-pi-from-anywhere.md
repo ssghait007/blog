@@ -1,5 +1,5 @@
 ---
-title: Using nginx to access raspberry-pi from anywhere.
+title: How to use ngrok to access your raspberry pi from anywhere.
 description: The post describes how you can access raspberry-pi from anywhere in two modes (web portal and ssh).
 category: Developer
 published: true
@@ -7,7 +7,7 @@ createdAt: 2021-09-11T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/ngrok.webp
 ---
 
-# Using nginx to access raspberry-pi from anywhere.
+# How to use ngrok to access your raspberry pi from anywhere.
 
 I have posted some blog posts regarding setting up pihole on raspberry-pi, and running selenium based tasks on raspberry-pi.
 
