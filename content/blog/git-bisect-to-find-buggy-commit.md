@@ -1,5 +1,5 @@
 ---
-title: Bug introduced in recent commits ? Git bisect to rescue
+title: Git bisect is here to save your day
 description: How to use git bisect to find which commit introduced bug.
 category: Developer
 published: true
@@ -7,9 +7,9 @@ createdAt: 2021-03-10T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/git-bisect.webp
 ---
 
-# Bug introduced in recent commits ? Git bisect to rescue
+# Git bisect is here to save your day
 
-How to use git bisect to find which commit introduced bug.
+This blog discusses how we can use git bisect command to find commit that has introduced bug recently.
 
 ## What is git bisect ?
 
