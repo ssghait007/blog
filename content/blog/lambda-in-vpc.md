@@ -1,5 +1,5 @@
 ---
-title: Use AWS lambda function in a VPC the right way.
+title: Lambda Function In A VPC The Right Way.
 description: This post discusses how to use AWS lambda function in a VPC.
 category: Cloud
 published: true
@@ -7,7 +7,7 @@ createdAt: 2021-08-14T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/lambda-vpc.png
 ---
 
-# Use AWS lambda function in a VPC the right way.
+# Lambda Function In A VPC The Right Way.
 
 In this post I have added my experience of working with lambda function in a VPC.
 
