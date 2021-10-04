@@ -3,7 +3,7 @@ title: Schedule Google Compute Engine Instances to Save Big Money.
 description: This post describes how to manage scheduling of compute engine vm state.
 category: Cloud
 published: true
-createdAt: 2021-09-17T07:00:13.392Z
+createdAt: 2021-10-04T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/vm-auto-header.png
 ---
 
