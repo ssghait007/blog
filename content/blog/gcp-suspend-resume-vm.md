@@ -40,6 +40,9 @@ These extra resources are required for this solution
 VM price for month ranges from 15$-20$ per vCPU. cloud schedulerand pubsub costs 3-4 $ for this use case. This is peanuts amount as compared to VMs monthly cost.
 Use [pricing calculator](https://cloud.google.com/products/calculator) to calculate exact costs.
 
+
+## Implementation
+
 Cloud function has a `pub-sub` trigger.
 ![pub-sub](https://raw.githubusercontent.com/ssghait007/blog/main/assets/vm-auto-trigger.png)
 Cloud function code is as below, `change_vm_state` function is invoked when pub-sub message is received.
@@ -49,9 +52,9 @@ import base64
 import googleapiclient.discovery
 import sys
 
-PROJECT = ""
-ZONE = ""
-INSTANCE = ""
+PROJECT = "GCP-PROJECT-NAME"
+ZONE = "VM-ZONE"
+INSTANCE = "INSTANCE-NAME"
 
 def suspend(compute):
     return compute.instances().suspend(project=PROJECT, zone=ZONE, instance=INSTANCE).execute()
