@@ -97,5 +97,4 @@ This way you dont have to remember to suspend the VM when you are done working. 
 
 ## Refrences
 
-- VM feature comparizons for top 3 clouds https://www.youtube.com/watch?v=KkKcaFp0z1s&t=699s 
-- link to full code on github - 
+- [VM feature comparizons for top 3 clouds](https://www.youtube.com/watch?v=KkKcaFp0z1s&t=699s)
