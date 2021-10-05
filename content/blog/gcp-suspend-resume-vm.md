@@ -83,6 +83,8 @@ def change_vm_state(event, context):
 ```
 
 This scripts require `google-api-python-client==1.10.0` library as dependancy.
+We need to reference the `beta` APIs using this library. 
+Read more on `GCP beta APIs` [here](https://cloud.google.com/compute/docs/reference/rest/beta).
 
 
 Keep in mind that you have to attach a service account which has compute engine permissions to start/stop/suspend/resume VM.
