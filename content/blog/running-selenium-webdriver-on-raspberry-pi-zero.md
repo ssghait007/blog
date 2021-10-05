@@ -1,5 +1,5 @@
 ---
-title: How-to: Selenium Webdriver on Raspberry Pi Zero W.
+title: Selenium Webdriver on Raspberry Pi Zero W.
 description: The post describes how you can run selenium automations on raspberry-pi zero w.
 category: Developer
 published: true
