@@ -7,7 +7,7 @@ createdAt: 2021-09-11T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/selenium-on-raspberry-pi.webp
 ---
 
-# How-to: Selenium Webdriver on Raspberry Pi Zero W.
+# Selenium Webdriver on Raspberry Pi Zero W.
 
 I have earlier written a post on how selenium can be used to automate browser based tasks.
 
