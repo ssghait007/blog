@@ -1,18 +1,10 @@
-
 ---
-
 title: Hosting a single page application on cloudfront
-
 description: The post describes how to host a SPA website on cloudfront.
-
 category: Frontend
-
 published: true
-
 createdAt: 2022-05-03T07:00:13.392Z
-
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/template.webp
-
 ---
 
   
