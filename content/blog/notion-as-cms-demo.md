@@ -26,7 +26,8 @@ To showcase a simple use case, I have shown a list of team members of a company.
 https://tailwindcomponents.com/component/team-section-2
 
 I modified this example to use data from a json file.
-```
+
+```js{1,3-5}
 import  team  from  '../cms/team.json'
 export  default  {
 	name:  'IndexPage',
@@ -66,7 +67,8 @@ Make sure not to commit this to github(or any other SCM).
 ## Script to fetch notion data at build time
 
 - Add  `NOTION_API_KEY` and `NOTION_DB_ID` in env variables.
-```
+
+```js{1,3-5}
 var  axios  =  require('axios')
 var  fs  =  require('fs')
 
