@@ -82,6 +82,10 @@ Make sure not to commit this to github (or any other SCM).
 
 - Add  `NOTION_API_KEY` and `NOTION_DB_ID` in env variables.
 
+![netlify_env](https://raw.githubusercontent.com/ssghait007/blog/main/assets/netlify_env.png)
+
+Below script fetches data from notion and writes to a json file.
+
 ```js{1,3-5}
 var  axios  =  require('axios')
 var  fs  =  require('fs')
@@ -162,5 +166,12 @@ axios(config)
 
 
 
-**Note**
-This demo shows example to 
+# Note
+
+This demo shows example to inject data at runtime, As this data is changed less frequently.
+
+For use cases like product page, data will be changed rapidly .
+
+You can use notion npm library to fetch this data while page loads in browser.
+
+https://www.npmjs.com/package/@notionhq/client
