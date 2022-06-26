@@ -26,8 +26,11 @@ We will use these APIs to populate data at built time.
 ## Create a simple website that loads data from a json file 
 
 To showcase a simple use case, I have shown a list of team members of a company.
+
 Suppose this website shows list of people in a start-up.
-And hiring manager maintains this list n notion.
+
+And hiring manager maintains this list in notion.
+
 So whenever a new person joins hiring manager makes changes to this list.
 
 
