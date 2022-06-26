@@ -147,14 +147,20 @@ axios(config)
 ## Change data in CMS and trigger build to see new data added to website
 1. This is how the website looks initially.
 ![website before](https://raw.githubusercontent.com/ssghait007/blog/main/assets/site_before.png)
-2. Suppose you finalise to hire two new developers and that should show on your website. Move their entries to the `Complete` column in notion.
+
+2. Suppose you finalise to **hire two new developers** and that should show on your website. Move their entries to the `Complete` column in notion.
 
 ![team_after](https://raw.githubusercontent.com/ssghait007/blog/main/assets/team_after.png)
 
-3. Now trigger a build in netlify to deploy these changes.
+3. Now **trigger a new build** in netlify to deploy these changes (with `clear cache and deploy site` option).
 
 ![trigger deploy](https://raw.githubusercontent.com/ssghait007/blog/main/assets/netlify_deploy.png)
 
-4. After deploy the new members will show on the website
+4. After deploy the **new members** will show on the website
 
 ![website after](https://raw.githubusercontent.com/ssghait007/blog/main/assets/site_after.png)
+
+
+
+**Note**
+This demo shows example to 
