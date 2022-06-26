@@ -2,7 +2,7 @@
 title: Use Notion as CMS for your website
 description: The post describes how to integrate notion database with your website.
 category: Frontend
-published: false
+published: true
 createdAt: 2021-26-02T07:00:13.392Z
 image: https://www.btig.com/wp-content/uploads/2017/06/placeholder-banner.png
 
