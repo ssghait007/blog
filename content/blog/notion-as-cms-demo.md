@@ -14,14 +14,23 @@ image: https://www.btig.com/wp-content/uploads/2017/06/placeholder-banner.png
 
   
 
-Notion is a note-taking software that I recently started using. It is very flexible and easy to use. It can be a writing repository, task management tool, a workout calendar, a database, and so much more. 
+Notion is a note-taking software that I recently started using. It is very flexible and easy to use.
 
-Notion provides APIs which are good mix of REST and GraphQL. With these APIs we can fetch the pages and databases from notion. We will use these APIs to populate data at built time. 
+It can be a writing repository, task management tool, a workout calendar, a database, and so much more. 
+
+Notion provides APIs which are good mix of REST and GraphQL. With these APIs we can fetch the pages and databases from notion.
+
+We will use these APIs to populate data at built time. 
 
 
-## Create a simple website that loads data from a  json file 
+## Create a simple website that loads data from a json file 
 
 To showcase a simple use case, I have shown a list of team members of a company.
+Suppose this website shows list of people in a start-up.
+And hiring manager maintains this list n notion.
+So whenever a new person joins hiring manager makes changes to this list.
+
+
 **Reference:** 
 https://tailwindcomponents.com/component/team-section-2
 
@@ -36,8 +45,12 @@ export  default  {
 	}),
 }
 ```
+
 ## Setup CICD using netlify
-Netlify provides easy CICD integration with github. Follow the below given video to setup CICD for your github repo.
+
+Netlify provides easy CICD integration with github.
+
+Follow the below given video to setup CICD for your github repo.
 
 **Referance**
 https://www.youtube.com/watch?v=4h8B080Mv4U  
