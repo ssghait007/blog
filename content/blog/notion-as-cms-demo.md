@@ -67,13 +67,14 @@ https://www.youtube.com/watch?v=4h8B080Mv4U
 ## Setup notion integration 
 - Create new integration in notion
 This would give you a API key to use within your queries. 
-Make sure not to commit this to github(or any other SCM).
+
+Make sure not to commit this to github (or any other SCM).
 
 ![notion integration](https://raw.githubusercontent.com/ssghait007/blog/main/assets/notion_integration.png)
 
 
 ## Share page with notion integration
-- By using share page button, share you board with notion integration you created in last step
+- By using share page button, share you board with notion integration you created in last step.
 
 ![share page](https://raw.githubusercontent.com/ssghait007/blog/main/assets/share_notion_page.png)
 
@@ -85,7 +86,10 @@ Make sure not to commit this to github(or any other SCM).
 var  axios  =  require('axios')
 var  fs  =  require('fs')
 
-/* Filter entries with status `Done`, i.e. fetch only team members who are onboarded in company. Other statuses can be for candidates who are in process of being hired or shortlisted
+/* Filter entries with status `Done`, i.e. 
+fetch only team members who are onboarded in company.
+Other statuses can be for candidates 
+who are in process of being hired or shortlisted
 */
 var  data  =  JSON.stringify({
 	sorts:  [
@@ -115,7 +119,10 @@ var  config  =  {
 	},
 	data:  data,
 }
-/* Make API call to fetch data, write to a json file. This is the file that contains data of team members shown on the website.*/
+/* Make API call to fetch data, write to a json file.
+This is the file that contains data of team 
+members shown on the website.*/
+
 axios(config)
 .then(function  (response)  {
 	let  team  =  response.data.results.map((f)  =>  ({
