@@ -155,7 +155,7 @@ axios(config)
 1. This is how the website looks initially.
 ![website before](https://raw.githubusercontent.com/ssghait007/blog/main/assets/site_before.png)
 
-2. Suppose you finalise to **hire two new developers** and that should show on your website. Move their entries to the `Complete` column in notion.
+2. Suppose you finalise to **hire two new developers** and that should show on your website. Move their entries to the `Done` column in notion.
 
 ![team_after](https://raw.githubusercontent.com/ssghait007/blog/main/assets/team_after.png)
 
