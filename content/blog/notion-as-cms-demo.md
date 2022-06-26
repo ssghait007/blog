@@ -4,7 +4,7 @@ description: The post describes how to integrate notion database with your websi
 category: Frontend
 published: true
 createdAt: 2021-26-02T07:00:13.392Z
-image: https://www.btig.com/wp-content/uploads/2017/06/placeholder-banner.png
+image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/notion-as-cms-header.webp
 
 ---
 
