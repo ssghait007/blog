@@ -4,7 +4,7 @@ description: How you can use python requests module to automate Rest API tasks.
 category: Developer
 published: false
 createdAt: 2021-07-12T07:00:13.392Z
-image: https://www.nicepng.com/png/detail/70-702215_building-with-python-requests-python-requests-logo.png
+image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/python-requests.webp
 ---
 
 # Automate Rest API tasks using python requests module.

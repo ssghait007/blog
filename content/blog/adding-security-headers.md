@@ -4,7 +4,7 @@ description: The post describes how to add security headers to website.
 category: Frontend
 published: true
 createdAt: 2021-02-02T07:00:13.392Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/http-security-headers.png
+image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/http-security-headers.webp
 ---
 
 # Increase Your Website Security
@@ -46,4 +46,4 @@ More explanation can `Additional Information` section at https://securityheaders
 
 This is the score after adding all required security headers
 
-![image alt text](https://raw.githubusercontent.com/ssghait007/blog/main/assets/securityHeaders.jpg)
+![image alt text](https://raw.githubusercontent.com/ssghait007/blog/main/assets/securityHeaders.webp)

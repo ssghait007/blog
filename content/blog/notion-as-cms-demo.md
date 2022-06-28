@@ -65,7 +65,7 @@ https://www.youtube.com/watch?v=4h8B080Mv4U
 - Note down the database ID of this board. This will be used in API to query data.
 `https://www.notion.so/{DB_ID}?v={VIEW_ID}`
 
-![notion board](https://raw.githubusercontent.com/ssghait007/blog/main/assets/team_before.png)
+![notion board](https://raw.githubusercontent.com/ssghait007/blog/main/assets/team_before.webp)
 
 ## Setup notion integration 
 - Create new integration in notion
@@ -73,19 +73,19 @@ This would give you a API key to use within your queries.
 
 Make sure not to commit this to github (or any other SCM).
 
-![notion integration](https://raw.githubusercontent.com/ssghait007/blog/main/assets/notion_integration.png)
+![notion integration](https://raw.githubusercontent.com/ssghait007/blog/main/assets/notion_integration.webp)
 
 
 ## Share page with notion integration
 - By using share page button, share you board with notion integration you created in last step.
 
-![share page](https://raw.githubusercontent.com/ssghait007/blog/main/assets/share_notion_page.png)
+![share page](https://raw.githubusercontent.com/ssghait007/blog/main/assets/share_notion_page.webp)
 
 ## Script to fetch notion data at build time
 
 - Add  `NOTION_API_KEY` and `NOTION_DB_ID` in env variables.
 
-![netlify_env](https://raw.githubusercontent.com/ssghait007/blog/main/assets/netlify_env.png)
+![netlify_env](https://raw.githubusercontent.com/ssghait007/blog/main/assets/netlify_env.webp)
 
 Below script fetches data from notion and writes to a json file.
 
@@ -153,19 +153,19 @@ axios(config)
 
 ## Change data in CMS and trigger build to see new data added to website
 1. This is how the website looks initially.
-![website before](https://raw.githubusercontent.com/ssghait007/blog/main/assets/site_before.png)
+![website before](https://raw.githubusercontent.com/ssghait007/blog/main/assets/site_before.webp)
 
 2. Suppose you finalise to **hire two new developers** and that should show on your website. Move their entries to the `Done` column in notion.
 
-![team_after](https://raw.githubusercontent.com/ssghait007/blog/main/assets/team_after.png)
+![team_after](https://raw.githubusercontent.com/ssghait007/blog/main/assets/team_after.webp)
 
 3. Now **trigger a new build** in netlify to deploy these changes (with `clear cache and deploy site` option).
 
-![trigger deploy](https://raw.githubusercontent.com/ssghait007/blog/main/assets/netlify_deploy.png)
+![trigger deploy](https://raw.githubusercontent.com/ssghait007/blog/main/assets/netlify_deploy.webp)
 
 4. After deploy the **new members** will show on the website
 
-![website after](https://raw.githubusercontent.com/ssghait007/blog/main/assets/site_after.png)
+![website after](https://raw.githubusercontent.com/ssghait007/blog/main/assets/site_after.webp)
 
 
 

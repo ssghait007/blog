@@ -4,7 +4,7 @@ description: How you can use python selenium module to automate browser based ta
 category: Backend
 published: true
 createdAt: 2021-04-13T07:00:13.392Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/selenium.jpg
+image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/selenium.webp
 ---
 
 # Selenium - Web automation made easy.
@@ -82,7 +82,7 @@ WebDriverWait(browser, 6).until(EC.element_to_be_clickable(
 1. Right click on the element, select `inspect element`.
 2. In the elements tab right click on the element and select `copy`, then select `Copy XPath`
 
-![image](https://raw.githubusercontent.com/ssghait007/blog/main/assets/find-xpath.png)
+![image](https://raw.githubusercontent.com/ssghait007/blog/main/assets/find-xpath.webp)
 
 ### Run the browser in headless ( invisible ) mode.
 

@@ -4,7 +4,7 @@ description: This post describes how to monitor price of product on any website.
 category: Cloud
 published: false
 createdAt: 2021-09-17T07:00:13.392Z
-image: https://www.btig.com/wp-content/uploads/2017/06/placeholder-banner.png
+image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/placeholder.webp
 ---
 
 # Monitor product price for any website.

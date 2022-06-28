@@ -4,7 +4,7 @@ description: This post describes how to block search engine bots to index your w
 category: Frontend
 published: true
 createdAt: 2021-08-01T07:00:13.392Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/block-crawlers.jpg
+image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/block-crawlers.webp
 ---
 
 # Block Google search bots from indexing your website.
@@ -25,7 +25,7 @@ Webpage block or website block request lasts only for 6 months, After that your 
 
 Blocking a URL does not prevent Google from crawling your page, only from showing it in Search results.
 
-![google search console](https://raw.githubusercontent.com/ssghait007/blog/main/assets/google-console.png)
+![google search console](https://raw.githubusercontent.com/ssghait007/blog/main/assets/google-console.webp)
 
 ## 2. **Permanent block method.**
 

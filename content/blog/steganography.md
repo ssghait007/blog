@@ -9,7 +9,7 @@ published: true
 
 createdAt: 2021-06-19T07:00:13.392Z
 
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/stegano.jpg
+image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/stegano.webp
 ---
 
 # Steganography - The Art of Hiding Data in Plain Sight

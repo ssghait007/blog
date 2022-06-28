@@ -4,7 +4,7 @@ description: This post describes how to manage scheduling of compute engine vm s
 category: Cloud
 published: true
 createdAt: 2021-10-04T07:00:13.392Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/vm-auto-header.png
+image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/vm-auto-header.webp
 ---
 
 # Schedule Google Compute Engine Instances to Save Big Money.
@@ -44,7 +44,7 @@ Use [pricing calculator](https://cloud.google.com/products/calculator) to calcul
 ## Implementation
 
 Cloud function has a `pub-sub` trigger.
-![pub-sub](https://raw.githubusercontent.com/ssghait007/blog/main/assets/vm-auto-trigger.png)
+![pub-sub](https://raw.githubusercontent.com/ssghait007/blog/main/assets/vm-auto-trigger.webp)
 Cloud function code is as below, `change_vm_state` function is invoked when pub-sub message is received.
 
 ```python{1,3-5}
@@ -88,13 +88,13 @@ Read more on `GCP beta APIs` [here](https://cloud.google.com/compute/docs/refere
 
 
 Keep in mind that you have to attach a service account which has compute engine permissions to start/stop/suspend/resume VM.
-![sa](https://raw.githubusercontent.com/ssghait007/blog/main/assets/vm-auto-service-acc.png)
+![sa](https://raw.githubusercontent.com/ssghait007/blog/main/assets/vm-auto-service-acc.webp)
 
 Using cloud scheduler you can send a message to pubsub on a cron schedule.
-![cloud-scheduler](https://raw.githubusercontent.com/ssghait007/blog/main/assets/vm-auto-cluod-scheduler.png)
+![cloud-scheduler](https://raw.githubusercontent.com/ssghait007/blog/main/assets/vm-auto-cluod-scheduler.webp)
 
 In next step you can define what message to send to pub-sub.
-![pub-sub](https://raw.githubusercontent.com/ssghait007/blog/main/assets/vm-auto-pub-sub.png)
+![pub-sub](https://raw.githubusercontent.com/ssghait007/blog/main/assets/vm-auto-pub-sub.webp)
 
 
 This way you dont have to remember to suspend the VM when you are done working. \

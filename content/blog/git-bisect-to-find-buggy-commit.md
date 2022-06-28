@@ -27,7 +27,7 @@ But in recent commits this is broken.
 Lets find out the commit which broke it.
 Here is the recent commit history
 
-![image alt text](https://raw.githubusercontent.com/ssghait007/blog/main/assets/git-bisect-commits.JPG)
+![image alt text](https://raw.githubusercontent.com/ssghait007/blog/main/assets/git-bisect-commits.webp)
 
 1. You need to tell git you want to start bisect, then you need to provide which is the bad commit (recent one most times) and which was the good commit.
 
@@ -44,7 +44,7 @@ $ git bisect good db32414
 
 3. Keep following step 2. Git bisect will continue narrowing down the range until it finds the exact commit that introduced the change.
 
-![image alt text](https://raw.githubusercontent.com/ssghait007/blog/main/assets/git-bisect-log.JPG)
+![image alt text](https://raw.githubusercontent.com/ssghait007/blog/main/assets/git-bisect-log.webp)
 
 4. Now you can check files changed in this commit and easily find out what caused it.
 
@@ -54,7 +54,7 @@ $ git show commitID
 
 I can see this commit has changed the `to` path to incorrect value.
 
-![image alt text](https://raw.githubusercontent.com/ssghait007/blog/main/assets/git-bisect-buggy-commit.JPG)
+![image alt text](https://raw.githubusercontent.com/ssghait007/blog/main/assets/git-bisect-buggy-commit.webp)
 
 5. When you are done you need to tell git to stop the bisect process
 

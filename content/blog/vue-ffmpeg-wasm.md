@@ -4,7 +4,7 @@ description: This post describes how to use Ffmpeg directly in browser.
 category: Frontend
 published: true
 createdAt: 2021-02-06T07:00:13.392Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/ffmpeg-wasm.png
+image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/ffmpeg-wasm.webp
 ---
 
 # Convert Video to GIF with FFmpeg
@@ -67,7 +67,7 @@ Read more on ffmpeg commands on https://ffmpeg.org/ffmpeg.html
 
 ## How app will look like
 
-![image alt text](https://raw.githubusercontent.com/ssghait007/blog/main/assets/ffmpeg-mp4-to-gif.JPG)
+![image alt text](https://raw.githubusercontent.com/ssghait007/blog/main/assets/ffmpeg-mp4-to-gif.webp)
 
 ## Conclusion
 
