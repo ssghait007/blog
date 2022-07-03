@@ -5,6 +5,7 @@
         <button class="btn focus:outline-none">&larr; Back</button>
       </nuxt-link>
     </div>
+
     <div
       class="text-left overflow-hidden container mx-auto flex flex-col px-5 py-12 justify-center items-center"
     >
@@ -13,6 +14,29 @@
         alt="hero"
         :src="post.image"
       />
+
+        <h2
+          class="uppercase text-green-500 font-bold text-lg lg:mt-16 tracking-wider"
+        >
+          Table of contents
+        </h2>
+        <nav class="mt-4 mb-8 text-blue-500">
+          <ul class="list-decimal">
+            <li
+              class="toc-list text-left m-4"
+              v-for="(link) of post.toc"
+              :key="link.id"
+            >
+              <a
+              class="underline decoration-pink-500"
+                :href="`#${link.id}`"
+                >{{ link.text }}</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+
       <nuxt-content class="m-auto text-left prose" :document="post" />
     </div>
   </section>
@@ -52,6 +76,7 @@ export default {
       ],
     }
   },
+
 }
 </script>
 <style>
