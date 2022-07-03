@@ -37,7 +37,7 @@ From developers perspective is very easy to debug a single page applications you
 
   
 
--  **What is cloudfront ?**
+##  **What is cloudfront ?**
 
 Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, such as .html, .css, .js, and image files, to your users.
 
@@ -47,7 +47,7 @@ In case of SPA this delivers all the html files and JS bundles(heavy in size) qu
 
   
 
--  **What are the challenges while hosting a SPA on Cloudfront ?**
+## **What are the challenges while hosting a SPA on Cloudfront ?**
 
 When you request for a resource from cloudfront it returns a cached version of that file to your browser.
 When you want to load an internal route/URL path on your website that only your SPA understands. Cloudfront can not return any response to that. Because it has no corresponding file for that resource
@@ -70,7 +70,7 @@ Steps in case of path matches file `NOT` present in Cloudfront cache
 
   
 
-- **How to configure cloudfront to deal with above challenges**
+## **How to configure cloudfront to deal with above challenges**
 Above issue arises due to the behaviour of SPA, The internal routing is handled in client side. 
 But because the internal route/URL path is requested before the SPA has loaded in browser, cloudfront thinks that this is a unknown route and returns AccessDenied response.
 

@@ -7,7 +7,7 @@ createdAt: 2021-02-02T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/http-security-headers.webp
 ---
 
-# Increase Your Website Security
+## Increase Your Website Security
 
 With HTTP response headers, you can harden your website security and also prevent/mitigate attacks
 
@@ -20,6 +20,7 @@ You can check the score for your websites headers on below site. https://securit
 If you have A in the score, then you are doing good.
 For other scores securityheaders will suggest what things can be added.
 
+## Example
 For hosting my site on netlify I have added headers as below
 
 ```
@@ -44,6 +45,7 @@ For hosting my site on netlify I have added headers as below
 Some important headers to set are `Content-Security-Policy, Permissions-Policy, Referrer-Policy, Strict-Transport-Security`
 More explanation can `Additional Information` section at https://securityheaders.com/
 
+## Result
 This is the score after adding all required security headers
 
 ![image alt text](https://raw.githubusercontent.com/ssghait007/blog/main/assets/securityHeaders.webp)
