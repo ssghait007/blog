@@ -5,6 +5,10 @@ category: Frontend
 published: true
 createdAt: 2021-02-01T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/nuxt.webp
+author: Sachin Ghait
+authorTitle: Senior Developer
+readingTime: 10 min read
+tags: ['frontend', 'developer']
 ---
 
 # Build a blog using Nuxt and Tailwind CSS

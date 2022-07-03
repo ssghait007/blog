@@ -5,6 +5,10 @@ category: Developer
 published: true
 createdAt: 2021-09-11T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/block-ads.webp
+author: Sachin Ghait
+authorTitle: Senior Developer
+readingTime: 5 min read
+tags: ['developer']
 ---
 
 # Ad Blocker for Your Whole Network. 🛡️

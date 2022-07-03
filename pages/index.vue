@@ -27,7 +27,7 @@
         <img
           class="object-cover object-center rounded-md"
           alt="webDevTrends"
-          src="https://doodleipsum.com/700x394/hand-drawn?bg=63C8D9&i=11a3d171a97916c9ab34237c49fd3a8c"
+          src="https://raw.githubusercontent.com/ssghait007/blog/main/assets/hand-drawn.webp"
         />
       </div>
     </div>

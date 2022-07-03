@@ -5,6 +5,10 @@ category: Cloud
 published: false
 createdAt: 2021-09-17T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/placeholder.webp
+author: Sachin Ghait
+authorTitle: Senior Developer
+readingTime: 9 min read
+tags: ['developer', 'automate']
 ---
 
 # Monitor product price for any website.

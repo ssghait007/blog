@@ -5,6 +5,10 @@ category: Cloud
 published: true
 createdAt: 2021-08-14T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/lambda-vpc.webp
+author: Sachin Ghait
+authorTitle: Senior Developer
+readingTime: 5 min read
+tags: ['cloud', 'aws']
 ---
 
 # Lambda Function In A VPC The Right Way.

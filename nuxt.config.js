@@ -33,6 +33,7 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-analytics',
+    '@/modules/sitemapGen'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -43,7 +44,17 @@ export default {
     '@nuxt/content',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-analytics',
+    '@nuxtjs/robots',
+    '@nuxtjs/sitemap'
   ],
+  robots: {
+    UserAgent: '*',
+    Allow: '/',
+  },
+  sitemap: {
+    hostname: 'https://onthegoalways.com',
+    gzip: true,
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {

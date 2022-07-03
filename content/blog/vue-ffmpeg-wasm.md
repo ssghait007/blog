@@ -5,6 +5,10 @@ category: Frontend
 published: true
 createdAt: 2021-02-06T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/ffmpeg-wasm.webp
+author: Sachin Ghait
+authorTitle: Senior Developer
+readingTime: 5 min read
+tags: ['frontend']
 ---
 
 # Convert Video to GIF with FFmpeg
@@ -32,14 +36,14 @@ or you can use CDN directly, read more on https://ffmpegwasm.github.io/#demo
 1. Import ffmpeg as below
 
 ```js{1,3-5}
-const  { createFFmpeg, fetchFile }  =  FFmpeg;
-const ffmpeg =  createFFmpeg({ log:  true  });
+const { createFFmpeg, fetchFile } = FFmpeg
+const ffmpeg = createFFmpeg({ log: true })
 ```
 
 2. Load Load ffmpeg.wasm-core script in browser environment
 
 ```js{1,3-5}
-await ffmpeg.load();
+await ffmpeg.load()
 ```
 
 3. Use following file command to do file operations in browser, all data is bound to browser and will be lost on page refresh
@@ -48,17 +52,26 @@ await ffmpeg.load();
 // ffmpeg.FS(method, ...args)
 
 // Write file using below command
-ffmpeg.FS("writeFile", "test.mp4", await  fetchFile(this.video));
+ffmpeg.FS('writeFile', 'test.mp4', await fetchFile(this.video))
 
 // Read file (already available in FS memory)
-ffmpeg.FS("readFile", "out.gif");
+ffmpeg.FS('readFile', 'out.gif')
 ```
 
 4. Run ffmpeg command, as ffmpeg native cli.
 
 ```js{1,3-5}
-await  ffmpeg.run("-i","test.mp4","-t","5",
-	"-ss","5","-f","gif","out.gif");
+await ffmpeg.run(
+  '-i',
+  'test.mp4',
+  '-t',
+  '5',
+  '-ss',
+  '5',
+  '-f',
+  'gif',
+  'out.gif'
+)
 // -t ==> total time of gif
 // -ss ⇒ starting seconds or offset
 ```

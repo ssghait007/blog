@@ -5,6 +5,10 @@ category: Developer
 published: true
 createdAt: 2021-09-11T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/selenium-on-raspberry-pi.webp
+author: Sachin Ghait
+authorTitle: Senior Developer
+readingTime: 7 min read
+tags: ['developer']
 ---
 
 # Selenium Webdriver on Raspberry Pi Zero W.
