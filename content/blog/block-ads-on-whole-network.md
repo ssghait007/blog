@@ -9,6 +9,8 @@ author: Sachin Ghait
 authorTitle: Senior Developer
 readingTime: 5 min read
 tags: ['developer']
+proficiency: intermediate
+# beginner intermediate advanced 
 ---
 
 # Ad Blocker for Your Whole Network. 🛡️

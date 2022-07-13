@@ -9,6 +9,8 @@ author: Sachin Ghait
 authorTitle: Senior Developer
 readingTime: 5 min read
 tags: ['frontend', 'cloud', 'aws']
+proficiency: intermediate
+# beginner intermediate advanced 
 ---
 
 # Hosting a single page application on cloudfront

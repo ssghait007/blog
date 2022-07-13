@@ -5,6 +5,12 @@ category: Developer
 published: false
 createdAt: 2021-07-12T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/python-requests.webp
+author: Sachin Ghait
+authorTitle: Senior Developer
+readingTime: 5 min read
+tags: ['developer']
+proficiency: Beginner
+# beginner intermediate advanced 
 ---
 
 # Automate Rest API tasks using python requests module.

@@ -5,6 +5,12 @@ category: Frontend
 published: true
 createdAt: 2021-02-02T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/http-security-headers.webp
+author: Sachin Ghait
+authorTitle: Senior Developer
+readingTime: 5 min read
+tags: ['developer']
+proficiency: Beginner
+# beginner intermediate advanced 
 ---
 
 ## Increase Your Website Security

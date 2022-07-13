@@ -9,6 +9,8 @@ author: Sachin Ghait
 authorTitle: Senior Developer
 readingTime: 3 min read
 tags: ['frontend']
+proficiency: Beginner
+# beginner intermediate advanced 
 ---
 
 # Block Google search bots from indexing your website.

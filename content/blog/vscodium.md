@@ -9,6 +9,8 @@ author: Sachin Ghait
 authorTitle: Senior Developer
 readingTime: 6 min read
 tags: ['developer']
+proficiency: intermediate
+# beginner intermediate advanced 
 ---
 
 # Meet VSCodium. A Visual Studio Code Alternative.

@@ -9,6 +9,8 @@ author: Sachin Ghait
 authorTitle: Senior Developer
 readingTime: 7 min read
 tags: ['developer', 'automate']
+proficiency: advanced
+# beginner intermediate advanced 
 ---
 
 # Selenium - Web automation made easy.

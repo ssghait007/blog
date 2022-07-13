@@ -9,6 +9,8 @@ author: Sachin Ghait
 authorTitle: Senior Developer
 readingTime: 6 min read
 tags: ['developer', 'git']
+proficiency: Beginner
+# beginner intermediate advanced 
 ---
 
 # Git bisect is here to save your day

@@ -9,6 +9,8 @@ author: Sachin Ghait
 authorTitle: Senior Developer
 readingTime: 10 min read
 tags: ['frontend']
+proficiency: intermediate
+# beginner intermediate advanced 
 ---
 
 # Use Notion as CMS for your website

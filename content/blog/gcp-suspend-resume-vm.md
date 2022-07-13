@@ -9,6 +9,8 @@ author: Sachin Ghait
 authorTitle: Senior Developer
 readingTime: 6 min read
 tags: ['developer', 'cloud']
+proficiency: intermediate
+# beginner intermediate advanced 
 ---
 
 # Schedule Google Compute Engine Instances to Save Big Money.

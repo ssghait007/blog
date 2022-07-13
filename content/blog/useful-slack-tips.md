@@ -9,6 +9,8 @@ author: Sachin Ghait
 authorTitle: Senior Developer
 readingTime: 7 min read
 tags: ['productivity']
+proficiency: Beginner
+# beginner intermediate advanced 
 ---
 
 # The complete guide for Slack productivity.

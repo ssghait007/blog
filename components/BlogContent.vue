@@ -49,7 +49,7 @@
           "
               >
                 <a v-for="t in post.tags" class="m-1 px-2 py-1 rounded bg-green-500" :key="t"> {{"#"+t.toUpperCase()}} </a>
-
+                <a v-if="post && post.proficiency" class="m-1 px-2 py-1 rounded bg-blue-500" :key="t"> {{"#"+ post.proficiency.toUpperCase()}} </a>
               </div>
               <div class="flex items-center mt-2 flex-wrap text-left">
                 <img

@@ -9,6 +9,8 @@ author: Sachin Ghait
 authorTitle: Senior Developer
 readingTime: 7 min read
 tags: ['developer']
+proficiency: intermediate
+# beginner intermediate advanced 
 ---
 
 # Selenium Webdriver on Raspberry Pi Zero W.

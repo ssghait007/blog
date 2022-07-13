@@ -9,6 +9,8 @@ author: Sachin Ghait
 authorTitle: Senior Developer
 readingTime: 10 min read
 tags: ['frontend', 'developer']
+proficiency: intermediate
+# beginner intermediate advanced 
 ---
 
 # Build a blog using Nuxt and Tailwind CSS

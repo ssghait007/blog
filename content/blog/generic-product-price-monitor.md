@@ -9,6 +9,8 @@ author: Sachin Ghait
 authorTitle: Senior Developer
 readingTime: 9 min read
 tags: ['developer', 'automate']
+proficiency: Beginner
+# beginner intermediate advanced 
 ---
 
 # Monitor product price for any website.

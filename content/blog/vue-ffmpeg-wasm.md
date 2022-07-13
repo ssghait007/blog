@@ -9,6 +9,8 @@ author: Sachin Ghait
 authorTitle: Senior Developer
 readingTime: 5 min read
 tags: ['frontend']
+proficiency: Intermediate
+# beginner intermediate advanced 
 ---
 
 # Convert Video to GIF with FFmpeg
