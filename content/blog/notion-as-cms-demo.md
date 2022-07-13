@@ -23,7 +23,7 @@ Notion provides APIs which are good mix of REST and GraphQL. We will use these A
 
 Data fetched from the APIs will be added at built time to our demo website.
 
-## Create a simple website that
+## Create a simple website
 
 To showcase a simple use case.
 Let's consider there is a hiring manager at small startup, And he/she manages the list of candidates in notion boards.
