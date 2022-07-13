@@ -8,7 +8,7 @@ image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/template.we
 author: Sachin Ghait
 authorTitle: Senior Developer
 readingTime: 5 min read
-tags: ['frontend', 'cloud', 'aws']
+tags: ['frontend', 'aws']
 proficiency: intermediate
 # beginner intermediate advanced 
 ---
