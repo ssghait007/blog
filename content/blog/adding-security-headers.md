@@ -1,6 +1,6 @@
 ---
-title: Increase Your Website Security
-description: The post describes how to add security headers to website.
+title: How To Use Security Headers
+description: A blog about security headers and how they can improve websites.
 category: Frontend
 published: true
 createdAt: 2021-02-02T07:00:13.392Z
@@ -13,7 +13,7 @@ proficiency: Beginner
 # beginner intermediate advanced 
 ---
 
-## Increase Your Website Security
+## How To Use Security Headers
 
 With HTTP response headers, you can harden your website security and also prevent/mitigate attacks
 
