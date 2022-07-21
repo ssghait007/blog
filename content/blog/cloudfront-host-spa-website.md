@@ -1,6 +1,6 @@
 ---
-title: Hosting a single page application on cloudfront
-description: The post describes how to host a SPA website on cloudfront.
+title: Cloudfront for Hosting SPA (single page application)
+description: blog about migrating to Cloudfront for single page application websites.
 category: Frontend
 published: true
 createdAt: 2022-05-03T07:00:13.392Z
@@ -13,7 +13,7 @@ proficiency: intermediate
 # beginner intermediate advanced 
 ---
 
-# Hosting a single page application on cloudfront
+# Cloudfront for Hosting SPA (single page application)
 
 - **What is Single Page Application ?**
 
