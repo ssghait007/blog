@@ -76,7 +76,7 @@
     </div>
     <div class="flex justify-center">
       <nuxt-link :to="'/'">
-        <button class="btn focus:outline-none">Home</button>
+        <button class="btn focus:outline-none">To Home</button>
       </nuxt-link>
     </div>
   </section>
