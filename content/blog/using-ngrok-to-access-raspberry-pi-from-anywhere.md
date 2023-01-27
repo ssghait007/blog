@@ -6,7 +6,7 @@ published: true
 createdAt: 2021-09-11T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/ngrok.webp
 author: Sachin Ghait
-authorTitle: Senior Developer
+authorTitle: Lead Developer
 readingTime: 8 min read
 tags: ['developer']
 proficiency: intermediate

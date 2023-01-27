@@ -6,7 +6,7 @@ published: true
 createdAt: 2021-05-05T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/node-modules-app-performance_.webp
 author: Sachin Ghait
-authorTitle: Senior Developer
+authorTitle: Lead Developer
 readingTime: 3 min read
 tags: ['developer']
 proficiency: Beginner

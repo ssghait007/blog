@@ -6,7 +6,7 @@ published: true
 createdAt: 2021-08-01T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/block-crawlers.webp
 author: Sachin Ghait
-authorTitle: Senior Developer
+authorTitle: Lead Developer
 readingTime: 3 min read
 tags: ['frontend']
 proficiency: Beginner

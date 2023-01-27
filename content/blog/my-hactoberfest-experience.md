@@ -6,7 +6,7 @@ published: false
 createdAt: 2021-07-13T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/hacktober.webp
 author: Sachin Ghait
-authorTitle: Senior Developer
+authorTitle: Lead Developer
 readingTime: 5 min read
 tags: ['cloud', 'aws']
 proficiency: Beginner

@@ -6,7 +6,7 @@ published: true
 createdAt: 2021-02-16T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/vscodium.webp
 author: Sachin Ghait
-authorTitle: Senior Developer
+authorTitle: Lead Developer
 readingTime: 6 min read
 tags: ['developer']
 proficiency: intermediate

@@ -6,7 +6,7 @@ published: true
 createdAt: 2021-04-13T07:00:13.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/selenium.webp
 author: Sachin Ghait
-authorTitle: Senior Developer
+authorTitle: Lead Developer
 readingTime: 7 min read
 tags: ['developer', 'automate']
 proficiency: advanced
