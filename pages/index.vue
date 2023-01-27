@@ -9,17 +9,14 @@
         <h1
           class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"
         >
-          This is where I post <br class="hidden lg:inline-block" />
-          my learnings
+          Learning, growing, and sharing
         </h1>
         <p class="mb-8 leading-relaxed">
-          With this blog, I document my learnings so I could go back to them.
-          Also making it available to community, to get feedback and get better
-          at it.
+          A space to reflect on personal growth and share insights with the community, A place to share my experiences and connect with like-minded individuals
         </p>
         <div class="flex justify-center">
           <nuxt-link :to="'/blog'">
-            <button class="btn focus:outline-none">Blog</button>
+            <button class="btn focus:outline-none">To Blog</button>
           </nuxt-link>
         </div>
       </div>
