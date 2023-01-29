@@ -8,8 +8,16 @@
 
 <script>
 export default {
-  async middleware({ store, $content }) {
-    await store.dispatch("fetchPosts", $content);
+  async middleware({ store, $content, route }) {
+    const categoryMap = {
+      "/blog/developer": "Developer",
+      "/blog/cloud": "Cloud",
+      "/blog/backend": "Backend",
+      "/blog/frontend": "Frontend",
+    };
+
+    const category = categoryMap[route.path];
+    await store.dispatch("fetchPosts", { $content, category });
   },
 };
 </script>

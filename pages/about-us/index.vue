@@ -13,10 +13,10 @@
           ></path>
         </svg>
         <p class="leading-relaxed text-lg">
-          I am Sachin Ghait. I am software developer by profession. I believe in
-          learning something new day by day. I have started writing this blog to
-          document my learnings related to full stack developement ( Frontend ,
-          Backend, Cloud, Developer Efficiency )
+          Hi, I'm Sachin Ghait and I work as a lead developer. I'm always eager
+          to learn something new every day. I started this blog to keep track of
+          what I've learned about full-stack development, including front-end,
+          back-end, cloud, and developer efficiency.
         </p>
         <span
           class="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6"
@@ -24,7 +24,7 @@
         <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">
           Sachin Ghait
         </h2>
-        <p class="text-gray-500">Software Developer</p>
+        <p class="text-gray-500">Lead Developer</p>
       </div>
     </div>
   </section>
