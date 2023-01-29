@@ -38,18 +38,21 @@
               </p>
 
               <div
-                class="
-            flex flex-wrap
-            justify-starts
-            items-center
-            py-3
-            border-b-2
-            text-xs text-white
-            font-medium
-          "
+                class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium"
               >
-                <a v-for="t in post.tags" class="m-1 px-2 py-1 rounded bg-green-500" :key="t"> {{"#"+t.toUpperCase()}} </a>
-                <a v-if="post && post.proficiency" class="m-1 px-2 py-1 rounded bg-blue-500" :key="t"> {{"#"+ post.proficiency.toUpperCase()}} </a>
+                <a
+                  v-for="tag in post.tags"
+                  :key="tag"
+                  class="m-1 px-2 py-1 rounded bg-green-500"
+                >
+                  {{ "#" + tag.toUpperCase() }}
+                </a>
+                <a
+                  v-if="post && post.proficiency"
+                  class="m-1 px-2 py-1 rounded bg-blue-500"
+                >
+                  {{ "#" + post.proficiency.toUpperCase() }}
+                </a>
               </div>
               <div class="flex items-center mt-2 flex-wrap text-left">
                 <img
@@ -58,11 +61,13 @@
                   src="https://lh3.googleusercontent.com/a-/AFdZucogzmfN7i7Vbb3zeC77T3vz5TAOF4wI4fYihn2I=s80-p"
                 />
                 <div class="pl-2">
-                  <div class="font-medium">{{post.author}}</div>
-                  <div class="text-gray-600 text-xs">{{post.authorTitle}}</div>
+                  <div class="font-medium">{{ post.author }}</div>
+                  <div class="text-gray-600 text-xs">
+                    {{ post.authorTitle }}
+                  </div>
                 </div>
                 <div class="ml-auto text-center">
-                  <div class="font-medium text-xs">{{post.readingTime}}</div>
+                  <div class="font-medium text-xs">{{ post.readingTime }}</div>
                   <div class="text-gray-600 text-xs">
                     {{ post.createdAt | formatDate }}
                   </div>
@@ -83,31 +88,26 @@
 </template>
 
 <script>
-import { format } from 'date-fns'
-
+import { format } from "date-fns";
+import { mapState } from "vuex";
 export default {
   filters: {
     formatDate(date) {
-      return format(new Date(date), 'dd MMM yyyy')
-    }
-  },
-  props: {
-    posts: {
-      type: Array,
-      default() {
-        return []
-      }
-    }
+      return format(new Date(date), "dd MMM yyyy");
+    },
   },
   computed: {
+    ...mapState({
+      posts: (state) => state.posts,
+    }),
     filteredPosts() {
       const show =
-        typeof window !== 'undefined' ? localStorage.getItem('show') : null
+        typeof window !== "undefined" ? localStorage.getItem("show") : null;
       if (show) {
-        return this.posts
+        return this.posts;
       }
-      return this.posts.filter(a => a.published)
-    }
-  }
-}
+      return this.posts.filter((a) => a.published);
+    },
+  },
+};
 </script>

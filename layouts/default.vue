@@ -6,6 +6,14 @@
   </div>
 </template>
 
+<script>
+export default {
+  async middleware({ store, $content }) {
+    await store.dispatch("fetchPosts", $content);
+  },
+};
+</script>
+
 <style>
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
