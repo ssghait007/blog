@@ -1,6 +1,6 @@
 ---
 title: Product price monitor for any website.
-description: This post describes how to monitor price of product on any website.
+description: Product price monitor for any website. Learn how to build a custom solution to monitor product prices on any website and receive Slack alerts
 category: Cloud
 published: false
 createdAt: 2021-09-17T07:00:13.392Z

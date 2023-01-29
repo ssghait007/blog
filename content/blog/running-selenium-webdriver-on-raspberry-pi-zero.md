@@ -1,6 +1,6 @@
 ---
 title: Selenium Webdriver on Raspberry Pi Zero W.
-description: The post describes how you can run selenium automations on raspberry-pi zero w.
+description: Learn how to run Selenium Webdriver on Raspberry Pi Zero W with the help of chromium-chromedriver package. This guide walks you through the process of installing and using the package to automate browser-based tasks
 category: Developer
 published: true
 createdAt: 2021-09-11T07:00:13.392Z

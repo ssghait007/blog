@@ -1,6 +1,6 @@
 ---
 title: My hacktoberfest experience.
-description: This post describes my learnings and overall experience in hacktoberfest-2020. 
+description: Discover my journey participating in hacktoberfest 2020, including my learnings and overall experience.
 category: Developer
 published: false
 createdAt: 2021-07-13T07:00:13.392Z

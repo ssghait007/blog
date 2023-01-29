@@ -1,6 +1,6 @@
 ---
 title: Convert Video to GIF with FFmpeg
-description: This post describes how to use Ffmpeg directly in browser.
+description: Convert Video to GIF with FFmpeg in the browser using Ffmpeg's web assembly script. Learn how to import Ffmpeg in a Vue app, load its script, and run native commands to convert a video file to a GIF
 category: Frontend
 published: true
 createdAt: 2021-02-06T07:00:13.392Z

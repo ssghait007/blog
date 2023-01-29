@@ -1,6 +1,6 @@
 ---
 title: Meet VSCodium. A Visual Studio Code Alternative.
-description: This post describes how and why I switched to VSCodium from VSCode.
+description: Discover VSCodium, a community-driven alternative to Visual Studio Code. Learn why I switched from VSCode and how to install VSCodium on Windows
 category: Developer
 published: true
 createdAt: 2021-02-16T07:00:13.392Z

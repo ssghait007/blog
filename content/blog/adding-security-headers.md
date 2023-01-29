@@ -1,6 +1,6 @@
 ---
 title: How To Use Security Headers
-description: A blog about security headers and how they can improve websites.
+description: Learn how to improve your website security with HTTP security headers. Discover how to get an A score for your website with the help of this beginner-friendly guide.
 category: Frontend
 published: true
 createdAt: 2021-02-02T07:00:13.392Z

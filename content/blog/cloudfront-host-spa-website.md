@@ -1,6 +1,6 @@
 ---
 title: Cloudfront for Hosting SPA (single page application)
-description: blog about migrating to Cloudfront for single page application websites.
+description: Amazon Cloudfront for faster distribution of your static and dynamic web content. Learn about the challenges faced while hosting an SPA on Cloudfront and how to configure it to handle internal routing in the browser.
 category: Frontend
 published: true
 createdAt: 2022-05-03T07:00:13.392Z

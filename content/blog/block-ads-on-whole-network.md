@@ -1,6 +1,6 @@
 ---
 title: Ad Blocker for Your Whole Network.
-description: The post describes how you can run pihole on raspberry-pi to block ads.
+description: Stop annoying ads and protect your network with Pi-hole. This guide explains how to install Pi-hole on Raspberry-Pi, how it blocks ads, and how to make Pi-hole your DNS server.
 category: Developer
 published: true
 createdAt: 2021-09-11T07:00:13.392Z

@@ -1,6 +1,6 @@
 ---
 title: Say goodbye to unused node modules in your computer.
-description: The post describes how npkill helps save time on deleting node_modules folders manually.
+description: Say goodbye to hours of manually deleting unused node modules with NPKill. This npm library automates the process and helps you save time in just a few minutes.
 category: Developer
 published: true
 createdAt: 2021-05-05T07:00:13.392Z

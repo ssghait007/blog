@@ -1,6 +1,6 @@
 ---
 title: Automate Rest API tasks using python requests module.
-description: How you can use python requests module to automate Rest API tasks. 
+description: Learn how to automate Rest API tasks using python's requests module. Discover the power of using APIs to interact with websites and the endless possibilities it offers. From monitoring prices to setting desktop backgrounds
 category: Developer
 published: false
 createdAt: 2021-07-12T07:00:13.392Z

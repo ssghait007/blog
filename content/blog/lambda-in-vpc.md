@@ -1,6 +1,6 @@
 ---
 title: Lambda Function In A VPC The Right Way.
-description: This post discusses how to use AWS lambda function in a VPC.
+description: Discover the right way to use AWS Lambda function in a VPC. This post covers the reasons why a Lambda function loses internet access in a VPC, and explains how to route traffic through a NAT to allow access to the internet.
 category: Cloud
 published: true
 createdAt: 2021-08-14T07:00:13.392Z

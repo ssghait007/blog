@@ -1,6 +1,6 @@
 ---
 title: Use Notion as CMS for your website
-description: The post describes how to integrate notion database with your website.
+description: The post describes the step-by-step process of creating a simple website and loading data from a json file. Also, learn how to set up CICD using netlify, create a board in Notion, integrate it with your website, and fetch data from Notion at build time
 category: Frontend
 published: true
 createdAt: 2022-07-03T07:00:13.392Z

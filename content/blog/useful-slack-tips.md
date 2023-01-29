@@ -1,6 +1,6 @@
 ---
 title: The complete guide for Slack productivity.
-description: The post discusses useful slack tips and tricks that have helped me a lot.
+description: The complete guide to boosting Slack productivity with tips and tricks for developers. 7 tips including shortcuts, grouping channels, using slash commands, muting channels, finding channels, people or files, saved items and apps and integrations.
 category: Developer
 published: true
 createdAt: 2021-05-09T07:00:13.392Z

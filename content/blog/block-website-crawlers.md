@@ -1,6 +1,6 @@
 ---
 title: Block Google search bots from indexing your website.
-description: This post describes how to block search engine bots to index your website.
+description: Prevent your website from appearing in Google search results by temporarily using the Google Search Console or permanently by modifying your robots.txt file. Learn how to block all crawler bots or specific bots and pages in this post.
 category: Frontend
 published: true
 createdAt: 2021-08-01T07:00:13.392Z

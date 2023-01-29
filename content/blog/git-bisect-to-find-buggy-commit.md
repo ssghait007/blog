@@ -1,6 +1,6 @@
 ---
 title: Git bisect is here to save your day
-description: How to use git bisect to find which commit introduced bug.
+description: Learn how to use Git Bisect to find the commit that introduced a bug in your code. A step by step guide with easy example, gotchas and conclusion. Save time in debugging with Git Bisect
 category: Developer
 published: true
 createdAt: 2021-03-10T07:00:13.392Z

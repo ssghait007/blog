@@ -1,6 +1,6 @@
 ---
-title: Selenium - Web automation made easy.
-description: How you can use python selenium module to automate browser based tasks.
+title: Selenium - Easy Web Automation with Python.
+description: Automate browser-based tasks with Python's Selenium module. Learn how to control a browser with code and perform tasks with ease.
 category: Backend
 published: true
 createdAt: 2021-04-13T07:00:13.392Z
