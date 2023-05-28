@@ -7,7 +7,7 @@
 
 2. 🔀 **Create a New Branch:** Create a new branch to work on your blog post.
 
-3. ➕ **Add Your Markdown File:** In the `contents/blogs` folder, create a new Markdown file and paste the sample blog post content.
+3. ➕ **Add Your Markdown File:** In the `contents/blogs` folder, create a new Markdown file and paste the sample blog post content.[Blog Post Template](BLOG-TEMPLATE.md)
 
 4. ✏️ **Edit the Metadata:** Modify the metadata section at the beginning of the file to match your blog post details.
 
