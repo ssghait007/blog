@@ -12,7 +12,7 @@ tags: ['Git', 'Version Control']
 proficiency: intermediate
 ---
 
-Streamlining Git Workflow: Commit Templates, PR Templates, and More
+# Streamlining Git Workflow: Commit Templates, PR Templates, and More
 
 In Git, there are several templates available that can greatly improve your development workflow. Let's explore some of these templates and understand how they can save time and enhance collaboration.
 
