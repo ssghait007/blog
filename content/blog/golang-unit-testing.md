@@ -3,7 +3,7 @@ title: Efficient Unit Testing Approach for Go in VS Code
 description: Learn how to streamline your unit testing workflow in Go using the Go extension for Visual Studio Code. Generate unit tests with ease and leverage the Test UI for convenient test execution and coverage visualization.
 category: Development
 published: true
-createdAt: 2023-05-28T00:00:00.000Z
+createdAt: 2023-05-29T00:00:00.000Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/golang-unit-testing.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
