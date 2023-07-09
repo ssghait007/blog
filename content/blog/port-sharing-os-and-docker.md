@@ -4,7 +4,7 @@ description: Learn about the problem of port sharing in Docker and how the SO_RE
 category: Developer
 published: true
 createdAt: 2023-07-09
-image: https://medium.com/swlh/docker-caching-introduction-to-docker-layers-84f20c48060a
+image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/po.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 5 min read
