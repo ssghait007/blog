@@ -14,7 +14,7 @@ proficiency: Intermediate
 
 # Understanding Port Sharing and SO_REUSEADDR in Docker
 
-## Incident: Running Multiple Instances of an Application in Docker
+## Incident: Running application in Docker and observing weird behavior
 
 Recently I went through a weird incident that exposed me to some interesting networking concepts. I was running an application on my machine(host operating system), and it was listening on port 8080. Everything seemed to be working fine until I decided to run another instance of the same application inside a Docker container, exposing it on the same port (8080) as on my host machine.
 
