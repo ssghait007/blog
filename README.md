@@ -9,10 +9,12 @@
 
 Netlify - Automated deployments
 
-## Interested in Contributing? Here's a Guide on Adding a Blog Post
-
-[How to Add a Blog Post](HOW-TO-ADD-BLOG-POST.md)
+## Contributors
 
 <a href="https://github.com/ssghait007/blog/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=ssghait007/blog" />
 </a>
+
+## Interested in Contributing? Here's a Guide on Adding a Blog Post
+
+[How to Add a Blog Post](HOW-TO-ADD-BLOG-POST.md)
