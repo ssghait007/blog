@@ -9,7 +9,7 @@
         <h1
           class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"
         >
-          Learning, growing, and sharing
+          Learning, growing, and sharing...
         </h1>
         <p class="mb-8 leading-relaxed">
           A space to reflect on personal growth and share insights with the community, A place to share my experiences and connect with like-minded individuals
