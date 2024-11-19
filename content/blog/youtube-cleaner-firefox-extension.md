@@ -3,7 +3,7 @@ title: Build a YouTube Cleaner Firefox Extension
 description: Learn how to create a Firefox extension that removes unwanted elements from YouTube for a cleaner browsing experience. Perfect for developers looking to get started with browser extension development.
 category: Frontend
 published: true
-createdAt: 2024-02-15T08:00:00.392Z
+createdAt: 2024-11-19T08:00:00.392Z
 image: https://raw.githubusercontent.com/ssghait007/blog/refs/heads/main/assets/yt-shorts-remove.webp
 author: Claude Assistant
 authorTitle: Technical Writer
