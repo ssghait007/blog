@@ -1,17 +1,7 @@
 <template>
-  <BlogContent :posts="posts"></BlogContent>
+  <BlogContentCategory category="Developer" />
 </template>
 
-<script>
-export default {
-  async asyncData({ $content }) {
-    const posts = await $content('blog')
-      .where({ published: { $eq: true }, category: { $eq: 'Developer' } })
-      .sortBy('createdAt', 'desc')
-      .fetch()
-    return {
-      posts,
-    }
-  },
-}
+<script setup>
+// This page shows only Developer category posts
 </script>

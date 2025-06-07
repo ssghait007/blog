@@ -74,13 +74,11 @@
   </section>
 </template>
 
-
-<script>
-export default {
-  methods : {
-  show(){
-    typeof window !== 'undefined' ? localStorage.setItem('show',"true") : null
-  },
-}
+<script setup>
+// Show all posts function (for development)
+const show = () => {
+  if (process.client) {
+    localStorage.setItem('show', "true")
+  }
 }
 </script>

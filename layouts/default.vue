@@ -1,25 +1,14 @@
 <template>
   <div>
     <Header></Header>
-    <Nuxt />
+    <slot />
     <Footer></Footer>
   </div>
 </template>
 
-<script>
-export default {
-  async middleware({ store, $content, route }) {
-    const categoryMap = {
-      "/blog/developer": "Developer",
-      "/blog/cloud": "Cloud",
-      "/blog/backend": "Backend",
-      "/blog/frontend": "Frontend",
-    };
-
-    const category = categoryMap[route.path];
-    await store.dispatch("fetchPosts", { $content, category });
-  },
-};
+<script setup>
+// Nuxt 3 uses Composition API by default
+// The middleware functionality will be handled differently in pages
 </script>
 
 <style>

@@ -77,11 +77,16 @@
           </div>
         </div>
       </div>
-      <div v-else class="flex flex-wrap -m-4">No posts in this section</div>
+      <div v-else class="flex flex-wrap -m-4">
+        <div class="text-center w-full">
+          <h2 class="text-2xl font-medium text-gray-900 mb-4">No {{ category }} posts found</h2>
+          <p class="text-gray-600 mb-8">Check back later for new {{ category.toLowerCase() }} content!</p>
+        </div>
+      </div>
     </div>
     <div class="flex justify-center mb-8">
-      <NuxtLink to="/">
-        <button class="btn focus:outline-none">To Home</button>
+      <NuxtLink to="/blog">
+        <button class="btn focus:outline-none">← Back to All Posts</button>
       </NuxtLink>
     </div>
   </section>
@@ -90,9 +95,20 @@
 <script setup>
 import { format } from "date-fns";
 
-// Fetch all blog posts sorted by creation date (newest first)
-const { data: posts } = await useAsyncData('blog-posts', () =>
-  queryContent('blog').sort({ createdAt: -1 }).find()
+// Define props
+const props = defineProps({
+  category: {
+    type: String,
+    required: true
+  }
+})
+
+// Fetch blog posts for the specific category
+const { data: posts } = await useAsyncData(`blog-posts-${props.category}`, () =>
+  queryContent('blog')
+    .where({ category: props.category })
+    .sort({ createdAt: -1 })
+    .find()
 )
 
 // Format date function

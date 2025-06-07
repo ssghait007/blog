@@ -1,17 +1,7 @@
 <template>
-  <BlogContent :posts="posts"></BlogContent>
+  <BlogContentCategory category="Cloud" />
 </template>
 
-<script>
-export default {
-  async asyncData({ $content }) {
-    const posts = await $content('blog')
-      .where({ published: { $eq: true }, category: { $eq: 'Cloud' } })
-      .sortBy('createdAt', 'desc')
-      .fetch()
-    return {
-      posts,
-    }
-  },
-}
+<script setup>
+// This page shows only Cloud category posts
 </script>

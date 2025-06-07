@@ -15,9 +15,9 @@
           A space to reflect on personal growth and share insights with the community, A place to share my experiences and connect with like-minded individuals
         </p>
         <div class="flex justify-center">
-          <nuxt-link :to="'/blog'">
+          <NuxtLink to="/blog">
             <button class="btn focus:outline-none">To Blog</button>
-          </nuxt-link>
+          </NuxtLink>
         </div>
       </div>
       <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
@@ -30,12 +30,6 @@
     </div>
   </section>
 </template>
-
-<script>
-export default {
-  components: {},
-}
-</script>
 
 <style>
 /* Sample `apply` at-rules with Tailwind CSS
