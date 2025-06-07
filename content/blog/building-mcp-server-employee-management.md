@@ -175,27 +175,6 @@ Test with these commands:
 
 - "Apply for annual leave for alice.johnson@company.com from 2024-09-01 to 2024-09-05"
 
-## Advanced Features Implemented 🚀
-
-Our MCP server includes several features:
-
-**Business Logic Validation:**
-- Leave balance checking before approval
-- Overlap detection for conflicting leave dates
-- Manager hierarchy validation
-- Date range validation
-
-**Error Handling:**
-- Database connection retry logic
-- Comprehensive input validation
-- User-friendly error messages
-- Transaction rollback on failures
-
-**Security Features:**
-- SQL injection protection through parameterized queries
-- Environment variable configuration
-- Input sanitization and validation
-
 ## Troubleshooting Common Issues 🔧
 
 **Server not appearing in Claude Desktop:**
@@ -217,59 +196,23 @@ rm -rf build/
 npm run build
 ```
 
-## Sample Data Available 📊
-
-The setup includes 8 sample employees:
-- alice.johnson@company.com (Engineering)
-- bob.smith@company.com (HR)
-- carol.lee@company.com (Finance)
-- david.wilson@company.com (Engineering)
-- emma.davis@company.com (Marketing)
-- frank.miller@company.com (Engineering Manager)
-- grace.chen@company.com (Design)
-- henry.taylor@company.com (Sales)
-
-Each employee has pre-configured leave balances and some have existing leave applications for testing.
-
-## Next Steps and Extensions 🎯
-
-Now that you have a working MCP server, consider these enhancements:
-
-**Additional Tools:**
-- Employee onboarding workflows
-- Performance review management
-- Payroll integration
-- Reporting and analytics
-
-**Infrastructure Improvements:**
-- Docker containerization
-- CI/CD pipeline setup
-- Monitoring and logging
-- Database migrations
-
-**Security Enhancements:**
-- Role-based access control
-- API rate limiting
-- Audit logging
-- Data encryption
 
 ## Conclusion ✅
 
-Building an MCP server opens up powerful possibilities for AI-driven automation. Our employee management server demonstrates how to:
+Building an MCP server opens up powerful possibilities, So do keep this in mind when you are building your next application
+
+MCP servers have the following advantages:
+
+- Connect AI assistants to your systems
 - Integrate AI with existing databases
 - Implement complex business logic
 - Provide secure, validated operations
 - Create custom tools
 
-The combination of MCP's flexibility with PostgreSQL's robustness creates a foundation for sophisticated AI-powered applications. Whether you're automating HR processes, managing customer data, or building custom workflows, MCP servers provide the bridge between AI capabilities and your business systems.
 
 ## Resources 📚
 
 - [MCP Official Documentation](https://modelcontextprotocol.io/)
 - [Claude Desktop Download](https://claude.ai/download)
-- [PostgreSQL Documentation](https://www.postgresql.org/docs/)
-- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
 
 ---
-
-*Have you built your own MCP server? Share your experience and use cases in the comments below!*
