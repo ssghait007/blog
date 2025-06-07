@@ -1,5 +1,5 @@
 ---
-title: Building a Model Context Protocol (MCP) Server for Employee Management
+title: Building a Model Context Protocol (MCP) Server
 description: Learn how to create a comprehensive MCP server with PostgreSQL integration for employee management. Build tools for employee info, leave management, and database operations with TypeScript and Claude Desktop integration.
 category: Developer
 published: true
@@ -15,7 +15,7 @@ proficiency: intermediate
 
 # Building a Model Context Protocol (MCP) Server for Employee Management
 
-The Model Context Protocol (MCP) is revolutionizing how AI assistants interact with external systems and data sources. Instead of being limited to their training data, AI models can now access real-time information and perform actions through MCP servers. In this guide, we'll build a production-ready MCP server for employee management that integrates with PostgreSQL.
+The Model Context Protocol (MCP) is revolutionizing how AI assistants interact with external systems and data sources. Instead of being limited to their training data, AI models can now access real-time information and perform actions through MCP servers. In this guide, we'll build a MCP server for employee management that integrates with PostgreSQL.
 
 ## What is MCP and Why Should You Care? 🤔
 
@@ -37,17 +37,7 @@ Our employee management MCP server will provide these powerful tools:
 4. **apply_employee_leave** - Submit leave requests with validation
 5. **get_all_employees** - Admin function to list all employees
 
-```mermaid
-graph TD
-    A[Claude Desktop App] -->|MCP Protocol| B[MCP Server]
-    B -->|SQL Queries| C[PostgreSQL Database]
-    C -->|Employee Data| B
-    B -->|Tool Results| A
-    
-    style A fill:#e1f5fe
-    style B fill:#f3e5f5
-    style C fill:#e8f5e8
-```
+![mcp architecture](https://raw.githubusercontent.com/ssghait007/blog/main/assets/mcp_arch.png)
 
 ## Prerequisites 📋
 
@@ -86,61 +76,7 @@ docker exec -i postgres psql -U postgres -d employee_management < database/setup
 
 The setup script creates 4 tables (employees, leave_types, leave_balances, leave_applications) and inserts sample data including 8 employees across different departments.
 
-```mermaid
-erDiagram
-    employees {
-        int id PK
-        string employee_id UK
-        string name
-        string email UK
-        string department
-        string position
-        date joining_date
-        string phone
-        int manager_id FK
-        decimal salary
-        string status
-    }
-    
-    leave_types {
-        int id PK
-        string name UK
-        string description
-        int max_days_per_year
-        boolean carry_forward_allowed
-    }
-    
-    leave_balances {
-        int id PK
-        int employee_id FK
-        int leave_type_id FK
-        int allocated_days
-        int used_days
-        int remaining_days
-        int year
-    }
-    
-    leave_applications {
-        int id PK
-        int employee_id FK
-        int leave_type_id FK
-        date start_date
-        date end_date
-        int days_requested
-        string reason
-        string status
-        timestamp applied_date
-        int approved_by FK
-        timestamp approved_date
-    }
-    
-    employees ||--o{ leave_balances : has
-    employees ||--o{ leave_applications : submits
-    employees ||--o{ employees : manages
-    leave_types ||--o{ leave_balances : defines
-    leave_types ||--o{ leave_applications : categorizes
-    employees ||--o{ leave_applications : approves
-```
+![mcp employee db schema](https://raw.githubusercontent.com/ssghait007/blog/main/assets/mcp_emp_db_schema.png)
 
 ## Step 3: Environment Configuration ⚙️
 
@@ -241,7 +177,7 @@ Test with these commands:
 
 ## Advanced Features Implemented 🚀
 
-Our MCP server includes several production-ready features:
+Our MCP server includes several features:
 
 **Business Logic Validation:**
 - Leave balance checking before approval
@@ -323,7 +259,7 @@ Building an MCP server opens up powerful possibilities for AI-driven automation.
 - Integrate AI with existing databases
 - Implement complex business logic
 - Provide secure, validated operations
-- Create production-ready tools
+- Create custom tools
 
 The combination of MCP's flexibility with PostgreSQL's robustness creates a foundation for sophisticated AI-powered applications. Whether you're automating HR processes, managing customer data, or building custom workflows, MCP servers provide the bridge between AI capabilities and your business systems.
 
