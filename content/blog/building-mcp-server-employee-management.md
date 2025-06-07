@@ -13,9 +13,9 @@ proficiency: intermediate
 # beginner intermediate advanced 
 ---
 
-# Building a Model Context Protocol (MCP) Server for Employee Management
+# Building a Model Context Protocol (MCP) Server
 
-The Model Context Protocol (MCP) is revolutionizing how AI assistants interact with external systems and data sources. Instead of being limited to their training data, AI models can now access real-time information and perform actions through MCP servers. In this guide, we'll build a MCP server for employee management that integrates with PostgreSQL.
+The Model Context Protocol (MCP) is revolutionizing how AI assistants interact with external systems and data sources. Instead of being limited to their training data, AI models can now access real-time information and perform actions through MCP servers. In this guide, we'll build a MCP server for employee management that integrates with data sources like a PostgreSQL database.
 
 ## What is MCP and Why Should You Care? 🤔
 
@@ -102,7 +102,6 @@ The project structure includes:
 - **Database layer**: Connection pooling and query utilities
 - **Service layer**: Business logic for employee operations
 - **MCP tools**: Tool definitions and request handlers
-- **Type definitions**: TypeScript interfaces for type safety
 
 Build the TypeScript project:
 
@@ -128,6 +127,8 @@ Configure Claude Desktop to use your MCP server. Edit the configuration file:
 ```bash
 code ~/Library/Application\ Support/Claude/claude_desktop_config.json
 ```
+
+Note: If you select yes to `Would you like to add this server to Claude Desktop` option, you can skip above step.
 
 **Windows:**
 ```bash
