@@ -1,13 +1,13 @@
 <template>
   <section class="text-gray-600 body-font">
-    <div class="flex md:ml-10 p-5 sm:ml-0">
+    <div class="flex justify-center md:ml-10 p-5 sm:ml-0">
       <NuxtLink to="/blog">
         <button class="btn focus:outline-none">&larr; Back</button>
       </NuxtLink>
     </div>
 
     <div
-      class="text-left overflow-hidden container mx-auto flex flex-col px-5 py-12 justify-center items-center"
+      class="text-left overflow-hidden container mx-auto flex flex-col px-5 py-0 justify-center items-center"
     >
       <img
         v-if="data?.image"
