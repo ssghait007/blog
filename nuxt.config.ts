@@ -50,13 +50,6 @@ export default defineNuxtConfig({
     }
   },
 
-  // Nitro configuration for static generation
-  nitro: {
-    prerender: {
-      routes: ['/sitemap.xml', '/robots.txt']
-    }
-  },
-
   // SEO and meta
   site: {
     url: 'https://onthegoalways.com',
