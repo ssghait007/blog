@@ -7,8 +7,8 @@ createdAt: 2025-01-07T14:30:00.000Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/MCP.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
-readingTime: 8 min read
-tags: ['developer', 'mcp', 'typescript', 'postgresql', 'ai']
+readingTime: 5 min read
+tags: ['developer', 'ai', 'postgres']
 proficiency: intermediate
 # beginner intermediate advanced 
 ---
