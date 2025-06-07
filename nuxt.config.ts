@@ -1,6 +1,9 @@
 export default defineNuxtConfig({
-  // Modern deployment target
-  ssr: true, // or false for SPA mode, true for SSR/SSG
+  // Static site generation
+  ssr: true,
+  nitro: {
+    preset: 'netlify'
+  },
 
   // App configuration
   app: {
