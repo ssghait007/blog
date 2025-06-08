@@ -1,7 +1,7 @@
 ---
 title: Building a Model Context Protocol (MCP) Server
 description: Learn how to create a comprehensive MCP server with PostgreSQL integration for employee management. Build tools for employee info, leave management, and database operations with TypeScript and Claude Desktop integration.
-category: Developer
+category: Backend
 published: true
 createdAt: 2025-06-07T14:30:00.000Z
 image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/MCP.webp
