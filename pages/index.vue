@@ -16,7 +16,7 @@
         </p>
         <div class="flex justify-center">
           <NuxtLink to="/blog">
-            <button class="btn focus:outline-none">To Blog</button>
+            <button class="btn focus:outline-none" aria-label="Navigate to blog posts">To Blog</button>
           </NuxtLink>
         </div>
       </div>

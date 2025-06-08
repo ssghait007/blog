@@ -81,7 +81,7 @@
     </div>
     <div class="flex justify-center mb-8">
       <NuxtLink to="/">
-        <button class="btn focus:outline-none">To Home</button>
+        <button class="btn focus:outline-none" aria-label="Navigate to home page">To Home</button>
       </NuxtLink>
     </div>
   </section>

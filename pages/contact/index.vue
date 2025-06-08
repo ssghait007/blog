@@ -2,7 +2,7 @@
   <section class="text-gray-600 body-font relative">
     <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-col text-center w-full mb-12">
-        <button class="opacity-0" @click="show()">Show all</button>
+        <button class="opacity-0" @click="show()" aria-label="Show all posts for development">Show all</button>
         <h1
           class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"
         >
@@ -55,7 +55,7 @@
               </div>
             </div>
             <div class="p-2 text-center w-full">
-              <button type="submit" class="btn focus:outline-none">
+              <button type="submit" class="btn focus:outline-none" aria-label="Submit contact form">
                 Submit
               </button>
             </div>

@@ -2,7 +2,7 @@
   <section class="text-gray-600 body-font">
     <div class="flex justify-center md:ml-10 p-5 sm:ml-0">
       <NuxtLink to="/blog">
-        <button class="btn focus:outline-none">&larr; Back</button>
+        <button class="btn focus:outline-none" aria-label="Navigate to blog posts">&larr; Back</button>
       </NuxtLink>
     </div>
 

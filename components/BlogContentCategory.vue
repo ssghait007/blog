@@ -86,7 +86,7 @@
     </div>
     <div class="flex justify-center mb-8">
       <NuxtLink to="/blog">
-        <button class="btn focus:outline-none">← Back to All Posts</button>
+        <button class="btn focus:outline-none" aria-label="Navigate to blog posts">← Back to All Posts</button>
       </NuxtLink>
     </div>
   </section>
