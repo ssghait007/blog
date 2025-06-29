@@ -27,11 +27,12 @@ export default defineNuxtConfig({
   css: [],
 
   // Modules
-  modules: [
-    '@nuxt/content',
-    '@nuxtjs/tailwindcss',
-    '@vueuse/nuxt'
-  ],
+  modules: ['@nuxt/content', '@nuxtjs/tailwindcss', '@vueuse/nuxt', 'nuxt-gtag'],
+
+  // Google Analytics configuration
+  gtag: {
+    id: process.env.GOOGLE_ANALYTICS_ID
+  },
 
   // Development tools
   devtools: { enabled: true },
@@ -49,7 +50,8 @@ export default defineNuxtConfig({
     // Private keys (only available on server-side)
     // Public keys (exposed to client-side)
     public: {
-      siteUrl: 'https://onthegoalways.com'
+      siteUrl: 'https://onthegoalways.com',
+      googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID
     }
   },
 
