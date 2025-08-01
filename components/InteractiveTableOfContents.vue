@@ -1,6 +1,6 @@
 <template>
   <div class="interactive-toc bg-white rounded-lg border border-gray-200 p-4 shadow-sm">
-    <h2 class="uppercase text-green-500 font-bold text-lg tracking-wider mb-4">
+    <h2 class="uppercase text-purple-500 font-bold text-lg tracking-wider mb-4">
       Table of contents
     </h2>
     
@@ -14,9 +14,9 @@
         >
           <a
             :href="`#${link.id}`"
-            class="toc-link block py-2 px-3 rounded-md text-sm transition-all duration-200 hover:bg-blue-50 hover:text-blue-600 no-underline"
+            class="toc-link block py-2 px-3 rounded-md text-sm transition-all duration-200 hover:bg-purple-50 hover:text-purple-600 no-underline"
             :class="{
-              'text-blue-600 bg-blue-50 border-l-3 border-blue-500 font-medium': activeSection === link.id,
+              'text-purple-600 bg-purple-50 border-l-3 border-purple-500 font-medium': activeSection === link.id,
               'text-gray-600': activeSection !== link.id
             }"
             @click="handleLinkClick($event, link.id)"
