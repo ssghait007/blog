@@ -1,5 +1,5 @@
 <template>
-  <div class="interactive-toc bg-white rounded-lg border border-gray-200 p-4 shadow-sm">
+  <div class="interactive-toc bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4 shadow-sm dark:shadow-gray-900/10">
     <h2 class="uppercase text-purple-500 font-bold text-lg tracking-wider mb-4">
       Table of contents
     </h2>
@@ -14,10 +14,10 @@
         >
           <a
             :href="`#${link.id}`"
-            class="toc-link block py-2 px-3 rounded-md text-sm transition-all duration-200 hover:bg-purple-50 hover:text-purple-600 no-underline"
+            class="toc-link block py-2 px-3 rounded-md text-sm transition-all duration-200 hover:bg-purple-50 dark:hover:bg-purple-900/20 hover:text-purple-600 dark:hover:text-purple-400 no-underline"
             :class="{
-              'text-purple-600 bg-purple-50 border-l-3 border-purple-500 font-medium': activeSection === link.id,
-              'text-gray-600': activeSection !== link.id
+              'text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20 border-l-3 border-purple-500 dark:border-purple-400 font-medium': activeSection === link.id,
+              'text-gray-600 dark:text-gray-300': activeSection !== link.id
             }"
             @click="handleLinkClick($event, link.id)"
           >
@@ -157,13 +157,27 @@ onUnmounted(() => {
   border-radius: 4px;
 }
 
+.dark .toc-navigation::-webkit-scrollbar-track {
+  background: #374151;
+  border-radius: 4px;
+}
+
 .toc-navigation::-webkit-scrollbar-thumb {
   background: #cbd5e0;
   border-radius: 4px;
 }
 
+.dark .toc-navigation::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 4px;
+}
+
 .toc-navigation::-webkit-scrollbar-thumb:hover {
   background: #a0aec0;
+}
+
+.dark .toc-navigation::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
 }
 
 .toc-link {

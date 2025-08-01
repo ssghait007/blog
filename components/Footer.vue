@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-white border-t border-gray-200/50">
+  <footer class="bg-white dark:bg-gray-900 border-t border-gray-200/50 dark:border-gray-700/50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="py-12">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -20,23 +20,23 @@
                   <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
                 </svg>
               </div>
-              <span class="text-xl font-semibold tracking-tight text-gray-900">Sachin Ghait</span>
+              <span class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Sachin Ghait</span>
             </div>
-            <p class="text-gray-600 text-sm max-w-md leading-relaxed">
+            <p class="text-gray-600 dark:text-gray-300 text-sm max-w-md leading-relaxed">
               Knowledge shared is knowledge squared. A space to reflect on personal growth and share insights with the developer community.
             </p>
           </div>
 
           <!-- Quick Links -->
           <div>
-            <h3 class="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">
+            <h3 class="text-sm font-semibold text-gray-900 dark:text-white tracking-wider uppercase mb-4">
               Quick Links
             </h3>
             <ul class="space-y-3">
               <li>
                 <NuxtLink
                   to="/blog"
-                  class="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200"
+                  class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                 >
                   All Posts
                 </NuxtLink>
@@ -44,7 +44,7 @@
               <li>
                 <NuxtLink
                   to="/blog/frontend"
-                  class="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200"
+                  class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                 >
                   Frontend
                 </NuxtLink>
@@ -52,7 +52,7 @@
               <li>
                 <NuxtLink
                   to="/blog/backend"
-                  class="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200"
+                  class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                 >
                   Backend
                 </NuxtLink>
@@ -60,7 +60,7 @@
               <li>
                 <NuxtLink
                   to="/blog/cloud"
-                  class="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200"
+                  class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                 >
                   Cloud
                 </NuxtLink>
@@ -70,14 +70,14 @@
 
           <!-- About -->
           <div>
-            <h3 class="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">
+            <h3 class="text-sm font-semibold text-gray-900 dark:text-white tracking-wider uppercase mb-4">
               About
             </h3>
             <ul class="space-y-3">
               <li>
                 <NuxtLink
                   to="/about-us"
-                  class="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200"
+                  class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                 >
                   About Us
                 </NuxtLink>
@@ -85,7 +85,7 @@
               <li>
                 <NuxtLink
                   to="/contact"
-                  class="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200"
+                  class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                 >
                   Contact
                 </NuxtLink>
@@ -93,7 +93,7 @@
               <li>
                 <NuxtLink
                   to="/privacy-policy"
-                  class="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200"
+                  class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                 >
                   Privacy Policy
                 </NuxtLink>
@@ -104,9 +104,9 @@
       </div>
 
       <!-- Bottom Section -->
-      <div class="border-t border-gray-200 py-6">
+      <div class="border-t border-gray-200 dark:border-gray-700 py-6">
         <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-          <div class="text-sm text-gray-600">
+          <div class="text-sm text-gray-600 dark:text-gray-300">
             © 2021 Sachin Ghait. All rights reserved.
           </div>
 

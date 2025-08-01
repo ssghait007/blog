@@ -1,5 +1,5 @@
 <template>
-  <section class="text-gray-600 body-font">
+  <section class="text-gray-600 dark:text-gray-300 body-font">
     <div
       class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center"
     >
@@ -7,11 +7,11 @@
         class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center"
       >
         <h1
-          class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"
+          class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 dark:text-gray-100"
         >
           Learning, growing, and sharing...
         </h1>
-        <p class="mb-8 leading-relaxed">
+        <p class="mb-8 leading-relaxed dark:text-gray-300">
           A space to reflect on personal growth and share insights with the community, A place to share my experiences and connect with like-minded individuals
         </p>
         <div class="flex justify-center">

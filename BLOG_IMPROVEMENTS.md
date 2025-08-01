@@ -9,17 +9,17 @@
 - [ ] Track click-through rates to optimize recommendations
 
 ### **2. Implement Reading Progress Indicator**
-- [ ] Add progress bar showing article reading completion
-- [ ] Position at top of page or as floating element
-- [ ] Include smooth animations and visual feedback
+- [x] Add progress bar showing article reading completion
+- [x] Position at top of page or as floating element
+- [x] Include smooth animations and visual feedback
 - [ ] Add estimated time remaining based on reading speed
 
 ### **3. Add Interactive Table of Contents**
-- [ ] Enhance existing TOC with scroll spy highlighting
-- [ ] Implement smooth scrolling to sections
-- [ ] Add collapsible nested headings
+- [x] Enhance existing TOC with scroll spy highlighting
+- [x] Implement smooth scrolling to sections
+- [x] Add collapsible nested headings
 - [ ] Include progress indicators per section
-- [ ] Make TOC sticky on desktop view
+- [x] Make TOC sticky on desktop view
 
 ### **4. Enable Comments System**
 - [ ] Research and choose commenting platform (Disqus, Utterances, Giscus)
@@ -44,11 +44,11 @@
 - [ ] Add search analytics tracking
 
 ### **7. Add Dark Mode Toggle**
-- [ ] Design dark theme color scheme
-- [ ] Implement theme switcher component
-- [ ] Add theme persistence (localStorage)
-- [ ] Ensure accessibility compliance in both themes
-- [ ] Update all components to support dark mode
+- [x] Design dark theme color scheme
+- [x] Implement theme switcher component
+- [x] Add theme persistence (localStorage)
+- [x] Ensure accessibility compliance in both themes
+- [x] Update all components to support dark mode
 
 ### **8. Create Interactive Code Examples**
 - [ ] Add syntax highlighting with copy buttons

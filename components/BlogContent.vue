@@ -1,5 +1,5 @@
 <template>
-  <section class="text-gray-600 body-font">
+  <section class="text-gray-600 dark:text-gray-300 body-font">
     <div class="container px-5 py-12 mx-auto">
       <div v-if="filteredPosts.length" class="flex flex-wrap -m-4">
         <div
@@ -19,7 +19,7 @@
             </NuxtLink>
             <div class="p-6">
               <h2
-                class="tracking-widest text-xs title-font font-medium text-gray-500 mb-1"
+                class="tracking-widest text-xs title-font font-medium text-gray-500 dark:text-gray-400 mb-1"
               >
                 {{ post.category }}
               </h2>
@@ -28,12 +28,12 @@
                 class="text-indigo-500 hover:text-indigo-900 block items-center md:mb-2 lg:mb-0"
               >
                 <h1
-                  class="title-font text-lg text-left font-medium text-gray-900 hover:text-gray-600"
+                  class="title-font text-lg text-left font-medium text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-300"
                 >
                   {{ post.title }}
                 </h1>
               </NuxtLink>
-              <p class="leading-relaxed text-left">
+              <p class="leading-relaxed text-left text-gray-600 dark:text-gray-300">
                 {{ post.description }}
               </p>
 
@@ -62,13 +62,13 @@
                 />
                 <div class="pl-2">
                   <div class="font-medium">{{ post.author }}</div>
-                  <div class="text-gray-600 text-xs">
+                  <div class="text-gray-600 dark:text-gray-400 text-xs">
                     {{ post.authorTitle }}
                   </div>
                 </div>
-                <div class="ml-auto text-center">
+                <div class="ml-auto text-center text-gray-900 dark:text-gray-100">
                   <div class="font-medium text-xs">{{ post.readingTime }}</div>
-                  <div class="text-gray-600 text-xs">
+                  <div class="text-gray-600 dark:text-gray-400 text-xs">
                     {{ formatDate(post.createdAt) }}
                   </div>
                 </div>
@@ -77,7 +77,7 @@
           </div>
         </div>
       </div>
-      <div v-else class="flex flex-wrap -m-4">No posts in this section</div>
+      <div v-else class="flex flex-wrap -m-4 text-gray-900 dark:text-gray-100">No posts in this section</div>
     </div>
     <div class="flex justify-center mb-8">
       <NuxtLink to="/">

@@ -1,10 +1,10 @@
 <template>
-  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm">
+  <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-700/50 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <!-- Logo and Brand -->
         <NuxtLink
-          class="flex items-center space-x-3 text-gray-900 hover:text-gray-700 transition-colors duration-200"
+          class="flex items-center space-x-3 text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-300 transition-colors duration-200"
           to="/"
         >
           <div class="relative">
@@ -47,22 +47,22 @@
             </div>
             <input
               type="text"
-              class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm transition-all duration-200"
+              class="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg leading-5 bg-white dark:bg-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm transition-all duration-200"
               placeholder="Search articles..."
               v-model="search"
             />
           </div>
 
           <!-- Search Results -->
-          <div v-if="searchResults.length > 0" class="absolute top-full left-0 right-0 mt-1 bg-white rounded-lg shadow-lg border border-gray-200 max-h-80 overflow-y-auto z-50">
+          <div v-if="searchResults.length > 0" class="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-600 max-h-80 overflow-y-auto z-50">
             <div
               v-for="article of searchResults"
               :key="article._path"
               @click="onClick(article._path)"
-              class="px-4 py-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 transition-colors duration-150"
+              class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer border-b border-gray-100 dark:border-gray-700 last:border-b-0 transition-colors duration-150"
             >
-              <div class="text-sm font-medium text-gray-900 truncate">{{ article.title }}</div>
-              <div class="text-xs text-gray-500 mt-1 truncate">{{ article.description }}</div>
+              <div class="text-sm font-medium text-gray-900 dark:text-white truncate">{{ article.title }}</div>
+              <div class="text-xs text-gray-500 dark:text-gray-400 mt-1 truncate">{{ article.description }}</div>
             </div>
           </div>
         </div>
@@ -72,19 +72,23 @@
           <NuxtLink
             v-for="category in categories"
             :key="category"
-            class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors duration-200 relative group"
+            class="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors duration-200 relative group"
             :to="`/blog/${category.toLowerCase()}`"
           >
             {{ category }}
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"></span>
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-200 group-hover:w-full"></span>
           </NuxtLink>
+          
+          <!-- Dark Mode Toggle -->
+          <DarkModeToggle />
         </nav>
 
-        <!-- Mobile Menu Button -->
-        <div class="md:hidden">
+        <!-- Mobile Menu Button and Dark Mode Toggle -->
+        <div class="md:hidden flex items-center space-x-2">
+          <DarkModeToggle />
           <button
             @click="mobileMenuOpen = !mobileMenuOpen"
-            class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-colors duration-200" aria-label="Toggle mobile menu"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 transition-colors duration-200" aria-label="Toggle mobile menu"
           >
             <svg
               class="h-6 w-6"
@@ -113,12 +117,12 @@
       </div>
 
       <!-- Mobile Menu -->
-      <div v-if="mobileMenuOpen" class="md:hidden border-t border-gray-200 py-4">
+      <div v-if="mobileMenuOpen" class="md:hidden border-t border-gray-200 dark:border-gray-700 py-4">
         <div class="flex flex-col space-y-3">
           <NuxtLink
             v-for="category in categories"
             :key="category"
-            class="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors duration-200 px-2 py-1"
+            class="text-base font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 px-2 py-1"
             :to="`/blog/${category.toLowerCase()}`"
             @click="mobileMenuOpen = false"
           >
@@ -136,6 +140,12 @@ const router = useRouter()
 const search = ref("")
 const mobileMenuOpen = ref(false)
 const categories = ["Frontend", "Backend", "Cloud", "Developer"]
+
+// Initialize dark mode
+const { initDarkMode } = useDarkMode()
+onMounted(() => {
+  initDarkMode()
+})
 
 // Fetch all blog posts for search
 const { data: allPosts } = await useAsyncData('all-blog-posts', () =>
