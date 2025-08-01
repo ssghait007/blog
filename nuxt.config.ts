@@ -42,6 +42,12 @@ export default defineNuxtConfig({
     // Configure @nuxt/content options here
     highlight: {
       theme: 'github-dark'
+    },
+    markdown: {
+      toc: {
+        depth: 5,
+        searchDepth: 5
+      }
     }
   },
 

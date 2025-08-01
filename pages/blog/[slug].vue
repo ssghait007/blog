@@ -18,26 +18,9 @@
         :src="data.image"
       />
 
-      <h2
-        v-if="data?.toc && data.toc.length > 0"
-        class="uppercase text-green-500 font-bold text-lg lg:mt-16 tracking-wider"
-      >
-        Table of contents
-      </h2>
-      <nav v-if="data?.toc && data.toc.length > 0" class="mt-4 mb-8 text-blue-500">
-        <ul class="list-decimal">
-          <li
-            class="toc-list text-left m-4"
-            v-for="link of data.toc"
-            :key="link.id"
-          >
-            <a
-              class="underline decoration-pink-500"
-              :href="`#${link.id}`"
-            >{{ link.text }}</a>
-          </li>
-        </ul>
-      </nav>
+      <div v-if="data?.body?.toc?.links?.length > 0" class="lg:mt-16 mb-8">
+        <InteractiveTableOfContents :tocData="data.body.toc.links" />
+      </div>
 
       <ContentDoc class="m-auto text-left prose" />
     </div>
@@ -46,7 +29,8 @@
 </template>
 
 <script setup>
-import { format } from 'date-fns'
+// import { format } from 'date-fns' // Removed unused import
+import InteractiveTableOfContents from '~/components/InteractiveTableOfContents.vue'
 
 const route = useRoute()
 const slug = route.params.slug
