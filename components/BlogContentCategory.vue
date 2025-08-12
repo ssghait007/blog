@@ -8,7 +8,7 @@
           class="p-4 md:w-1/3"
         >
           <div
-            class="shadow-md h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden hover:shadow-md hover:rounded hover:border-purple-300 transition duration-300 transform hover:-translate-y-3"
+            class="shadow-md h-full border border-gray-200 border-opacity-60 rounded-lg overflow-hidden hover:shadow-md hover:rounded hover:border-purple-300 transition duration-300 transform hover:-translate-y-3"
           >
             <NuxtLink :to="post._path">
               <img
