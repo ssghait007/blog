@@ -9,7 +9,7 @@
         >
           <div
             :ref="el => cardRefs[post._path] = el"
-            class="shadow-md h-full border border-gray-200 border-opacity-60 rounded-lg overflow-hidden hover:shadow-md hover:rounded hover:border-purplechec-500 transition duration-300 transform hover:-translate-y-3 card-parallax"
+            class="shadow-md h-full border border-gray-200 border-opacity-60 rounded-lg overflow-hidden hover:shadow-md hover:rounded hover:border-purple-500 transition duration-300 transform hover:-translate-y-3 card-parallax"
 
           >
             <NuxtLink :to="post._path">

@@ -1,5 +1,5 @@
 <template>
-  <section class="text-gray-600 body-font">
+  <section ref="container" class="text-gray-600 dark:text-gray-300 body-font">
     <div class="container px-5 py-12 mx-auto">
       <div v-if="filteredPosts.length" class="flex flex-wrap -m-4">
         <div
@@ -8,7 +8,9 @@
           class="p-4 md:w-1/3"
         >
           <div
-            class="shadow-md h-full border border-gray-200 border-opacity-60 rounded-lg overflow-hidden hover:shadow-md hover:rounded hover:border-purple-300 transition duration-300 transform hover:-translate-y-3"
+            :ref="el => cardRefs[post._path] = el"
+            class="shadow-md h-full border border-gray-200 border-opacity-60 rounded-lg overflow-hidden hover:shadow-md hover:rounded hover:border-purple-500 transition duration-300 transform hover:-translate-y-3 card-parallax"
+
           >
             <NuxtLink :to="post._path">
               <img
@@ -19,7 +21,7 @@
             </NuxtLink>
             <div class="p-6">
               <h2
-                class="tracking-widest text-xs title-font font-medium text-gray-500 mb-1"
+                class="tracking-widest text-xs title-font font-medium text-gray-500 dark:text-gray-400 mb-1"
               >
                 {{ post.category }}
               </h2>
@@ -28,12 +30,12 @@
                 class="text-indigo-500 hover:text-indigo-900 block items-center md:mb-2 lg:mb-0"
               >
                 <h1
-                  class="title-font text-lg text-left font-medium text-gray-900 hover:text-gray-600"
+                  class="title-font text-lg text-left font-medium text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-300"
                 >
                   {{ post.title }}
                 </h1>
               </NuxtLink>
-              <p class="leading-relaxed text-left">
+              <p class="leading-relaxed text-left text-gray-600 dark:text-gray-300">
                 {{ post.description }}
               </p>
 
@@ -62,13 +64,13 @@
                 />
                 <div class="pl-2">
                   <div class="font-medium">{{ post.author }}</div>
-                  <div class="text-gray-600 text-xs">
+                  <div class="text-gray-600 dark:text-gray-400 text-xs">
                     {{ post.authorTitle }}
                   </div>
                 </div>
-                <div class="ml-auto text-center">
+                <div class="ml-auto text-center text-gray-900 dark:text-gray-100">
                   <div class="font-medium text-xs">{{ post.readingTime }}</div>
-                  <div class="text-gray-600 text-xs">
+                  <div class="text-gray-600 dark:text-gray-400 text-xs">
                     {{ formatDate(post.createdAt) }}
                   </div>
                 </div>
@@ -77,10 +79,10 @@
           </div>
         </div>
       </div>
-      <div v-else class="flex flex-wrap -m-4">
+      <div v-else class="flex flex-wrap -m-4 text-gray-900 dark:text-gray-100">
         <div class="text-center w-full">
-          <h2 class="text-2xl font-medium text-gray-900 mb-4">No {{ category }} posts found</h2>
-          <p class="text-gray-600 mb-8">Check back later for new {{ category.toLowerCase() }} content!</p>
+          <h2 class="text-2xl font-medium text-gray-900 dark:text-gray-100 mb-4">No {{ category }} posts found</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-8">Check back later for new {{ category.toLowerCase() }} content!</p>
         </div>
       </div>
     </div>
@@ -94,6 +96,7 @@
 
 <script setup>
 import { format } from "date-fns";
+import { useParallax } from "@vueuse/core";
 
 // Define props
 const props = defineProps({
@@ -121,7 +124,7 @@ const filteredPosts = computed(() => {
   if (!posts.value) return []
 
   // Check if we should show unpublished posts (for development)
-  const show = process.client ? localStorage.getItem("show") : null
+  const show = import.meta.client ? localStorage.getItem("show") : null
   let filtered = []
 
   if (show) {
@@ -137,4 +140,39 @@ const filteredPosts = computed(() => {
     return dateB - dateA
   })
 })
+
+// Store card element refs
+const cardRefs = ref({});
+
+// Container for parallax effect
+const container = ref();
+const { tilt, roll } = useParallax(container);
+
+// Apply parallax effect to all cards
+const applyParallax = () => {
+  if (import.meta.client) {
+    Object.values(cardRefs.value).forEach((card) => {
+      if (card) {
+        const tiltValue = tilt.value * 10;
+        const rollValue = roll.value * 10;
+
+        card.style.transform = `perspective(1000px) rotateX(${rollValue}deg) rotateY(${tiltValue}deg) translateZ(0)`;
+        card.style.transformStyle = 'preserve-3d';
+        card.style.transition = 'transform 0.1s ease-out';
+      }
+    });
+  }
+};
+
+// Watch for changes in tilt and roll
+watch([tilt, roll], applyParallax);
+
+// Initialize on mount
+onMounted(() => {
+  if (import.meta.client) {
+    nextTick(() => {
+      applyParallax();
+    });
+  }
+});
 </script>
