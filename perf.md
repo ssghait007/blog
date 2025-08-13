@@ -21,10 +21,10 @@
   - [ ] Implement lazy loading for images
 
 ### Caching
-- [ ] Serve static assets with efficient cache policy
-  - [ ] Update netlify.toml with proper cache headers
-  - [ ] Set cache headers for images, CSS, and JS files
-  - [ ] Configure long-term caching for immutable assets
+- [x] Serve static assets with efficient cache policy
+  - [x] Update netlify.toml with proper cache headers
+  - [x] Set cache headers for images, CSS, and JS files
+  - [x] Configure long-term caching for immutable assets
 
 ### Performance Metrics
 - [ ] Optimize Largest Contentful Paint (currently 510ms)
