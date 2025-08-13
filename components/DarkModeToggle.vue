@@ -1,8 +1,8 @@
 <template>
   <button
-    @click="toggleDarkMode"
     class="relative inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
     :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+    @click="toggleDarkMode"
   >
     <!-- Sun icon for light mode -->
     <svg

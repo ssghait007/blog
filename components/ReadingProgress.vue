@@ -6,7 +6,7 @@
     <div
       class="reading-progress-bar h-full bg-gradient-to-r from-purple-400 to-purple-600 dark:from-purple-400 dark:to-purple-500 transition-all duration-300 ease-out"
       :style="{ width: `${progress}%` }"
-    ></div>
+    />
   </div>
 </template>
 

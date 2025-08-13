@@ -1,4 +1,4 @@
 <template>
-  <BlogContent></BlogContent>
+  <BlogContent/>
 </template>
 

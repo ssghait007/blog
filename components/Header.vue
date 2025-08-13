@@ -19,7 +19,7 @@
                 class="w-5 h-5 text-white"
                 viewBox="0 0 24 24"
               >
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
               </svg>
             </div>
           </div>
@@ -46,11 +46,11 @@
               </svg>
             </div>
             <input
+              v-model="search"
               type="text"
               class="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg leading-5 bg-white dark:bg-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm transition-all duration-200"
               placeholder="Search articles..."
-              v-model="search"
-            />
+            >
           </div>
 
           <!-- Search Results -->
@@ -58,8 +58,8 @@
             <div
               v-for="article of searchResults"
               :key="article._path"
-              @click="onClick(article._path)"
               class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer border-b border-gray-100 dark:border-gray-700 last:border-b-0 transition-colors duration-150"
+              @click="onClick(article._path)"
             >
               <div class="text-sm font-medium text-gray-900 dark:text-white truncate">{{ article.title }}</div>
               <div class="text-xs text-gray-500 dark:text-gray-400 mt-1 truncate">{{ article.description }}</div>
@@ -76,7 +76,7 @@
             :to="`/blog/${category.toLowerCase()}`"
           >
             {{ category }}
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-200 group-hover:w-full"></span>
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-200 group-hover:w-full"/>
           </NuxtLink>
           
           <!-- Dark Mode Toggle -->
@@ -87,8 +87,8 @@
         <div class="md:hidden flex items-center space-x-2">
           <DarkModeToggle />
           <button
-            @click="mobileMenuOpen = !mobileMenuOpen"
-            class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 transition-colors duration-200" aria-label="Toggle mobile menu"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 transition-colors duration-200"
+            aria-label="Toggle mobile menu" @click="mobileMenuOpen = !mobileMenuOpen"
           >
             <svg
               class="h-6 w-6"
@@ -166,7 +166,7 @@ const searchResults = computed(() => {
   return allPosts.value
     .filter(post => {
       // Only show published posts (unless in development mode)
-      const show = process.client ? localStorage.getItem("show") : null
+      const show = import.meta.client ? localStorage.getItem("show") : null
       if (!show && !post.published) return false
 
       // Search in title and description

@@ -25,7 +25,7 @@
           class="object-cover object-center rounded-md"
           alt="webDevTrends"
           src="https://raw.githubusercontent.com/ssghait007/blog/main/assets/hand-drawn.webp"
-        />
+        >
       </div>
     </div>
   </section>

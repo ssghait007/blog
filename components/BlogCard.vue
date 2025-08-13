@@ -8,7 +8,7 @@
         class="lg:h-48 md:h-36 w-full object-cover object-center"
         :src="post.image"
         alt="blog"
-      />
+      >
     </NuxtLink>
     <div class="p-6">
       <h2
@@ -52,7 +52,7 @@
           class="w-10 h-10 object-cover rounded-full"
           alt="User avatar"
           src="https://lh3.googleusercontent.com/a-/AFdZucogzmfN7i7Vbb3zeC77T3vz5TAOF4wI4fYihn2I=s80-p"
-        />
+        >
         <div class="pl-2">
           <div class="font-medium">{{ post.author }}</div>
           <div class="text-gray-600 dark:text-gray-400 text-xs">
@@ -73,7 +73,7 @@
 <script setup>
 import { format } from "date-fns";
 
-const props = defineProps({
+defineProps({
   post: {
     type: Object,
     required: true

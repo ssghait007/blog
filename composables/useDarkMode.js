@@ -1,3 +1,5 @@
+import { ref, readonly } from 'vue'
+
 export const useDarkMode = () => {
   const isDark = ref(false)
 
@@ -8,7 +10,7 @@ export const useDarkMode = () => {
   }
 
   const updateDOM = () => {
-    if (process.client) {
+    if (import.meta.client) {
       if (isDark.value) {
         document.documentElement.classList.add('dark')
       } else {
@@ -18,13 +20,13 @@ export const useDarkMode = () => {
   }
 
   const saveToStorage = () => {
-    if (process.client) {
+    if (import.meta.client) {
       localStorage.setItem('darkMode', JSON.stringify(isDark.value))
     }
   }
 
   const loadFromStorage = () => {
-    if (process.client) {
+    if (import.meta.client) {
       const stored = localStorage.getItem('darkMode')
       if (stored) {
         isDark.value = JSON.parse(stored)
@@ -41,7 +43,7 @@ export const useDarkMode = () => {
     loadFromStorage()
     
     // Listen for system theme changes
-    if (process.client) {
+    if (import.meta.client) {
       const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
       mediaQuery.addEventListener('change', (e) => {
         if (!localStorage.getItem('darkMode')) {

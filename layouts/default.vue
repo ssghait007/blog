@@ -1,8 +1,8 @@
 <template>
   <div class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
-    <Header></Header>
+    <Header/>
     <slot />
-    <Footer></Footer>
+    <Footer/>
   </div>
 </template>
 

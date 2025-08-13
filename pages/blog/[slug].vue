@@ -16,10 +16,10 @@
         class="lg:w-4/6 md:w-5/6 w-6/6 mb-10 object-cover object-center rounded"
         alt="hero"
         :src="data.image"
-      />
+      >
 
       <div v-if="data?.body?.toc?.links?.length > 0" class="lg:mt-16 mb-8">
-        <InteractiveTableOfContents :tocData="data.body.toc.links" />
+        <LazyInteractiveTableOfContents :toc-data="data.body.toc.links" />
       </div>
 
       <ContentDoc class="m-auto text-left prose dark:prose-invert max-w-none" />
@@ -30,7 +30,7 @@
 
 <script setup>
 // import { format } from 'date-fns' // Removed unused import
-import InteractiveTableOfContents from '~/components/InteractiveTableOfContents.vue'
+// Remove explicit import - using Lazy prefix for auto-loading
 
 const route = useRoute()
 const slug = route.params.slug

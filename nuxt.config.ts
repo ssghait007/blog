@@ -37,6 +37,11 @@ export default defineNuxtConfig({
   // Development tools
   devtools: { enabled: true },
 
+  // Performance optimizations
+  experimental: {
+    payloadExtraction: false, // Reduce bundle size
+  },
+
   // Content configuration
   content: {
     // Configure @nuxt/content options here
