@@ -42,6 +42,20 @@ export default defineNuxtConfig({
     payloadExtraction: false, // Reduce bundle size
   },
 
+  // Build optimizations
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          // Enable content hashing for cache busting
+          entryFileNames: '_nuxt/[name].[hash].js',
+          chunkFileNames: '_nuxt/[name].[hash].js',
+          assetFileNames: '_nuxt/[name].[hash].[ext]'
+        }
+      }
+    }
+  },
+
   // Content configuration
   content: {
     // Configure @nuxt/content options here
