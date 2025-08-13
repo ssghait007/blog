@@ -29,9 +29,12 @@ export default defineNuxtConfig({
   // Modules
   modules: ['@nuxt/content', '@nuxtjs/tailwindcss', '@vueuse/nuxt', 'nuxt-gtag'],
 
-  // Google Analytics configuration
+  // Google Analytics configuration - optimized loading
+  // @ts-ignore
   gtag: {
-    id: process.env.GOOGLE_ANALYTICS_ID
+    id: process.env.GOOGLE_ANALYTICS_ID,
+    // Defer loading for better performance
+    loadingStrategy: 'defer'
   },
 
   // Development tools

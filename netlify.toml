@@ -99,3 +99,5 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    # Preconnect to external domains for faster third-party loading
+    Link = "</dns-prefetch>; rel=dns-prefetch; href=//www.google-analytics.com, </preconnect>; rel=preconnect; href=//www.googletagmanager.com"

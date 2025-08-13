@@ -33,10 +33,10 @@
   - [ ] Consider inlining critical CSS
 
 ### Third-party Optimization
-- [ ] Minimize third-party usage impact
-  - [ ] Review Google Analytics loading strategy
-  - [ ] Consider self-hosting Google Fonts if used
-  - [ ] Defer non-critical third-party scripts
+- [x] Minimize third-party usage impact
+  - [x] Review Google Analytics loading strategy
+  - [x] Consider self-hosting Google Fonts if used
+  - [x] Defer non-critical third-party scripts
 
 ## Accessibility Issues
 
