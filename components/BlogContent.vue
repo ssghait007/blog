@@ -1,25 +1,28 @@
 <template>
-  <section ref="container" class="text-gray-600 dark:text-gray-300 body-font">
+  <section ref="container" class="text-gray-700 dark:text-gray-200 body-font" aria-label="Blog posts">
     <div class="container px-5 py-12 mx-auto">
-      <div v-if="filteredPosts.length" class="flex flex-wrap -m-4">
-        <div
+      <div v-if="filteredPosts.length" class="flex flex-wrap -m-4" role="list">
+        <article
           v-for="post in filteredPosts"
           :key="post._path"
           class="p-4 md:w-1/3"
+          role="listitem"
         >
           <BlogCard 
             :post="post"
             :card-ref="el => cardRefs[post._path] = el"
           />
-        </div>
+        </article>
       </div>
-      <div v-else class="flex flex-wrap -m-4 text-gray-900 dark:text-gray-100">No posts in this section</div>
+      <div v-else class="flex flex-wrap -m-4 text-gray-900 dark:text-gray-100" role="status">
+        No posts in this section
+      </div>
     </div>
-    <div class="flex justify-center mb-8">
+    <nav class="flex justify-center mb-8" aria-label="Site navigation">
       <NuxtLink to="/">
         <button class="btn focus:outline-none" aria-label="Navigate to home page">To Home</button>
       </NuxtLink>
-    </div>
+    </nav>
   </section>
 </template>
 

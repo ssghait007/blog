@@ -27,7 +27,7 @@
         </NuxtLink>
 
         <!-- Search Bar -->
-        <div class="relative flex-1 max-w-md mx-8">
+        <div class="relative flex-1 max-w-md mx-8" role="search">
           <div class="relative">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <svg
@@ -50,11 +50,12 @@
               type="text"
               class="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg leading-5 bg-white dark:bg-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm transition-all duration-200"
               placeholder="Search articles..."
+              aria-label="Search articles"
             >
           </div>
 
           <!-- Search Results -->
-          <div v-if="searchResults.length > 0" class="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-600 max-h-80 overflow-y-auto z-50">
+          <div v-if="searchResults.length > 0" class="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-600 max-h-80 overflow-y-auto z-50" aria-live="polite" aria-label="Search results">
             <div
               v-for="article of searchResults"
               :key="article._path"
@@ -68,12 +69,13 @@
         </div>
 
         <!-- Navigation -->
-        <nav class="hidden md:flex items-center space-x-8">
+        <nav id="navigation" class="hidden md:flex items-center space-x-8">
           <NuxtLink
             v-for="category in categories"
             :key="category"
-            class="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors duration-200 relative group"
+            class="text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white transition-colors duration-200 relative group"
             :to="`/blog/${category.toLowerCase()}`"
+            :aria-current="$route.path === `/blog/${category.toLowerCase()}` ? 'page' : undefined"
           >
             {{ category }}
             <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-200 group-hover:w-full"/>
@@ -88,7 +90,9 @@
           <DarkModeToggle />
           <button
             class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 transition-colors duration-200"
-            aria-label="Toggle mobile menu" @click="mobileMenuOpen = !mobileMenuOpen"
+            aria-label="Toggle mobile menu"
+            :aria-expanded="mobileMenuOpen"
+            @click="mobileMenuOpen = !mobileMenuOpen"
           >
             <svg
               class="h-6 w-6"
@@ -122,8 +126,9 @@
           <NuxtLink
             v-for="category in categories"
             :key="category"
-            class="text-base font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 px-2 py-1"
+            class="text-base font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 px-2 py-1"
             :to="`/blog/${category.toLowerCase()}`"
+            :aria-current="$route.path === `/blog/${category.toLowerCase()}` ? 'page' : undefined"
             @click="mobileMenuOpen = false"
           >
             {{ category }}

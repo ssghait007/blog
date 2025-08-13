@@ -40,11 +40,100 @@
 
 ## Accessibility Issues
 
-- [ ] Add lang attribute to html element
-  - [ ] Set language in nuxt.config.ts app.head
+### WCAG Compliance
+- [x] Add lang attribute to html element
+  - [x] Set language in nuxt.config.ts app.head
 - [ ] Fix heading elements sequential order
   - [ ] Audit heading hierarchy in blog posts
   - [ ] Ensure proper h1-h6 structure in components
+- [x] Improve color contrast ratios
+  - [x] Check purple-500 (#8B5CF6) meets 4.5:1 ratio on white backgrounds
+  - [x] Verify gray text colors meet WCAG AA standards
+  - [x] Test dark mode color contrast compliance
+
+### Images and Media
+- [x] Add proper alt text to all images
+  - [x] Update BlogCard.vue img alt="blog" to descriptive text (line 10)
+  - [x] Add meaningful alt text for author avatars
+  - [ ] Ensure hero/feature images have descriptive alt text
+- [ ] Add explicit width and height to image elements
+  - [ ] Set dimensions in BlogCard.vue img tag
+  - [ ] Add dimensions to author avatar images
+  - [ ] Set dimensions for blog post feature images
+
+### Keyboard Navigation
+- [ ] Ensure all interactive elements are keyboard accessible
+  - [ ] Test tab order through Header.vue navigation
+  - [ ] Verify search dropdown keyboard navigation
+  - [ ] Test mobile menu keyboard accessibility
+- [x] Add visible focus indicators
+  - [x] Enhance focus styles beyond default browser focus rings
+  - [x] Ensure focus indicators have sufficient contrast
+  - [x] Add custom focus styles for dark mode
+- [x] Implement skip links
+  - [x] Add "Skip to main content" link
+  - [x] Add "Skip to navigation" link
+
+### Screen Reader Support
+- [x] Add proper ARIA labels and roles
+  - [x] Add role="search" to search form in Header.vue
+  - [x] Add aria-expanded to mobile menu button
+  - [x] Add aria-current="page" to active navigation links
+- [x] Improve form accessibility
+  - [x] Add proper labels to search input
+  - [ ] Associate search input with search button
+  - [ ] Add fieldset/legend for grouped form elements
+- [x] Add live regions for dynamic content
+  - [x] Add aria-live region for search results
+  - [ ] Add status announcements for theme changes
+  - [ ] Add loading state announcements
+
+### Table of Contents Accessibility
+- [x] Enhance TOC navigation accessibility
+  - [x] Add role="navigation" and aria-labelledby
+  - [ ] Add aria-current to active TOC links
+  - [ ] Ensure smooth scroll doesn't break screen readers
+  - [ ] Add skip link to bypass TOC
+
+### Blog Content Accessibility
+- [x] Improve blog post structure
+  - [x] Ensure each blog post has proper heading hierarchy
+  - [x] Add table headers (th) with scope attributes
+  - [x] Use semantic HTML elements (article, section, aside)
+- [x] Add proper list semantics
+  - [x] Use proper ul/ol for tag lists
+  - [x] Add role="list" where CSS breaks list semantics
+- [ ] Improve link accessibility
+  - [ ] Add aria-label to social media links
+  - [ ] Provide context for "read more" links
+  - [ ] Distinguish external links with visual indicators
+
+### Mobile and Touch Accessibility
+- [ ] Ensure touch targets meet minimum size requirements
+  - [ ] Verify buttons are at least 44x44px
+  - [ ] Check tag elements meet touch target size
+  - [ ] Ensure adequate spacing between interactive elements
+- [ ] Test with mobile screen readers
+  - [ ] Test with VoiceOver on iOS
+  - [ ] Test with TalkBack on Android
+
+### Performance and Accessibility
+- [x] Reduce motion for users who prefer reduced motion
+  - [x] Add prefers-reduced-motion media queries
+  - [x] Disable parallax effects for motion-sensitive users
+  - [x] Provide alternative to animated transitions
+- [ ] Optimize for assistive technologies
+  - [ ] Ensure page loads don't break screen reader experience
+  - [ ] Test with various assistive technologies
+
+### Content Accessibility
+- [ ] Improve content readability
+  - [ ] Check text has sufficient line height (1.5x minimum)
+  - [ ] Ensure font sizes meet minimum requirements
+  - [ ] Test content with 200% zoom
+- [ ] Add language identification
+  - [ ] Mark content in different languages with lang attribute
+  - [ ] Identify abbreviations and technical terms
 
 ## Additional Performance Improvements
 

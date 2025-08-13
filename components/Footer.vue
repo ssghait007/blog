@@ -107,7 +107,7 @@
       <div class="border-t border-gray-200 dark:border-gray-700 py-6">
         <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
           <div class="text-sm text-gray-600 dark:text-gray-300">
-            © 2021 Sachin Ghait. All rights reserved.
+            © 2021-2025 Sachin Ghait. All rights reserved.
           </div>
 
           <!-- Social Links -->

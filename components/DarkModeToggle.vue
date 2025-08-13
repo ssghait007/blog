@@ -57,4 +57,11 @@ const { isDark, toggleDarkMode } = useDarkMode()
     transform: scale(1);
   }
 }
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fadeIn {
+    animation: none !important;
+  }
+}
 </style>
