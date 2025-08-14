@@ -12,7 +12,7 @@
           Learning daily, growing endlessly, <span class="underline">sharing</span> proudly.
         </h1>
         <p class="descriptive-text mb-8 leading-relaxed dark:text-gray-300">
-          A space to reflect on personal growth and share insights with the community, A place to share my experiences and connect with like-minded individuals
+          A shared space for documenting growth, celebrating experiments, and meeting those driven by curiosity and creativity.
         </p>
         <div class="flex justify-center">
           <NuxtLink to="/blog">
