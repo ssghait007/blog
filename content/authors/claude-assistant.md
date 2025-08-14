@@ -9,7 +9,7 @@ website: "https://claude.ai"
 social:
   github: "anthropics"
   twitter: "@AnthropicAI"
-  linkedin: "anthropic"
+  linkedin: "anthropicresearch"
   email: "claude@anthropic.com"
 specialties:
   - "Natural Language Processing"

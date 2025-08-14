@@ -27,7 +27,7 @@ export default defineNuxtConfig({
   },
 
   // Global CSS
-  css: [],
+  css: ['~/assets/css/fonts.css'],
 
   // Modules
   modules: ['@nuxt/content', '@nuxtjs/tailwindcss', '@vueuse/nuxt', 'nuxt-gtag'],

@@ -32,8 +32,6 @@
 </template>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Playfair+Display:wght@500&family=Inter:wght@400&display=swap');
-
 .headline {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
