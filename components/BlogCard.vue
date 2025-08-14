@@ -54,15 +54,22 @@
           </li>
         </ul>
         <div class="flex items-center mt-2 flex-wrap text-left">
-          <img
-            class="w-10 h-10 object-cover rounded-full"
-            :alt="`${post.author} avatar`"
-            src="https://lh3.googleusercontent.com/a-/AFdZucogzmfN7i7Vbb3zeC77T3vz5TAOF4wI4fYihn2I=s80-p"
-          >
+          <NuxtLink :to="`/authors/${authorData?.slug || post.author.toLowerCase().replace(/\s+/g, '-')}`">
+            <img
+              class="w-10 h-10 object-cover rounded-full hover:ring-2 hover:ring-indigo-500 transition-all cursor-pointer"
+              :alt="`${post.author} avatar`"
+              :src="authorData?.avatar || 'https://lh3.googleusercontent.com/a-/AFdZucogzmfN7i7Vbb3zeC77T3vz5TAOF4wI4fYihn2I=s80-p'"
+            >
+          </NuxtLink>
           <div class="pl-2">
-            <div class="font-medium">{{ post.author }}</div>
+            <NuxtLink
+              :to="`/authors/${authorData?.slug || post.author.toLowerCase().replace(/\s+/g, '-')}`"
+              class="font-medium hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+            >
+              {{ post.author }}
+            </NuxtLink>
             <div class="text-gray-700 dark:text-gray-300 text-xs">
-              {{ post.authorTitle }}
+              {{ authorData?.title || post.authorTitle }}
             </div>
           </div>
           <div class="ml-auto text-center text-gray-900 dark:text-gray-100">
@@ -80,7 +87,7 @@
 <script setup>
 import { format } from "date-fns";
 
-defineProps({
+const props = defineProps({
   post: {
     type: Object,
     required: true
@@ -88,6 +95,18 @@ defineProps({
   cardRef: {
     type: Function,
     default: null
+  }
+})
+
+// Fetch author data
+const { data: authorData } = await useAsyncData(`author-${props.post.author}`, async () => {
+  const slug = props.post.author.toLowerCase().replace(/\s+/g, '-')
+  try {
+    const result = await queryContent('authors').where({ slug }).findOne()
+    return result
+  } catch (error) {
+    console.warn(`Author lookup error for ${props.post.author}:`, error)
+    return null
   }
 })
 
@@ -103,7 +122,7 @@ const formatDate = (date) => {
     transform: none !important;
     transition: none !important;
   }
-  
+
   .card-parallax:hover {
     transform: none !important;
   }

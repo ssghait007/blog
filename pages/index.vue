@@ -7,11 +7,11 @@
         class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center"
       >
         <h1
-          class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 dark:text-gray-100"
+          class="headline sm:text-4xl text-3xl mb-4 font-medium text-gray-900 dark:text-gray-100"
         >
-          Learning, growing, and sharing...
+          Learning daily, growing endlessly, <span class="underline">sharing</span> proudly.
         </h1>
-        <p class="mb-8 leading-relaxed dark:text-gray-300">
+        <p class="descriptive-text mb-8 leading-relaxed dark:text-gray-300">
           A space to reflect on personal growth and share insights with the community, A place to share my experiences and connect with like-minded individuals
         </p>
         <div class="flex justify-center">
@@ -32,6 +32,42 @@
 </template>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Playfair+Display:wght@500&family=Inter:wght@400&display=swap');
+
+.headline {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #35495e;
+}
+
+.dark .headline {
+  color: #f7fafc;
+}
+
+.underline {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
+  text-underline-offset: 6px;
+  text-decoration-color: #526488;
+  letter-spacing: 0.05em;
+}
+
+.dark .underline {
+  text-decoration-color: #cbd5e0;
+}
+
+.descriptive-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+
+/* Apply Inter to all small text elements */
+p, button, .btn, .links, .subtitle {
+  font-family: 'Inter', sans-serif !important;
+}
+
 /* Sample `apply` at-rules with Tailwind CSS
 .container {
 @apply min-h-screen flex justify-center items-center text-center mx-auto;
