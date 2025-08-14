@@ -8,7 +8,7 @@
           class="p-4 md:w-1/3"
           role="listitem"
         >
-          <BlogCard 
+          <BlogCard
             :post="post"
             :card-ref="el => cardRefs[post._path] = el"
           />
@@ -33,6 +33,16 @@ import { useParallax } from "@vueuse/core";
 const { data: posts } = await useAsyncData('blog-posts', () =>
   queryContent('blog').sort({ createdAt: -1 }).find()
 )
+
+// Preload all unique authors to prevent duplicate fetches
+const { preloadAuthors } = useAuthorCache()
+await useAsyncData('preload-authors', async () => {
+  if (posts.value) {
+    const authorNames = posts.value.map(post => post.author).filter(Boolean)
+    await preloadAuthors(authorNames)
+  }
+  return true
+})
 
 
 // Filter posts based on published status and ensure they remain sorted

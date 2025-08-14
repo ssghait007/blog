@@ -98,17 +98,9 @@ const props = defineProps({
   }
 })
 
-// Fetch author data
-const { data: authorData } = await useAsyncData(`author-${props.post.author}`, async () => {
-  const slug = props.post.author.toLowerCase().replace(/\s+/g, '-')
-  try {
-    const result = await queryContent('authors').where({ slug }).findOne()
-    return result
-  } catch (error) {
-    console.warn(`Author lookup error for ${props.post.author}:`, error)
-    return null
-  }
-})
+// Get cached author data
+const { getCachedAuthor } = useAuthorCache()
+const authorData = computed(() => getCachedAuthor(props.post.author))
 
 const formatDate = (date) => {
   return format(new Date(date), "dd MMM yyyy");
