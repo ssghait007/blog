@@ -2,9 +2,6 @@
   publish = "dist"
   command = "npm run generate"
 
-[[plugins]]
-  package = "netlify-plugin-compress"
-
 [build.processing]
   skip_processing = false
 
