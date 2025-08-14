@@ -25,11 +25,12 @@ export const useAuthorCache = () => {
 
         const authorData = author || {
           name: authorName,
-          avatar: 'https://lh3.googleusercontent.com/a-/AFdZucogzmfN7i7Vbb3zeC77T3vz5TAOF4wI4fYihn2I=s80-p',
+          avatar:
+            'https://lh3.googleusercontent.com/a-/AFdZucogzmfN7i7Vbb3zeC77T3vz5TAOF4wI4fYihn2I=s80-p',
           title: 'Guest Author',
           bio: 'Guest contributor to the blog.',
           slug: slug,
-          social: {}
+          social: {},
         }
 
         // Cache the result
@@ -40,11 +41,12 @@ export const useAuthorCache = () => {
 
         const fallbackData = {
           name: authorName,
-          avatar: 'https://lh3.googleusercontent.com/a-/AFdZucogzmfN7i7Vbb3zeC77T3vz5TAOF4wI4fYihn2I=s80-p',
+          avatar:
+            'https://lh3.googleusercontent.com/a-/AFdZucogzmfN7i7Vbb3zeC77T3vz5TAOF4wI4fYihn2I=s80-p',
           title: 'Guest Author',
           bio: 'Guest contributor to the blog.',
           slug: slug,
-          social: {}
+          social: {},
         }
 
         authorCache.set(slug, fallbackData)
@@ -62,7 +64,7 @@ export const useAuthorCache = () => {
 
   const preloadAuthors = async (authorNames) => {
     const uniqueAuthors = [...new Set(authorNames.filter(Boolean))]
-    const promises = uniqueAuthors.map(name => getAuthor(name))
+    const promises = uniqueAuthors.map((name) => getAuthor(name))
     await Promise.all(promises)
   }
 
@@ -75,6 +77,6 @@ export const useAuthorCache = () => {
   return {
     getAuthor,
     preloadAuthors,
-    getCachedAuthor
+    getCachedAuthor,
   }
 }

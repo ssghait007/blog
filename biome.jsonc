@@ -1,0 +1,82 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
+  "extends": ["ultracite"],
+  "files": {
+    "includes": [
+      "**/*.js",
+      "**/*.jsx",
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.vue",
+      "**/*.json",
+      "**/*.css"
+    ],
+    "ignoreUnknown": false
+  },
+  "formatter": {
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80
+  },
+  "javascript": {
+    "formatter": {
+      "semicolons": "asNeeded",
+      "quoteStyle": "single",
+      "trailingCommas": "es5"
+    },
+    "globals": [
+      "defineNuxtConfig",
+      "useAuthorCache",
+      "useDarkMode",
+      "computed",
+      "ref",
+      "reactive",
+      "watch",
+      "onMounted",
+      "onUnmounted",
+      "nextTick",
+      "navigateTo",
+      "useRoute",
+      "useRouter",
+      "useState",
+      "useCookie",
+      "useHead",
+      "useSeoMeta",
+      "useRuntimeConfig",
+      "useNuxtApp",
+      "useNuxtData",
+      "useLazyFetch",
+      "useFetch",
+      "$fetch"
+    ]
+  },
+  "css": {
+    "formatter": {
+      "quoteStyle": "single"
+    }
+  },
+  "json": {
+    "formatter": {
+      "trailingCommas": "none"
+    }
+  },
+  "linter": {
+    "rules": {
+      "style": {
+        "noUnusedTemplateLiteral": "warn",
+        "useConst": "warn",
+        "useFilenamingConvention": "off"
+      },
+      "correctness": {
+        "noUnusedVariables": "warn",
+        "useHookAtTopLevel": "off",
+        "noUndeclaredVariables": "off"
+      },
+      "suspicious": {
+        "noUnknownAtRules": "off"
+      }
+    }
+  }
+}

@@ -9,8 +9,9 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint": "npx @biomejs/biome check .",
+    "format": "npx @biomejs/biome format . --write",
+    "lint:fix": "npx @biomejs/biome check . --apply"
   },
   "dependencies": {
     "@nuxt/content": "^2.13.2",
@@ -22,12 +23,19 @@
     "vue-router": "^4.4.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.2.0",
     "@nuxt/devtools": "^1.5.0",
-    "@nuxt/eslint": "^0.5.7",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@tailwindcss/typography": "^0.5.15",
-    "eslint": "^9.13.0",
-    "sass": "^1.79.0"
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.5",
+    "sass": "^1.79.0",
+    "ultracite": "^5.1.5"
   },
-  "packageManager": "npm@10.2.4"
+  "packageManager": "npm@10.2.4",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,jsonc,css,scss,md,mdx}": [
+      "npx ultracite format"
+    ]
+  }
 }

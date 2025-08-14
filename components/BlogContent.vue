@@ -27,7 +27,7 @@
 </template>
 
 <script setup>
-import { useParallax } from "@vueuse/core";
+import { useParallax } from '@vueuse/core'
 
 // Fetch all blog posts sorted by creation date (newest first)
 const { data: posts } = await useAsyncData('blog-posts', () =>
@@ -38,19 +38,18 @@ const { data: posts } = await useAsyncData('blog-posts', () =>
 const { preloadAuthors } = useAuthorCache()
 await useAsyncData('preload-authors', async () => {
   if (posts.value) {
-    const authorNames = posts.value.map(post => post.author).filter(Boolean)
+    const authorNames = posts.value.map((post) => post.author).filter(Boolean)
     await preloadAuthors(authorNames)
   }
   return true
 })
-
 
 // Filter posts based on published status and ensure they remain sorted
 const filteredPosts = computed(() => {
   if (!posts.value) return []
 
   // Check if we should show unpublished posts (for development)
-  const show = import.meta.client ? localStorage.getItem("show") : null
+  const show = import.meta.client ? localStorage.getItem('show') : null
   let filtered = []
 
   if (show) {
@@ -68,37 +67,37 @@ const filteredPosts = computed(() => {
 })
 
 // Store card element refs
-const cardRefs = ref({});
+const cardRefs = ref({})
 
 // Container for parallax effect
-const container = ref();
-const { tilt, roll } = useParallax(container);
+const container = ref()
+const { tilt, roll } = useParallax(container)
 
 // Apply parallax effect to all cards
 const applyParallax = () => {
   if (import.meta.client) {
     Object.values(cardRefs.value).forEach((card) => {
       if (card) {
-        const tiltValue = tilt.value * 10;
-        const rollValue = roll.value * 10;
+        const tiltValue = tilt.value * 10
+        const rollValue = roll.value * 10
 
-        card.style.transform = `perspective(1000px) rotateX(${rollValue}deg) rotateY(${tiltValue}deg) translateZ(0)`;
-        card.style.transformStyle = 'preserve-3d';
-        card.style.transition = 'transform 0.1s ease-out';
+        card.style.transform = `perspective(1000px) rotateX(${rollValue}deg) rotateY(${tiltValue}deg) translateZ(0)`
+        card.style.transformStyle = 'preserve-3d'
+        card.style.transition = 'transform 0.1s ease-out'
       }
-    });
+    })
   }
-};
+}
 
 // Watch for changes in tilt and roll
-watch([tilt, roll], applyParallax);
+watch([tilt, roll], applyParallax)
 
 // Initialize on mount
 onMounted(() => {
   if (import.meta.client) {
     nextTick(() => {
-      applyParallax();
-    });
+      applyParallax()
+    })
   }
-});
+})
 </script>

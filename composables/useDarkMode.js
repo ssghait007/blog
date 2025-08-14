@@ -32,7 +32,9 @@ export const useDarkMode = () => {
         isDark.value = JSON.parse(stored)
       } else {
         // Check system preference
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+        const prefersDark = window.matchMedia(
+          '(prefers-color-scheme: dark)'
+        ).matches
         isDark.value = prefersDark
       }
       updateDOM()
@@ -41,7 +43,7 @@ export const useDarkMode = () => {
 
   const initDarkMode = () => {
     loadFromStorage()
-    
+
     // Listen for system theme changes
     if (import.meta.client) {
       const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
@@ -57,6 +59,6 @@ export const useDarkMode = () => {
   return {
     isDark: readonly(isDark),
     toggleDarkMode,
-    initDarkMode
+    initDarkMode,
   }
 }

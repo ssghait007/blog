@@ -56,7 +56,7 @@ if (data.value) {
 if (!data.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: 'Blog post not found'
+    statusMessage: 'Blog post not found',
   })
 }
 </script>

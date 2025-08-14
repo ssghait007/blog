@@ -18,12 +18,13 @@ const showProgress = ref(false)
 
 const updateProgress = () => {
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight
-  
+  const scrollHeight =
+    document.documentElement.scrollHeight - window.innerHeight
+
   if (scrollHeight > 0) {
     const scrollPercentage = (scrollTop / scrollHeight) * 100
     progress.value = Math.min(Math.max(scrollPercentage, 0), 100)
-    
+
     // Show progress bar only when user has scrolled a bit
     showProgress.value = scrollTop > 100
   }
@@ -32,19 +33,22 @@ const updateProgress = () => {
 const throttle = (func, delay) => {
   let timeoutId
   let lastExecTime = 0
-  
+
   return function (...args) {
     const currentTime = Date.now()
-    
+
     if (currentTime - lastExecTime > delay) {
       func.apply(this, args)
       lastExecTime = currentTime
     } else {
       clearTimeout(timeoutId)
-      timeoutId = setTimeout(() => {
-        func.apply(this, args)
-        lastExecTime = Date.now()
-      }, delay - (currentTime - lastExecTime))
+      timeoutId = setTimeout(
+        () => {
+          func.apply(this, args)
+          lastExecTime = Date.now()
+        },
+        delay - (currentTime - lastExecTime)
+      )
     }
   }
 }
@@ -54,7 +58,7 @@ const throttledUpdateProgress = throttle(updateProgress, 16) // ~60fps
 onMounted(() => {
   window.addEventListener('scroll', throttledUpdateProgress, { passive: true })
   window.addEventListener('resize', throttledUpdateProgress, { passive: true })
-  
+
   // Initial calculation
   updateProgress()
 })

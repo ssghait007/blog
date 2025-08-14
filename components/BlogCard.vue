@@ -85,17 +85,17 @@
 </template>
 
 <script setup>
-import { format } from "date-fns";
+import { format } from 'date-fns'
 
 const props = defineProps({
   post: {
     type: Object,
-    required: true
+    required: true,
   },
   cardRef: {
     type: Function,
-    default: null
-  }
+    default: null,
+  },
 })
 
 // Get cached author data
@@ -103,7 +103,7 @@ const { getCachedAuthor } = useAuthorCache()
 const authorData = computed(() => getCachedAuthor(props.post.author))
 
 const formatDate = (date) => {
-  return format(new Date(date), "dd MMM yyyy");
+  return format(new Date(date), 'dd MMM yyyy')
 }
 </script>
 

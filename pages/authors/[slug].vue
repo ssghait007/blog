@@ -150,7 +150,7 @@
 </template>
 
 <script setup>
-import { format } from "date-fns"
+import { format } from 'date-fns'
 
 const route = useRoute()
 const slug = route.params.slug
@@ -164,7 +164,7 @@ const { data: author } = await useAsyncData(`author-${slug}`, () =>
 if (!author.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: 'Author not found'
+    statusMessage: 'Author not found',
   })
 }
 
@@ -183,10 +183,10 @@ useSeoMeta({
   twitterCard: 'summary',
   twitterTitle: `${author.value.name} - Author Profile`,
   twitterDescription: author.value.bio,
-  twitterImage: author.value.avatar
+  twitterImage: author.value.avatar,
 })
 
 const formatDate = (date) => {
-  return format(new Date(date), "MMM dd, yyyy")
+  return format(new Date(date), 'MMM dd, yyyy')
 }
 </script>

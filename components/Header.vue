@@ -142,9 +142,9 @@
 <script setup>
 const router = useRouter()
 
-const search = ref("")
+const search = ref('')
 const mobileMenuOpen = ref(false)
-const categories = ["Frontend", "Backend", "Cloud", "Developer"]
+const categories = ['Frontend', 'Backend', 'Cloud', 'Developer']
 
 // Initialize dark mode
 const { initDarkMode } = useDarkMode()
@@ -158,7 +158,7 @@ const { data: allPosts } = await useAsyncData('all-blog-posts', () =>
 )
 
 const onClick = (slug) => {
-  search.value = ""
+  search.value = ''
   router.push(slug)
 }
 
@@ -169,16 +169,16 @@ const searchResults = computed(() => {
   const searchTerm = search.value.toLowerCase()
 
   return allPosts.value
-    .filter(post => {
+    .filter((post) => {
       // Only show published posts (unless in development mode)
-      const show = import.meta.client ? localStorage.getItem("show") : null
+      const show = import.meta.client ? localStorage.getItem('show') : null
       if (!show && !post.published) return false
 
       // Search in title and description
       return (
         post.title?.toLowerCase().includes(searchTerm) ||
         post.description?.toLowerCase().includes(searchTerm) ||
-        post.tags?.some(tag => tag.toLowerCase().includes(searchTerm))
+        post.tags?.some((tag) => tag.toLowerCase().includes(searchTerm))
       )
     })
     .slice(0, 5) // Limit to 5 results

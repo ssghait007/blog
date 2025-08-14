@@ -36,26 +36,26 @@ const props = defineProps({
   tocData: {
     type: Array,
     required: true,
-    default: () => []
-  }
+    default: () => [],
+  },
 })
 
 const activeSection = ref('')
 
 const handleLinkClick = (event, sectionId) => {
   event.preventDefault()
-  
+
   const targetElement = document.getElementById(sectionId)
   if (targetElement) {
     const headerOffset = 100 // Account for fixed header and progress bar
     const elementPosition = targetElement.getBoundingClientRect().top
     const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-    
+
     window.scrollTo({
       top: offsetPosition,
-      behavior: 'smooth'
+      behavior: 'smooth',
     })
-    
+
     // Update active section immediately
     activeSection.value = sectionId
   }
@@ -63,11 +63,11 @@ const handleLinkClick = (event, sectionId) => {
 
 const updateActiveSection = () => {
   if (!props.tocData || props.tocData.length === 0) return
-  
+
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop
   const windowHeight = window.innerHeight
   const documentHeight = document.documentElement.scrollHeight
-  
+
   // If near bottom of page, highlight last section
   if (scrollTop + windowHeight >= documentHeight - 100) {
     const lastSection = props.tocData[props.tocData.length - 1]
@@ -76,22 +76,23 @@ const updateActiveSection = () => {
       return
     }
   }
-  
+
   // Find current section based on scroll position
   let currentSection = ''
-  
+
   for (const link of props.tocData) {
     const element = document.getElementById(link.id)
     if (element) {
       const rect = element.getBoundingClientRect()
-      if (rect.top <= 120) { // 120px offset for header
+      if (rect.top <= 120) {
+        // 120px offset for header
         currentSection = link.id
       } else {
         break
       }
     }
   }
-  
+
   if (currentSection && currentSection !== activeSection.value) {
     activeSection.value = currentSection
   }
@@ -101,19 +102,22 @@ const updateActiveSection = () => {
 const throttle = (func, delay) => {
   let timeoutId
   let lastExecTime = 0
-  
+
   return function (...args) {
     const currentTime = Date.now()
-    
+
     if (currentTime - lastExecTime > delay) {
       func.apply(this, args)
       lastExecTime = currentTime
     } else {
       clearTimeout(timeoutId)
-      timeoutId = setTimeout(() => {
-        func.apply(this, args)
-        lastExecTime = Date.now()
-      }, delay - (currentTime - lastExecTime))
+      timeoutId = setTimeout(
+        () => {
+          func.apply(this, args)
+          lastExecTime = Date.now()
+        },
+        delay - (currentTime - lastExecTime)
+      )
     }
   }
 }
@@ -122,13 +126,17 @@ const throttledUpdateActiveSection = throttle(updateActiveSection, 100)
 
 onMounted(async () => {
   await nextTick()
-  
+
   // Initial active section detection
   updateActiveSection()
-  
+
   // Add scroll listener
-  window.addEventListener('scroll', throttledUpdateActiveSection, { passive: true })
-  window.addEventListener('resize', throttledUpdateActiveSection, { passive: true })
+  window.addEventListener('scroll', throttledUpdateActiveSection, {
+    passive: true,
+  })
+  window.addEventListener('resize', throttledUpdateActiveSection, {
+    passive: true,
+  })
 })
 
 onUnmounted(() => {

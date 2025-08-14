@@ -2,7 +2,7 @@ export const useAuthor = async (authorName) => {
   if (!authorName) {
     return {
       author: null,
-      error: 'Author name is required'
+      error: 'Author name is required',
     }
   }
 
@@ -22,15 +22,15 @@ export const useAuthor = async (authorName) => {
           title: 'Guest Author',
           bio: 'Guest contributor to the blog.',
           slug: slug,
-          social: {}
+          social: {},
         },
-        error: null
+        error: null,
       }
     }
 
     return {
       author,
-      error: null
+      error: null,
     }
   } catch (error) {
     console.error('Error fetching author:', error)
@@ -41,9 +41,9 @@ export const useAuthor = async (authorName) => {
         title: 'Guest Author',
         bio: 'Guest contributor to the blog.',
         slug: authorName.toLowerCase().replace(/\s+/g, '-'),
-        social: {}
+        social: {},
       },
-      error: error.message
+      error: error.message,
     }
   }
 }
@@ -53,13 +53,13 @@ export const useAllAuthors = async () => {
     const authors = await queryContent('authors').find()
     return {
       authors,
-      error: null
+      error: null,
     }
   } catch (error) {
     console.error('Error fetching authors:', error)
     return {
       authors: [],
-      error: error.message
+      error: error.message,
     }
   }
 }

@@ -78,7 +78,7 @@
 // Show all posts function (for development)
 const show = () => {
   if (import.meta.client) {
-    localStorage.setItem('show', "true")
+    localStorage.setItem('show', 'true')
   }
 }
 </script>
