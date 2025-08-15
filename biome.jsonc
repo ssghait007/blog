@@ -67,7 +67,8 @@
       "style": {
         "noUnusedTemplateLiteral": "warn",
         "useConst": "warn",
-        "useFilenamingConvention": "off"
+        "useFilenamingConvention": "off",
+        "noMagicNumbers": "warn"
       },
       "correctness": {
         "noUnusedVariables": "warn",

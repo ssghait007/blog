@@ -2,9 +2,30 @@
 const authorCache = new Map()
 const authorPromises = new Map()
 
+const createFallbackAuthor = (authorName, slug) => ({
+  name: authorName,
+  avatar:
+    'https://lh3.googleusercontent.com/a-/AFdZucogzmfN7i7Vbb3zeC77T3vz5TAOF4wI4fYihn2I=s80-p',
+  title: 'Guest Author',
+  bio: 'Guest contributor to the blog.',
+  slug,
+  social: {},
+})
+
+const fetchAuthorData = async (authorName, slug) => {
+  try {
+    const author = await queryContent('authors').where({ slug }).findOne()
+    return author || createFallbackAuthor(authorName, slug)
+  } catch (_error) {
+    return createFallbackAuthor(authorName, slug)
+  }
+}
+
 export const useAuthorCache = () => {
   const getAuthor = async (authorName) => {
-    if (!authorName) return null
+    if (!authorName) {
+      return null
+    }
 
     const slug = authorName.toLowerCase().replace(/\s+/g, '-')
 
@@ -19,43 +40,13 @@ export const useAuthorCache = () => {
     }
 
     // Create new fetch promise
-    const fetchPromise = (async () => {
-      try {
-        const author = await queryContent('authors').where({ slug }).findOne()
-
-        const authorData = author || {
-          name: authorName,
-          avatar:
-            'https://lh3.googleusercontent.com/a-/AFdZucogzmfN7i7Vbb3zeC77T3vz5TAOF4wI4fYihn2I=s80-p',
-          title: 'Guest Author',
-          bio: 'Guest contributor to the blog.',
-          slug: slug,
-          social: {},
-        }
-
-        // Cache the result
+    const fetchPromise = fetchAuthorData(authorName, slug).then(
+      (authorData) => {
         authorCache.set(slug, authorData)
-        return authorData
-      } catch (error) {
-        console.warn(`Author lookup error for ${authorName}:`, error)
-
-        const fallbackData = {
-          name: authorName,
-          avatar:
-            'https://lh3.googleusercontent.com/a-/AFdZucogzmfN7i7Vbb3zeC77T3vz5TAOF4wI4fYihn2I=s80-p',
-          title: 'Guest Author',
-          bio: 'Guest contributor to the blog.',
-          slug: slug,
-          social: {},
-        }
-
-        authorCache.set(slug, fallbackData)
-        return fallbackData
-      } finally {
-        // Clean up promise cache
         authorPromises.delete(slug)
+        return authorData
       }
-    })()
+    )
 
     // Store the promise
     authorPromises.set(slug, fetchPromise)
@@ -69,7 +60,9 @@ export const useAuthorCache = () => {
   }
 
   const getCachedAuthor = (authorName) => {
-    if (!authorName) return null
+    if (!authorName) {
+      return null
+    }
     const slug = authorName.toLowerCase().replace(/\s+/g, '-')
     return authorCache.get(slug) || null
   }

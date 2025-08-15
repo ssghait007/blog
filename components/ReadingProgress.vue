@@ -11,7 +11,14 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
+
+// Constants
+const PERCENTAGE_MULTIPLIER = 100
+const MAX_PROGRESS = 100
+const MIN_PROGRESS = 0
+const PROGRESS_VISIBILITY_THRESHOLD = 100
+const THROTTLE_DELAY_MS = 16 // ~60fps
 
 const progress = ref(0)
 const showProgress = ref(false)
@@ -22,11 +29,14 @@ const updateProgress = () => {
     document.documentElement.scrollHeight - window.innerHeight
 
   if (scrollHeight > 0) {
-    const scrollPercentage = (scrollTop / scrollHeight) * 100
-    progress.value = Math.min(Math.max(scrollPercentage, 0), 100)
+    const scrollPercentage = (scrollTop / scrollHeight) * PERCENTAGE_MULTIPLIER
+    progress.value = Math.min(
+      Math.max(scrollPercentage, MIN_PROGRESS),
+      MAX_PROGRESS
+    )
 
     // Show progress bar only when user has scrolled a bit
-    showProgress.value = scrollTop > 100
+    showProgress.value = scrollTop > PROGRESS_VISIBILITY_THRESHOLD
   }
 }
 
@@ -53,7 +63,7 @@ const throttle = (func, delay) => {
   }
 }
 
-const throttledUpdateProgress = throttle(updateProgress, 16) // ~60fps
+const throttledUpdateProgress = throttle(updateProgress, THROTTLE_DELAY_MS)
 
 onMounted(() => {
   window.addEventListener('scroll', throttledUpdateProgress, { passive: true })

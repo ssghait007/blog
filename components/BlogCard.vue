@@ -8,7 +8,7 @@
         class="lg:h-48 md:h-36 w-full object-cover object-center"
         :src="post.image"
         :alt="`Featured image for ${post.title}`"
-      >
+      />
     </NuxtLink>
     <div class="p-6">
       <header>
@@ -54,28 +54,39 @@
           </li>
         </ul>
         <div class="flex items-center mt-2 flex-wrap text-left">
-          <NuxtLink :to="`/authors/${authorData?.slug || post.author.toLowerCase().replace(/\s+/g, '-')}`">
+          <NuxtLink
+            :to="`/authors/${
+              _authorData?.slug ||
+              post.author.toLowerCase().replace(/\s+/g, '-')
+            }`"
+          >
             <img
               class="w-10 h-10 object-cover rounded-full hover:ring-2 hover:ring-indigo-500 transition-all cursor-pointer"
               :alt="`${post.author} avatar`"
-              :src="authorData?.avatar || 'https://lh3.googleusercontent.com/a-/AFdZucogzmfN7i7Vbb3zeC77T3vz5TAOF4wI4fYihn2I=s80-p'"
-            >
+              :src="
+                _authorData?.avatar ||
+                'https://lh3.googleusercontent.com/a-/AFdZucogzmfN7i7Vbb3zeC77T3vz5TAOF4wI4fYihn2I=s80-p'
+              "
+            />
           </NuxtLink>
           <div class="pl-2">
             <NuxtLink
-              :to="`/authors/${authorData?.slug || post.author.toLowerCase().replace(/\s+/g, '-')}`"
+              :to="`/authors/${
+                _authorData?.slug ||
+                post.author.toLowerCase().replace(/\s+/g, '-')
+              }`"
               class="font-medium hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
             >
               {{ post.author }}
             </NuxtLink>
             <div class="text-gray-700 dark:text-gray-300 text-xs">
-              {{ authorData?.title || post.authorTitle }}
+              {{ _authorData?.title || post.authorTitle }}
             </div>
           </div>
           <div class="ml-auto text-center text-gray-900 dark:text-gray-100">
             <div class="font-medium text-xs">{{ post.readingTime }}</div>
             <div class="text-gray-700 dark:text-gray-300 text-xs">
-              {{ formatDate(post.createdAt) }}
+              {{ _formatDate(post.createdAt) }}
             </div>
           </div>
         </div>
@@ -100,9 +111,9 @@ const props = defineProps({
 
 // Get cached author data
 const { getCachedAuthor } = useAuthorCache()
-const authorData = computed(() => getCachedAuthor(props.post.author))
+const _authorData = computed(() => getCachedAuthor(props.post.author))
 
-const formatDate = (date) => {
+const _formatDate = (date) => {
   return format(new Date(date), 'dd MMM yyyy')
 }
 </script>

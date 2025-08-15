@@ -1,28 +1,39 @@
 <template>
   <section ref="container" class="text-gray-600 dark:text-gray-300 body-font">
     <div class="container px-5 py-12 mx-auto">
-      <div v-if="filteredPosts.length" class="flex flex-wrap -m-4">
+      <div v-if="_filteredPosts.length" class="flex flex-wrap -m-4">
         <div
-          v-for="post in filteredPosts"
+          v-for="post in _filteredPosts"
           :key="post._path"
           class="p-4 md:w-1/3"
         >
-          <BlogCard 
+          <BlogCard
             :post="post"
-            :card-ref="el => cardRefs[post._path] = el"
+            :card-ref="(el) => (cardRefs[post._path] = el)"
           />
         </div>
       </div>
       <div v-else class="flex flex-wrap -m-4 text-gray-900 dark:text-gray-100">
         <div class="text-center w-full">
-          <h2 class="text-2xl font-medium text-gray-900 dark:text-gray-100 mb-4">No {{ category }} posts found</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-8">Check back later for new {{ category.toLowerCase() }} content!</p>
+          <h2
+            class="text-2xl font-medium text-gray-900 dark:text-gray-100 mb-4"
+          >
+            No {{ category }} posts found
+          </h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-8">
+            Check back later for new {{ category.toLowerCase() }} content!
+          </p>
         </div>
       </div>
     </div>
     <div class="flex justify-center mb-8">
       <NuxtLink to="/blog">
-        <button class="btn focus:outline-none" aria-label="Navigate to blog posts">← Back to All Posts</button>
+        <button
+          class="btn focus:outline-none"
+          aria-label="Navigate to blog posts"
+        >
+          ← Back to All Posts
+        </button>
       </NuxtLink>
     </div>
   </section>
@@ -48,8 +59,10 @@ const { data: posts } = await useAsyncData(`blog-posts-${props.category}`, () =>
 )
 
 // Filter posts based on published status and ensure they remain sorted
-const filteredPosts = computed(() => {
-  if (!posts.value) return []
+const _filteredPosts = computed(() => {
+  if (!posts.value) {
+    return []
+  }
 
   // Check if we should show unpublished posts (for development)
   const show = import.meta.client ? localStorage.getItem('show') : null
@@ -79,7 +92,7 @@ const { tilt, roll } = useParallax(container)
 // Apply parallax effect to all cards
 const applyParallax = () => {
   if (import.meta.client) {
-    Object.values(cardRefs.value).forEach((card) => {
+    for (const card of Object.values(cardRefs.value)) {
       if (card) {
         const tiltValue = tilt.value * 10
         const rollValue = roll.value * 10
@@ -88,7 +101,7 @@ const applyParallax = () => {
         card.style.transformStyle = 'preserve-3d'
         card.style.transition = 'transform 0.1s ease-out'
       }
-    })
+    }
   }
 }
 

@@ -21,7 +21,7 @@ export const useAuthor = async (authorName) => {
           avatar: '/images/authors/default-avatar.jpg', // fallback avatar
           title: 'Guest Author',
           bio: 'Guest contributor to the blog.',
-          slug: slug,
+          slug,
           social: {},
         },
         error: null,
@@ -33,7 +33,6 @@ export const useAuthor = async (authorName) => {
       error: null,
     }
   } catch (error) {
-    console.error('Error fetching author:', error)
     return {
       author: {
         name: authorName,
@@ -56,7 +55,6 @@ export const useAllAuthors = async () => {
       error: null,
     }
   } catch (error) {
-    console.error('Error fetching authors:', error)
     return {
       authors: [],
       error: error.message,

@@ -1,26 +1,39 @@
 <template>
-  <section ref="container" class="text-gray-700 dark:text-gray-200 body-font" aria-label="Blog posts">
+  <section
+    ref="container"
+    class="text-gray-700 dark:text-gray-200 body-font"
+    aria-label="Blog posts"
+  >
     <div class="container px-5 py-12 mx-auto">
-      <div v-if="filteredPosts.length" class="flex flex-wrap -m-4" role="list">
+      <div v-if="_filteredPosts.length" class="flex flex-wrap -m-4" role="list">
         <article
-          v-for="post in filteredPosts"
+          v-for="post in _filteredPosts"
           :key="post._path"
           class="p-4 md:w-1/3"
           role="listitem"
         >
           <BlogCard
             :post="post"
-            :card-ref="el => cardRefs[post._path] = el"
+            :card-ref="(el) => (cardRefs[post._path] = el)"
           />
         </article>
       </div>
-      <div v-else class="flex flex-wrap -m-4 text-gray-900 dark:text-gray-100" role="status">
+      <div
+        v-else
+        class="flex flex-wrap -m-4 text-gray-900 dark:text-gray-100"
+        role="status"
+      >
         No posts in this section
       </div>
     </div>
     <nav class="flex justify-center mb-8" aria-label="Site navigation">
       <NuxtLink to="/">
-        <button class="btn focus:outline-none" aria-label="Navigate to home page">To Home</button>
+        <button
+          class="btn focus:outline-none"
+          aria-label="Navigate to home page"
+        >
+          To Home
+        </button>
       </NuxtLink>
     </nav>
   </section>
@@ -45,8 +58,10 @@ await useAsyncData('preload-authors', async () => {
 })
 
 // Filter posts based on published status and ensure they remain sorted
-const filteredPosts = computed(() => {
-  if (!posts.value) return []
+const _filteredPosts = computed(() => {
+  if (!posts.value) {
+    return []
+  }
 
   // Check if we should show unpublished posts (for development)
   const show = import.meta.client ? localStorage.getItem('show') : null
@@ -76,7 +91,7 @@ const { tilt, roll } = useParallax(container)
 // Apply parallax effect to all cards
 const applyParallax = () => {
   if (import.meta.client) {
-    Object.values(cardRefs.value).forEach((card) => {
+    for (const card of Object.values(cardRefs.value)) {
       if (card) {
         const tiltValue = tilt.value * 10
         const rollValue = roll.value * 10
@@ -85,7 +100,7 @@ const applyParallax = () => {
         card.style.transformStyle = 'preserve-3d'
         card.style.transition = 'transform 0.1s ease-out'
       }
-    })
+    }
   }
 }
 

@@ -36,7 +36,6 @@ export default defineNuxtConfig({
   ],
 
   // Google Analytics configuration - optimized loading
-  // @ts-ignore
   gtag: {
     id: process.env.GOOGLE_ANALYTICS_ID,
     // Defer loading for better performance

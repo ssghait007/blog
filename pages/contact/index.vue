@@ -2,7 +2,13 @@
   <section class="text-gray-600 body-font relative">
     <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-col text-center w-full mb-12">
-        <button class="opacity-0" aria-label="Show all posts for development" @click="show()">Show all</button>
+        <button
+          class="opacity-0"
+          aria-label="Show all posts for development"
+          @click="_show()"
+        >
+          Show all
+        </button>
         <h1
           class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"
         >
@@ -16,7 +22,7 @@
         <form name="contact" method="POST" data-netlify="true">
           <div class="flex flex-wrap -m-2">
             <div class="p-2 w-1/2">
-              <input type="hidden" name="form-name" value="contact" >
+              <input type="hidden" name="form-name" value="contact" />
               <div class="relative">
                 <label for="name" class="leading-7 text-sm text-gray-600"
                   >Name</label
@@ -26,7 +32,7 @@
                   type="text"
                   name="name"
                   class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                >
+                />
               </div>
             </div>
             <div class="p-2 w-1/2">
@@ -39,7 +45,7 @@
                   type="email"
                   name="email"
                   class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                >
+                />
               </div>
             </div>
             <div class="p-2 w-full">
@@ -55,7 +61,11 @@
               </div>
             </div>
             <div class="p-2 text-center w-full">
-              <button type="submit" class="btn focus:outline-none" aria-label="Submit contact form">
+              <button
+                type="submit"
+                class="btn focus:outline-none"
+                aria-label="Submit contact form"
+              >
                 Submit
               </button>
             </div>
@@ -65,7 +75,7 @@
             >
               <a class="text-indigo-500">sachinghaitblog@gmail.com</a>
               <p class="leading-normal my-5">Pune, MH 411006</p>
-              <Social/>
+              <Social />
             </div>
           </div>
         </form>
@@ -76,7 +86,7 @@
 
 <script setup>
 // Show all posts function (for development)
-const show = () => {
+const _show = () => {
   if (import.meta.client) {
     localStorage.setItem('show', 'true')
   }

@@ -9,9 +9,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "npx @biomejs/biome check .",
-    "format": "npx @biomejs/biome format . --write",
-    "lint:fix": "npx @biomejs/biome check . --apply"
+    "lint": "npx ultracite@latest lint",
+    "format": "npx ultracite@latest format"
   },
   "dependencies": {
     "@nuxt/content": "^2.13.2",
