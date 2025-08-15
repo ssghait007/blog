@@ -8,9 +8,9 @@ location: "India"
 website: "https://onthegoalways.com"
 social:
   github: "ssghait007"
-  twitter: "@sachinghait"
-  linkedin: "sachinghait"
-  email: "sachin@example.com"
+  twitter: "@sachinghait007"
+  linkedin: "sachin-ghait-02977794"
+  email: "ssghait007@gmail.com"
 specialties:
   - "Full Stack Development"
   - "Cloud Infrastructure"
