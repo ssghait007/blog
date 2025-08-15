@@ -19,12 +19,7 @@
         >
           <a
             :href="`#${link.id}`"
-            class="toc-link block py-2 px-3 rounded-md text-sm transition-all duration-200 hover:bg-purple-50 dark:hover:bg-purple-900/20 hover:text-purple-600 dark:hover:text-purple-400 no-underline"
-            :class="{
-              'text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20 border-l-3 border-purple-500 dark:border-purple-400 font-medium':
-                activeSection === link.id,
-              'text-gray-600 dark:text-gray-300': activeSection !== link.id,
-            }"
+            class="toc-link block py-2 px-3 rounded-md text-sm transition-all duration-200 hover:bg-purple-50 dark:hover:bg-purple-900/20 hover:text-purple-600 dark:hover:text-purple-400 no-underline text-gray-600 dark:text-gray-300"
             @click="_handleLinkClick($event, link.id)"
           >
             {{ link.text }}
@@ -36,128 +31,29 @@
 </template>
 
 <script setup>
-import { nextTick, onMounted, onUnmounted, ref } from "vue";
-
-const OFFSET_FOR_HEADER = 120; // Adjust based on your header height
-const LAST_SECTION_HIGHLIGHT_THRESHOLD = 100; // Distance from bottom to highlight last section
-
 const props = defineProps({
   tocData: {
     type: Array,
     required: true,
     default: () => [],
   },
-});
-
-const activeSection = ref("");
+})
 
 const _handleLinkClick = (event, sectionId) => {
-  event.preventDefault();
+  event.preventDefault()
 
-  const targetElement = document.getElementById(sectionId);
+  const targetElement = document.getElementById(sectionId)
   if (targetElement) {
-    const headerOffset = 100; // Account for fixed header and progress bar
-    const elementPosition = targetElement.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    const headerOffset = 100 // Account for fixed header and progress bar
+    const elementPosition = targetElement.getBoundingClientRect().top
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset
 
     window.scrollTo({
       top: offsetPosition,
-      behavior: "smooth",
-    });
-
-    // Update active section immediately
-    activeSection.value = sectionId;
+      behavior: 'smooth',
+    })
   }
-};
-
-const updateActiveSection = () => {
-  if (!props.tocData || props.tocData.length === 0) {
-    return;
-  }
-
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  const windowHeight = window.innerHeight;
-  const documentHeight = document.documentElement.scrollHeight;
-
-  // If near bottom of page, highlight last section
-  if (
-    scrollTop + windowHeight >=
-    documentHeight - LAST_SECTION_HIGHLIGHT_THRESHOLD
-  ) {
-    const lastSection = props.tocData.at(-1);
-    if (lastSection) {
-      activeSection.value = lastSection.id;
-      return;
-    }
-  }
-
-  // Find current section based on scroll position
-  let currentSection = null;
-
-  for (const link of props.tocData) {
-    const element = document.getElementById(link.id);
-    if (element) {
-      const rect = element.getBoundingClientRect();
-      if (rect.top <= OFFSET_FOR_HEADER) {
-        currentSection = link.id;
-      } else {
-        break;
-      }
-    }
-  }
-
-  // if (currentSection && currentSection !== activeSection.value) {
-  //   activeSection.value = currentSection
-  // }
-};
-
-// Throttle function for performance
-const throttle = (func, delay) => {
-  let timeoutId;
-  let lastExecTime = 0;
-
-  return function (...args) {
-    const currentTime = Date.now();
-
-    if (currentTime - lastExecTime > delay) {
-      func.apply(this, args);
-      lastExecTime = currentTime;
-    } else {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => {
-        func.apply(this, args);
-        lastExecTime = Date.now();
-      }, delay - (currentTime - lastExecTime));
-    }
-  };
-};
-
-const THROTTLE_DELAY = 100; // 100ms throttle delay
-
-const throttledUpdateActiveSection = throttle(
-  updateActiveSection,
-  THROTTLE_DELAY
-);
-
-onMounted(async () => {
-  await nextTick();
-
-  // Initial active section detection
-  updateActiveSection();
-
-  // Add scroll listener
-  window.addEventListener("scroll", throttledUpdateActiveSection, {
-    passive: true,
-  });
-  window.addEventListener("resize", throttledUpdateActiveSection, {
-    passive: true,
-  });
-});
-
-onUnmounted(() => {
-  window.removeEventListener("scroll", throttledUpdateActiveSection);
-  window.removeEventListener("resize", throttledUpdateActiveSection);
-});
+}
 </script>
 
 <style scoped>
