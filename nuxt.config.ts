@@ -19,6 +19,10 @@ export default defineNuxtConfig({
           name: 'description',
           content: 'Blog about developer learning',
         },
+        // Open Graph tags
+        { property: 'og:url', content: 'https://onthegoalways.com' },
+        { property: 'og:site_name', content: 'Sachin Ghait Blog' },
+        { property: 'og:logo', content: 'https://onthegoalways.com/favicon.ico' },
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     },
