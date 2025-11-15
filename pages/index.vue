@@ -9,14 +9,21 @@
         <h1
           class="headline sm:text-4xl text-3xl mb-4 font-medium text-gray-900 dark:text-gray-100"
         >
-          Learning daily, growing endlessly, <span class="underline">sharing</span> proudly.
+          Learning daily, growing endlessly,
+          <span class="underline">sharing</span> proudly.
         </h1>
         <p class="descriptive-text mb-8 leading-relaxed dark:text-gray-300">
-          A shared space for documenting growth, celebrating experiments, and meeting those driven by curiosity and creativity.
+          A shared space for documenting growth, celebrating experiments, and
+          meeting those driven by curiosity and creativity.
         </p>
         <div class="flex justify-center">
           <NuxtLink to="/blog">
-            <button class="btn focus:outline-none" aria-label="Navigate to blog posts">To Blog</button>
+            <button
+              class="btn focus:outline-none"
+              aria-label="Navigate to blog posts"
+            >
+              Explore
+            </button>
           </NuxtLink>
         </div>
       </div>
@@ -25,7 +32,7 @@
           class="object-cover object-center rounded-md"
           alt="webDevTrends"
           src="https://raw.githubusercontent.com/ssghait007/blog/main/assets/hand-drawn.webp"
-        >
+        />
       </div>
     </div>
   </section>
@@ -33,7 +40,7 @@
 
 <style>
 .headline {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   color: #35495e;
 }
@@ -43,7 +50,7 @@
 }
 
 .underline {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-weight: 500;
   text-decoration: underline;
   text-decoration-thickness: 4px;
@@ -57,13 +64,17 @@
 }
 
 .descriptive-text {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
 }
 
 /* Apply Inter to all small text elements */
-p, button, .btn, .links, .subtitle {
-  font-family: 'Inter', sans-serif !important;
+p,
+button,
+.btn,
+.links,
+.subtitle {
+  font-family: "Inter", sans-serif !important;
 }
 
 /* Sample `apply` at-rules with Tailwind CSS
@@ -81,8 +92,8 @@ p, button, .btn, .links, .subtitle {
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;

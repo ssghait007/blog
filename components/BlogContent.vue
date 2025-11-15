@@ -1,6 +1,5 @@
 <template>
   <section
-    ref="container"
     class="text-gray-700 dark:text-gray-200 body-font"
     aria-label="Blog posts"
   >
@@ -12,10 +11,7 @@
           class="p-4 md:w-1/3"
           role="listitem"
         >
-          <BlogCard
-            :post="post"
-            :card-ref="(el) => (cardRefs[post._path] = el)"
-          />
+          <BlogCard :post="post" />
         </article>
       </div>
       <div
@@ -40,8 +36,6 @@
 </template>
 
 <script setup>
-import { useParallax } from '@vueuse/core'
-
 // Fetch all blog posts sorted by creation date (newest first)
 const { data: posts } = await useAsyncData('blog-posts', () =>
   queryContent('blog').sort({ createdAt: -1 }).find()
@@ -79,40 +73,5 @@ const _filteredPosts = computed(() => {
     const dateB = new Date(b.createdAt)
     return dateB - dateA
   })
-})
-
-// Store card element refs
-const cardRefs = ref({})
-
-// Container for parallax effect
-const container = ref()
-const { tilt, roll } = useParallax(container)
-
-// Apply parallax effect to all cards
-const applyParallax = () => {
-  if (import.meta.client) {
-    for (const card of Object.values(cardRefs.value)) {
-      if (card) {
-        const tiltValue = tilt.value * 10
-        const rollValue = roll.value * 10
-
-        card.style.transform = `perspective(1000px) rotateX(${rollValue}deg) rotateY(${tiltValue}deg) translateZ(0)`
-        card.style.transformStyle = 'preserve-3d'
-        card.style.transition = 'transform 0.1s ease-out'
-      }
-    }
-  }
-}
-
-// Watch for changes in tilt and roll
-watch([tilt, roll], applyParallax)
-
-// Initialize on mount
-onMounted(() => {
-  if (import.meta.client) {
-    nextTick(() => {
-      applyParallax()
-    })
-  }
 })
 </script>

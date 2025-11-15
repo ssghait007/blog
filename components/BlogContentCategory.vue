@@ -1,5 +1,5 @@
 <template>
-  <section ref="container" class="text-gray-600 dark:text-gray-300 body-font">
+  <section class="text-gray-600 dark:text-gray-300 body-font">
     <div class="container px-5 py-12 mx-auto">
       <div v-if="_filteredPosts.length" class="flex flex-wrap -m-4">
         <div
@@ -7,10 +7,7 @@
           :key="post._path"
           class="p-4 md:w-1/3"
         >
-          <BlogCard
-            :post="post"
-            :card-ref="(el) => (cardRefs[post._path] = el)"
-          />
+          <BlogCard :post="post" />
         </div>
       </div>
       <div v-else class="flex flex-wrap -m-4 text-gray-900 dark:text-gray-100">
@@ -40,8 +37,6 @@
 </template>
 
 <script setup>
-import { useParallax } from '@vueuse/core'
-
 // Define props
 const props = defineProps({
   category: {
@@ -80,40 +75,5 @@ const _filteredPosts = computed(() => {
     const dateB = new Date(b.createdAt)
     return dateB - dateA
   })
-})
-
-// Store card element refs
-const cardRefs = ref({})
-
-// Container for parallax effect
-const container = ref()
-const { tilt, roll } = useParallax(container)
-
-// Apply parallax effect to all cards
-const applyParallax = () => {
-  if (import.meta.client) {
-    for (const card of Object.values(cardRefs.value)) {
-      if (card) {
-        const tiltValue = tilt.value * 10
-        const rollValue = roll.value * 10
-
-        card.style.transform = `perspective(1000px) rotateX(${rollValue}deg) rotateY(${tiltValue}deg) translateZ(0)`
-        card.style.transformStyle = 'preserve-3d'
-        card.style.transition = 'transform 0.1s ease-out'
-      }
-    }
-  }
-}
-
-// Watch for changes in tilt and roll
-watch([tilt, roll], applyParallax)
-
-// Initialize on mount
-onMounted(() => {
-  if (import.meta.client) {
-    nextTick(() => {
-      applyParallax()
-    })
-  }
 })
 </script>
