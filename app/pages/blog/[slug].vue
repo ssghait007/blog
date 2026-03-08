@@ -22,11 +22,13 @@
         <LazyInteractiveTableOfContents :toc-data="data.toc.links" />
       </div>
 
-      <ContentRenderer
-        v-if="data"
-        :value="data"
-        class="m-auto text-left prose dark:prose-invert max-w-none"
-      />
+      <div class="lg:w-4/6 md:w-5/6 w-full m-auto">
+        <ContentRenderer
+          v-if="data"
+          :value="data"
+          class="prose dark:prose-invert max-w-none text-left"
+        />
+      </div>
     </div>
   </section>
   </div>
@@ -65,8 +67,3 @@ if (!data.value) {
 }
 </script>
 
-<style>
-.prose {
-  width: 100%;
-}
-</style>
