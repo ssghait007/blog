@@ -4,7 +4,7 @@
       <div v-if="_filteredPosts.length" class="flex flex-wrap -m-4">
         <div
           v-for="post in _filteredPosts"
-          :key="post._path"
+          :key="post.path"
           class="p-4 md:w-1/3"
         >
           <BlogCard :post="post" />
@@ -47,10 +47,7 @@ const props = defineProps({
 
 // Fetch blog posts for the specific category
 const { data: posts } = await useAsyncData(`blog-posts-${props.category}`, () =>
-  queryContent('blog')
-    .where({ category: props.category })
-    .sort({ createdAt: -1 })
-    .find()
+  queryCollection('blog').where('category', '=', props.category).order('createdAt', 'DESC').all()
 )
 
 // Filter posts based on published status and ensure they remain sorted

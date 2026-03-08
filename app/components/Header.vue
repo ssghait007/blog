@@ -71,9 +71,9 @@
           >
             <div
               v-for="article of _searchResults"
-              :key="article._path"
+              :key="article.path"
               class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer border-b border-gray-100 dark:border-gray-700 last:border-b-0 transition-colors duration-150"
-              @click="_onClick(article._path)"
+              @click="_onClick(article.path)"
             >
               <div
                 class="text-sm font-medium text-gray-900 dark:text-white truncate"
@@ -190,7 +190,7 @@ onMounted(() => {
 
 // Fetch all blog posts for search
 const { data: allPosts } = await useAsyncData('all-blog-posts', () =>
-  queryContent('blog').find()
+  queryCollection('blog').all()
 )
 
 const _onClick = (slug) => {

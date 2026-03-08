@@ -11,7 +11,7 @@ export const useAuthor = async (authorName) => {
     const slug = authorName.toLowerCase().replace(/\s+/g, '-')
 
     // Query the author content
-    const author = await queryContent('authors').where({ slug }).findOne()
+    const author = await queryCollection('authors').path(`/authors/${slug}`).first()
 
     if (!author) {
       // Return default author data if not found
@@ -49,7 +49,7 @@ export const useAuthor = async (authorName) => {
 
 export const useAllAuthors = async () => {
   try {
-    const authors = await queryContent('authors').find()
+    const authors = await queryCollection('authors').all()
     return {
       authors,
       error: null,
