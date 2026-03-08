@@ -4,7 +4,7 @@ description: Discover VSCodium, a community-driven alternative to Visual Studio 
 category: Developer
 published: true
 createdAt: 2021-02-16T07:00:13.392Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/vscodium.webp
+image: /assets/vscodium.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 6 min read

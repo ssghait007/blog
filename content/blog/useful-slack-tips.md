@@ -4,7 +4,7 @@ description: The complete guide to boosting Slack productivity with tips and tri
 category: Developer
 published: true
 createdAt: 2021-05-09T07:00:13.392Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/slack_logo.webp
+image: /assets/slack_logo.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 7 min read

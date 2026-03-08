@@ -4,7 +4,7 @@ description: Learn how to enhance your Git workflow using commit templates, PR t
 category: Development
 published: true
 createdAt: 2023-05-28T00:00:00.000Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/git-templates.webp
+image: /assets/git-templates.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 7 min read

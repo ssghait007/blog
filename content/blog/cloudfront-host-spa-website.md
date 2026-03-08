@@ -4,7 +4,7 @@ description: Amazon Cloudfront for faster distribution of your static and dynami
 category: Frontend
 published: true
 createdAt: 2022-05-03T07:00:13.392Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/template.webp
+image: /assets/template.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 5 min read
@@ -64,7 +64,7 @@ But because the internal route/URL path is requested before the SPA has loaded i
 The `solution` is to make browsers aware of the routing before requesting the internal routes.
 To achieve this we can redirect the unknown route paths to homepage( `index.html`). This makes sure we load the JS bundles necessary for internal routing.
 
-![image alt text](https://raw.githubusercontent.com/ssghait007/blog/main/assets/cloudfront-err-page-config.webp)
+![image alt text](/assets/cloudfront-err-page-config.webp)
 
 With this config, Cloudfront will not return error but will respond with `index.html` page.
 Now browser will load this page and handle the internal redirect in browser.

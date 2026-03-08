@@ -4,7 +4,7 @@ description: The post describes how you can access raspberry-pi from anywhere in
 category: Developer
 published: true
 createdAt: 2021-09-11T07:00:13.392Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/ngrok.webp
+image: /assets/ngrok.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 8 min read
@@ -88,7 +88,7 @@ Breakdown of command\
 
 Below is snapshot of how you can access web portal via ngrok tunnel.
 
-![ngrok http example](https://raw.githubusercontent.com/ssghait007/blog/main/assets/ngrok-http-access.webp)
+![ngrok http example](/assets/ngrok-http-access.webp)
 
 ## Using ngrok to ssh into raspberry-pi
 
@@ -109,4 +109,4 @@ Any ssh app like putty(Windows) or juiceSSH(mobile) can be used to connect to ra
 
 Below is snapshot of how ssh access from juiceSSH.
 
-![juiceSSH example](https://raw.githubusercontent.com/ssghait007/blog/main/assets/juicessh.webp)
+![juiceSSH example](/assets/juicessh.webp)

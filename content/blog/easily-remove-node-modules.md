@@ -4,7 +4,7 @@ description: Say goodbye to hours of manually deleting unused node modules with 
 category: Developer
 published: true
 createdAt: 2021-05-05T07:00:13.392Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/node-modules-app-performance_.webp
+image: /assets/node-modules-app-performance_.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 3 min read

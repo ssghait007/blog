@@ -4,7 +4,7 @@ description: CORS is a security feature that prevents malicious websites from ac
 category: Frontend
 published: true
 createdAt: 2021-02-02T07:00:13.392Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/http-security-headers.webp
+image: /assets/http-security-headers.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 5 min read

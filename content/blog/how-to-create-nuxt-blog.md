@@ -4,7 +4,7 @@ description: Learn how to build a blog using Nuxt and Tailwind CSS. In this post
 category: Frontend
 published: true
 createdAt: 2021-02-01T07:00:13.392Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/nuxt.webp
+image: /assets/nuxt.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 10 min read

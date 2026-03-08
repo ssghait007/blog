@@ -4,7 +4,7 @@ description: Learn how to create a comprehensive MCP server with PostgreSQL inte
 category: Backend
 published: true
 createdAt: 2025-06-07T14:30:00.000Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/MCP.webp
+image: /assets/MCP.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 5 min read
@@ -37,7 +37,7 @@ Our employee management MCP server will provide these powerful tools:
 4. **apply_employee_leave** - Submit leave requests with validation
 5. **get_all_employees** - Admin function to list all employees
 
-![mcp architecture](https://raw.githubusercontent.com/ssghait007/blog/main/assets/mcp_arch.png)
+![mcp architecture](/assets/mcp_arch.png)
 
 ## Prerequisites 📋
 
@@ -76,7 +76,7 @@ docker exec -i postgres psql -U postgres -d employee_management < database/setup
 
 The setup script creates 4 tables (employees, leave_types, leave_balances, leave_applications) and inserts sample data including 8 employees across different departments.
 
-![mcp employee db schema](https://raw.githubusercontent.com/ssghait007/blog/main/assets/mcp_emp_db_schema.png)
+![mcp employee db schema](/assets/mcp_emp_db_schema.png)
 
 ## Step 3: Environment Configuration ⚙️
 
@@ -117,7 +117,7 @@ node build/index.js
 
 You should see: "Database connection successful" and "Employee Management MCP server running on stdio"
 
-![Server Running](https://raw.githubusercontent.com/ssghait007/blog/main/assets/mcp_running.png)
+![Server Running](/assets/mcp_running.png)
 
 ## Step 5: Claude Desktop Integration 🤖
 
@@ -164,15 +164,15 @@ Restart Claude Desktop completely. You should now see the MCP tools available in
 Test with these commands:
 - "Get information for employee frank.miller@company.com"
 
-![Employee Info](https://raw.githubusercontent.com/ssghait007/blog/main/assets/mcp_emp_info.png)
+![Employee Info](/assets/mcp_emp_info.png)
 
 - "What are the leave balances for alice.johnson@company.com?"
 
-![Employee Leaves](https://raw.githubusercontent.com/ssghait007/blog/main/assets/mcp_emp_leaves.png)
+![Employee Leaves](/assets/mcp_emp_leaves.png)
 
 - "Show me all employees"
 
-![Employee List](https://raw.githubusercontent.com/ssghait007/blog/main/assets/mcp_emp_list.png)
+![Employee List](/assets/mcp_emp_list.png)
 
 - "Apply for annual leave for alice.johnson@company.com from 2024-09-01 to 2024-09-05"
 

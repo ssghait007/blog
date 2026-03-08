@@ -4,7 +4,7 @@ description: Learn about the usage and importance of ignore files such as .gitig
 category: Development
 published: true
 createdAt: 2023-05-28T00:00:00.000Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/ignorefiles.webp
+image: /assets/ignorefiles.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 6 min read

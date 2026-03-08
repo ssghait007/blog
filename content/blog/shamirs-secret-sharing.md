@@ -4,7 +4,7 @@ description: How I used cryptography to break my doom scrolling addiction. Learn
 category: Developer
 published: true
 createdAt: 2025-08-16T07:00:13.392Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/shamirs-secret-sharing.webp
+image: /assets/shamirs-secret-sharing.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 7 min read
@@ -27,7 +27,7 @@ Shamir's Secret Sharing is a cryptographic algorithm that divides a secret into 
 
 The beauty is in the mathematics - it uses polynomial interpolation over finite fields. But you don't need to understand the math to use it effectively.
 
-![Shamir Secret Sharing Concept](https://raw.githubusercontent.com/ssghait007/blog/main/assets/shamir-concept-diagram.webp)
+![Shamir Secret Sharing Concept](/assets/shamir-concept-diagram.webp)
 
 ## How It Works in Practice
 

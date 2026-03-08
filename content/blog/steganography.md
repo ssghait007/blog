@@ -4,7 +4,7 @@ description: Learn about Steganography, a method of concealing messages in plain
 category: Developer
 published: true
 createdAt: 2021-06-19T07:00:13.392Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/stegano.webp
+image: /assets/stegano.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 8 min read

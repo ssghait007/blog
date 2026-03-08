@@ -4,7 +4,7 @@ description: Convert Video to GIF with FFmpeg in the browser using Ffmpeg's web 
 category: Frontend
 published: true
 createdAt: 2021-02-06T07:00:13.392Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/ffmpeg-wasm.webp
+image: /assets/ffmpeg-wasm.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 5 min read
@@ -82,7 +82,7 @@ Read more on ffmpeg commands on https://ffmpeg.org/ffmpeg.html
 
 ## How app will look like
 
-![image alt text](https://raw.githubusercontent.com/ssghait007/blog/main/assets/ffmpeg-mp4-to-gif.webp)
+![image alt text](/assets/ffmpeg-mp4-to-gif.webp)
 
 ## Conclusion
 

@@ -4,7 +4,7 @@ description: Learn how to improve your website security with HTTP security heade
 category: Frontend
 published: true
 createdAt: 2021-02-02T07:00:13.392Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/http-security-headers.webp
+image: /assets/http-security-headers.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 5 min read
@@ -54,4 +54,4 @@ More explanation can `Additional Information` section at https://securityheaders
 ## Result
 This is the score after adding all required security headers
 
-![image alt text](https://raw.githubusercontent.com/ssghait007/blog/main/assets/securityHeaders.webp)
+![image alt text](/assets/securityHeaders.webp)

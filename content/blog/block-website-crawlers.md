@@ -4,7 +4,7 @@ description: Prevent your website from appearing in Google search results by tem
 category: Frontend
 published: true
 createdAt: 2021-08-01T07:00:13.392Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/block-crawlers.webp
+image: /assets/block-crawlers.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 3 min read
@@ -31,7 +31,7 @@ Webpage block or website block request lasts only for 6 months, After that your 
 
 Blocking a URL does not prevent Google from crawling your page, only from showing it in Search results.
 
-![google search console](https://raw.githubusercontent.com/ssghait007/blog/main/assets/google-console.webp)
+![google search console](/assets/google-console.webp)
 
 ## 2. **Permanent block method.**
 

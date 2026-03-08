@@ -4,7 +4,7 @@ description: Learn how to automate Rest API tasks using python's requests module
 category: Developer
 published: false
 createdAt: 2021-07-12T07:00:13.392Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/python-requests.webp
+image: /assets/python-requests.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 5 min read

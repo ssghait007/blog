@@ -4,7 +4,7 @@ description: Discover the right way to use AWS Lambda function in a VPC. This po
 category: Cloud
 published: true
 createdAt: 2021-08-14T07:00:13.392Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/lambda-vpc.webp
+image: /assets/lambda-vpc.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 5 min read
@@ -49,7 +49,7 @@ Now your lambda function can access outside internet.
 
 Below diagram shows this setup. Lambda function can access SNS APIs, as traffic is routed through NAT and then internet gateway.
 
-![Example diagram](https://raw.githubusercontent.com/ssghait007/blog/main/assets/lambda-in-VPC.webp)
+![Example diagram](/assets/lambda-in-VPC.webp)
 
 Read more about the solution [in this aws article](https://aws.amazon.com/premiumsupport/knowledge-center/internet-access-lambda-function/)
 

@@ -4,7 +4,7 @@ description: Learn how to streamline your unit testing workflow in Go using the 
 category: Development
 published: true
 createdAt: 2023-05-29T00:00:00.000Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/golang-unit-testing.webp
+image: /assets/golang-unit-testing.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 6 min read
@@ -26,7 +26,7 @@ To generate unit tests for your Go functions using the Go extension in VS Code, 
 4. Search for the "Go: Generate unit tests for function" command and select it.
 5. Choose the test file where the generated tests should be placed or create a new file.
 6. The extension will generate a table test structure with a placeholder test case. Add your test cases by providing input values and expected output.
-![generate tests](https://raw.githubusercontent.com/ssghait007/blog/main/assets/generate-tests.png)
+![generate tests](/assets/generate-tests.png)
 Here's an example of a generated table test structure:
 ```go
 package main
@@ -62,10 +62,10 @@ After writing your unit tests, you can use the Test UI provided by the Go extens
 6. Once the tests finish running, the coverage results will be displayed alongside the source code, with covered lines highlighted.
 
 ### Test UI
-![test main](https://raw.githubusercontent.com/ssghait007/blog/main/assets/test-main.png)
+![test main](/assets/test-main.png)
 
 ### View coverage
-![toggle coverage](https://raw.githubusercontent.com/ssghait007/blog/main/assets/toggle-coverage.png)
+![toggle coverage](/assets/toggle-coverage.png)
 
 Reviewing the coverage results allows you to identify areas of your code that may need additional testing or that lack adequate coverage.
 

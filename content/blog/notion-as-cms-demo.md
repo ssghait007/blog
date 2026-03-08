@@ -4,7 +4,7 @@ description: The post describes the step-by-step process of creating a simple we
 category: Frontend
 published: true
 createdAt: 2022-07-03T07:00:13.392Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/notion-as-cms-header.webp
+image: /assets/notion-as-cms-header.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 10 min read
@@ -73,7 +73,7 @@ https://www.youtube.com/watch?v=4h8B080Mv4U
 
 `https://www.notion.so/{DB_ID}?v={VIEW_ID}`
 
-![notion board](https://raw.githubusercontent.com/ssghait007/blog/main/assets/team_before.webp)
+![notion board](/assets/team_before.webp)
 
 > Names from the Done column should appear on website
 
@@ -85,7 +85,7 @@ This would give you a API key to use within your queries.
 
 Make sure not to commit this to github (or any other SCM).
 
-![notion integration](https://raw.githubusercontent.com/ssghait007/blog/main/assets/notion_integration.webp)
+![notion integration](/assets/notion_integration.webp)
 
 > Navigate to Notion developer --> my-integrations
 
@@ -93,7 +93,7 @@ Make sure not to commit this to github (or any other SCM).
 
 - By using share page button, share you board with notion integration you created in last step.
 
-![share page](https://raw.githubusercontent.com/ssghait007/blog/main/assets/share_notion_page.webp)
+![share page](/assets/share_notion_page.webp)
 
 > This makes your content available to the integration, can be accessed using API now.
 
@@ -101,7 +101,7 @@ Make sure not to commit this to github (or any other SCM).
 
 - Add `NOTION_API_KEY` and `NOTION_DB_ID` in env variables.
 
-![netlify_env](https://raw.githubusercontent.com/ssghait007/blog/main/assets/netlify_env.webp)
+![netlify_env](/assets/netlify_env.webp)
 
 > Navigate to your site --> build and deploy --> environment
 
@@ -165,19 +165,19 @@ axios(config)
 
 1. This is how the website looks initially.
 
-![website before](https://raw.githubusercontent.com/ssghait007/blog/main/assets/site_before.webp)
+![website before](/assets/site_before.webp)
 
 2. Suppose Hiring manager finalise to **hire two new developers** and that should show on your website. Move their entries to the `Done` column in notion.
 
-![team_after](https://raw.githubusercontent.com/ssghait007/blog/main/assets/team_after.webp)
+![team_after](/assets/team_after.webp)
 
 3. Now **trigger a new build** in netlify to deploy these changes (with `clear cache and deploy site` option).
 
-![trigger deploy](https://raw.githubusercontent.com/ssghait007/blog/main/assets/netlify_deploy.webp)
+![trigger deploy](/assets/netlify_deploy.webp)
 
 4. After deploy the **new members** will show on the website
 
-![website after](https://raw.githubusercontent.com/ssghait007/blog/main/assets/site_after.webp)
+![website after](/assets/site_after.webp)
 
 > Website has been deployed with new data fetched at build time.
 
