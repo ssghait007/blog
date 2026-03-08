@@ -1,10 +1,6 @@
 <template>
   <article
-    ref="card"
-    class="shadow-md h-full border border-gray-200 border-opacity-60 rounded-lg overflow-hidden hover:shadow-md hover:rounded hover:border-purple-500 card-parallax"
-    :style="cardTransitionStyle"
-    @mouseenter="handleMouseEnter"
-    @mouseleave="handleMouseLeave"
+    class="shadow-md h-full border border-gray-200 border-opacity-60 rounded-lg overflow-hidden hover:shadow-md hover:rounded hover:border-purple-500"
   >
     <NuxtLink :to="post.path">
       <img
@@ -100,7 +96,6 @@
 
 <script setup>
 import { format } from 'date-fns'
-import { useParallax } from '@vueuse/core'
 
 const props = defineProps({
   post: {
@@ -116,54 +111,5 @@ const _authorData = computed(() => getCachedAuthor(props.post.author))
 const _formatDate = (date) => {
   return format(new Date(date), 'dd MMM yyyy')
 }
-
-// Parallax effect for this card
-const card = ref()
-const isHovered = ref(false)
-const { tilt, roll } = useParallax(card)
-
-// Transition style for non-parallax properties
-const cardTransitionStyle = computed(() => ({
-  transition: 'box-shadow 0.3s, border-color 0.3s',
-}))
-
-// Mouse event handlers
-const handleMouseEnter = () => {
-  isHovered.value = true
-}
-
-const handleMouseLeave = () => {
-  isHovered.value = false
-  // Reset transform when mouse leaves
-  if (card.value && import.meta.client) {
-    card.value.style.transform = ''
-    card.value.style.transformStyle = ''
-  }
-}
-
-// Apply styles dynamically only when hovered - NO transition for snappy response
-watch([tilt, roll], () => {
-  if (card.value && import.meta.client && isHovered.value) {
-    const tiltValue = tilt.value * 10
-    const rollValue = roll.value * 10
-
-    card.value.style.transform = `perspective(1000px) rotateX(${rollValue}deg) rotateY(${tiltValue}deg) translateZ(0)`
-    card.value.style.transformStyle = 'preserve-3d'
-    card.value.style.transition = 'none' // No transition for instant parallax response
-  }
-})
 </script>
 
-<style scoped>
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  .card-parallax {
-    transform: none !important;
-    transition: none !important;
-  }
-
-  .card-parallax:hover {
-    transform: none !important;
-  }
-}
-</style>

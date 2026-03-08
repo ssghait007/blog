@@ -9,7 +9,7 @@
     </div>
 
     <div
-      class="text-left overflow-hidden container mx-auto flex flex-col px-5 py-0 justify-center items-center"
+      class="text-left container mx-auto flex flex-col px-5 py-0 justify-center items-center"
     >
       <img
         v-if="data?.image"

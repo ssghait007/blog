@@ -4,7 +4,7 @@ description: Learn how the Claude Code browser plugin bridges browser context to
 category: Developer
 published: true
 createdAt: 2026-03-02T10:00:00.000Z
-image: https://raw.githubusercontent.com/ssghait007/blog/main/assets/placeholder.webp
+image: /assets/claude-code_browser_plugin.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 6 min read
@@ -88,26 +88,15 @@ Instead of me manually re-interpreting the graphs or risking confirmation bias, 
 
 With the combined context, Claude Code CLI:
 
-1. Checked the git log for deployments from 3 days ago
-2. Found a new cron job that was added to run every 15 minutes
-3. The cron job was opening new database connections but **not closing them properly**
+1. Checked recent deployments from 3 days ago
+2. Identified a config change that had gone live around that time
+3. Pointed to **database connection pool defaults that had never been tuned for the current load profile**
 
-```bash
-# The problematic cron job
-*/15 * * * * node /app/scripts/sync-inventory.js
-```
+There was no visible bug in the code. No obvious smoking gun. The default config values that shipped with the service had worked fine at lower load — but as traffic grew and a new background job added periodic query bursts every 15 minutes, the untuned defaults couldn't keep up. Connections were being held longer than necessary under load, exhausting the pool at each burst.
 
-```javascript
-// The bug - connection was never released
-const db = await pool.connect();
-const result = await db.query('SELECT * FROM inventory WHERE needs_sync = true');
-await syncToExternalService(result.rows);
-// Missing: db.release() 💀
-```
+This is the kind of issue that leaves no clear trail. No exceptions, no crash logs, just a graph pattern that you'd need hours — maybe a full day — to correlate back to a config that looked totally fine on the surface.
 
-![placeholder for code diff](https://raw.githubusercontent.com/ssghait007/blog/main/assets/placeholder.webp)
-
-Without the browser plugin feeding that "started exactly 3 days ago, every 15 minutes" context, I would have spent way more time correlating deployment dates with the monitoring graphs manually.
+Without the browser plugin feeding that "started exactly 3 days ago, exactly every 15 minutes" context, I would have been chasing code-level suspects for hours before ever thinking to question the defaults.
 
 ## How the Cross-Context Flow Works ⚙️
 
