@@ -18,11 +18,15 @@
         :src="data.image"
       >
 
-      <div v-if="data?.body?.toc?.links?.length > 0" class="lg:mt-16 mb-8">
-        <LazyInteractiveTableOfContents :toc-data="data.body.toc.links" />
+      <div v-if="data?.toc?.links?.length > 0" class="lg:mt-16 mb-8">
+        <LazyInteractiveTableOfContents :toc-data="data.toc.links" />
       </div>
 
-      <ContentDoc class="m-auto text-left prose dark:prose-invert max-w-none" />
+      <ContentRenderer
+        v-if="data"
+        :value="data"
+        class="m-auto text-left prose dark:prose-invert max-w-none"
+      />
     </div>
   </section>
   </div>
@@ -37,7 +41,7 @@ const slug = route.params.slug
 
 // Fetch the blog post content
 const { data } = await useAsyncData(`blog-${slug}`, () =>
-  queryContent('blog', slug).findOne()
+  queryCollection('blog').path(`/blog/${slug}`).first()
 )
 
 // Set SEO meta tags

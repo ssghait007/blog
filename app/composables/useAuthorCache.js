@@ -1,6 +1,5 @@
-// Global author cache to prevent duplicate fetches
-const authorCache = new Map()
-const authorPromises = new Map()
+const useAuthorCacheState = () => useState('authorCache', () => new Map())
+const useAuthorPromisesState = () => useState('authorPromises', () => new Map())
 
 const createFallbackAuthor = (authorName, slug) => ({
   name: authorName,
@@ -14,7 +13,7 @@ const createFallbackAuthor = (authorName, slug) => ({
 
 const fetchAuthorData = async (authorName, slug) => {
   try {
-    const author = await queryContent('authors').where({ slug }).findOne()
+    const author = await queryCollection('authors').path(`/authors/${slug}`).first()
     return author || createFallbackAuthor(authorName, slug)
   } catch (_error) {
     return createFallbackAuthor(authorName, slug)
@@ -22,6 +21,9 @@ const fetchAuthorData = async (authorName, slug) => {
 }
 
 export const useAuthorCache = () => {
+  const authorCache = useAuthorCacheState()
+  const authorPromises = useAuthorPromisesState()
+
   const getAuthor = async (authorName) => {
     if (!authorName) {
       return null
@@ -30,26 +32,26 @@ export const useAuthorCache = () => {
     const slug = authorName.toLowerCase().replace(/\s+/g, '-')
 
     // Return cached author if available
-    if (authorCache.has(slug)) {
-      return authorCache.get(slug)
+    if (authorCache.value.has(slug)) {
+      return authorCache.value.get(slug)
     }
 
     // Return existing promise if already fetching
-    if (authorPromises.has(slug)) {
-      return await authorPromises.get(slug)
+    if (authorPromises.value.has(slug)) {
+      return await authorPromises.value.get(slug)
     }
 
     // Create new fetch promise
     const fetchPromise = fetchAuthorData(authorName, slug).then(
       (authorData) => {
-        authorCache.set(slug, authorData)
-        authorPromises.delete(slug)
+        authorCache.value.set(slug, authorData)
+        authorPromises.value.delete(slug)
         return authorData
       }
     )
 
     // Store the promise
-    authorPromises.set(slug, fetchPromise)
+    authorPromises.value.set(slug, fetchPromise)
     return await fetchPromise
   }
 
@@ -64,7 +66,7 @@ export const useAuthorCache = () => {
       return null
     }
     const slug = authorName.toLowerCase().replace(/\s+/g, '-')
-    return authorCache.get(slug) || null
+    return authorCache.value.get(slug) || null
   }
 
   return {

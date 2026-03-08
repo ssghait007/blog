@@ -49,11 +49,6 @@ export default defineNuxtConfig({
   // Development tools
   devtools: { enabled: true },
 
-  // Performance optimizations
-  experimental: {
-    payloadExtraction: false, // Reduce bundle size
-  },
-
   // Build optimizations
   vite: {
     build: {
@@ -64,20 +59,6 @@ export default defineNuxtConfig({
           chunkFileNames: '_nuxt/[name].[hash].js',
           assetFileNames: '_nuxt/[name].[hash].[ext]',
         },
-      },
-    },
-  },
-
-  // Content configuration
-  content: {
-    // Configure @nuxt/content options here
-    highlight: {
-      theme: 'github-dark',
-    },
-    markdown: {
-      toc: {
-        depth: 5,
-        searchDepth: 5,
       },
     },
   },

@@ -6,7 +6,7 @@
     @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
   >
-    <NuxtLink :to="post._path">
+    <NuxtLink :to="post.path">
       <img
         class="lg:h-48 md:h-36 w-full object-cover object-center"
         :src="post.image"
@@ -22,7 +22,7 @@
         </p>
         <h2>
           <NuxtLink
-            :to="post._path"
+            :to="post.path"
             class="text-indigo-500 hover:text-indigo-900 block items-center md:mb-2 lg:mb-0"
           >
             <span

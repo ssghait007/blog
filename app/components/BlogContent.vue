@@ -7,7 +7,7 @@
       <div v-if="_filteredPosts.length" class="flex flex-wrap -m-4" role="list">
         <article
           v-for="post in _filteredPosts"
-          :key="post._path"
+          :key="post.path"
           class="p-4 md:w-1/3"
           role="listitem"
         >
@@ -38,7 +38,7 @@
 <script setup>
 // Fetch all blog posts sorted by creation date (newest first)
 const { data: posts } = await useAsyncData('blog-posts', () =>
-  queryContent('blog').sort({ createdAt: -1 }).find()
+  queryCollection('blog').order('createdAt', 'DESC').all()
 )
 
 // Preload all unique authors to prevent duplicate fetches

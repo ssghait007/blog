@@ -158,10 +158,10 @@
         >
           <article
             v-for="post in _authorPosts"
-            :key="post._path"
+            :key="post.path"
             class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
           >
-            <NuxtLink :to="post._path">
+            <NuxtLink :to="post.path">
               <img
                 v-if="post.image"
                 :src="post.image"
@@ -200,7 +200,7 @@ const slug = route.params.slug
 
 // Fetch author data
 const { data: author } = await useAsyncData(`author-${slug}`, () =>
-  queryContent('authors').where({ slug }).findOne()
+  queryCollection('authors').path(`/authors/${slug}`).first()
 )
 
 // Handle 404 if author not found
@@ -213,7 +213,7 @@ if (!author.value) {
 
 // Fetch author's posts
 const { data: _authorPosts } = await useAsyncData(`author-posts-${slug}`, () =>
-  queryContent('blog').where({ author: author.value.name }).find()
+  queryCollection('blog').where('author', '=', author.value.name).all()
 )
 
 // SEO
