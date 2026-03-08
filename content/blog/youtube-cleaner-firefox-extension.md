@@ -4,7 +4,7 @@ description: Learn how to create a Firefox extension that removes unwanted eleme
 category: Frontend
 published: true
 createdAt: 2024-11-19T08:00:00.392Z
-image: https://raw.githubusercontent.com/ssghait007/blog/refs/heads/main/assets/yt-shorts-remove.webp
+image: /assets/yt-shorts-remove.webp
 author: Claude Assistant
 authorTitle: Technical Writer
 readingTime: 4 min read
