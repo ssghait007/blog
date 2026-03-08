@@ -17,11 +17,11 @@ proficiency: intermediate
 
 ![lets debug](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjl4eGd6bG80cGlocjFtazhtZmd3a3lubGl2MmoxeWM4d2Rxb3prbiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/26tPnAAJxXTvpLwJy/200.webp)
 
-I was staring at a database monitoring dashboard in our cloud console, trying to figure out why our database connections were spiking every 15 minutes. The graphs were right there — CPU, memory, active connections — all telling a story. But translating what I saw visually into something actionable for my local debugging session felt like running two separate investigations.
+I was staring at a database monitoring dashboard in our cloud console, trying to figure out why our database connections were spiking and performance was degraded. The graphs were all spiking — CPU, memory all hitting the roof. But translating what I saw visually into something actionable for my local debugging session felt like running two separate investigations.
 
-That's when I realized the [Claude Code browser plugin](https://docs.anthropic.com/en/docs/claude-code/browser-tool) could do something really powerful — not just analyze what's on screen, but distill that complex visual data into accurate context that I could feed into my terminal where Claude Code CLI was already helping me dig through application logs.
+That's when I realized the [Claude Code browser plugin](https://docs.anthropic.com/en/docs/claude-code/browser-tool) could do something really powerful — not just analyze what's on screen, but distill that complex visual data into accurate context that I could feed into my terminal where Claude Code CLI was already helping me dig through application and infrastructure code.
 
-## What is the Claude Code Browser Plugin? 🤔
+## Why Claude Code Browser Plugin was needed? 🤔
 
 The Claude Code browser plugin is a browser extension that gives Claude native access to interact with, analyze, and extract information from web pages. Think of it as Claude's eyes for the browser — it can read dashboards, interpret graphs, navigate complex UIs, and pull out structured data.
 
@@ -42,27 +42,24 @@ Here's the typical debugging flow most of us follow when something goes wrong in
 3. Switch to terminal → grep through logs
 4. Switch back to console → verify the timeline
 5. Switch to IDE → check recent code changes
-6. Repeat steps 1-5 about 47 times
+6. Repeat steps 1-5 about multiple times
 
-![context switching](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNG5kZjE1OXh4dDR3OGpneTB5OGZlaGUwNjBzd2ljdHljazZ2dTM0cSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l4FGni1RBAR2OWsGk/200.webp)
+![context switching](https://i.giphy.com/Od6YZiM7acnu0.webp)
 
 Every context switch costs you mental energy. By the time you're back to the terminal, you've already forgotten half of what the graph was telling you. I've lost count of how many times I've gone back to the same dashboard just to re-read a metric I saw 2 minutes ago.
 
 ## My Debugging Story: The Connection Spike Mystery 🕵️
 
-We had a production issue — our primary database was hitting connection limits every 15 minutes, causing intermittent 500 errors. The usual suspects were checked: connection pool size, idle timeouts, query performance. Nothing obvious.
+We had a production issue — our primary database was extremely slow, causing intermittent 500 errors. The usual suspects were checked: connection pool size, idle timeouts, query performance. Nothing obvious.
 
 ### Step 1: Let the Browser Plugin Analyze the Dashboard
 
 I had the cloud database monitoring page open. Instead of trying to screenshot and describe the patterns myself, I let the Claude Code browser plugin do its thing.
 
-![placeholder for cloud dashboard](https://raw.githubusercontent.com/ssghait007/blog/main/assets/placeholder.webp)
-
 The plugin analyzed the dashboard and identified:
-- Connection count spiking every **exactly 15 minutes**
-- CPU usage correlating with the spikes
-- Memory remaining stable (ruling out memory leaks)
-- The pattern started **3 days ago** (not gradual, suggesting a deployment triggered it)
+- **CPU and memory usage both spiking** to near-maximum capacity
+- **High disk I/O** causing CPU wait times as it fetched large amounts of data from disk
+- The pattern started **3 days ago** (not a gradual increase, suggesting a specific deployment)
 
 Just this analysis alone saved me a good 20 minutes of squinting at graphs and trying to correlate timelines manually.
 
@@ -70,12 +67,6 @@ Just this analysis alone saved me a good 20 minutes of squinting at graphs and t
 
 Here's where the cross-context magic happens. I took the browser plugin's distilled analysis — the exact metrics, timestamps, and patterns — and fed it directly into my prompt when I switched to my terminal running Claude Code CLI.
 
-```bash
-# In my terminal with Claude Code CLI
-claude "I'm looking at our database dashboard and Claude's analysis shows the connection spikes 
-started 3 days ago and happen exactly every 15 minutes, with memory remaining stable. 
-Check our git log and cron jobs to find what changed around that time."
-```
 
 By providing the CLI with this rich, parsed context, it wasn't operating on my vague assumptions ("the database seems slow lately"). It had accurate, factual data:
 - The exact timeline (3 days ago)
@@ -86,17 +77,8 @@ Instead of me manually re-interpreting the graphs or risking confirmation bias, 
 
 ### Step 3: Finding the Root Cause
 
-With the combined context, Claude Code CLI:
+With the browser context in hand, Claude Code CLI suggested running diagnostic queries directly against the database. We ran `SHOW shared_buffers`, `SHOW work_mem`, and `SHOW effective_cache_size` — and the values were shockingly low. Our cloud provider had shipped the managed database instance with stock PostgreSQL defaults, completely untuned for the 15GB machine it was running on. `shared_buffers` was set to 128MB instead of the recommended 3840MB. The database was constantly reading from disk instead of memory, explaining every spike in the dashboards. We updated our IaC config with properly tuned flags — `shared_buffers=3840MB`, `effective_cache_size=10752MB`, `work_mem=32MB` — applied them, and the database performance was immediately restored.
 
-1. Checked recent deployments from 3 days ago
-2. Identified a config change that had gone live around that time
-3. Pointed to **database connection pool defaults that had never been tuned for the current load profile**
-
-There was no visible bug in the code. No obvious smoking gun. The default config values that shipped with the service had worked fine at lower load — but as traffic grew and a new background job added periodic query bursts every 15 minutes, the untuned defaults couldn't keep up. Connections were being held longer than necessary under load, exhausting the pool at each burst.
-
-This is the kind of issue that leaves no clear trail. No exceptions, no crash logs, just a graph pattern that you'd need hours — maybe a full day — to correlate back to a config that looked totally fine on the surface.
-
-Without the browser plugin feeding that "started exactly 3 days ago, exactly every 15 minutes" context, I would have been chasing code-level suspects for hours before ever thinking to question the defaults.
 
 ## How the Cross-Context Flow Works ⚙️
 
@@ -107,7 +89,6 @@ Let me break down what's actually happening in this workflow:
 3. **You pass the context** — You copy this rich, distilled analysis and feed it into your Claude Code CLI prompt.
 4. **AI connects the dots** — Claude CLI combines this accurate browser data with your local codebase, logs, and git history.
 
-![placeholder for flow diagram](https://raw.githubusercontent.com/ssghait007/blog/main/assets/placeholder.webp)
 
 While manual copy-pasting is involved, it is fundamentally different from reviewing dashboards yourself. Instead of feeding your CLI vague human assumptions, you are feeding it cold, hard, AI-parsed facts from your browser.
 
@@ -144,9 +125,10 @@ The key insight is simple: **AI that can see what you see in the browser AND wor
 
 While this manual copy-paste workflow is incredible, the next logical step is full automation. In the future, we could build **read-only MCP (Model Context Protocol) servers** for these monitoring tools (cloud consoles, cost explorers, observability platforms). With an MCP server providing direct API access, the Claude Code CLI could pull these metrics and perform the initial analysis entirely on its own, without needing the browser plugin as an intermediary.
 
+All this with only read only access. Don't give access to production databases or your cloud infra, Stay safe.
+
 If you're spending too much time jumping between cloud dashboards and your local dev environment, give this cross-context workflow a try. Your future self debugging at 2 AM will thank you.
 
-![done](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmh3aDllYWdzeG9rbWdsMWxkaHdyMjUyOXlpczFhaGlrcnVubHhndiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3otPoS81loriI9s0CY/200.webp)
 
 ## Resources 📚
 
