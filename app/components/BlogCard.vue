@@ -1,6 +1,10 @@
 <template>
   <article
+    ref="card"
     class="shadow-md h-full border border-gray-200 border-opacity-60 rounded-lg overflow-hidden hover:shadow-md hover:rounded hover:border-purple-500"
+    :style="cardStyle"
+    @mousemove="handleMouseMove"
+    @mouseleave="handleMouseLeave"
   >
     <NuxtLink :to="post.path">
       <img
@@ -110,6 +114,31 @@ const _authorData = computed(() => getCachedAuthor(props.post.author))
 
 const _formatDate = (date) => {
   return format(new Date(date), 'dd MMM yyyy')
+}
+
+// Parallax — only active on the card being hovered, rAF throttled
+const card = ref()
+const cardStyle = ref({})
+let rafId = null
+
+const handleMouseMove = (e) => {
+  if (rafId) cancelAnimationFrame(rafId)
+  rafId = requestAnimationFrame(() => {
+    const rect = card.value.getBoundingClientRect()
+    const tilt = ((e.clientX - rect.left) / rect.width - 0.5) * 10
+    const roll = ((e.clientY - rect.top) / rect.height - 0.5) * -10
+    cardStyle.value = {
+      transform: `perspective(1000px) rotateX(${roll}deg) rotateY(${tilt}deg) translateZ(0)`,
+      transformStyle: 'preserve-3d',
+      transition: 'none',
+    }
+  })
+}
+
+const handleMouseLeave = () => {
+  if (rafId) cancelAnimationFrame(rafId)
+  cardStyle.value = { transition: 'transform 0.3s ease' }
+  nextTick(() => { cardStyle.value = {} })
 }
 </script>
 
