@@ -7,6 +7,7 @@
       <div v-if="_filteredPosts.length" class="flex flex-wrap -m-4" role="list">
         <article
           v-for="post in _filteredPosts"
+          ref="cardRefs"
           :key="post.path"
           class="p-4 md:w-1/3"
           role="listitem"
@@ -22,7 +23,7 @@
         No posts in this section
       </div>
     </div>
-    <nav class="flex justify-center mb-8" aria-label="Site navigation">
+    <nav ref="navButton" class="flex justify-center mb-8" aria-label="Site navigation">
       <button
         class="btn focus:outline-none"
         aria-label="Navigate to home page"
@@ -36,6 +37,12 @@
 
 <script setup>
 const { navigate } = useTactileNav()
+
+const cardRefs = ref([])
+const navButton = ref(null)
+
+useScrollReveal(cardRefs, { staggerDelay: 80, maxStagger: 6 })
+useScrollReveal(navButton)
 
 // Fetch all blog posts sorted by creation date (newest first)
 const { data: posts } = await useAsyncData('blog-posts', () =>
