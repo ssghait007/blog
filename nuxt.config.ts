@@ -27,6 +27,11 @@ export default defineNuxtConfig({
         { property: 'og:logo', content: 'https://onthegoalways.com/favicon.ico' },
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      script: [
+        {
+          innerHTML: `(function(){try{var d=document.documentElement,s=localStorage.getItem('darkMode');if(s==='true'||(s===null&&window.matchMedia('(prefers-color-scheme: dark)').matches)){d.classList.add('dark')}}catch(e){}})()`,
+        },
+      ],
     },
   },
 
