@@ -23,19 +23,20 @@
       </div>
     </div>
     <nav class="flex justify-center mb-8" aria-label="Site navigation">
-      <NuxtLink to="/">
-        <button
-          class="btn focus:outline-none"
-          aria-label="Navigate to home page"
-        >
-          To Home
-        </button>
-      </NuxtLink>
+      <button
+        class="btn focus:outline-none"
+        aria-label="Navigate to home page"
+        @click="navigate('/')"
+      >
+        To Home
+      </button>
     </nav>
   </section>
 </template>
 
 <script setup>
+const { navigate } = useTactileNav()
+
 // Fetch all blog posts sorted by creation date (newest first)
 const { data: posts } = await useAsyncData('blog-posts', () =>
   queryCollection('blog').order('createdAt', 'DESC').all()

@@ -24,19 +24,20 @@
       </div>
     </div>
     <div class="flex justify-center mb-8">
-      <NuxtLink to="/blog">
-        <button
-          class="btn focus:outline-none"
-          aria-label="Navigate to blog posts"
-        >
-          ← Back to All Posts
-        </button>
-      </NuxtLink>
+      <button
+        class="btn focus:outline-none"
+        aria-label="Navigate to blog posts"
+        @click="navigate('/blog')"
+      >
+        ← Back to All Posts
+      </button>
     </div>
   </section>
 </template>
 
 <script setup>
+const { navigate } = useTactileNav()
+
 // Define props
 const props = defineProps({
   category: {

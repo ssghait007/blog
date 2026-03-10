@@ -3,9 +3,7 @@
     <ReadingProgress />
     <section class="text-gray-600 dark:text-gray-300 body-font">
     <div class="flex justify-center md:ml-10 p-5 sm:ml-0">
-      <NuxtLink to="/blog">
-        <button class="btn focus:outline-none" aria-label="Navigate to blog posts">&larr; Back</button>
-      </NuxtLink>
+      <button class="btn focus:outline-none" aria-label="Navigate to blog posts" @click="navigate('/blog')">&larr; Back</button>
     </div>
 
     <div
@@ -35,6 +33,8 @@
 </template>
 
 <script setup>
+const { navigate } = useTactileNav()
+
 // import { format } from 'date-fns' // Removed unused import
 // Remove explicit import - using Lazy prefix for auto-loading
 

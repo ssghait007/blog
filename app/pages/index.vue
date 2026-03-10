@@ -17,14 +17,13 @@
           meeting those driven by curiosity and creativity.
         </p>
         <div class="flex justify-center">
-          <NuxtLink to="/blog">
-            <button
-              class="btn focus:outline-none"
-              aria-label="Navigate to blog posts"
-            >
-              Explore
-            </button>
-          </NuxtLink>
+          <button
+            class="btn focus:outline-none"
+            aria-label="Navigate to blog posts"
+            @click="navigate('/blog')"
+          >
+            Explore
+          </button>
         </div>
       </div>
       <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
@@ -37,6 +36,10 @@
     </div>
   </section>
 </template>
+
+<script setup>
+const { navigate } = useTactileNav()
+</script>
 
 <style>
 .headline {
