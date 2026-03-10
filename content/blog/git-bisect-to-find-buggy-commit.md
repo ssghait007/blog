@@ -13,6 +13,8 @@ proficiency: Beginner
 # beginner intermediate advanced 
 ---
 
+> **TL;DR:** When a bug appears and you don't know which commit caused it, `git bisect` uses binary search to find the culprit in logarithmic time. You mark a known good commit and a known bad commit, and Git checks out the midpoint for you to test. After a few iterations, it identifies the exact breaking commit. This post walks through a practical example of finding a broken navigation link, including gotchas to watch out for.
+
 # Git bisect is here to save your day
 
 This blog discusses how we can use git bisect command to find commit that has introduced bug recently.

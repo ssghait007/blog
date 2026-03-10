@@ -13,6 +13,8 @@ proficiency: intermediate
 # beginner intermediate advanced 
 ---
 
+> **TL;DR:** When you associate an AWS Lambda function with a VPC, it silently loses internet access -- all external API calls will time out. This happens because Lambda functions don't get public IPs, so they can't route through the Internet Gateway. The fix: place your Lambda in a private subnet and route its traffic through a NAT Gateway (which does have a public IP via an Elastic Network Interface). This post covers the problem, the networking explanation, and step-by-step setup with public/private subnets and route tables.
+
 # Lambda Function In A VPC The Right Way.
 
 In this post I have added my experience of working with lambda function in a VPC.

@@ -13,6 +13,8 @@ proficiency: intermediate
 # beginner intermediate advanced 
 ---
 
+> **TL;DR:** If you only use a GCP Compute Engine VM for a few hours daily, you're overpaying. This guide shows how to automate VM start/stop (or suspend/resume) on a cron schedule using Cloud Scheduler, Pub/Sub, and Cloud Functions. When stopped, you only pay for disk and network -- not compute. Note that suspend/resume (like hibernate) only works on N2+ instances, not E2. The post covers the full setup including IAM permissions and function deployment.
+
 # Schedule Google Compute Engine Instances to Save Big Money.
 
 Virtual machine is first type of compute for someone starting with the cloud. As per many reports 80-85% enterprise workload have migrated to cloud. \

@@ -13,6 +13,8 @@ proficiency: intermediate
 # beginner intermediate advanced
 ---
 
+> **TL;DR:** Inspired by Atomic Habits' principle of making bad habits harder, this post uses Shamir's Secret Sharing to fight doom scrolling addiction. The idea: split your Pi-hole admin password into 8 shares hidden across digital and physical locations, requiring any 4 to reconstruct the original. Each individual share reveals nothing. The post explains the cryptographic algorithm (polynomial interpolation over finite fields), walks through practical usage with code examples, and shares creative ideas for where to hide your shares.
+
 ![You can see me](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXdodGJiZXRrbWt6N2tvOGxsaDRmbDd4aXJuc205ZHhyNDhyZmk5ZCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/5x0XvhK2zDgKHt0D86/200.webp)
 
 I had a problem. I kept turning off my PiHole's social media blocking to mindlessly scroll through feeds. It was too easy - just login to the admin panel, disable restrictions, and boom - instant access to my time-wasting websites.

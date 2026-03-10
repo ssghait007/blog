@@ -13,6 +13,8 @@ proficiency: intermediate
 # beginner intermediate advanced 
 ---
 
+> **TL;DR:** Want to run Selenium-based browser automation on a Raspberry Pi Zero W? Firefox's geckodriver dropped ARM support in 2018, so it's a dead end. The solution is using the `chromium-chromedriver` package that comes pre-built for ARM on Raspbian. This post covers the challenges of running browser automation on ARM hardware, the geckodriver vs chromedriver decision, and the full setup for headless Chromium with Selenium on Pi Zero W.
+
 # Selenium Webdriver on Raspberry Pi Zero W.
 
 I have earlier written a post on how selenium can be used to automate browser based tasks.

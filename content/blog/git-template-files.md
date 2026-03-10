@@ -12,6 +12,8 @@ tags: ['Git', 'Version Control']
 proficiency: intermediate
 ---
 
+> **TL;DR:** Git templates bring consistency to your development workflow. This post covers four types: commit message templates (structured format with summary, description, and references), PR templates (standardized review checklists), issue templates (separate formats for bugs vs features), and release templates (changelogs with categorized changes). Each section includes real examples and explains how templates save time, reduce back-and-forth, and improve team collaboration.
+
 # Standardizing Git Workflow: Commit Templates, PR Templates, and More
 
 In Git, there are several templates available that can greatly improve your development workflow. Let's explore some of these templates and understand how they can save time and enhance collaboration.

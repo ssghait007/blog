@@ -13,6 +13,8 @@ proficiency: Beginner
 # beginner intermediate advanced 
 ---
 
+> **TL;DR:** Every JavaScript developer accumulates stale projects with bloated node_modules folders eating up disk space. Manually finding and deleting them takes hours. NPKill is an npm tool that scans your system, lists all node_modules directories with their sizes, and lets you delete them interactively with a single keystroke. It's a quick win for reclaiming gigabytes of storage in minutes.
+
 # Say goodbye to unused node modules in your computer.
 
 This is not a `how-to` post, rather discussion on how NPKill is

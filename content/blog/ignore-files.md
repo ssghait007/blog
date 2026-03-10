@@ -12,6 +12,8 @@ tags: ['Git', 'Docker']
 proficiency: intermediate
 ---
 
+> **TL;DR:** Ignore files are essential but often overlooked. This post covers the purpose and syntax of `.gitignore` (keep repos clean, protect secrets), `.dockerignore` (reduce image size, speed up builds), `.npmignore` (control what gets published to npm), `.eslintignore`, and `.prettierignore` (skip files from linting/formatting). Each section explains when and why to use them with practical examples.
+
 # Ignoring Files: A Guide to .gitignore, .dockerignore, and More
 
 In software development, various ignore files help in managing version control systems, optimizing Docker image builds, and enhancing development workflows. Let's explore some of the important ignore files and understand their significance.

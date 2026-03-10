@@ -13,6 +13,8 @@ proficiency: intermediate
 # beginner intermediate advanced 
 ---
 
+> **TL;DR:** The Model Context Protocol (MCP) lets AI assistants like Claude interact with external systems in real time. This guide walks through building a complete MCP server in TypeScript with PostgreSQL that handles employee info lookups, leave balance checks, leave applications, and admin functions. You'll learn the MCP architecture, how to define tools with validation, connect to a database, and integrate with Claude Desktop.
+
 # Building a Model Context Protocol (MCP) Server
 
 The Model Context Protocol (MCP) is revolutionizing how AI assistants interact with external systems and data sources. Instead of being limited to their training data, AI models can now access real-time information and perform actions through MCP servers. In this guide, we'll build a MCP server for employee management that integrates with data sources like a PostgreSQL database.

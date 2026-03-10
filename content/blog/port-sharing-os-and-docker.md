@@ -12,6 +12,8 @@ tags: ['docker', 'networking']
 proficiency: Intermediate
 ---
 
+> **TL;DR:** Running an app on port 8080 on your host and then exposing a Docker container on the same port won't throw an error -- Docker silently binds thanks to `SO_REUSEADDR`. But requests may not reach the containerized app. This post explains how Docker's bridge networking, `SO_REUSEADDR`, and `SO_REUSEPORT` interact to create this confusing behavior. The fix: kill the host process first, then restart the Docker container.
+
 # Understanding Port Sharing and SO_REUSEADDR in Docker
 
 ## Incident: Running application in Docker and observing weird behavior

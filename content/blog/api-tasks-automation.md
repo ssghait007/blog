@@ -13,6 +13,8 @@ proficiency: Beginner
 # beginner intermediate advanced 
 ---
 
+> **TL;DR:** Most websites expose REST APIs that power their UI -- but these same APIs can be called directly from Python scripts to automate tasks. Using the `requests` module, you can build scripts that monitor bitcoin/product prices, fetch images from Nat Geo's photo of the day, and even set them as your desktop background. This post introduces the concept and walks through practical automation examples.
+
 # Automate Rest API tasks using python requests module.
 
 Many websites use rest APIs to interact with their backend, (Others may use sockets or GRPC or something else). UI is a simple way to interact with Rest APIs ( simple to interact for a normal user ). 

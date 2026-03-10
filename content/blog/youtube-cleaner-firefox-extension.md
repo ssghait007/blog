@@ -12,6 +12,8 @@ tags: ['developer', 'firefox', 'extension']
 proficiency: Beginner
 ---
 
+> **TL;DR:** Inspired by Atomic Habits' principle of making bad habits harder, this post walks through building a Firefox extension that removes YouTube Shorts and other distracting elements from the page. It uses a MutationObserver to handle dynamically loaded content, ensuring elements are removed even as YouTube loads new sections. The tutorial covers the full project structure including manifest.json, the content script, and how to test and install the extension locally.
+
 ## How I Built a Firefox Extension to Break My YouTube Shorts Addiction
 
 Ever caught yourself mindlessly scrolling through YouTube Shorts for hours? That was me. After reading "Atomic Habits" by James Clear, I learned a powerful principle: to break bad habits, make them difficult to do. Instead of relying purely on willpower, I decided to use my coding skills to remove the temptation entirely. Here's how I built a Firefox extension that removes Shorts and other distracting elements from YouTube, making it harder for my brain to fall into those addictive patterns.

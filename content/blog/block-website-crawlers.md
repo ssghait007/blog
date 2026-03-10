@@ -13,6 +13,8 @@ proficiency: Beginner
 # beginner intermediate advanced 
 ---
 
+> **TL;DR:** Need to remove your website from Google search results? There are two approaches. For a temporary 6-month block, use Google Search Console to submit URL removal requests. For a permanent solution, modify your `robots.txt` file to disallow crawlers from indexing specific pages or the entire site. The post covers both methods, explains the difference between blocking indexing vs blocking crawling, and shows how to target specific bots like Googlebot.
+
 # Block Google search bots from indexing your website.
 
 I recently come across a use case where I had to remove listing a website from google search. This was a rare use case so I looked for the ways we could achieve this.

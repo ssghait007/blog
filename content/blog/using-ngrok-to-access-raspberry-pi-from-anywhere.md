@@ -13,6 +13,8 @@ proficiency: intermediate
 # beginner intermediate advanced 
 ---
 
+> **TL;DR:** After setting up Pi-hole and Selenium automations on a Raspberry Pi, the next challenge was accessing them remotely -- but the router didn't support port forwarding. Ngrok solves this by creating secure tunnels from the internet to your local device. This post shows how to set up ngrok on a Raspberry Pi to expose both the Pi-hole web admin panel (HTTP tunnel) and SSH access (TCP tunnel), so you can manage your Pi from anywhere on any network.
+
 # How to use ngrok to access your raspberry pi from anywhere.
 
 I have posted some blog posts regarding setting up pihole on raspberry-pi, and running selenium based tasks on raspberry-pi.

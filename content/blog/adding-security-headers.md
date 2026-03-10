@@ -13,6 +13,8 @@ proficiency: Beginner
 # beginner intermediate advanced 
 ---
 
+> **TL;DR:** HTTP security headers are a simple but effective way to harden your website against common attacks like XSS, clickjacking, and code injection. This post explains the key headers -- X-Frame-Options, X-XSS-Protection, Content-Security-Policy, Referrer-Policy, and more -- with a practical example of configuring them in a Netlify `_headers` file. You can check your current score at securityheaders.com and aim for an A rating.
+
 ## How To Use Security Headers
 
 With HTTP response headers, you can harden your website security and also prevent/mitigate attacks

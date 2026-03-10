@@ -13,6 +13,8 @@ proficiency: intermediate
 # beginner intermediate advanced
 ---
 
+> **TL;DR:** Debugging production issues means constantly switching between cloud dashboards and your terminal, losing context each time. The Claude Code browser plugin solves this by letting AI natively read and interpret visual data -- graphs, metrics, timestamps -- from your browser. You can then copy that distilled analysis directly into the Claude Code CLI to correlate infrastructure metrics with code changes. This post walks through a real database performance debugging scenario showing the full cross-context workflow.
+
 # How the Claude Code Browser Plugin Helped Me Debug Faster
 
 ![lets debug](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjl4eGd6bG80cGlocjFtazhtZmd3a3lubGl2MmoxeWM4d2Rxb3prbiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/26tPnAAJxXTvpLwJy/200.webp)

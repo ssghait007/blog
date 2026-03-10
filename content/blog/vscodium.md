@@ -13,6 +13,8 @@ proficiency: intermediate
 # beginner intermediate advanced 
 ---
 
+> **TL;DR:** When Microsoft builds VS Code, it adds telemetry and tracking to the binary. VSCodium is a community-driven project that takes the same open-source VS Code codebase, builds it without telemetry, and distributes it under the MIT license. You get the same editor, same extension support, and same features -- just without the tracking. This post explains why VSCodium exists and walks through installation on Windows using Chocolatey.
+
 # Meet VSCodium. A Visual Studio Code Alternative.
 
 This post describes how and why I switched to VSCodium from VSCode.

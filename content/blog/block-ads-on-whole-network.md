@@ -13,6 +13,8 @@ proficiency: intermediate
 # beginner intermediate advanced 
 ---
 
+> **TL;DR:** Browser ad blockers only protect one device at a time. Pi-hole is a network-level ad blocker that runs on a Raspberry Pi and acts as your DNS server, blocking ad-serving domains before they reach any device on your network. This is especially useful for protecting non-tech-savvy family members (kids, elderly parents) who might click on dangerous ads. The post covers how Pi-hole works, installation on Raspberry Pi, and configuring your router to use it as the DNS server.
+
 # Ad Blocker for Your Whole Network. 🛡️
 
 The Online advertising market was valued at USD 304.0 billion in 2019 and is expected to reach USD 982.82 billion by 2025, at a CAGR of 21.6%. With increase in smartphone users these predictions look obvious.

@@ -13,6 +13,8 @@ proficiency: intermediate
 # beginner intermediate advanced 
 ---
 
+> **TL;DR:** Hosting a Single Page Application on CloudFront? You'll hit 403 errors when users navigate to routes like `/about` because CloudFront looks for a literal file that doesn't exist in S3. The fix is configuring custom error responses to redirect 403/404 errors back to `index.html` with a 200 status code, letting your client-side router handle the routing. This post explains the MPA vs SPA difference, what CloudFront does, and the exact configuration needed.
+
 # Cloudfront for Hosting SPA (single page application)
 
 - **What is Single Page Application ?**

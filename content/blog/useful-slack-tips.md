@@ -13,6 +13,8 @@ proficiency: Beginner
 # beginner intermediate advanced 
 ---
 
+> **TL;DR:** Slack is more than a chat app -- knowing its features well can save you significant time daily. This post covers 7 productivity tips: keyboard shortcuts (Cmd+K, Cmd+F, arrow keys), grouping channels into custom sections, slash commands for quick actions, muting noisy channels, powerful search for messages/files/people, using saved items as a bookmark system, and integrating apps like GitHub, Jira, and Google Calendar directly into your workspace.
+
 # The complete guide for Slack productivity.
 
 Slack has become much more than a communication platform.

@@ -13,6 +13,8 @@ proficiency: Beginner
 # beginner intermediate advanced 
 ---
 
+> **TL;DR:** Inspired by a Mr. Robot episode where RSA keys are hidden inside an image, this post explores steganography -- the practice of concealing messages within ordinary-looking media. It covers five types: text, image, audio, video, and network steganography, explaining how each works at a high level. Includes a hands-on Python example using the `cryptosteganography` library to hide and extract secret messages from images, plus a list of free steganography tools.
+
 # Steganography - The Art of Hiding Data in Plain Sight
 
 I was watching a web-show(`Mr-Robot`) on a weekend. It's a story of how a guy hacks into data servers of big conglomerate, and encrypts all data with a cryptographic keys. After the hack was successful he stores the RSA keys to decrypt this data `inside an image`.
