@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+  <div class="min-h-screen bg-white dark:bg-gray-900">
     <!-- Skip Links -->
     <a
       href="#main-content"
@@ -45,6 +45,7 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .button--green {
