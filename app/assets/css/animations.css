@@ -1,0 +1,26 @@
+/* Scroll reveal — applied dynamically by useScrollReveal composable (not in SSR HTML) */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease,
+              background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Page transitions — used by Nuxt pageTransition config */
+.page-enter-active {
+  transition: opacity 0.3s ease;
+}
+
+.page-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+}
