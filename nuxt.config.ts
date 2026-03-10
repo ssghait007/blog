@@ -33,10 +33,11 @@ export default defineNuxtConfig({
         },
       ],
     },
+    pageTransition: { name: 'page', mode: 'out-in' },
   },
 
   // Global CSS
-  css: ['~/assets/css/fonts.css', '~/assets/css/buttons.css'],
+  css: ['~/assets/css/fonts.css', '~/assets/css/buttons.css', '~/assets/css/animations.css'],
 
   // Modules
   modules: [
