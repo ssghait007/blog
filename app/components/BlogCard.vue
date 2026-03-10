@@ -15,11 +15,14 @@
     </NuxtLink>
     <div class="p-6">
       <header>
-        <p
-          class="tracking-widest text-xs title-font font-medium text-gray-500 dark:text-gray-400 mb-1"
-        >
-          {{ post.category }}
-        </p>
+        <div class="flex justify-between items-center mb-1">
+          <p
+            class="tracking-widest text-xs title-font font-medium text-gray-500 dark:text-gray-400"
+          >
+            {{ post.category }}
+          </p>
+          <FreshnessBadge :date="post.updatedAt || post.createdAt" />
+        </div>
         <h2>
           <NuxtLink
             :to="post.path"
@@ -113,7 +116,7 @@ const { getCachedAuthor } = useAuthorCache()
 const _authorData = computed(() => getCachedAuthor(props.post.author))
 
 const _formatDate = (date) => {
-  return format(new Date(date), 'dd MMM yyyy')
+  return format(new Date(date), 'MMM d, yyyy')
 }
 
 // Parallax — only active on the card being hovered, rAF throttled
