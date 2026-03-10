@@ -5,12 +5,16 @@
 @import 'tailwindcss/utilities';
 
 .btn {
-  @apply text-white font-semibold py-3 px-8 rounded-xl
-    inline-flex items-center justify-center
-    focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2
-    dark:focus:ring-offset-gray-900;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
   background: linear-gradient(145deg, #a855f7, #7e22ce);
   border: none;
+  border-radius: 12px;
   cursor: pointer;
   position: relative;
   top: 0;
@@ -35,6 +39,15 @@
     0 0 0 #6b21a8,
     0 4px 10px rgba(0, 0, 0, 0.3),
     inset 0 2px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow:
+    0 6px 0 #6b21a8,
+    0 10px 20px rgba(0, 0, 0, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.2),
+    0 0 0 3px rgba(168, 85, 247, 0.5);
 }
 
 .btn-secondary {
