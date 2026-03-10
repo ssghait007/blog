@@ -2,7 +2,7 @@
   <div>
     <ReadingProgress />
     <section class="text-gray-600 dark:text-gray-300 body-font">
-    <div class="flex justify-center md:ml-10 p-5 sm:ml-0">
+    <div ref="backButton" class="flex justify-center md:ml-10 p-5 sm:ml-0">
       <button class="btn focus:outline-none" aria-label="Navigate to blog posts" @click="navigate('/blog')">&larr; Back</button>
     </div>
 
@@ -11,6 +11,7 @@
     >
       <img
         v-if="data?.image"
+        ref="heroImage"
         class="lg:w-4/6 md:w-5/6 w-6/6 mb-10 object-cover object-center rounded"
         alt="hero"
         :src="data.image"
@@ -43,6 +44,11 @@
 
 <script setup>
 const { navigate } = useTactileNav()
+
+const backButton = ref(null)
+const heroImage = ref(null)
+
+useScrollReveal([backButton, heroImage], { staggerDelay: 100 })
 
 import { format } from 'date-fns'
 
