@@ -2,7 +2,7 @@ export const useScrollReveal = (refs, options = {}) => {
   const {
     threshold = 0.1,
     rootMargin = '0px 0px -50px 0px',
-    staggerDelay = 100,
+    staggerDelay = 50,
     maxStagger = 6,
   } = options
 

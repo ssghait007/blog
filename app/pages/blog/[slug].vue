@@ -48,7 +48,7 @@ const { navigate } = useTactileNav()
 const backButton = ref(null)
 const heroImage = ref(null)
 
-useScrollReveal([backButton, heroImage], { staggerDelay: 100 })
+useScrollReveal([backButton, heroImage], { staggerDelay: 50 })
 
 import { format } from 'date-fns'
 

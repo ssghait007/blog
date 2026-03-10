@@ -41,7 +41,7 @@ const { navigate } = useTactileNav()
 const cardRefs = ref([])
 const navButton = ref(null)
 
-useScrollReveal(cardRefs, { staggerDelay: 80, maxStagger: 6 })
+useScrollReveal(cardRefs, { staggerDelay: 40, maxStagger: 6 })
 useScrollReveal(navButton)
 
 // Fetch all blog posts sorted by creation date (newest first)

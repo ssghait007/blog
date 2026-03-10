@@ -47,7 +47,7 @@ const heroButton = ref(null)
 const heroImage = ref(null)
 
 useScrollReveal([heroHeadline, heroText, heroButton, heroImage], {
-  staggerDelay: 100,
+  staggerDelay: 50,
 })
 </script>
 
