@@ -16,6 +16,15 @@
         :src="data.image"
       >
 
+      <div v-if="data" class="lg:w-4/6 md:w-5/6 w-full flex flex-wrap items-center gap-3 text-sm text-gray-500 dark:text-gray-400 mt-4 mb-6">
+        <span>{{ data.author }}</span>
+        <span>&middot;</span>
+        <span>{{ _formatDate(data.createdAt) }}</span>
+        <span>&middot;</span>
+        <span>{{ data.readingTime }}</span>
+        <FreshnessBadge v-if="data.createdAt" :date="data.updatedAt || data.createdAt" variant="detailed" />
+      </div>
+
       <div v-if="data?.toc?.links?.length > 0" class="lg:mt-16 mb-8">
         <LazyInteractiveTableOfContents :toc-data="data.toc.links" />
       </div>
@@ -35,8 +44,12 @@
 <script setup>
 const { navigate } = useTactileNav()
 
-// import { format } from 'date-fns' // Removed unused import
-// Remove explicit import - using Lazy prefix for auto-loading
+import { format } from 'date-fns'
+
+const _formatDate = (date) => {
+  if (!date) return ''
+  return format(new Date(date), 'MMM d, yyyy')
+}
 
 const route = useRoute()
 const slug = route.params.slug
