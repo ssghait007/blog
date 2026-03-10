@@ -45,7 +45,7 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
 }
 
 .button--green {
