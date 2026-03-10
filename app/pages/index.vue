@@ -7,16 +7,17 @@
         class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center"
       >
         <h1
+          ref="heroHeadline"
           class="headline sm:text-4xl text-3xl mb-4 font-medium text-gray-900 dark:text-gray-100"
         >
           Learning daily, growing endlessly,
           <span class="underline">sharing</span> proudly.
         </h1>
-        <p class="descriptive-text mb-8 leading-relaxed dark:text-gray-300">
+        <p ref="heroText" class="descriptive-text mb-8 leading-relaxed dark:text-gray-300">
           A shared space for documenting growth, celebrating experiments, and
           meeting those driven by curiosity and creativity.
         </p>
-        <div class="flex justify-center">
+        <div ref="heroButton" class="flex justify-center">
           <button
             class="btn focus:outline-none"
             aria-label="Navigate to blog posts"
@@ -26,7 +27,7 @@
           </button>
         </div>
       </div>
-      <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+      <div ref="heroImage" class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
         <img
           class="object-cover object-center rounded-md"
           alt="webDevTrends"
@@ -39,6 +40,15 @@
 
 <script setup>
 const { navigate } = useTactileNav()
+
+const heroHeadline = ref(null)
+const heroText = ref(null)
+const heroButton = ref(null)
+const heroImage = ref(null)
+
+useScrollReveal([heroHeadline, heroText, heroButton, heroImage], {
+  staggerDelay: 100,
+})
 </script>
 
 <style>
