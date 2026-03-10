@@ -14,6 +14,7 @@ export default defineContentConfig({
         category: z.string(),
         published: z.boolean(),
         createdAt: z.string(),
+        updatedAt: z.string().optional(),
         image: z.string(),
         author: z.string(),
         authorTitle: z.string(),
