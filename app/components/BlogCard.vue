@@ -1,7 +1,7 @@
 <template>
   <article
     ref="card"
-    class="shadow-md h-full border border-gray-200 border-opacity-60 rounded-lg overflow-hidden hover:shadow-md hover:rounded hover:border-purple-500"
+    class="h-full rounded-[20px] overflow-hidden border border-white/60 bg-gray-100 shadow-[6px_6px_14px_rgba(0,0,0,0.1),-6px_-6px_14px_rgba(255,255,255,0.9)] hover:shadow-[8px_8px_18px_rgba(0,0,0,0.12),-8px_-8px_18px_rgba(255,255,255,1)] transition-all dark:bg-gray-800 dark:border-gray-700/40 dark:shadow-[6px_6px_14px_rgba(0,0,0,0.35),-6px_-6px_14px_rgba(255,255,255,0.04)] dark:hover:shadow-[8px_8px_18px_rgba(0,0,0,0.4),-8px_-8px_18px_rgba(255,255,255,0.06)]"
     :style="cardStyle"
     @mousemove="handleMouseMove"
     @mouseleave="handleMouseLeave"
@@ -17,7 +17,7 @@
       <header>
         <div class="flex justify-between items-center mb-1">
           <p
-            class="tracking-widest text-xs title-font font-medium text-gray-500 dark:text-gray-400"
+            class="tracking-widest text-xs title-font font-semibold text-indigo-500 uppercase dark:text-indigo-400"
           >
             {{ post.category }}
           </p>
@@ -29,32 +29,32 @@
             class="text-indigo-500 hover:text-indigo-900 block items-center md:mb-2 lg:mb-0"
           >
             <span
-              class="title-font text-lg text-left font-medium text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-300"
+              class="title-font text-lg text-left font-bold text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-300"
             >
               {{ post.title }}
             </span>
           </NuxtLink>
         </h2>
       </header>
-      <p class="leading-relaxed text-left text-gray-700 dark:text-gray-200">
+      <p class="leading-relaxed text-left text-sm text-slate-500 dark:text-gray-300">
         {{ post.description }}
       </p>
 
       <footer>
         <ul
-          class="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium list-none"
+          class="flex flex-wrap justify-starts items-center py-3 border-b border-slate-100 dark:border-gray-700 text-xs font-medium list-none"
           role="list"
         >
           <li
             v-for="tag in post.tags"
             :key="tag"
-            class="m-1 px-2 py-1 rounded bg-green-500"
+            class="m-1 px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 dark:bg-gray-700 dark:text-gray-300"
           >
             {{ "#" + tag.toUpperCase() }}
           </li>
           <li
             v-if="post && post.proficiency"
-            class="m-1 px-2 py-1 rounded bg-blue-500"
+            class="m-1 px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 dark:bg-gray-700 dark:text-gray-300"
           >
             {{ "#" + post.proficiency.toUpperCase() }}
           </li>
@@ -81,17 +81,17 @@
                 _authorData?.slug ||
                 post.author.toLowerCase().replace(/\s+/g, '-')
               }`"
-              class="font-medium hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+              class="font-semibold text-sm text-slate-700 hover:text-indigo-600 dark:text-gray-200 dark:hover:text-indigo-400 transition-colors"
             >
               {{ post.author }}
             </NuxtLink>
-            <div class="text-gray-700 dark:text-gray-300 text-xs">
+            <div class="text-slate-400 dark:text-gray-500 text-xs">
               {{ _authorData?.title || post.authorTitle }}
             </div>
           </div>
-          <div class="ml-auto text-center text-gray-900 dark:text-gray-100">
-            <div class="font-medium text-xs">{{ post.readingTime }}</div>
-            <div class="text-gray-700 dark:text-gray-300 text-xs">
+          <div class="ml-auto text-right">
+            <div class="font-medium text-xs text-slate-600 dark:text-gray-300">{{ post.readingTime }}</div>
+            <div class="text-slate-400 dark:text-gray-500 text-xs">
               {{ _formatDate(post.createdAt) }}
             </div>
           </div>
