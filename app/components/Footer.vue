@@ -106,8 +106,26 @@
       <!-- Bottom Section -->
       <div class="border-t border-gray-200 dark:border-gray-700 py-6">
         <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-          <div class="text-sm text-gray-600 dark:text-gray-300">
-            © 2021-2025 Sachin Ghait. All rights reserved.
+          <div class="flex flex-col sm:flex-row items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+            <span>© 2021-{{ new Date().getFullYear() }} Sachin Ghait.</span>
+            <span class="hidden sm:inline">·</span>
+            <a
+              href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
+            >
+              CC BY-NC-SA 4.0
+            </a>
+            <span class="hidden sm:inline">·</span>
+            <a
+              href="https://www.websitecarbon.com/website/onthegoalways-com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
+            >
+              Website Carbon
+            </a>
           </div>
 
           <!-- Social Links -->
