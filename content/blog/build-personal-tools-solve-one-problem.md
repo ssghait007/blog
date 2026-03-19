@@ -1,6 +1,6 @@
 ---
 title: Why I Build Personal Tools That Solve ONE Problem
-description: As developers, we have the superpower to build anything — yet we tolerate daily friction a weekend project could fix. I built a stock exit validator, a media compression pipeline, and a cryptographic doom scroll blocker. Each solves exactly one problem. Here's why you should do the same.
+description: I built a stock exit validator, a media compression pipeline, and a cryptographic doom scroll blocker. Each solves one problem with zero scope creep.
 category: Developer
 published: false
 createdAt: 2026-03-19T00:00:00.000Z
@@ -8,13 +8,11 @@ image: /assets/placeholder.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 7 min read
-tags: ['Productivity', 'Side Projects', 'Developer']
+tags: ['productivity', 'side projects', 'developer']
 proficiency: beginner
 ---
 
 > **TL;DR:** Developers have the rare ability to build tools that solve their own problems — yet most of us tolerate daily annoyances we could fix in an evening. I built three personal tools: a stock exit validator (was selling the right call?), a media compression pipeline (813 photos compressed overnight), and a cryptographic doom scroll blocker (Shamir's Secret Sharing on my own passwords). Each solves exactly one problem, with zero feature creep. With AI coding assistants, the cost of doing this has dropped from a weekend to an evening.
-
-# Why I Build Personal Tools That Solve ONE Problem
 
 Here's something that bothers me about developers, including myself.
 

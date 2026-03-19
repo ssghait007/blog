@@ -1,6 +1,6 @@
 ---
 title: Five AI Tools, One Workflow - My Multi-Brain Development Stack
-description: Most developers force one AI tool to do everything. I mapped five different AI tools to five cognitive phases of development — research, ideation, design, implementation, and discipline. Here's the workflow that changed how I build software.
+description: I mapped five AI tools to five cognitive phases of development — research, ideation, design, implementation, and discipline.
 category: Developer
 published: false
 createdAt: 2026-03-19T00:00:00.000Z
@@ -8,13 +8,11 @@ image: /assets/placeholder.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 8 min read
-tags: ['AI', 'Workflow', 'Productivity']
+tags: ['ai', 'workflow', 'productivity']
 proficiency: intermediate
 ---
 
 > **TL;DR:** Using one AI tool for everything is like using a hammer for every job. I use five AI tools — NotebookLM for research, ChatGPT for brainstorming, Google Stitch for UI design, Claude Code for implementation, and the Superpowers plugin for quality gates. Each tool maps to a different phase of how I think and build. The workflow is the product, not any single tool.
-
-# Five AI Tools, One Workflow: My Multi-Brain Development Stack
 
 I used to do everything in one AI tool. Research a library? ChatGPT. Write the code? ChatGPT. Debug it? ChatGPT. Design the UI? Also ChatGPT.
 

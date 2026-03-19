@@ -1,6 +1,6 @@
 ---
 title: Mining My AI History to Build a Smarter Workflow
-description: Your AI conversation history is a dataset about how you think and work. I mined my own Claude Code memory logs and usage insights to discover patterns, then turned those patterns into custom rules and skills that make my AI tools smarter about me.
+description: I mined my Claude Code memory logs to discover recurring patterns, then turned them into custom rules and skills that make my AI tools smarter about me.
 category: Developer
 published: false
 createdAt: 2026-03-19T00:00:00.000Z
@@ -8,13 +8,11 @@ image: /assets/placeholder.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 9 min read
-tags: ['AI', 'Productivity', 'Workflow']
+tags: ['ai', 'productivity', 'workflow']
 proficiency: intermediate
 ---
 
 > **TL;DR:** After months of daily AI-assisted development, I realized my conversation history is a goldmine of data — about me. I used the claude-mem plugin and Claude Code's /insights command to mine my own work patterns, discovered recurring mistakes and preferences, and turned those into custom rules (CLAUDE.md) and skills that make Claude work like I do. Your AI usage data is the most personal dataset you'll ever have access to. Use it.
-
-# Mining My AI History to Build a Smarter Workflow
 
 There's a phrase that gets thrown around a lot in tech: "data is the new oil." Usually it's about user data, market data, analytics dashboards.
 
@@ -82,7 +80,7 @@ I wasn't doing this consciously — it's just how I work. But seeing it spelled 
 
 The data showed when I switch between tools and why. NotebookLM for research, ChatGPT for quick validation, Claude Code for implementation. Each switch happened at a predictable point in the workflow.
 
-This pattern became the foundation for my multi-tool workflow (which I wrote about separately). Without mining the data, I wouldn't have seen the pattern clearly enough to formalize it.
+This pattern became the foundation for my [multi-tool workflow](/blog/five-ai-tools-one-workflow). Without mining the data, I wouldn't have seen the pattern clearly enough to formalize it.
 
 ![placeholder: diagram showing the three pattern types discovered from mining AI history](/assets/placeholder.webp)
 
