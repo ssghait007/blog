@@ -26,6 +26,12 @@
         <FreshnessBadge v-if="data.createdAt" :date="data.updatedAt || data.createdAt" variant="detailed" />
       </div>
 
+      <div class="lg:w-4/6 md:w-5/6 w-full">
+        <ClientOnly>
+          <TextToSpeech :audio-src="data?.audioSrc" />
+        </ClientOnly>
+      </div>
+
       <div v-if="data?.toc?.links?.length > 0" class="lg:mt-16 mb-8">
         <LazyInteractiveTableOfContents :toc-data="data.toc.links" />
       </div>
@@ -64,6 +70,12 @@ const slug = route.params.slug
 const { data } = await useAsyncData(`blog-${slug}`, () =>
   queryCollection('blog').path(`/blog/${slug}`).first()
 )
+
+// Track reading history
+const { trackVisit } = useReadingHistory()
+onMounted(() => {
+  if (data.value) trackVisit(data.value)
+})
 
 // Set SEO meta tags
 if (data.value) {

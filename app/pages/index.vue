@@ -36,6 +36,9 @@
       </div>
     </div>
   </section>
+  <ClientOnly>
+    <ContinueReading />
+  </ClientOnly>
 </template>
 
 <script setup>
