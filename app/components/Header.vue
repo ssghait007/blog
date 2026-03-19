@@ -70,20 +70,26 @@
             aria-label="Search results"
           >
             <div
-              v-for="article of _searchResults"
-              :key="article.path"
+              v-for="result of _searchResults"
+              :key="result.path"
               class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer border-b border-gray-100 dark:border-gray-700 last:border-b-0 transition-colors duration-150"
-              @click="_onClick(article.path)"
+              @click="_onClick(result.path)"
             >
               <div
                 class="text-sm font-medium text-gray-900 dark:text-white truncate"
               >
-                {{ article.title }}
+                {{ result.title }}
               </div>
               <div
+                v-if="result.excerpt"
+                class="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2"
+                v-html="result.excerpt"
+              />
+              <div
+                v-else
                 class="text-xs text-gray-500 dark:text-gray-400 mt-1 truncate"
               >
-                {{ article.description }}
+                {{ result.description }}
               </div>
             </div>
           </div>
@@ -181,6 +187,11 @@ const MAX_SEARCH_RESULTS = 5
 const search = ref('')
 const mobileMenuOpen = ref(false)
 const _categories = ['Frontend', 'Backend', 'Cloud', 'Developer']
+const _pagefindResults = ref([])
+const _pagefindReady = ref(false)
+
+let pagefind = null
+let debounceTimer = null
 
 // Initialize dark mode
 const { initDarkMode } = useDarkMode()
@@ -188,46 +199,80 @@ onMounted(() => {
   initDarkMode()
 })
 
-// Fetch all blog posts for search
+// Try loading Pagefind (only available after generate + pagefind indexing)
+onMounted(async () => {
+  try {
+    pagefind = await new Function('return import("/pagefind/pagefind.js")')()
+    await pagefind.init()
+    _pagefindReady.value = true
+  } catch {
+    // Pagefind not available (dev mode) — fallback search will be used
+  }
+})
+
+// Fetch all blog posts for fallback search
 const { data: allPosts } = await useAsyncData('all-blog-posts', () =>
   queryCollection('blog').all()
 )
 
-const _onClick = (slug) => {
+const _onClick = (path) => {
   search.value = ''
-  router.push(slug)
+  _pagefindResults.value = []
+  router.push(path)
 }
 
-// Computed property for search results
-const _searchResults = computed(() => {
-  if (!(search.value && allPosts.value)) {
-    return []
+// Pagefind search with debounce
+watch(search, (query) => {
+  if (!_pagefindReady.value) return
+  clearTimeout(debounceTimer)
+  if (!query) {
+    _pagefindResults.value = []
+    return
   }
+  debounceTimer = setTimeout(async () => {
+    const results = await pagefind.search(query)
+    const items = await Promise.all(
+      results.results.slice(0, MAX_SEARCH_RESULTS).map((r) => r.data())
+    )
+    _pagefindResults.value = items.map((item) => ({
+      path: new URL(item.url, 'http://localhost').pathname.replace(/\/$/, ''),
+      title: item.meta?.title || item.url,
+      excerpt: item.excerpt,
+    }))
+  }, 200)
+})
+
+// Fallback search for dev mode (when Pagefind is not available)
+const _fallbackResults = computed(() => {
+  if (_pagefindReady.value || !search.value || !allPosts.value) return []
 
   const searchTerm = search.value.toLowerCase()
 
   return allPosts.value
     .filter((post) => {
-      // Only show published posts (unless in development mode)
       const show = import.meta.client ? localStorage.getItem('show') : null
-      if (!(show || post.published)) {
-        return false
-      }
+      if (!(show || post.published)) return false
 
-      // Search in title and description
       return (
         post.title?.toLowerCase().includes(searchTerm) ||
         post.description?.toLowerCase().includes(searchTerm) ||
         post.tags?.some((tag) => tag.toLowerCase().includes(searchTerm))
       )
     })
-    .slice(0, MAX_SEARCH_RESULTS) // Limit results to MAX_SEARCH_RESULTS
-    .sort((a, b) => {
-      // Sort by creation date (newest first)
-      const dateA = new Date(a.createdAt)
-      const dateB = new Date(b.createdAt)
-      return dateB - dateA
-    })
+    .slice(0, MAX_SEARCH_RESULTS)
+    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    .map((post) => ({
+      path: post.path,
+      title: post.title,
+      description: post.description,
+      excerpt: null,
+    }))
+})
+
+// Unified results: Pagefind when available, fallback otherwise
+const _searchResults = computed(() => {
+  if (_pagefindReady.value) return _pagefindResults.value
+  return _fallbackResults.value
 })
 
 // Close mobile menu when clicking outside

@@ -41,6 +41,7 @@
           v-if="data"
           :value="data"
           class="prose dark:prose-invert max-w-none text-left"
+          data-pagefind-body
         />
       </div>
     </div>
