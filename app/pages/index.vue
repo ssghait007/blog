@@ -1,44 +1,46 @@
 <template>
-  <section class="text-gray-600 dark:text-gray-300 body-font">
-    <div
-      class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center"
-    >
+  <div>
+    <section class="text-gray-600 dark:text-gray-300 body-font">
       <div
-        class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center"
+        class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center"
       >
-        <h1
-          ref="heroHeadline"
-          class="headline sm:text-4xl text-3xl mb-4 font-medium text-gray-900 dark:text-gray-100"
+        <div
+          class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center"
         >
-          Learning daily, growing endlessly,
-          <span class="underline">sharing</span> proudly.
-        </h1>
-        <p ref="heroText" class="descriptive-text mb-8 leading-relaxed dark:text-gray-300">
-          A shared space for documenting growth, celebrating experiments, and
-          meeting those driven by curiosity and creativity.
-        </p>
-        <div ref="heroButton" class="flex justify-center">
-          <button
-            class="btn focus:outline-none"
-            aria-label="Navigate to blog posts"
-            @click="navigate('/blog')"
+          <h1
+            ref="heroHeadline"
+            class="headline sm:text-4xl text-3xl mb-4 font-medium text-gray-900 dark:text-gray-100"
           >
-            Explore
-          </button>
+            Learning daily, growing endlessly,
+            <span class="underline">sharing</span> proudly.
+          </h1>
+          <p ref="heroText" class="descriptive-text mb-8 leading-relaxed dark:text-gray-300">
+            A shared space for documenting growth, celebrating experiments, and
+            meeting those driven by curiosity and creativity.
+          </p>
+          <div ref="heroButton" class="flex justify-center">
+            <button
+              class="btn focus:outline-none"
+              aria-label="Navigate to blog posts"
+              @click="navigate('/blog')"
+            >
+              Explore
+            </button>
+          </div>
+        </div>
+        <div ref="heroImage" class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+          <img
+            class="object-cover object-center rounded-md"
+            alt="webDevTrends"
+            src="/assets/hand-drawn.webp"
+          />
         </div>
       </div>
-      <div ref="heroImage" class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-        <img
-          class="object-cover object-center rounded-md"
-          alt="webDevTrends"
-          src="/assets/hand-drawn.webp"
-        />
-      </div>
-    </div>
-  </section>
-  <ClientOnly>
-    <ContinueReading />
-  </ClientOnly>
+    </section>
+    <ClientOnly>
+      <ContinueReading />
+    </ClientOnly>
+  </div>
 </template>
 
 <script setup>
