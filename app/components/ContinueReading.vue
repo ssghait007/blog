@@ -97,23 +97,12 @@ function formatVisitedAt(timestamp) {
 }
 
 .strip-scroll {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  overflow-x: auto;
-  padding-bottom: 8px;
-  scrollbar-width: thin;
-  scrollbar-color: #d1d5db transparent;
-}
-.strip-scroll::-webkit-scrollbar {
-  height: 4px;
-}
-.strip-scroll::-webkit-scrollbar-thumb {
-  background: #d1d5db;
-  border-radius: 99px;
 }
 
 .strip-card {
-  flex: 0 0 320px;
   display: flex;
   gap: 14px;
   padding: 14px;
@@ -196,17 +185,13 @@ function formatVisitedAt(timestamp) {
   color: #6b7280;
 }
 
-.dark .strip-scroll::-webkit-scrollbar-thumb {
-  background: #4b5563;
-}
-
 /* Mobile */
 @media (max-width: 640px) {
   .continue-strip {
     margin-top: -20px;
   }
-  .strip-card {
-    flex: 0 0 280px;
+  .strip-scroll {
+    grid-template-columns: 1fr;
   }
   .strip-header {
     flex-wrap: wrap;

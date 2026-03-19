@@ -117,15 +117,6 @@
             >
               CC BY-NC-SA 4.0
             </a>
-            <span class="hidden sm:inline">·</span>
-            <a
-              href="https://www.websitecarbon.com/website/onthegoalways-com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
-            >
-              Website Carbon
-            </a>
           </div>
 
           <!-- Social Links -->
