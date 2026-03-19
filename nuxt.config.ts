@@ -5,6 +5,9 @@ export default defineNuxtConfig({
   ssr: true,
   nitro: {
     preset: 'netlify-static',
+    prerender: {
+      routes: ['/rss.xml'],
+    },
   },
 
   // App configuration
@@ -26,7 +29,10 @@ export default defineNuxtConfig({
         { property: 'og:site_name', content: 'Sachin Ghait Blog' },
         { property: 'og:logo', content: 'https://onthegoalways.com/favicon.ico' },
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'alternate', type: 'application/rss+xml', title: 'Sachin Ghait Blog RSS Feed', href: '/rss.xml' },
+      ],
       script: [
         {
           innerHTML: `(function(){try{var d=document.documentElement,s=localStorage.getItem('darkMode');if(s==='true'||(s===null&&window.matchMedia('(prefers-color-scheme: dark)').matches)){d.classList.add('dark')}}catch(e){}})()`,
