@@ -1,8 +1,7 @@
 <template>
   <section v-if="history.length > 0" class="continue-strip">
     <div class="strip-header">
-      <span class="strip-wave">&#128075;</span>
-      <h2 class="strip-title">Welcome back — pick up where you left off</h2>
+      <h2 class="strip-title">pick up where you left off</h2>
       <button class="strip-dismiss" type="button" @click="handleClear">Clear history</button>
     </div>
     <div class="strip-scroll">
@@ -67,10 +66,6 @@ function formatVisitedAt(timestamp) {
   align-items: center;
   gap: 8px;
   margin-bottom: 16px;
-}
-
-.strip-wave {
-  font-size: 20px;
 }
 
 .strip-title {
