@@ -43,6 +43,10 @@
           class="prose dark:prose-invert max-w-none text-left"
           data-pagefind-body
         />
+
+        <ClientOnly>
+          <GiscusComments />
+        </ClientOnly>
       </div>
     </div>
   </section>
