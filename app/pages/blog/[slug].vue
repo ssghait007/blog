@@ -37,12 +37,27 @@
       </div>
 
       <div class="lg:w-4/6 md:w-5/6 w-full m-auto">
-        <ContentRenderer
-          v-if="data"
-          :value="data"
-          class="prose dark:prose-invert max-w-none text-left"
-          data-pagefind-body
-        />
+        <ClientOnly>
+          <ReadingModeToggle
+            :description="data?.description"
+            :toc="data?.toc?.links"
+          >
+            <ContentRenderer
+              v-if="data"
+              :value="data"
+              class="prose dark:prose-invert max-w-none text-left"
+              data-pagefind-body
+            />
+          </ReadingModeToggle>
+          <template #fallback>
+            <ContentRenderer
+              v-if="data"
+              :value="data"
+              class="prose dark:prose-invert max-w-none text-left"
+              data-pagefind-body
+            />
+          </template>
+        </ClientOnly>
 
         <ClientOnly>
           <GiscusComments />
