@@ -99,13 +99,24 @@ onMounted(() => {
 
 // Set SEO meta tags
 if (data.value) {
+  const config = useRuntimeConfig()
+  const siteUrl = config.public.siteUrl || 'https://onthegoalways.com'
+  const ogImageUrl = data.value.image?.startsWith('http') 
+    ? data.value.image 
+    : `${siteUrl}${data.value.image}`
+
   useSeoMeta({
     title: data.value.title,
     description: data.value.description,
     ogType: 'article',
+    ogUrl: `${siteUrl}${route.path}`,
     ogTitle: data.value.title,
     ogDescription: data.value.description,
-    ogImage: data.value.image,
+    ogImage: ogImageUrl,
+    twitterCard: 'summary_large_image',
+    twitterTitle: data.value.title,
+    twitterDescription: data.value.description,
+    twitterImage: ogImageUrl,
   })
 }
 
