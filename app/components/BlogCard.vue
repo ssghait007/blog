@@ -46,7 +46,7 @@
 
       <!-- Tags — lowercase, soft indigo pills -->
       <ul
-        class="flex flex-wrap gap-1.5 mt-5 list-none"
+        class="flex flex-wrap gap-1.5 mt-5 mb-5 list-none"
         role="list"
       >
         <li
