@@ -8,7 +8,7 @@ image: /assets/use-it-first.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 7 min read
-tags: ['productivity', 'side projects', 'developer']
+tags: ['productivity', 'tools', 'developer']
 proficiency: beginner
 ---
 
