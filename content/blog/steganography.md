@@ -4,11 +4,12 @@ description: Learn about Steganography, a method of concealing messages in plain
 category: Developer
 published: true
 createdAt: 2021-06-19T07:00:13.392Z
+updatedAt: 2026-09-28T00:00:00.000Z
 image: /assets/stegano.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 8 min read
-tags: ['developer']
+tags: ['steganography', 'python', 'security', 'cryptography']
 proficiency: Beginner
 # beginner intermediate advanced 
 ---
@@ -21,13 +22,13 @@ I was watching a web-show(`Mr-Robot`) on a weekend. It's a story of how a guy ha
 
 This got me interested in the fact that we can store secret messages and keys. So I researched on this topic and got some basic methods of how it is practically achieved.
 
-## What is Steganography
+## What is steganography?
 
 Steganography is a very ancient method, It is the practice of concealing a message within another message or a physical object.
 
 The ancient form was like, sending messages on paper with invisible ink.
 
-## Types of Steganography
+## What types of steganography are there?
 
 Over years its evolved and now used digitally with various forms of media like
 
@@ -41,13 +42,18 @@ Over years its evolved and now used digitally with various forms of media like
 
 5. **Network** - hide data in network protocols ex. hide secret in header or payload or mixing it in both.
 
-## Methods used in Image Steganography
+## How is data hidden inside an image?
 
 There are many methods used in image steganography, I have listed very basic and simple ones.
 
 **LSB** (Least significant bit)
 
 It is a technique in which least significant bit of pixel data is replaced with data bit. It's very simple method and difference in images are undetected by naked eye.
+
+Here is why the change is invisible. Each colour channel is a number from 0 to 255, and changing the last bit moves it by at most 1. That's less than 0.4% of the range.
+
+It also holds a lot of data. A 1920 x 1080 RGB image has 1920 x 1080 x 3 = 6,220,800 channel values. Using 1 bit from each gives 6,220,800 bits, about 760 KB of hidden data.
+
 
 **DCT**
 
@@ -59,7 +65,7 @@ Read more on DCT [here](https://www.youtube.com/watch?v=Q2aEzeMDHMA).
 
 It is a steganography algorithm based on LSB replacement method for hiding data in DCT coefficients of JPEG images. The algorithm replaces the LSB of DCT coefficients by bits of the secret message to be hidden
 
-## Simple example in python
+## How do I hide a message in an image with Python?
 
 I am using python library ([cryptosteganography](https://pypi.org/project/cryptosteganography/)) for demonstrating this.
 
@@ -135,7 +141,7 @@ Super secret message. That I want to send secretly to someone. No one in middle 
 
 ```
 
-## Free available tools
+## Which free steganography tools can I use?
 
 - Openstego
 
@@ -147,7 +153,7 @@ Super secret message. That I want to send secretly to someone. No one in middle 
 
 - Hide’N’Send
 
-## Uses
+## What is steganography used for?
 
 - embed copyright messages in media files
 
@@ -155,8 +161,24 @@ Super secret message. That I want to send secretly to someone. No one in middle 
 
 - It's very popular in cyber crimes, Hence very important for white hat hackers.
 
+## Frequently Asked Questions
+
+### Is steganography the same as encryption?
+
+No. Encryption makes a message unreadable. Steganography hides the fact that there is a message at all. The library in this post does both: it encrypts the message with a password, then hides it.
+
+### Why use PNG instead of JPEG for LSB steganography?
+
+PNG is lossless, so every bit you change stays exactly as you set it. JPEG compression changes pixel values, which destroys data hidden in the least significant bits.
+
+### Can hidden data be detected?
+
+Yes. Steganalysis tools look for statistical patterns that LSB changes leave behind. Hiding data makes it harder to notice, but not impossible to find.
+
 ## References
 
-- https://www.youtube.com/watch?v=xepNoHgNj0w
+- [Video: Steganography explained (YouTube)](https://www.youtube.com/watch?v=xepNoHgNj0w)
 
-- https://www.youtube.com/watch?v=TWEXCYQKyDc
+- [Video: Image steganography (YouTube)](https://www.youtube.com/watch?v=TWEXCYQKyDc)
+- [cryptosteganography on PyPI](https://pypi.org/project/cryptosteganography/)
+- [Steghide on SourceForge](https://steghide.sourceforge.net/)

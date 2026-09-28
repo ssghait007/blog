@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'netlify-static',
     prerender: {
-      routes: ['/rss.xml'],
+      routes: ['/rss.xml', '/sitemap.xml'],
     },
   },
 

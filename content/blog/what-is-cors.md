@@ -4,11 +4,12 @@ description: CORS is a security feature that prevents malicious websites from ac
 category: Frontend
 published: true
 createdAt: 2021-02-02T07:00:13.392Z
+updatedAt: 2026-09-28T00:00:00.000Z
 image: /assets/http-security-headers.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 5 min read
-tags: ['developer', 'frontend']
+tags: ['cors', 'http', 'web-security', 'javascript']
 proficiency: Beginner
 ---
 
@@ -18,6 +19,13 @@ proficiency: Beginner
 
 ### Introduction to Cross-Origin Resource Sharing:
 CORS is a security feature in web browsers that prevents web pages from sending requests to domains other than the one that delivered them. It enables secure cross-domain data transfer and communication.
+
+MDN defines it like this:
+
+> "Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources." — [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS)
+
+In other words, browsers block cross-origin reads by default (the same-origin policy), and CORS is how a server safely relaxes that rule.
+
 
 ### Purpose of CORS in Web Browsers:
 The purpose of CORS is to stop malicious websites from submitting unauthorized requests to a website and potentially revealing confidential information or causing other security issues.
@@ -33,7 +41,7 @@ By preventing web pages from sending requests to domains other than the one that
 ### Securing Confidential Information and Preventing Security Issues:
 By stopping malicious websites from accessing confidential information or causing other security issues, CORS helps to keep your website and its users secure.
 
-## CORS Headers for Restricted Access
+## Which CORS headers control access?
 
 ### Utilizing Additional CORS Headers:
 To further restrict access to resources, additional CORS headers can be utilized.
@@ -55,12 +63,12 @@ It's important to understand that the server is simply trying to defend itself a
 ### Resolving CORS Problems through Server Configuration or Proxy Utilization:
 CORS problems can typically be resolved by configuring the server to provide the necessary headers with the request or by utilizing a proxy. This allows developers to work around CORS restrictions while still maintaining the security provided by CORS.
 
-## Common issues with CORS faced by devs 
+## What are the most common CORS errors?
 1. CORS issues when doing AJAX queries: CORS failures are most typically experienced when executing AJAX requests using JavaScript. If you send an AJAX request to another domain and that domain's server is not configured to allow requests from your domain, you may get a CORS error in your browser's console. To fix this issue, you must confirm that the server is configured to accept requests from your domain. This is typically accomplished via the server's responses including an Access-Control-Allow-Origin header.
 2. CORS faults that are encountered when making requests from a local development environment: You could have CORS issues while working locally on a web application and sending requests to a distant server. This can happen if the server isn't configured to allow requests from your local development environment. To fix this issue, you might need to set up the server to accept requests from your local development environment or use a tool like ngrok to expose your local development environment to the internet.
 3. CORS issues may arise when making calls to APIs that use rate restriction. To prevent users from making an excessive number of queries, certain APIs implement rate limiting. When making requests to an API that has rate limitation enabled and exceeding the allotted number of requests, you may receive a CORS error. To fix this issue, you will need to check that you are not making too many API calls, or you may need to employ caching or other methods to reduce the number of requests you are making.
 
-## Debugging CORS issues for frontend devs
+## How do frontend developers debug CORS errors?
 
 - 🔎 Use browser dev tools to inspect network requests and responses
 - 🚨 Check browser console for error messages related to CORS
@@ -70,9 +78,30 @@ CORS problems can typically be resolved by configuring the server to provide the
 - 💬 Verify that the request URL and parameters are correct.
 - 🚨 Try CORS proxy: Try using a CORS proxy to bypass the same-origin policy and see if the CORS error persists.
 
-## Debugging CORS issues for backend devs
+## How do backend developers debug CORS errors?
 
 - Check server response headers: Verify that the server is sending the correct CORS headers in its responses (e.g. Access-Control-Allow-Origin).
 - Enable CORS logging: Enable logging in the server code to track the flow of CORS requests and debug any issues.
 - Check API documentation: Review the API documentation to ensure that the API supports CORS and check the API's CORS configuration.
 - Test API with cURL: Test the API with cURL from the command line to see if the server is correctly responding to CORS requests.
+
+## Frequently Asked Questions
+
+### Does CORS protect my API from curl or other servers?
+
+No. Browsers enforce CORS, not servers. Tools like curl, Postman or a backend service ignore CORS headers completely, so you still need authentication on your API.
+
+### Can I use Access-Control-Allow-Origin: * with cookies?
+
+No. For requests with credentials (cookies or HTTP auth), the server must return the exact origin, such as `https://example.com`, and `Access-Control-Allow-Credentials: true`.
+
+### What is a preflight request?
+
+For non-simple requests, such as `PUT` or a custom header, the browser first sends an `OPTIONS` request to ask permission. You can cache the answer with `Access-Control-Max-Age`. Chromium caps it at 7,200 seconds (2 hours) and Firefox at 86,400 seconds (24 hours).
+
+## References
+
+- [MDN: Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS)
+- [MDN: Same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
+- [MDN: Access-Control-Max-Age](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Max-Age)
+- [WHATWG Fetch Standard: CORS protocol](https://fetch.spec.whatwg.org/#http-cors-protocol)

@@ -4,11 +4,12 @@ description: Learn how to enhance your Git workflow using commit templates, PR t
 category: Development
 published: true
 createdAt: 2023-05-28T00:00:00.000Z
+updatedAt: 2026-09-28T00:00:00.000Z
 image: /assets/git-templates.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 7 min read
-tags: ['Git', 'Version Control']
+tags: ['git', 'github', 'commit-messages', 'pull-requests']
 proficiency: intermediate
 ---
 
@@ -18,7 +19,7 @@ proficiency: intermediate
 
 In Git, there are several templates available that can greatly improve your development workflow. Let's explore some of these templates and understand how they can save time and enhance collaboration.
 
-## Commit Templates: Structured Commit Messages
+## What is a Git commit template?
 
 A commit template is a file that provides a predefined structure for your commit messages. By using commit templates, you can ensure consistent formatting and information in each commit message. This helps in better understanding the changes made and improves project maintainability. 
 
@@ -43,10 +44,22 @@ Description:
 References: #123, #456
 ```
 
+To make Git use this template, point `commit.template` at the file:
 
-## PR Templates: Clear Pull Request Descriptions
+```bash
+git config --global commit.template ~/.gitmessage
+```
+
+Now `git commit` (without `-m`) opens your editor with the template already filled in.
+
+
+
+## What is a pull request template?
 
 PR templates provide a predefined structure for pull request descriptions. When creating a pull request, using a PR template ensures that you include essential information, such as a summary of the changes, the problem being addressed, the proposed solution, and any relevant context or documentation.
+
+> "When you add a pull request template to your repository, project contributors will automatically see the template's contents in the pull request body." — [GitHub Docs](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)
+
 
 Examples where PR templates save time include:
 
@@ -79,7 +92,7 @@ Include links or references to any relevant documentation.
 ```
 
 
-## Issue Templates: Structured Issue Reporting
+## What is an issue template?
 
 Issue templates define a predefined structure for creating new issues in your project's issue tracker. By providing specific sections, such as problem description, steps to reproduce, and expected behavior, issue templates help in capturing detailed and structured information when reporting bugs or suggesting enhancements.
 
@@ -110,7 +123,7 @@ Explain what actually happened.
 ## Additional Information
 Include any additional information or context that may be relevant.
 ```
-## Release Templates: Consistent Release Documentation
+## What is a release template?
 
 Release templates define the structure and content of release notes or release documentation. By using release templates, you can include relevant information, such as feature highlights, bug fixes, and breaking changes, in a standardized format.
 
@@ -146,3 +159,23 @@ By utilizing these templates, you can improve your Git workflow, promote consist
 
 Remember to customize the templates according to your project's specific needs and conventions
 
+## Frequently Asked Questions
+
+### Where should I put the pull request template file?
+
+GitHub looks for `pull_request_template.md` in the repository root, in `.github/`, or in `docs/`. The file name is not case-sensitive.
+
+### Can I have more than one issue template?
+
+Yes. Put several Markdown or YAML files in `.github/ISSUE_TEMPLATE/`. GitHub shows a chooser when someone opens a new issue.
+
+### Does the commit template apply to git commit -m?
+
+No. The template only appears when Git opens your editor. `git commit -m "..."` skips it.
+
+## References
+
+- [Git: commit.template configuration](https://git-scm.com/docs/git-config#Documentation/git-config.txt-committemplate)
+- [GitHub Docs: Creating a pull request template](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)
+- [GitHub Docs: Configuring issue templates](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)
+- [GitHub Docs: Automatically generated release notes](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes)

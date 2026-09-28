@@ -4,11 +4,12 @@ description: The post describes how you can access raspberry-pi from anywhere in
 category: Developer
 published: true
 createdAt: 2021-09-11T07:00:13.392Z
+updatedAt: 2026-09-28T00:00:00.000Z
 image: /assets/ngrok.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 8 min read
-tags: ['developer']
+tags: ['ngrok', 'raspberry-pi', 'ssh', 'remote-access']
 proficiency: intermediate
 # beginner intermediate advanced 
 ---
@@ -21,7 +22,7 @@ I have posted some blog posts regarding setting up pihole on raspberry-pi, and r
 
 Check these here in [blog posts section](https://onthegoalways.com/blog).
 
-## What was my use case ? 🤷
+## Why did I need remote access to my Raspberry Pi? 🤷
 
 After putting these tasks as CLI commands on raspberry-pi, I wanted more accessibility for these. Like running these even if I am not in local network (at home).
 
@@ -30,7 +31,7 @@ There are two things that I wanted to access.
 1. Pihole web interface that runs on pihole's address at `http://192.168.0.X/admin/`
 2. SSH into pihole device to run the CLI commands that I made for some automations.
 
-## Challenges ✨
+## Why not use port forwarding? ✨
 
 In many routers these are sections where you can configure `remote management` or do `port-forwarding`. But my browser did not have these settings available.
 
@@ -42,7 +43,7 @@ Because of all these restrictions of my router I decided to use `ngrok`.
 
 Ngrok is a useful utility to create secure tunnels to locally hosted applications using a reverse proxy. It is a utility to expose any locally hosted application over the web.
 
-## Setting up ngrok 🔨
+## How do I set up ngrok on a Raspberry Pi? 🔨
 
 1. log on to your device
 
@@ -69,11 +70,14 @@ $ ./ngrok authtoken YOUR_NGROK_TOKEN
 This token removes the 8-hour limit of ngrok tunnel.
 In free version, you get 1 tunnel with unique URL to access local app.
 
+**Version note:** these steps use ngrok v2. In ngrok v3, the command is `ngrok config add-authtoken YOUR_NGROK_TOKEN`, and you download the ARM build from [ngrok.com/download](https://ngrok.com/download). Free-plan limits have changed since this post was written, so check [ngrok's pricing page](https://ngrok.com/pricing) before you rely on them.
+
+
 Now you are all setup for using ngrok…!!
 
 ![GIF](https://media2.giphy.com/media/YPKFBSrq0EoqPJGqTn/giphy.gif?cid=ecf05e47h1aqkyltlm8m1s2b36679g2xmsjub98gaymgx2l4&rid=giphy.gif&ct=g)
 
-## Using ngrok to access pihole web interface
+## How do I access the Pi-hole web interface with ngrok?
 
 Use below command to create a tunnel for port 80. On port 80 there is pihole web interface. We will be able to access this from a unique ngrok URL.
 
@@ -92,7 +96,7 @@ Below is snapshot of how you can access web portal via ngrok tunnel.
 
 ![ngrok http example](/assets/ngrok-http-access.webp)
 
-## Using ngrok to ssh into raspberry-pi
+## How do I SSH into a Raspberry Pi with ngrok?
 
 Use below command to create a tunnel for port 22. Using port 22 we can ssh into the device. Using unique URL provided by ngrok, we can ssh into raspberry-pi from anywhere.
 
@@ -112,3 +116,23 @@ Any ssh app like putty(Windows) or juiceSSH(mobile) can be used to connect to ra
 Below is snapshot of how ssh access from juiceSSH.
 
 ![juiceSSH example](/assets/juicessh.webp)
+
+## Frequently Asked Questions
+
+### Is it safe to expose SSH through ngrok?
+
+Only if you lock it down. Use SSH keys, set `PasswordAuthentication no` in `/etc/ssh/sshd_config`, and change the default `pi` password.
+
+### How do I start ngrok automatically on boot?
+
+Create a systemd service that runs your ngrok command, then enable it with `sudo systemctl enable ngrok`. It will restart on reboot and after crashes.
+
+### Are there alternatives to ngrok?
+
+Yes. Tailscale and Cloudflare Tunnel also give remote access without port forwarding. Tailscale builds a private network, so nothing is exposed to the public internet.
+
+## References
+
+- [ngrok documentation](https://ngrok.com/docs)
+- [ngrok downloads](https://ngrok.com/download)
+- [Pi-hole documentation](https://docs.pi-hole.net/)

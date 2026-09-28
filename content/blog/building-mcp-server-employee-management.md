@@ -4,11 +4,12 @@ description: Learn how to create a comprehensive MCP server with PostgreSQL inte
 category: Backend
 published: true
 createdAt: 2025-06-07T14:30:00.000Z
+updatedAt: 2026-09-28T00:00:00.000Z
 image: /assets/MCP.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 5 min read
-tags: ['developer', 'ai', 'postgres']
+tags: ['mcp', 'claude', 'postgresql', 'typescript']
 proficiency: intermediate
 # beginner intermediate advanced 
 ---
@@ -23,13 +24,20 @@ The Model Context Protocol (MCP) is revolutionizing how AI assistants interact w
 
 MCP is an open protocol that enables AI assistants like Claude to connect to external data sources and tools. Think of it as a bridge between AI and your applications - allowing the AI to read databases, call APIs, and perform complex operations on your behalf.
 
+The official docs put it in one line:
+
+> "MCP is an open protocol that standardizes how applications provide context to LLMs." — [modelcontextprotocol.io](https://modelcontextprotocol.io/)
+
+Anthropic introduced MCP in November 2024. Under the hood it uses JSON-RPC 2.0 messages between a client (like Claude Desktop) and a server (like the one we build here).
+
+
 **Key Benefits:**
 - **Real-time Data Access**: AI can query live databases instead of relying on static training data
 - **Action Execution**: Perform operations like creating records, sending emails, or triggering workflows
 - **Extensibility**: Add new capabilities to AI assistants without retraining models
 - **Security**: Controlled access with proper authentication and validation
 
-## What We'll Build 🏗️
+## What will we build? 🏗️
 
 Our employee management MCP server will provide these powerful tools:
 
@@ -178,7 +186,7 @@ Test with these commands:
 
 - "Apply for annual leave for alice.johnson@company.com from 2024-09-01 to 2024-09-05"
 
-## Troubleshooting Common Issues 🔧
+## How do I fix common MCP server issues? 🔧
 
 **Server not appearing in Claude Desktop:**
 ```bash
@@ -213,9 +221,26 @@ MCP servers have the following advantages:
 - Create custom tools
 
 
+## Frequently Asked Questions
+
+### What is the difference between an MCP tool and a resource?
+
+A tool is an action the AI can call, like `apply_employee_leave`. A resource is read-only data the client can load as context, like a file or a database record.
+
+### Why does my server not show up in Claude Desktop?
+
+Check that the path in `claude_desktop_config.json` is absolute, the JSON is valid, and you fully restarted Claude Desktop. Then read the MCP logs in `~/Library/Logs/Claude/` on macOS.
+
+### Is it safe to connect an MCP server to a real database?
+
+Use a database user with the smallest permissions it needs, ideally read-only. Validate every tool input on the server, because the AI decides what arguments to send.
+
 ## Resources 📚
 
 - [MCP Official Documentation](https://modelcontextprotocol.io/)
 - [Claude Desktop Download](https://claude.ai/download)
+- [MCP specification](https://modelcontextprotocol.io/specification/2025-11-25)
+- [MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
+- [node-postgres (pg) documentation](https://node-postgres.com/)
 
 ---

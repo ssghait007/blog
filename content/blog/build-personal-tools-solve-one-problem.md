@@ -4,11 +4,12 @@ description: I built a stock exit validator, a media compression pipeline, and a
 category: Developer
 published: true
 createdAt: 2026-03-19T00:00:00.000Z
+updatedAt: 2026-09-28T00:00:00.000Z
 image: /assets/use-it-first.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 7 min read
-tags: ['productivity', 'tools', 'developer']
+tags: ['personal-tools', 'productivity', 'ai-coding', 'side-projects']
 proficiency: beginner
 ---
 
@@ -29,7 +30,7 @@ But outside of that, small inefficiencies quietly pile up. Repeated tasks. Minor
 The shift for me was simple:
 stop thinking in terms of side projects and start building tools I would actually use.
 
-## The Rule: Use It First. Expand Later.
+## What is the "use it first" rule?
 
 Recently, I've been building small personal tools. Not side projects, tools. The difference matters.
 
@@ -98,7 +99,7 @@ The important thing: I didn't build a "media management platform." There's no UI
 
 This one is my favorite because it's the most absurd application of serious cryptography to a silly human problem. It started from a small observation: I would mindlessly open distraction websites not because I needed to, but purely out of habit. 
 
-There's a principle from **Atomic Habits** by James Clear: *If you add friction to bad habits, they become less likely.* 
+There's a principle from [**Atomic Habits**](https://jamesclear.com/atomic-habits) by James Clear: *If you add friction to bad habits, they become less likely.* 
 
 I tried standard app blockers and screen time limits, but the workaround was always too easy, just click "Ignore Limit" and you're back in. I needed the workaround to be technically difficult. So instead of relying on willpower, I engineered friction using Shamir's Secret Sharing algorithm.
 
@@ -121,7 +122,7 @@ By the time I've done all that effort, the impulse is gone.
 
 **Ongoing value:** Fewer mindless opens, more intentional usage. The friction is enough to break the automatic habit loop.
 
-## The Pattern
+## What pattern do these tools share?
 
 Look at these three tools. They have nothing in common technically, but they follow the same pattern:
 
@@ -132,7 +133,7 @@ Look at these three tools. They have nothing in common technically, but they fol
 
 The anti-pattern is skipping step 3. The moment you jump straight to adding user accounts or thinking about a launch before you've even used it yourself, you've crossed the line from solving your problem to creating a new one.
 
-## Why This Matters Now More Than Ever
+## Why does this matter more now?
 
 The cost of building small tools has dropped significantly. 
 
@@ -170,3 +171,17 @@ You have the skills to fix it. And with AI tools, you have the time.
 Don't plan a product. Open your terminal, describe the problem to your AI assistant, and build the simplest possible solution. Use it.
 
 If it works, keep it. If it proves valuable, improve it. And only then, if it genuinely deserves it, think about sharing it.
+
+## Frequently Asked Questions
+
+### What is the difference between a personal tool and a side project?
+
+A side project aims to grow and find users. A personal tool solves one specific problem for you, and it's done once that problem is gone.
+
+### How small should the first version be?
+
+My rule: if V1 takes more than two evenings to build, the scope is too big. Cut features until it fits.
+
+### When should I share a personal tool with others?
+
+Only after you have used it regularly and it has proven useful over time. That decision comes after real use, not at the idea stage.

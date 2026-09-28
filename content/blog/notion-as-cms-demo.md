@@ -4,11 +4,12 @@ description: The post describes the step-by-step process of creating a simple we
 category: Frontend
 published: true
 createdAt: 2022-07-03T07:00:13.392Z
+updatedAt: 2026-09-28T00:00:00.000Z
 image: /assets/notion-as-cms-header.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 10 min read
-tags: ['frontend']
+tags: ['notion', 'headless-cms', 'netlify', 'javascript']
 proficiency: intermediate
 # beginner intermediate advanced 
 ---
@@ -25,7 +26,10 @@ Notion provides APIs which are good mix of REST and GraphQL. We will use these A
 
 Data fetched from the APIs will be added at built time to our demo website.
 
-## Create a simple website
+The Notion API docs describe the database query endpoint used in this post. Each query returns at most 100 results per page, so larger boards need pagination with `start_cursor` ([Notion API reference](https://developers.notion.com/reference/post-database-query)).
+
+
+## What are we building?
 
 To showcase a simple use case.
 Let's consider there is a hiring manager at small startup, And he/she manages the list of candidates in notion boards.
@@ -33,9 +37,7 @@ Board has sections ex. shortlisted, in process, hired candidates. Hiring manager
 
 Names of the selected members should appear in team section on company website. I have created a one page website for this.
 
-**Reference:**
-
-https://tailwindcomponents.com/component/team-section-2
+**Reference:** [Tailwind team section component](https://tailwindcomponents.com/component/team-section-2)
 
 ## Load data from a json file
 
@@ -52,16 +54,14 @@ export default {
 }
 ```
 
-## Setup CICD using netlify
+## How do I set up CI/CD with Netlify?
 
 Netlify provides easy CICD integration with github.
 Integrate netlify with your repo and Specify your build command and build output directory.
 
 Follow the below given video to setup CICD for your github repo.
 
-**Referance**
-
-https://www.youtube.com/watch?v=4h8B080Mv4U
+**Reference:** [Netlify CI/CD setup video](https://www.youtube.com/watch?v=4h8B080Mv4U)
 
 ## Create a board in Notion
 
@@ -79,7 +79,7 @@ https://www.youtube.com/watch?v=4h8B080Mv4U
 
 > Names from the Done column should appear on website
 
-## Setup notion integration
+## How do I create a Notion integration?
 
 - Create new integration in notion
 
@@ -99,7 +99,7 @@ Make sure not to commit this to github (or any other SCM).
 
 > This makes your content available to the integration, can be accessed using API now.
 
-## Script to fetch notion data at build time
+## How do I fetch Notion data at build time?
 
 - Add `NOTION_API_KEY` and `NOTION_DB_ID` in env variables.
 
@@ -185,12 +185,31 @@ axios(config)
 
 Full code for this can be found on [github](https://github.com/ssghait007/notion-as-cms)
 
-# Note
+## Should I fetch Notion data at build time or at runtime?
 
 This demo shows example to inject data at runtime, As this data is changed less frequently.
 
 For use cases like product page, data will be changed rapidly .
 
-You can use notion npm library to fetch this data while page loads in browser.
+You can use the [official Notion JavaScript client](https://www.npmjs.com/package/@notionhq/client) to fetch this data on the server when the page loads. Keep your API key on the server; never ship it to the browser.
 
-https://www.npmjs.com/package/@notionhq/client
+## Frequently Asked Questions
+
+### Is Notion a good CMS for a production website?
+
+For small, slowly changing content like a team page, yes. For large or fast-changing content, a dedicated headless CMS is more reliable, because Notion's API has rate limits and page-size limits.
+
+### Why fetch Notion data at build time instead of in the browser?
+
+The page stays fast and static, and your Notion API key never reaches the browser. The trade-off is that you need a new build to show new data.
+
+### Can I rebuild the site automatically when Notion changes?
+
+Yes. Create a Netlify build hook and call it from an automation tool, or on a schedule, whenever the board changes.
+
+## References
+
+- [Notion API: Query a database](https://developers.notion.com/reference/post-database-query)
+- [Notion JavaScript SDK](https://github.com/makenotion/notion-sdk-js)
+- [Netlify: Build hooks](https://docs.netlify.com/configure-builds/build-hooks/)
+- [notion-as-cms demo code](https://github.com/ssghait007/notion-as-cms)

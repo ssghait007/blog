@@ -4,11 +4,12 @@ description: Discover VSCodium, a community-driven alternative to Visual Studio 
 category: Developer
 published: true
 createdAt: 2021-02-16T07:00:13.392Z
+updatedAt: 2026-09-28T00:00:00.000Z
 image: /assets/vscodium.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 6 min read
-tags: ['developer']
+tags: ['vscodium', 'vscode', 'open-source', 'privacy']
 proficiency: intermediate
 # beginner intermediate advanced 
 ---
@@ -24,23 +25,20 @@ This post describes how and why I switched to VSCodium from VSCode.
 VSCodium is a community-driven, freely-licensed binary distribution of Microsoft’s editor VSCode.
 In simple words you can download VSCode binary open source build, instead of downloading from Microsoft.
 
-## Why I chose VSCodium over VSCode
+## Why choose VSCodium over VS Code?
 
 When Microsoft build VSCOde binary, some telemetry and tracking is added,
-Read more in detail on below link
-https://vscodium.com/#why
+Read more in detail on [vscodium.com](https://vscodium.com/#why).
 
 VSCodium project exists so that you dont have to download from Microsofts VSCode download page.
 VSCodium project has build scripts, that clone the VSCode repo and create build.
 These binaries are licensed under the MIT license. **Telemetry is disabled.**
-These builds can be downloaded from Github releases
+These builds can be downloaded from [GitHub releases](https://github.com/VSCodium/vscodium/releases).
 
-https://github.com/VSCodium/vscodium/releases
-
-## Steps to install VSCodium (Windows)
+## How do I install VSCodium on Windows?
 
 1. Install chocolatey
-   Head over to chocolatey website https://chocolatey.org/install
+   Head over to the [Chocolatey install page](https://chocolatey.org/install)
 
    Copy below command and run in powershell (run as admin)
 
@@ -56,14 +54,13 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/in
 choco install vscodium
 ```
 
-3. Or you can download exe file directly from link below
-   https://github.com/VSCodium/vscodium/releases
+3. Or you can download the exe file directly from [GitHub releases](https://github.com/VSCodium/vscodium/releases)
 
-## Migrating settings from VSCode to VSCodium
+## How do I move my VS Code settings to VSCodium?
 
-https://github.com/VSCodium/vscodium/blob/master/DOCS.md#migrating
+See the [official migration guide](https://github.com/VSCodium/vscodium/blob/master/DOCS.md#migrating).
 
-Your settings are stored in json file `settings.josn` in location `%APPDATA%\Code\User`
+Your settings are stored in json file `settings.json` in location `%APPDATA%\Code\User`
 
 Keep a backup of this file and Copy this file to `%APPDATA%\VSCodium\User`
 
@@ -80,5 +77,25 @@ There are some caveats with VSCodium like some extensions might not be directly 
 But those can be install using vsix files. Downloading directly from marketplace and then install by command
 
 ```
-code --install-extension myextension.vsix
+codium --install-extension myextension.vsix
 ```
+
+## Frequently Asked Questions
+
+### Where does VSCodium get extensions from?
+
+From the [Open VSX Registry](https://open-vsx.org/) by default, not the Microsoft Marketplace. If an extension is missing, download its `.vsix` file and install it with `codium --install-extension`.
+
+### Is VSCodium completely free of telemetry?
+
+VSCodium's builds turn off Microsoft's telemetry by default. Some extensions collect their own telemetry, so check each extension's settings too.
+
+### How do I install VSCodium on macOS or Linux?
+
+On macOS run `brew install --cask vscodium`. On Linux, use the packages or instructions on [vscodium.com](https://vscodium.com/).
+
+## References
+
+- [VSCodium website](https://vscodium.com/)
+- [VSCodium on GitHub](https://github.com/VSCodium/vscodium)
+- [Open VSX Registry](https://open-vsx.org/)

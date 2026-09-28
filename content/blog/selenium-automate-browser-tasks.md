@@ -4,11 +4,12 @@ description: Automate browser-based tasks with Python's Selenium module. Learn h
 category: Backend
 published: true
 createdAt: 2021-04-13T07:00:13.392Z
+updatedAt: 2026-09-28T00:00:00.000Z
 image: /assets/selenium.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 7 min read
-tags: ['developer', 'automate']
+tags: ['selenium', 'python', 'browser-automation', 'webdriver']
 proficiency: advanced
 # beginner intermediate advanced 
 ---
@@ -19,12 +20,17 @@ proficiency: advanced
 
 I went through a course on udemy ( Automate boring stuff with python ) back in 2018, from there I got that we can automate many tasks from daily life.
 
-## What is selenium ?
+## What is Selenium?
 
 Selenium is widely used in writing automated tests for web-applications.
 Selenium lets you run an automated instance of web browser( chrome, firefox ), and gives you APIs so you can control the browser and webpage.
 
-## Lets use selenium to automate tasks !!
+> "Selenium automates browsers. That's it!" — [selenium.dev](https://www.selenium.dev/)
+
+**Version note:** the code below was written for Selenium 3. Since Selenium 4.6, Selenium Manager downloads the right browser driver for you, and the `executable_path` argument was removed in Selenium 4.10. On a current version, `webdriver.Firefox()` with no arguments is enough.
+
+
+## How can Selenium automate a daily task?
 
 Lets take a simple example of reading an online epaper.
 Steps to get to last point are,
@@ -83,7 +89,7 @@ WebDriverWait(browser, 6).until(EC.element_to_be_clickable(
         (By.XPATH, '/html/body/div[7]/div[1]/div[1]/div[4]/div/button[1]'))).click()
 ```
 
-## Gotchas
+## Common problems and fixes
 
 ### How to find xpath of the browser element.
 
@@ -111,3 +117,23 @@ Some other ideas you can try out.
 
 - Change config on router ( block/unblock certain domains, Limit speed on certain devices ). You will need to supply username and password for router in input boxes(`sendkeys()` can be used for that). Make sure you are not publishing these username and password in public repos.
 - Clock in/out i.e. time booking for employees on company website. ( Again make sure to not disclose username and password on public repos, pass it from environment variables )
+
+## Frequently Asked Questions
+
+### Do I still need to download geckodriver or chromedriver?
+
+Not on Selenium 4.6 or newer. Selenium Manager finds or downloads a matching driver automatically.
+
+### Why does my XPath stop working after a site update?
+
+Absolute XPaths like `/html/body/div[4]/...` break when the page layout changes. Prefer `By.ID`, `By.NAME` or a short CSS selector when the element has one.
+
+### How do I run the browser headless in Selenium 4?
+
+Use `options.add_argument('-headless')` for Firefox or `options.add_argument('--headless')` for Chrome, then pass `options=options` to the driver.
+
+## References
+
+- [Selenium documentation](https://www.selenium.dev/documentation/)
+- [Selenium Manager](https://www.selenium.dev/documentation/selenium_manager/)
+- [Selenium: Waiting strategies](https://www.selenium.dev/documentation/webdriver/waits/)

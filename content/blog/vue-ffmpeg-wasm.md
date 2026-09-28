@@ -4,11 +4,12 @@ description: Convert Video to GIF with FFmpeg in the browser using Ffmpeg's web 
 category: Frontend
 published: true
 createdAt: 2021-02-06T07:00:13.392Z
+updatedAt: 2026-09-28T00:00:00.000Z
 image: /assets/ffmpeg-wasm.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 5 min read
-tags: ['frontend']
+tags: ['vue', 'ffmpeg', 'webassembly', 'video-to-gif']
 proficiency: Intermediate
 # beginner intermediate advanced 
 ---
@@ -24,7 +25,9 @@ Ffmpeg loads web assembly script in browser, and gives APIs that we can consume.
 
 FFmpeg is a free and open-source software project consisting of a large suite of libraries and programs for handling video, audio, and other multimedia files and streams.
 
-## How to add ffmpeg.wasm to vue app
+> "A complete, cross-platform solution to record, convert and stream audio and video." — [ffmpeg.org](https://ffmpeg.org/)
+
+## How do I add ffmpeg.wasm to a Vue app?
 
 ```bash{1,3-5}
 # Use npm
@@ -33,9 +36,11 @@ npm  install @ffmpeg/ffmpeg
 yarn  add @ffmpeg/ffmpeg
 ```
 
-or you can use CDN directly, read more on https://ffmpegwasm.github.io/#demo
+or you can use CDN directly, read more on the [ffmpeg.wasm site](https://ffmpegwasm.netlify.app/).
 
-## Usage
+**Version note:** this post uses the 0.11 API (`createFFmpeg`, `ffmpeg.run`, `ffmpeg.FS`). Version 0.12 replaced it with `new FFmpeg()`, `ffmpeg.exec()` and `ffmpeg.writeFile()`. To follow this post as written, install `@ffmpeg/ffmpeg@0.11`.
+
+## How do I convert a video to GIF in the browser?
 
 1. Import ffmpeg as below
 
@@ -80,14 +85,33 @@ await ffmpeg.run(
 // -ss ⇒ starting seconds or offset
 ```
 
-Read more on ffmpeg commands on https://ffmpeg.org/ffmpeg.html
+Read more on ffmpeg commands in the [FFmpeg documentation](https://ffmpeg.org/ffmpeg.html).
 
-## How app will look like
+## What does the finished app look like?
 
 ![image alt text](/assets/ffmpeg-mp4-to-gif.webp)
 
 ## Conclusion
 
 I found ffmpeg-wasm was really helpful, I have explored just one use case, that's like exploring tip of iceberg.
-I will try out more use cases and keep updating in my GitHub repo.
-https://github.com/ssghait007/ffmpeg-wasm-poc
+I will try out more use cases and keep updating in my [GitHub repo](https://github.com/ssghait007/ffmpeg-wasm-poc).
+
+## Frequently Asked Questions
+
+### Is my video uploaded to a server?
+
+No. ffmpeg.wasm runs inside the browser tab. The file is written to an in-memory file system and never leaves the device.
+
+### Why do I get a SharedArrayBuffer error?
+
+ffmpeg.wasm 0.11 needs `SharedArrayBuffer`, which browsers only allow on cross-origin isolated pages. Serve your app with `Cross-Origin-Opener-Policy: same-origin` and `Cross-Origin-Embedder-Policy: require-corp`.
+
+### What do the -t and -ss options do?
+
+`-ss 5` starts reading the video at 5 seconds, and `-t 5` keeps 5 seconds of output. Together they make a 5-second GIF from seconds 5 to 10.
+
+## References
+
+- [FFmpeg official site](https://ffmpeg.org/)
+- [ffmpeg.wasm on GitHub](https://github.com/ffmpegwasm/ffmpeg.wasm)
+- [MDN: SharedArrayBuffer security requirements](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer#security_requirements)

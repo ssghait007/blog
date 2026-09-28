@@ -4,11 +4,12 @@ description: Amazon Cloudfront for faster distribution of your static and dynami
 category: Frontend
 published: true
 createdAt: 2022-05-03T07:00:13.392Z
+updatedAt: 2026-09-28T00:00:00.000Z
 image: /assets/template.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 5 min read
-tags: ['frontend', 'aws']
+tags: ['aws', 'cloudfront', 's3', 'single-page-app']
 proficiency: intermediate
 # beginner intermediate advanced 
 ---
@@ -17,7 +18,7 @@ proficiency: intermediate
 
 # Cloudfront for Hosting SPA (single page application)
 
-- **What is Single Page Application ?**
+## What is a Single Page Application?
 
 To understand Single Page Application we need to first understand what was the traditional way websites used to work. In older websites each page on website was requested separately.
 
@@ -33,7 +34,7 @@ From developers perspective is very easy to debug a single page applications you
 
 ## **What is cloudfront ?**
 
-Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, such as .html, .css, .js, and image files, to your users.
+> "Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, such as .html, .css, .js, and image files, to your users." — [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
 
 In case of SPA this delivers all the html files and JS bundles(heavy in size) quickly to client devices.
 
@@ -58,7 +59,7 @@ Steps in case of path matches file `NOT` present in Cloudfront cache
 5.  Cloudfront gets no content response from base server
 6.  Cloud front sends file not found or AccessDenied response to browser.
 
-## **How to configure cloudfront to deal with above challenges**
+## How do I configure CloudFront error pages for an SPA?
 
 Above issue arises due to the behaviour of SPA, The internal routing is handled in client side.
 But because the internal route/URL path is requested before the SPA has loaded in browser, cloudfront thinks that this is a unknown route and returns AccessDenied response.
@@ -66,7 +67,35 @@ But because the internal route/URL path is requested before the SPA has loaded i
 The `solution` is to make browsers aware of the routing before requesting the internal routes.
 To achieve this we can redirect the unknown route paths to homepage( `index.html`). This makes sure we load the JS bundles necessary for internal routing.
 
+In the CloudFront console, open your distribution, go to **Error pages**, and create a custom error response for each code:
+
+| HTTP error code | Response page path | HTTP response code |
+|---|---|---|
+| 403 | `/index.html` | 200 |
+| 404 | `/index.html` | 200 |
+
+
 ![image alt text](/assets/cloudfront-err-page-config.webp)
 
 With this config, Cloudfront will not return error but will respond with `index.html` page.
 Now browser will load this page and handle the internal redirect in browser.
+
+## Frequently Asked Questions
+
+### Why does CloudFront return 403 instead of 404 for missing routes?
+
+When S3 is a private origin and CloudFront has no permission to list the bucket, S3 answers a missing object with 403 Access Denied. That's why you map both 403 and 404 to `index.html`.
+
+### Does returning index.html for every error hurt SEO?
+
+It can. Real missing pages now return 200 (a "soft 404"). If that matters, use a CloudFront Function to rewrite only extensionless paths to `/index.html` instead of catching all errors.
+
+### Why don't my changes show up right away?
+
+CloudFront caches files and error responses. Error responses are cached for 10 seconds by default. After a deploy, create an invalidation (for example `/*`) to clear cached files.
+
+## References
+
+- [AWS: What is Amazon CloudFront?](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
+- [AWS: Generating custom error responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/GeneratingCustomErrorResponses.html)
+- [AWS: CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html)

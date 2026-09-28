@@ -4,11 +4,12 @@ description: Learn how the Claude Code browser plugin bridges browser context to
 category: Developer
 published: true
 createdAt: 2026-03-02T10:00:00.000Z
+updatedAt: 2026-09-28T00:00:00.000Z
 image: /assets/claude-code_browser_plugin.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 6 min read
-tags: ['developer', 'ai', 'productivity']
+tags: ['claude-code', 'ai-tools', 'debugging', 'developer-productivity']
 proficiency: intermediate
 # beginner intermediate advanced
 ---
@@ -23,7 +24,7 @@ I was staring at a database monitoring dashboard in our cloud console, trying to
 
 That's when I realized the [Claude Code browser plugin](https://docs.anthropic.com/en/docs/claude-code/browser-tool) could do something really powerful — not just analyze what's on screen, but distill that complex visual data into accurate context that I could feed into my terminal where Claude Code CLI was already helping me dig through application and infrastructure code.
 
-## Why Claude Code Browser Plugin was needed? 🤔
+## Why did I need the Claude Code browser plugin? 🤔
 
 The Claude Code browser plugin is a browser extension that gives Claude native access to interact with, analyze, and extract information from web pages. Think of it as Claude's eyes for the browser — it can read dashboards, interpret graphs, navigate complex UIs, and pull out structured data.
 
@@ -35,7 +36,7 @@ But the real magic happens when you combine it with the [Claude Code CLI](https:
 - **Rich context bridge** between what you see in the browser and what you debug locally
 - **Faster root cause analysis** by connecting accurate infrastructure metrics to code changes
 
-## The Problem: Death by Context Switching 🔄
+## Why is context switching so costly when debugging? 🔄
 
 Here's the typical debugging flow most of us follow when something goes wrong in production:
 
@@ -82,7 +83,7 @@ Instead of me manually re-interpreting the graphs or risking confirmation bias, 
 With the browser context in hand, Claude Code CLI suggested running diagnostic queries directly against the database. We ran `SHOW shared_buffers`, `SHOW work_mem`, and `SHOW effective_cache_size` — and the values were shockingly low. Our cloud provider had shipped the managed database instance with stock PostgreSQL defaults, completely untuned for the 15GB machine it was running on. `shared_buffers` was set to 128MB instead of the recommended 3840MB. The database was constantly reading from disk instead of memory, explaining every spike in the dashboards. We updated our IaC config with properly tuned flags — `shared_buffers=3840MB`, `effective_cache_size=10752MB`, `work_mem=32MB` — applied them, and the database performance was immediately restored.
 
 
-## How the Cross-Context Flow Works ⚙️
+## How does the cross-context flow work? ⚙️
 
 Let me break down what's actually happening in this workflow:
 
@@ -105,7 +106,7 @@ Setting up observability dashboards in any tool involves navigating through a lo
 **Navigating Cloud IAM Policies**
 Ever tried to debug IAM permission issues in a cloud console? The nested roles, service accounts, and policy bindings are a maze. The browser plugin maps out the current state, and the CLI uses that to suggest the minimal permission changes needed.
 
-## Tips for Getting the Most Out of It 💡
+## How do I get the most out of it? 💡
 
 1. **Be specific with what you want analyzed** — Don't just say "look at this page." Tell the plugin to focus on specific graphs or metrics.
 
@@ -132,10 +133,25 @@ All this with only read only access. Don't give access to production databases o
 If you're spending too much time jumping between cloud dashboards and your local dev environment, give this cross-context workflow a try. Your future self debugging at 2 AM will thank you.
 
 
+## Frequently Asked Questions
+
+### Does the browser plugin send data straight to the Claude Code CLI?
+
+Not in this workflow. I copy the plugin's analysis and paste it into my CLI prompt. That manual step is why I plan to try read-only MCP servers next.
+
+### Which PostgreSQL settings did we check?
+
+We ran `SHOW shared_buffers`, `SHOW work_mem` and `SHOW effective_cache_size`. All three were set far too low for our workload.
+
+### Is it safe to let AI tools read production dashboards?
+
+Give them read-only access only. Don't give AI tools write access to production databases or cloud infrastructure.
+
 ## Resources 📚
 
 - [Claude Code Browser Tool Docs](https://docs.anthropic.com/en/docs/claude-code/browser-tool)
 - [Claude Code CLI Overview](https://docs.anthropic.com/en/docs/claude-code/overview)
 - [MCP Protocol](https://modelcontextprotocol.io/) - For building your own integrations
+- [PostgreSQL: Resource consumption settings](https://www.postgresql.org/docs/current/runtime-config-resource.html)
 
 ---

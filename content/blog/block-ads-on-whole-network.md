@@ -4,11 +4,12 @@ description: Stop annoying ads and protect your network with Pi-hole. This guide
 category: Developer
 published: true
 createdAt: 2021-09-11T07:00:13.392Z
+updatedAt: 2026-09-28T00:00:00.000Z
 image: /assets/block-ads.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 5 min read
-tags: ['developer']
+tags: ['pi-hole', 'raspberry-pi', 'dns', 'ad-blocking']
 proficiency: intermediate
 # beginner intermediate advanced 
 ---
@@ -21,7 +22,7 @@ The Online advertising market was valued at USD 304.0 billion in 2019 and is exp
 
 Sometimes Ads can be a bit invasive and annoying. For mobile devices, there are different types of advertisements, including click to download, click to call, image text, banner ads and full screen ads.
 
-## Why I needed this ? 🤷
+## Why block ads at the network level? 🤷
 
 There are some ads that simply advertise some content or product, which does not bother me. But there is also the other dangerous side to it. These ads show fake things or ask people to download something on their devices.
 
@@ -31,7 +32,7 @@ These are few things you can do like installing ad-block-plus on browser, or oth
 
 Recently I came across pi-hole a network-level advertisement and Internet tracker blocking application. Which makes it very easy to block ads on network-level.
 
-## How Pi-hole works ?
+## How does Pi-hole work?
 
 Pi-hole acts as a DNS server in your router network. So whenever there is any query for a domain, pihole checks if it is an ad serving website, and blocks the query if it is.
 It can also act as a DHCP server.
@@ -46,18 +47,17 @@ Let's take look at an example
 
 NOTE: Since the ads were not downloaded in the first place, they do not need to be hidden from your view since they do not exist in the first place. Hence, no need for ad blocker extension.
 
-## What all is required.
+## What do I need to set up Pi-hole?
 
 - Raspberry Pi device (I have used Raspberry Pi zero w)
 - Access to your router
 
-## How to set up pihole with raspberry-pi. 🔨
+## How do I set up Pi-hole on a Raspberry Pi? 🔨
 
 #### Setup Raspberry Pi
 
 This is very easy setup just write raspbian OS to SD card.
-Explained in detail in this video.
-https://www.youtube.com/watch?v=Hdm26W9dHK0
+Explained in detail in [this video](https://www.youtube.com/watch?v=Hdm26W9dHK0).
 
 #### Install pihole on Raspberry Pi
 
@@ -105,9 +105,24 @@ And this is how you say no to Ads,
 1. When you switch off pihole, make sure to revert DNS settings of your router. Otherwise, internet will not work on devices.
 2. As with every software, pihole is not 100% accurate. Pihole only blocks ads which are in its adlist. So sometimes you will have to manually allow/disallow some domains
 
+## Frequently Asked Questions
+
+### Does Pi-hole block YouTube ads?
+
+Usually not. YouTube serves ads from the same domains as the videos, so blocking them at DNS level would also break the videos.
+
+### What happens if my Raspberry Pi goes offline?
+
+Devices using it for DNS can't resolve websites, so the internet seems down. Don't fix this by adding a public DNS as a secondary server, because devices will use it to skip Pi-hole. Point your router back to a normal DNS server while the Pi is down.
+
+### How do I update Pi-hole's blocklists?
+
+Run `pihole -g` to rebuild the block list (Pi-hole calls it "gravity"). You can also run it from the web admin panel.
+
 ## References 🖊️
 
-- https://pi-hole.net/
-- https://www.opendns.com/
-- https://www.mordorintelligence.com/industry-reports/online-advertising-market
-- https://www.youtube.com/watch?v=Hdm26W9dHK0
+- [Pi-hole official site](https://pi-hole.net/)
+- [OpenDNS](https://www.opendns.com/)
+- [Mordor Intelligence: Online advertising market report](https://www.mordorintelligence.com/industry-reports/online-advertising-market)
+- [Raspberry Pi setup video](https://www.youtube.com/watch?v=Hdm26W9dHK0)
+- [Pi-hole documentation](https://docs.pi-hole.net/)

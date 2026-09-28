@@ -4,11 +4,12 @@ description: Learn how to use Git Bisect to find the commit that introduced a bu
 category: Developer
 published: true
 createdAt: 2021-03-10T07:00:13.392Z
+updatedAt: 2026-09-28T00:00:00.000Z
 image: /assets/git-bisect.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 6 min read
-tags: ['developer', 'git']
+tags: ['git', 'git-bisect', 'debugging']
 proficiency: Beginner
 # beginner intermediate advanced 
 ---
@@ -21,7 +22,9 @@ This blog discusses how we can use git bisect command to find commit that has in
 
 ## What is git bisect ?
 
-Git command that uses binary search to find the commit that introduced a bug.
+> "Use binary search to find the commit that introduced a bug" — [Git documentation](https://git-scm.com/docs/git-bisect)
+
+Binary search halves the list of suspect commits at every step. With 1,000 commits between a good and a bad version, bisect needs only about 10 steps, because 2^10 = 1,024.
 
 ## When to use git bisect ?
 
@@ -70,7 +73,7 @@ I can see this commit has changed the `to` path to incorrect value.
 $ git bisect reset
 ```
 
-## Gotchas
+## What if I can't test a commit?
 
 1. There can be a case in git bisect when your commit is faling build process and you are not able to test if commit is bad or good, But you know this commit is nothing to do with the bug, You can skip this commit and move to next one.
 
@@ -82,3 +85,22 @@ $ git bisect skip
 
 If you use git bisect, you can save a lot of time (that you will spend into debugging).
 and narrow down the code you need to check to resolve bug.
+
+## Frequently Asked Questions
+
+### Can git bisect run my tests automatically?
+
+Yes. Run `git bisect run npm test` (or any script). Exit code 0 marks a commit good, 1 to 127 marks it bad, and 125 skips it.
+
+### How many steps will git bisect take?
+
+About log2(N) steps for N commits. 100 commits take about 7 steps, and 1,000 commits take about 10.
+
+### How do I see what I've marked so far?
+
+Run `git bisect log` to print every good, bad and skip decision. You can save it and replay it later with `git bisect replay`.
+
+## References
+
+- [Git: git-bisect documentation](https://git-scm.com/docs/git-bisect)
+- [Pro Git book: Debugging with Git](https://git-scm.com/book/en/v2/Git-Tools-Debugging-with-Git)

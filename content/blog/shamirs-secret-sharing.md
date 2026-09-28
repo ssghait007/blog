@@ -4,11 +4,12 @@ description: How I used cryptography to break my doom scrolling addiction. Learn
 category: Developer
 published: true
 createdAt: 2025-08-16T07:00:13.392Z
+updatedAt: 2026-09-28T00:00:00.000Z
 image: /assets/shamirs-secret-sharing.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 7 min read
-tags: ["developer", "cryptography", "security"]
+tags: ['shamir-secret-sharing', 'cryptography', 'security', 'password-management']
 proficiency: intermediate
 # beginner intermediate advanced
 ---
@@ -23,17 +24,25 @@ After reading Atomic Habits, I realized I needed to make bad habits harder to do
 
 My solution? Split my PiHole admin password into 8 chunks and hide them across different digital and physical locations. Now when I want to disable restrictions, I need to really think about whether it's worth the effort of collecting 4 pieces.
 
-## What is Shamir's Secret Sharing
+## What is Shamir's Secret Sharing?
 
 Shamir's Secret Sharing is a cryptographic algorithm that divides a secret into N shares, where any K shares can reconstruct the original secret, but K-1 or fewer shares reveal nothing about the secret.
+
+Adi Shamir described it in his 1979 paper, *How to Share a Secret*:
+
+> "In this paper we show how to divide data D into n pieces in such a way that D is easily reconstructable from any k pieces, but even complete knowledge of k - 1 pieces reveals absolutely no information about D." — [Communications of the ACM, 1979](https://dl.acm.org/doi/10.1145/359168.359176)
+
 
 The beauty is in the mathematics - it uses polynomial interpolation over finite fields. But you don't need to understand the math to use it effectively.
 
 ![Shamir Secret Sharing Concept](/assets/shamir-concept-diagram.webp)
 
-## How It Works in Practice
+## How does it work in practice?
 
 Let's say you want to split your master password into 8 shares, requiring any 4 shares to reconstruct it:
+
+With 8 shares and a threshold of 4, there are 70 different groups of 4 shares that can rebuild the password (8 choose 4 = 70). You can lose up to 4 shares and still recover it.
+
 
 1. **Split Phase**: Your password gets converted into shares like `1-abc123def456`
 2. **Distribution**: You store each share in different locations or give them to different people
@@ -153,7 +162,7 @@ echo "$PASSWORD" | ssss-split -t 2 -n 6
 echo "$PASSWORD" | ssss-split -t 8 -n 15
 ```
 
-## Common Mistakes to Avoid
+## What mistakes should I avoid?
 
 **Storing shares together** - I've seen people save all shares in the same password manager. This completely defeats the purpose.
 
@@ -181,8 +190,25 @@ Whether you're breaking bad habits like I did with social media, managing team p
 
 ![You can't see me](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXdodGJiZXRrbWt6N2tvOGxsaDRmbDd4aXJuc205ZHhyNDhyZmk5ZCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3o6ZtjDNG2UXy7B3xK/200.webp)
 
+## Frequently Asked Questions
+
+### What happens if I lose some shares?
+
+You can still recover the secret as long as you have at least K shares. With a (4, 8) scheme you can lose any 4 shares.
+
+### How do I choose the threshold K?
+
+Balance safety and convenience. A higher K means an attacker needs more shares, but you also need more shares to recover. For personal use, K at about half of N is a good start.
+
+### Is Shamir's Secret Sharing used in real products?
+
+Yes. HashiCorp Vault uses it to protect its root key. By default, Vault splits the unseal key into 5 shares and needs any 3 of them to unseal.
+
 ## Resources
 
 - [Complete Implementation](https://github.com/ssghait007/ssss) - Ready-to-use bash scripts
 - [ssss in details](https://www.geeksforgeeks.org/computer-networks/shamirs-secret-sharing-algorithm-cryptography/) - Core implementation details
 - [Technical Paper](https://cs.jhu.edu/~sdoshi/crypto/papers/shamirturing.pdf) - Original Shamir paper
+- [Adi Shamir: How to Share a Secret (ACM Digital Library)](https://dl.acm.org/doi/10.1145/359168.359176)
+- [ssss: Shamir's Secret Sharing Scheme tool](http://point-at-infinity.org/ssss/)
+- [HashiCorp Vault: Seal/Unseal concepts](https://developer.hashicorp.com/vault/docs/concepts/seal)

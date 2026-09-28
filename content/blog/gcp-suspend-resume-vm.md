@@ -4,11 +4,12 @@ description: Maximize cost savings on your Google Compute Engine Instances with 
 category: Cloud
 published: true
 createdAt: 2021-10-04T07:00:13.392Z
+updatedAt: 2026-09-28T00:00:00.000Z
 image: /assets/vm-auto-header.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
 readingTime: 6 min read
-tags: ['developer', 'cloud']
+tags: ['gcp', 'compute-engine', 'cloud-scheduler', 'cost-optimization']
 proficiency: intermediate
 # beginner intermediate advanced 
 ---
@@ -22,7 +23,7 @@ With this increased cloud adoptions, individuals also thinking of shifting some 
 
 In this article I’ll be showing you how you can save up money if you are using compute engine VMs for very few hours a day.
 
-## GCP compute engine - pay as you go
+## How does pay-as-you-go pricing work for Compute Engine?
 
 With `pay-as-you-go` model you only pay for time you use a resource.
 If you have a schedule like daily for 2-3 hours you will need to use a VM, you can keep it in `stopped` or `suspended` state.
@@ -31,9 +32,14 @@ GCP compute engine lets you start and stop a compute engine VM.
 In this case you only pay minor charges for network resources and disk attached.
 In GCP there is also an option to suspend and resume compute engine VM. Which is similar to hibernate on our physical machines.
 
+Here is the maths. If you need a VM for 3 hours a day, running it 24/7 means you pay for 21 idle hours. Scheduling it cuts compute time to 3/24, which is 12.5% of the always-on hours.
+
+One limit to know: a suspended VM can stay suspended for up to 60 days. After that, Compute Engine moves it to `TERMINATED` and the saved memory state is lost ([Google Cloud docs](https://cloud.google.com/compute/docs/instances/suspend-resume-instance)).
+
+
 **NOTE:** Right now as I am writing this article, E2 type compute engine instances do not support suspend/resume feature. So I had to choose N2 type VM. So keep this in mind if you want suspend/resume feature for your use-case.
 
-## Managing state using cloud scheduler and cloud function
+## How do I schedule a VM to suspend and resume automatically?
 
 [This gcp documentation ](https://cloud.google.com/scheduler/docs/start-and-stop-compute-engine-instances-on-a-schedule) show how you can use cloud functions along with pub-sub trigger and cloud scheduler to manage state of VM on a cron schedule.
 
@@ -103,6 +109,23 @@ In next step you can define what message to send to pub-sub.
 This way you dont have to remember to suspend the VM when you are done working. \
 ![gif](https://media0.giphy.com/media/26xBzL5fpjhJ9dQNa/200.webp?cid=ecf05e47wnymqyqvko2pn52q3ieue2lyhw821z1hj56yy1dl&rid=200.webp&ct=g)
 
-## Refrences
+## Frequently Asked Questions
 
-- [VM feature comparizons for top 3 clouds](https://www.youtube.com/watch?v=KkKcaFp0z1s&t=699s)
+### What is the difference between stopping and suspending a VM?
+
+Stopping shuts down the OS, like powering off. Suspending saves memory and application state to storage, like hibernate, so you resume where you left off.
+
+### Do I pay anything while the VM is stopped or suspended?
+
+You don't pay for vCPUs and memory. You still pay for attached persistent disks and any reserved static IPs. For a suspended VM you also pay to store its saved memory.
+
+### Is there a simpler way than Cloud Functions?
+
+Yes. Compute Engine has built-in instance schedules that start and stop VMs on a cron schedule with no code. Use the Cloud Function approach when you need suspend and resume.
+
+## References
+
+- [VM feature comparisons for top 3 clouds](https://www.youtube.com/watch?v=KkKcaFp0z1s&t=699s)
+- [Google Cloud: Start and stop instances on a schedule with Cloud Scheduler](https://cloud.google.com/scheduler/docs/start-and-stop-compute-engine-instances-on-a-schedule)
+- [Google Cloud: Suspend or resume a Compute Engine instance](https://cloud.google.com/compute/docs/instances/suspend-resume-instance)
+- [Google Cloud: Schedule a VM to start and stop](https://cloud.google.com/compute/docs/instances/schedule-instance-start-stop)

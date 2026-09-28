@@ -20,7 +20,11 @@
       <div v-if="data" class="lg:w-4/6 md:w-5/6 w-full flex flex-wrap items-center gap-3 text-sm text-gray-500 dark:text-gray-400 mt-4 mb-6">
         <span>{{ data.author }}</span>
         <span>&middot;</span>
-        <span>{{ _formatDate(data.createdAt) }}</span>
+        <time :datetime="data.createdAt">{{ _formatDate(data.createdAt) }}</time>
+        <template v-if="data.updatedAt">
+          <span>&middot;</span>
+          <span>Updated <time :datetime="data.updatedAt">{{ _formatDate(data.updatedAt) }}</time></span>
+        </template>
         <span>&middot;</span>
         <span>{{ data.readingTime }}</span>
         <FreshnessBadge v-if="data.createdAt" :date="data.updatedAt || data.createdAt" variant="detailed" />
@@ -117,6 +121,51 @@ if (data.value) {
     twitterTitle: data.value.title,
     twitterDescription: data.value.description,
     twitterImage: ogImageUrl,
+    articlePublishedTime: data.value.createdAt,
+    articleModifiedTime: data.value.updatedAt || data.value.createdAt,
+    articleAuthor: [data.value.author],
+    articleSection: data.value.category,
+    articleTag: data.value.tags,
+  })
+
+  const postUrl = `${siteUrl}${route.path}`
+  const authorSlug = data.value.author.toLowerCase().replace(/\s+/g, '-')
+
+  // Structured data so search engines and AI assistants can read post facts exactly
+  const blogPostingSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: data.value.title,
+    description: data.value.description,
+    image: ogImageUrl,
+    datePublished: data.value.createdAt,
+    dateModified: data.value.updatedAt || data.value.createdAt,
+    author: {
+      '@type': 'Person',
+      name: data.value.author,
+      jobTitle: data.value.authorTitle,
+      url: `${siteUrl}/authors/${authorSlug}`,
+    },
+    publisher: {
+      '@type': 'Person',
+      name: 'Sachin Ghait',
+      url: siteUrl,
+    },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
+    url: postUrl,
+    articleSection: data.value.category,
+    keywords: data.value.tags,
+    inLanguage: 'en',
+  }
+
+  useHead({
+    link: [{ rel: 'canonical', href: postUrl }],
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(blogPostingSchema),
+      },
+    ],
   })
 }
 
