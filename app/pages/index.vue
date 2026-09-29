@@ -31,8 +31,10 @@
         <div ref="heroImage" class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
           <img
             class="object-cover object-center rounded-md"
-            alt="webDevTrends"
+            alt="Hand-drawn illustration of a person learning and sharing developer knowledge"
             src="/assets/hand-drawn.webp"
+            width="700"
+            height="394"
           />
         </div>
       </div>
@@ -47,11 +49,17 @@
         (AWS, GCP), DevOps, web security, Git, Raspberry Pi projects, automation and AI tooling. Each post opens with a
         short summary, lists its sources and shows when it was last updated.
       </p>
-      <ul class="flex flex-wrap gap-3 mb-6">
+      <ul class="space-y-2 max-w-3xl mb-6">
         <li v-for="topic in topics" :key="topic.to">
-          <NuxtLink :to="topic.to" class="underline">{{ topic.label }}</NuxtLink>
+          <NuxtLink :to="topic.to" class="underline font-medium">{{ topic.label }}</NuxtLink>:
+          {{ topic.about }}
         </li>
       </ul>
+      <p class="max-w-3xl mb-6">
+        New to the blog? Start with the <NuxtLink to="/glossary" class="underline">developer glossary</NuxtLink> for
+        short definitions of terms like CORS, NAT gateway and MCP, or read the
+        <NuxtLink to="/about-us" class="underline">about page</NuxtLink> to see how the posts are written and updated.
+      </p>
       <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3">Latest posts</h2>
       <ul class="space-y-2 max-w-3xl">
         <li v-for="post in latest" :key="post.path">
@@ -72,10 +80,10 @@
 const { navigate } = useTactileNav()
 
 const topics = [
-  { to: '/blog/cloud', label: 'Cloud' },
-  { to: '/blog/backend', label: 'Backend' },
-  { to: '/blog/frontend', label: 'Frontend' },
-  { to: '/blog/developer', label: 'Developer tools' },
+  { to: '/blog/cloud', label: 'Cloud', about: 'AWS Lambda in a VPC, NAT gateway costs and cutting GCP VM bills.' },
+  { to: '/blog/backend', label: 'Backend', about: 'An MCP server with PostgreSQL and Selenium browser automation.' },
+  { to: '/blog/frontend', label: 'Frontend', about: 'CORS, security headers, CloudFront-hosted SPAs, Nuxt and WebAssembly.' },
+  { to: '/blog/developer', label: 'Developer tools', about: 'Git workflows, Go testing, Raspberry Pi projects, Pi-hole and AI-assisted coding.' },
 ]
 
 const { data: latest } = await useAsyncData('home-latest', () =>
@@ -83,7 +91,7 @@ const { data: latest } = await useAsyncData('home-latest', () =>
     .where('published', '=', true)
     .order('createdAt', 'DESC')
     .select('path', 'title', 'description')
-    .limit(5)
+    .limit(8)
     .all()
 )
 const { data: owner } = await useAsyncData('home-owner', () =>
@@ -91,7 +99,7 @@ const { data: owner } = await useAsyncData('home-owner', () =>
 )
 
 usePageSeo({
-  title: 'Sachin Ghait: Developer notes on cloud, DevOps, security and automation',
+  title: 'Sachin Ghait: Developer notes on cloud, DevOps and security',
   description: SITE_DESCRIPTION,
   path: '/',
 })

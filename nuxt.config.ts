@@ -6,6 +6,9 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'netlify-static',
     prerender: {
+      // Write /blog/x.html instead of /blog/x/index.html so Cloudflare Pages serves
+      // /blog/x directly (matching our canonical URLs) instead of 308-redirecting to /blog/x/
+      autoSubfolderIndex: false,
       routes: ['/rss.xml', '/sitemap.xml', '/llms.txt', '/llms-full.txt'],
     },
   },
@@ -13,7 +16,7 @@ export default defineNuxtConfig({
   // App configuration
   app: {
     head: {
-      title: 'Sachin Ghait: Developer notes on cloud, DevOps, security and automation',
+      title: 'Sachin Ghait: Developer notes on cloud, DevOps and security',
       htmlAttrs: {
         lang: 'en',
       },

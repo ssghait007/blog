@@ -9,6 +9,8 @@
           class="w-full h-full object-cover object-center transition-transform duration-400 ease-out"
           :src="post.image"
           :alt="`Featured image for ${post.title}`"
+          loading="lazy"
+          decoding="async"
         />
         <!-- Gradient overlay for badge readability -->
         <div class="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-black/35 to-transparent pointer-events-none" />
