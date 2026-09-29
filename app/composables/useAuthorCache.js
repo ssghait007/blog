@@ -1,5 +1,10 @@
-const useAuthorCacheState = () => useState('authorCache', () => new Map())
-const useAuthorPromisesState = () => useState('authorPromises', () => new Map())
+// Plain object, not a Map: useState is serialized into the static payload, and a
+// Map serializes to {}, which left the cache empty after hydration and made every
+// card fall back to the placeholder avatar.
+const useAuthorCacheState = () => useState('authorCache', () => ({}))
+
+// In-flight requests only need to live for the current render, so they aren't state
+const pendingAuthors = new Map()
 
 const createFallbackAuthor = (authorName, slug) => ({
   name: authorName,
@@ -22,8 +27,7 @@ const fetchAuthorData = async (authorName, slug) => {
 
 export const useAuthorCache = () => {
   const authorCache = useAuthorCacheState()
-  const authorPromises = useAuthorPromisesState()
-
+  
   const getAuthor = async (authorName) => {
     if (!authorName) {
       return null
@@ -32,26 +36,26 @@ export const useAuthorCache = () => {
     const slug = authorName.toLowerCase().replace(/\s+/g, '-')
 
     // Return cached author if available
-    if (authorCache.value.has(slug)) {
-      return authorCache.value.get(slug)
+    if (slug in authorCache.value) {
+      return authorCache.value[slug]
     }
 
     // Return existing promise if already fetching
-    if (authorPromises.value.has(slug)) {
-      return await authorPromises.value.get(slug)
+    if (pendingAuthors.has(slug)) {
+      return await pendingAuthors.get(slug)
     }
 
     // Create new fetch promise
     const fetchPromise = fetchAuthorData(authorName, slug).then(
       (authorData) => {
-        authorCache.value.set(slug, authorData)
-        authorPromises.value.delete(slug)
+        authorCache.value[slug] = authorData
+        pendingAuthors.delete(slug)
         return authorData
       }
     )
 
     // Store the promise
-    authorPromises.value.set(slug, fetchPromise)
+    pendingAuthors.set(slug, fetchPromise)
     return await fetchPromise
   }
 
@@ -66,7 +70,7 @@ export const useAuthorCache = () => {
       return null
     }
     const slug = authorName.toLowerCase().replace(/\s+/g, '-')
-    return authorCache.value.get(slug) || null
+    return authorCache.value[slug] || null
   }
 
   return {

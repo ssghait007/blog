@@ -1,7 +1,7 @@
 ---
 name: "Sachin Ghait"
 slug: "sachin-ghait"
-avatar: "https://lh3.googleusercontent.com/ogw/AF2bZyinBRHZRfihgW4IchXTsq4yutH1G5Q2-iTZZuaiAnqzslIe=s64-c-mo"
+avatar: "/assets/authors/sachin-ghait.jpg"
 title: "Lead Developer"
 bio: "Lead Developer in Pune, India with 10 years of experience (Wipro, CloudCover, Ollion, The Non-Functional Co.), working mainly in Golang, AWS and Node.js. Writes tested guides on cloud, DevOps, security and automation."
 location: "Pune, India"

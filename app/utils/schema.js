@@ -28,7 +28,7 @@ export const personSchema = (author) => {
     jobTitle: author.title,
     description: author.bio,
     url: `${SITE_URL}/authors/${author.slug}`,
-    image: author.avatar,
+    image: author.avatar?.startsWith('/') ? `${SITE_URL}${author.avatar}` : author.avatar,
     ...(author.worksFor ? { worksFor: { '@type': 'Organization', name: author.worksFor } } : {}),
     ...(author.alumniOf ? { alumniOf: { '@type': 'CollegeOrUniversity', name: author.alumniOf } } : {}),
     ...(author.location ? { homeLocation: { '@type': 'Place', name: author.location } } : {}),

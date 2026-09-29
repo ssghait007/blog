@@ -122,8 +122,10 @@ const props = defineProps({
 })
 
 // Get cached author data
-const { getCachedAuthor } = useAuthorCache()
-const _authorData = computed(() => getCachedAuthor(props.post.author))
+const authors = await useAuthors()
+const _authorData = computed(
+  () => authors.value[props.post.author.toLowerCase().replace(/\s+/g, '-')] || null
+)
 
 const _formatDate = (date) => {
   return format(new Date(date), 'MMM d, yyyy')
