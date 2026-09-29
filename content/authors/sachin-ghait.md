@@ -40,12 +40,6 @@ I'm a Lead Developer based in Pune, India. I have worked in software since Augus
 - Microsoft Certified: Azure Developer Associate (issued Jan 2021, expired Jan 2023).
 - Microsoft Certified: DevOps Engineer Expert (issued Sep 2021, expired Sep 2022).
 
-## Projects
-
-- [Starchitect.ai](https://starchitect.ai): checks Terraform code against CIS benchmarks and reports a compliance score.
-- [MultiMic](https://multimic.onthegoalways.com): records from up to 10 microphones at once so you can compare them.
-- [YouTube Cleaner Firefox extension](/blog/youtube-cleaner-firefox-extension).
-
 ## Topics I write about
 
 Cloud (AWS Lambda, VPC, CloudFront, GCP cost control), web security (CORS, security headers, crawler control), Git workflows, Raspberry Pi and home-network projects, browser automation with Selenium, and AI-assisted development with Claude Code and MCP servers.
