@@ -1,0 +1,21 @@
+# Pings IndexNow (Bing and others) after Cloudflare Pages finishes a production deploy.
+# Cloudflare Pages has no post-deploy command, so we react to the GitHub deployment status it reports.
+name: IndexNow
+
+on:
+  deployment_status:
+  workflow_dispatch:
+
+jobs:
+  ping:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.deployment_status.state == 'success' &&
+       github.event.deployment.environment == 'Production')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm run indexnow
