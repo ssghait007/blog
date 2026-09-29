@@ -81,4 +81,42 @@ const _filteredPosts = computed(() => {
     return dateB - dateA
   })
 })
+
+// SEO and structured data for the category page
+const CATEGORY_DESCRIPTIONS = {
+  Frontend: 'Frontend and web guides by Sachin Ghait: Nuxt blogs, CORS, security headers, CloudFront hosting, WebAssembly and browser extensions.',
+  Backend: 'Backend guides by Sachin Ghait: an MCP server with PostgreSQL and Selenium browser automation.',
+  Cloud: 'Cloud guides by Sachin Ghait on AWS Lambda in a VPC and cutting GCP VM costs, with real configurations.',
+  Developer: 'Developer productivity guides by Sachin Ghait: Git, Go testing, Raspberry Pi, Pi-hole, automation and AI workflow tips.',
+}
+const categoryPath = `/blog/${props.category.toLowerCase()}`
+const categoryPosts = (posts.value || []).filter((post) => post.published)
+usePageSeo({
+  title: `${props.category} posts | Sachin Ghait`,
+  description: CATEGORY_DESCRIPTIONS[props.category] || `${props.category} posts by Sachin Ghait.`,
+  path: categoryPath,
+})
+useJsonLd([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: `${props.category} posts`,
+    url: `${SITE_URL}${categoryPath}`,
+    isPartOf: { '@id': WEBSITE_ID },
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: categoryPosts.map((post, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: `${SITE_URL}${post.path}`,
+        name: post.title,
+      })),
+    },
+  },
+  breadcrumbSchema([
+    { name: 'Home', url: SITE_URL },
+    { name: 'Blog', url: `${SITE_URL}/blog` },
+    { name: props.category, url: `${SITE_URL}${categoryPath}` },
+  ]),
+])
 </script>

@@ -94,7 +94,7 @@ Breakdown of command\
 
 Below is snapshot of how you can access web portal via ngrok tunnel.
 
-![ngrok http example](/assets/ngrok-http-access.webp)
+![ngrok terminal session forwarding HTTP traffic to a Raspberry Pi](/assets/ngrok-http-access.webp)
 
 ## How do I SSH into a Raspberry Pi with ngrok?
 
@@ -115,7 +115,7 @@ Any ssh app like putty(Windows) or juiceSSH(mobile) can be used to connect to ra
 
 Below is snapshot of how ssh access from juiceSSH.
 
-![juiceSSH example](/assets/juicessh.webp)
+![JuiceSSH app connected to a Raspberry Pi over an ngrok tunnel](/assets/juicessh.webp)
 
 ## Frequently Asked Questions
 

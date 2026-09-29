@@ -1,6 +1,6 @@
 ---
 title: Building a Model Context Protocol (MCP) Server
-description: Learn how to create a comprehensive MCP server with PostgreSQL integration for employee management. Build tools for employee info, leave management, and database operations with TypeScript and Claude Desktop integration.
+description: 'Build an MCP server in TypeScript with PostgreSQL for employee info and leave management, and connect it to Claude Desktop.'
 category: Backend
 published: true
 createdAt: 2025-06-07T14:30:00.000Z
@@ -47,7 +47,7 @@ Our employee management MCP server will provide these powerful tools:
 4. **apply_employee_leave** - Submit leave requests with validation
 5. **get_all_employees** - Admin function to list all employees
 
-![mcp architecture](/assets/mcp_arch.png)
+![Architecture of the MCP server connecting Claude Desktop to PostgreSQL](/assets/mcp_arch.png)
 
 ## Prerequisites 📋
 
@@ -86,7 +86,7 @@ docker exec -i postgres psql -U postgres -d employee_management < database/setup
 
 The setup script creates 4 tables (employees, leave_types, leave_balances, leave_applications) and inserts sample data including 8 employees across different departments.
 
-![mcp employee db schema](/assets/mcp_emp_db_schema.png)
+![Employee database schema in PostgreSQL](/assets/mcp_emp_db_schema.png)
 
 ## Step 3: Environment Configuration ⚙️
 
@@ -127,7 +127,7 @@ node build/index.js
 
 You should see: "Database connection successful" and "Employee Management MCP server running on stdio"
 
-![Server Running](/assets/mcp_running.png)
+![MCP server running in the terminal](/assets/mcp_running.png)
 
 ## Step 5: Claude Desktop Integration 🤖
 
@@ -174,15 +174,15 @@ Restart Claude Desktop completely. You should now see the MCP tools available in
 Test with these commands:
 - "Get information for employee frank.miller@company.com"
 
-![Employee Info](/assets/mcp_emp_info.png)
+![Claude Desktop returning employee information through the MCP server](/assets/mcp_emp_info.png)
 
 - "What are the leave balances for alice.johnson@company.com?"
 
-![Employee Leaves](/assets/mcp_emp_leaves.png)
+![Claude Desktop showing employee leave balance through the MCP server](/assets/mcp_emp_leaves.png)
 
 - "Show me all employees"
 
-![Employee List](/assets/mcp_emp_list.png)
+![Claude Desktop listing employees through the MCP server](/assets/mcp_emp_list.png)
 
 - "Apply for annual leave for alice.johnson@company.com from 2024-09-01 to 2024-09-05"
 

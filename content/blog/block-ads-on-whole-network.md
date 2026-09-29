@@ -1,6 +1,6 @@
 ---
 title: Ad Blocker for Your Whole Network.
-description: Stop annoying ads and protect your network with Pi-hole. This guide explains how to install Pi-hole on Raspberry-Pi, how it blocks ads, and how to make Pi-hole your DNS server.
+description: 'Install Pi-hole on a Raspberry Pi to block ads for every device on your network, and set it as your router''s DNS server.'
 category: Developer
 published: true
 createdAt: 2021-09-11T07:00:13.392Z
@@ -68,7 +68,7 @@ It will run the program and ask for some inputs like upstream DNS, ad-lists, and
 $ curl -sSL https://install.pi-hole.net | bash
 ```
 
-![image pihole install](/assets/pihole-install-window.webp)
+![Pi-hole installer running in a terminal on a Raspberry Pi](/assets/pihole-install-window.webp)
 
 I chose OpenDNS as upstream DNS, I will explain why OpenDNS in next section.
 
@@ -77,9 +77,9 @@ I chose OpenDNS as upstream DNS, I will explain why OpenDNS in next section.
 - **You can do this in two ways**
 
   1.  Update DNS settings in your router with your raspberry-pi local address.
-      ![image pihole dns](/assets/router-dns-settings-pihole.webp)
+      ![Router DNS settings pointing to the Pi-hole IP address](/assets/router-dns-settings-pihole.webp)
   2.  Disable DHCP on your router and enable DHCP in raspberry-pi, This way you get more control with pi-hile.
-      ![image pihole dhcp](/assets/pihole-dhcp.webp)
+      ![Pi-hole DHCP settings page](/assets/pihole-dhcp.webp)
 
 #### BONUS: Create openDNS account and set level of web content filtering.
 
@@ -87,7 +87,7 @@ This is bonus thing along with blocking ads, As in previous steps we have set up
 Like blocking certain type of content on your network.
 
 Categories are as below
-![image opendns webfiltering](/assets/opendns-wen-content-filter.webp)
+![OpenDNS web content filtering settings](/assets/opendns-wen-content-filter.webp)
 
 ## Conclusion ✔️ - What I observed after 2 weeks of use.
 
@@ -95,7 +95,7 @@ Pihole is working seamlessly, No issues so far. It does not require much compute
 
 On average 30% - 45% daily unique requested domains are ads or tracking. Knowing that other devices in my network are not served any ads or not tracked, gives a relaxing feeling.
 
-![image pihole stats](/assets/pihole-stats-daily.webp)
+![Pi-hole dashboard showing daily blocked queries](/assets/pihole-stats-daily.webp)
 
 And this is how you say no to Ads,
 ![image No to ads](https://media1.giphy.com/media/l4FGIgsVPdoRd2wbS/giphy.gif?cid=790b7611da37642de1a3e196dd373a47a5aa2632e723bb14&rid=giphy.gif&ct=g)

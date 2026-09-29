@@ -3,7 +3,7 @@ name: "Sachin Ghait"
 slug: "sachin-ghait"
 avatar: "https://lh3.googleusercontent.com/ogw/AF2bZyinBRHZRfihgW4IchXTsq4yutH1G5Q2-iTZZuaiAnqzslIe=s64-c-mo"
 title: "Lead Developer"
-bio: "Passionate full-stack developer with expertise in modern web technologies, cloud infrastructure, and automation. I love sharing knowledge through technical writing and building tools that make developers' lives easier."
+bio: "Lead Developer based in India. Since 2021 I write tested, step-by-step guides on cloud (AWS, GCP), DevOps, web security, Git, Raspberry Pi projects, automation and AI tooling, each with sources and update dates."
 location: "India"
 website: "https://onthegoalways.com"
 social:
@@ -33,6 +33,12 @@ I specialize in building modern web applications using cutting-edge technologies
 - **Cloud & DevOps**: AWS, GCP, Docker, and CI/CD pipelines
 - **Database Design**: PostgreSQL, Redis, and data modeling
 - **Security**: Curious about security best practices.
+
+## Topics I write about
+
+Cloud (AWS Lambda, VPC, CloudFront, GCP cost control), web security (CORS, security headers, crawler control), Git workflows, Raspberry Pi and home-network projects, browser automation with Selenium, and AI-assisted development with Claude Code and MCP servers.
+
+<!-- TODO(author): add verifiable credentials here (employer/role, years of experience, certifications, talks, open-source projects). AI answer engines favour authors with concrete, checkable expertise. -->
 
 ## My Writing
 

@@ -1,6 +1,6 @@
 ---
 title: Breaking Bad Habits with Shamir's Secret Sharing
-description: How I used cryptography to break my doom scrolling addiction. Learn to split sensitive passwords into multiple shares, making it harder to give in to impulses while keeping recovery possible when truly needed.
+description: 'How I used Shamir''s Secret Sharing to split a password into shares so I can''t impulsively give in to doom scrolling, yet can still recover it.'
 category: Developer
 published: true
 createdAt: 2025-08-16T07:00:13.392Z
@@ -35,7 +35,7 @@ Adi Shamir described it in his 1979 paper, *How to Share a Secret*:
 
 The beauty is in the mathematics - it uses polynomial interpolation over finite fields. But you don't need to understand the math to use it effectively.
 
-![Shamir Secret Sharing Concept](/assets/shamir-concept-diagram.webp)
+![Diagram of Shamir's Secret Sharing splitting a secret into shares](/assets/shamir-concept-diagram.webp)
 
 ## How does it work in practice?
 

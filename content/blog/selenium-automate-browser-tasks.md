@@ -96,7 +96,7 @@ WebDriverWait(browser, 6).until(EC.element_to_be_clickable(
 1. Right click on the element, select `inspect element`.
 2. In the elements tab right click on the element and select `copy`, then select `Copy XPath`
 
-![image](/assets/find-xpath.webp)
+![Copying an XPath for an element from browser developer tools](/assets/find-xpath.webp)
 
 ### Run the browser in headless ( invisible ) mode.
 

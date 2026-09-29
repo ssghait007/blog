@@ -22,3 +22,11 @@
     </div>
   </section>
 </template>
+
+<script setup>
+usePageSeo({
+  title: 'Privacy policy',
+  description: 'How the Sachin Ghait blog handles visitor data and analytics.',
+  path: '/privacy-policy',
+})
+</script>

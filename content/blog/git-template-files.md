@@ -1,7 +1,7 @@
 ---
 title: Standardizing Git Workflow - Commit Templates, PR Templates, and More
-description: Learn how to enhance your Git workflow using commit templates, PR templates, issue templates, and release templates. Discover their uses and Examples where these templates save time and improve collaboration.
-category: Development
+description: 'Set up Git commit, pull request, issue and release templates to save time and keep team contributions consistent, with working examples.'
+category: Developer
 published: true
 createdAt: 2023-05-28T00:00:00.000Z
 updatedAt: 2026-09-28T00:00:00.000Z

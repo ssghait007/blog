@@ -1,6 +1,6 @@
 ---
 title: Build a YouTube Cleaner Firefox Extension
-description: Learn how to create a Firefox extension that removes unwanted elements from YouTube for a cleaner browsing experience. Perfect for developers looking to get started with browser extension development.
+description: 'Build a Firefox extension that removes distracting elements from YouTube, a hands-on starting point for browser extension development.'
 category: Frontend
 published: true
 createdAt: 2024-11-19T08:00:00.392Z

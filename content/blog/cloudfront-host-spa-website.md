@@ -1,6 +1,6 @@
 ---
 title: Cloudfront for Hosting SPA (single page application)
-description: Amazon Cloudfront for faster distribution of your static and dynamic web content. Learn about the challenges faced while hosting an SPA on Cloudfront and how to configure it to handle internal routing in the browser.
+description: 'Host a single-page app on Amazon CloudFront and fix the routing errors: configure custom error responses so client-side routes don''t return 403 or 404.'
 category: Frontend
 published: true
 createdAt: 2022-05-03T07:00:13.392Z
@@ -75,7 +75,7 @@ In the CloudFront console, open your distribution, go to **Error pages**, and cr
 | 404 | `/index.html` | 200 |
 
 
-![image alt text](/assets/cloudfront-err-page-config.webp)
+![CloudFront custom error response configuration redirecting 403 and 404 to index.html](/assets/cloudfront-err-page-config.webp)
 
 With this config, Cloudfront will not return error but will respond with `index.html` page.
 Now browser will load this page and handle the internal redirect in browser.

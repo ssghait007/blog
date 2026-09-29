@@ -37,6 +37,31 @@
         </div>
       </div>
     </section>
+    <section class="container mx-auto px-5 pb-12 text-gray-600 dark:text-gray-300" aria-labelledby="about-blog">
+      <h2 id="about-blog" class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3">
+        What this blog covers
+      </h2>
+      <p class="leading-relaxed max-w-3xl mb-4">
+        I'm <NuxtLink to="/authors/sachin-ghait" class="underline">Sachin Ghait</NuxtLink>, a lead developer. Since
+        2021 I've written down what I learn while building and fixing things: tested, step-by-step guides on cloud
+        (AWS, GCP), DevOps, web security, Git, Raspberry Pi projects, automation and AI tooling. Each post opens with a
+        short summary, lists its sources and shows when it was last updated.
+      </p>
+      <ul class="flex flex-wrap gap-3 mb-6">
+        <li v-for="topic in topics" :key="topic.to">
+          <NuxtLink :to="topic.to" class="underline">{{ topic.label }}</NuxtLink>
+        </li>
+      </ul>
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3">Latest posts</h2>
+      <ul class="space-y-2 max-w-3xl">
+        <li v-for="post in latest" :key="post.path">
+          <NuxtLink :to="post.path" class="font-medium text-gray-900 dark:text-gray-100 hover:underline">
+            {{ post.title }}
+          </NuxtLink>
+          <span class="block text-sm">{{ post.description }}</span>
+        </li>
+      </ul>
+    </section>
     <ClientOnly>
       <ContinueReading />
     </ClientOnly>
@@ -45,6 +70,46 @@
 
 <script setup>
 const { navigate } = useTactileNav()
+
+const topics = [
+  { to: '/blog/cloud', label: 'Cloud' },
+  { to: '/blog/backend', label: 'Backend' },
+  { to: '/blog/frontend', label: 'Frontend' },
+  { to: '/blog/developer', label: 'Developer tools' },
+]
+
+const { data: latest } = await useAsyncData('home-latest', () =>
+  queryCollection('blog')
+    .where('published', '=', true)
+    .order('createdAt', 'DESC')
+    .select('path', 'title', 'description')
+    .limit(5)
+    .all()
+)
+const { data: owner } = await useAsyncData('home-owner', () =>
+  queryCollection('authors').where('slug', '=', 'sachin-ghait').first()
+)
+
+usePageSeo({
+  title: 'Sachin Ghait: Developer notes on cloud, DevOps, security and automation',
+  description: SITE_DESCRIPTION,
+  path: '/',
+})
+useJsonLd([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': WEBSITE_ID,
+    name: SITE_NAME,
+    url: SITE_URL,
+    description: SITE_DESCRIPTION,
+    inLanguage: 'en',
+    publisher: { '@id': PERSON_ID },
+  },
+  owner.value
+    ? { '@context': 'https://schema.org', ...personSchema(owner.value) }
+    : null,
+])
 
 const heroHeadline = ref(null)
 const heroText = ref(null)

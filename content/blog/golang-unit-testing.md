@@ -1,7 +1,7 @@
 ---
 title: Efficient Unit Testing Approach for Go in VS Code
-description: Learn how to streamline your unit testing workflow in Go using the Go extension for Visual Studio Code. Generate unit tests with ease and leverage the Test UI for convenient test execution and coverage visualization.
-category: Development
+description: 'Generate Go unit tests and run them with coverage in VS Code using the Go extension''s Test UI, with no boilerplate typing.'
+category: Developer
 published: true
 createdAt: 2023-05-29T00:00:00.000Z
 updatedAt: 2026-09-28T00:00:00.000Z
@@ -34,7 +34,7 @@ To generate unit tests for your Go functions using the Go extension in VS Code, 
 4. Search for the "Go: Generate unit tests for function" command and select it.
 5. Choose the test file where the generated tests should be placed or create a new file.
 6. The extension will generate a table test structure with a placeholder test case. Add your test cases by providing input values and expected output.
-![generate tests](/assets/generate-tests.png)
+![Generating Go unit tests from the VS Code context menu](/assets/generate-tests.png)
 Here's an example of a generated table test structure:
 ```go
 package main
@@ -70,10 +70,10 @@ After writing your unit tests, you can use the Test UI provided by the Go extens
 6. Once the tests finish running, the coverage results will be displayed alongside the source code, with covered lines highlighted.
 
 ### Test UI
-![test main](/assets/test-main.png)
+![Go test file open in VS Code with the Test UI](/assets/test-main.png)
 
 ### View coverage
-![toggle coverage](/assets/toggle-coverage.png)
+![Toggling Go test coverage highlighting in VS Code](/assets/toggle-coverage.png)
 
 Reviewing the coverage results allows you to identify areas of your code that may need additional testing or that lack adequate coverage.
 

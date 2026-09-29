@@ -6,14 +6,14 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'netlify-static',
     prerender: {
-      routes: ['/rss.xml', '/sitemap.xml'],
+      routes: ['/rss.xml', '/sitemap.xml', '/llms.txt', '/llms-full.txt'],
     },
   },
 
   // App configuration
   app: {
     head: {
-      title: 'sachin-ghait-blog',
+      title: 'Sachin Ghait: Developer notes on cloud, DevOps, security and automation',
       htmlAttrs: {
         lang: 'en',
       },
@@ -22,12 +22,16 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           name: 'description',
-          content: 'Blog about developer learning',
+          content:
+            'Practical developer notes by Sachin Ghait on cloud (AWS, GCP), DevOps, web security, Git, automation and AI tooling, with tested steps and sources.',
         },
+        { name: 'author', content: 'Sachin Ghait' },
         // Open Graph tags
         { property: 'og:url', content: 'https://onthegoalways.com' },
         { property: 'og:site_name', content: 'Sachin Ghait Blog' },
-        { property: 'og:logo', content: 'https://onthegoalways.com/favicon.ico' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:image', content: 'https://onthegoalways.com/assets/hand-drawn.webp' },
+        { name: 'twitter:card', content: 'summary_large_image' },
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

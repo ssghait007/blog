@@ -1,6 +1,6 @@
 ---
 title: Understanding Port Sharing and SO_REUSEADDR in Docker
-description: Learn about the problem of port sharing in Docker and how the SO_REUSEADDR option relates to it. Gain insights into network concepts and how they impact running multiple instances of an application on the same port. Find solutions to overcome port conflicts in Docker.
+description: 'How SO_REUSEADDR and SO_REUSEPORT affect running several instances on one port in Docker, and how to resolve port conflicts.'
 category: Developer
 published: true
 createdAt: 2023-07-09

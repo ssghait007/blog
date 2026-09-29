@@ -1,6 +1,6 @@
 ---
 title: Use It First. Launch It Later.
-description: I built a stock exit validator, a media compression pipeline, and a cryptographic doom scroll blocker. The rule is simple, use it first, expand later only if it really works for you.
+description: 'Three personal tools I built: a stock exit validator, a media compression pipeline and a doom-scroll blocker. Rule: use it first, expand only if it works.'
 category: Developer
 published: true
 createdAt: 2026-03-19T00:00:00.000Z

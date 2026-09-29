@@ -1,6 +1,6 @@
 ---
-title: What is CORS and how to deal with issues related to it ?
-description: CORS is a security feature that prevents malicious websites from accessing confidential information. CORS adds HTTP headers to server responses, enabling cross-domain queries. Common issues faced by developers include AJAX failures, problems with local development, and API rate restrictions.
+title: What is CORS and how to deal with issues related to it?
+description: 'CORS lets a server allow cross-origin browser requests through HTTP headers. Learn how it works, the key headers, preflight, and how to fix common errors.'
 category: Frontend
 published: true
 createdAt: 2021-02-02T07:00:13.392Z

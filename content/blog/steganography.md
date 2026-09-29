@@ -1,6 +1,6 @@
 ---
 title: Steganography - The Art of Hiding Data in Plain Sight
-description: Learn about Steganography, a method of concealing messages in plain sight by using various digital forms of media like text, image, audio, video, and network steganography. Get an example of image steganography using the Python library cryptosteganography and a list of free tools available.
+description: 'What steganography is, its types (text, image, audio, video, network), a Python image example with cryptosteganography and free tools to try.'
 category: Developer
 published: true
 createdAt: 2021-06-19T07:00:13.392Z

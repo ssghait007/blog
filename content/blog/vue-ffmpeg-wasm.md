@@ -1,6 +1,6 @@
 ---
 title: Convert Video to GIF with FFmpeg
-description: Convert Video to GIF with FFmpeg in the browser using Ffmpeg's web assembly script. Learn how to import Ffmpeg in a Vue app, load its script, and run native commands to convert a video file to a GIF
+description: 'Convert video to GIF in the browser with FFmpeg WebAssembly: import ffmpeg.wasm into a Vue app, load the script and run the conversion command.'
 category: Frontend
 published: true
 createdAt: 2021-02-06T07:00:13.392Z
@@ -89,7 +89,7 @@ Read more on ffmpeg commands in the [FFmpeg documentation](https://ffmpeg.org/ff
 
 ## What does the finished app look like?
 
-![image alt text](/assets/ffmpeg-mp4-to-gif.webp)
+![Vue app converting an MP4 video to a GIF with ffmpeg.wasm](/assets/ffmpeg-mp4-to-gif.webp)
 
 ## Conclusion
 

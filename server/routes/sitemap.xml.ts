@@ -1,14 +1,8 @@
-const STATIC_PAGES = [
-  { path: '/', changefreq: 'weekly', priority: '1.0' },
-  { path: '/blog', changefreq: 'daily', priority: '0.9' },
-  { path: '/blog/frontend', changefreq: 'weekly', priority: '0.8' },
-  { path: '/blog/backend', changefreq: 'weekly', priority: '0.8' },
-  { path: '/blog/cloud', changefreq: 'weekly', priority: '0.8' },
-  { path: '/blog/developer', changefreq: 'weekly', priority: '0.8' },
-  { path: '/about-us', changefreq: 'monthly', priority: '0.5' },
-  { path: '/contact', changefreq: 'monthly', priority: '0.5' },
-  { path: '/privacy-policy', changefreq: 'yearly', priority: '0.3' },
-]
+// Pages whose content changes when posts change get the latest post date.
+// Standalone pages (about, contact, privacy) are left without a lastmod
+// rather than claiming a date that isn't real.
+const LISTING_PAGES = ['/', '/blog', '/blog/frontend', '/blog/backend', '/blog/cloud', '/blog/developer']
+const STANDALONE_PAGES = ['/about-us', '/contact', '/privacy-policy']
 
 const toDay = (date: string) => new Date(date).toISOString().slice(0, 10)
 
@@ -33,29 +27,30 @@ export default defineEventHandler(async (event) => {
     .at(-1)
   const siteLastmod = latest ? toDay(latest) : toDay(new Date().toISOString())
 
-  const urls = [
-    ...STATIC_PAGES.map((page) => ({ ...page, lastmod: siteLastmod })),
+  const latestByAuthor = new Map<string, string>()
+  for (const post of posts) {
+    const date = toDay(post.updatedAt || post.createdAt)
+    const current = latestByAuthor.get(post.author)
+    if (!current || date > current) latestByAuthor.set(post.author, date)
+  }
+
+  const urls: { path: string; lastmod?: string }[] = [
+    ...LISTING_PAGES.map((path) => ({ path, lastmod: siteLastmod })),
+    ...STANDALONE_PAGES.map((path) => ({ path })),
     ...posts.map((post) => ({
       path: post.path,
       lastmod: toDay(post.updatedAt || post.createdAt),
-      changefreq: 'monthly',
-      priority: '0.7',
     })),
     ...authors.map((author) => ({
       path: `/authors/${author.slug}`,
-      lastmod: siteLastmod,
-      changefreq: 'monthly',
-      priority: '0.4',
+      lastmod: latestByAuthor.get(author.name),
     })),
   ]
 
   const body = urls
     .map(
       (url) => `  <url>
-    <loc>${SITE_URL}${url.path}</loc>
-    <lastmod>${url.lastmod}</lastmod>
-    <changefreq>${url.changefreq}</changefreq>
-    <priority>${url.priority}</priority>
+    <loc>${SITE_URL}${url.path}</loc>${url.lastmod ? `\n    <lastmod>${url.lastmod}</lastmod>` : ''}
   </url>`
     )
     .join('\n')

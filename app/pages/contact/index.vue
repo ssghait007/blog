@@ -85,6 +85,11 @@
 </template>
 
 <script setup>
+usePageSeo({
+  title: 'Contact Sachin Ghait',
+  description: 'Send feedback, corrections or questions about a post on the Sachin Ghait blog.',
+  path: '/contact',
+})
 // Show all posts function (for development)
 const _show = () => {
   if (import.meta.client) {

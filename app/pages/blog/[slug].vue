@@ -13,12 +13,18 @@
         v-if="data?.image"
         ref="heroImage"
         class="lg:w-4/6 md:w-5/6 w-6/6 mb-10 object-cover object-center rounded"
-        alt="hero"
+        :alt="data.title"
         :src="data.image"
       >
 
       <div v-if="data" class="lg:w-4/6 md:w-5/6 w-full flex flex-wrap items-center gap-3 text-sm text-gray-500 dark:text-gray-400 mt-4 mb-6">
-        <span>{{ data.author }}</span>
+        <NuxtLink
+          :to="`/authors/${authorSlugOf(data.author)}`"
+          rel="author"
+          class="hover:underline"
+        >
+          {{ data.author }}
+        </NuxtLink>
         <span>&middot;</span>
         <time :datetime="data.createdAt">{{ _formatDate(data.createdAt) }}</time>
         <template v-if="data.updatedAt">
@@ -63,6 +69,9 @@
           </template>
         </ClientOnly>
 
+        <AuthorBox v-if="data" :author-name="data.author" :verified="data.updatedAt || data.createdAt" />
+        <RelatedPosts v-if="data" :current-path="data.path" :tags="data.tags" :category="data.category" />
+
         <ClientOnly>
           <GiscusComments />
         </ClientOnly>
@@ -95,78 +104,79 @@ const { data } = await useAsyncData(`blog-${slug}`, () =>
   queryCollection('blog').path(`/blog/${slug}`).first()
 )
 
+const { data: authorRecord } = await useAsyncData(`post-author-${slug}`, () =>
+  data.value ? queryCollection('authors').where('name', '=', data.value.author).first() : null
+)
+
 // Track reading history
 const { trackVisit } = useReadingHistory()
 onMounted(() => {
   if (data.value) trackVisit(data.value)
 })
 
-// Set SEO meta tags
+// Set SEO meta tags and structured data
 if (data.value) {
-  const config = useRuntimeConfig()
-  const siteUrl = config.public.siteUrl || 'https://onthegoalways.com'
-  const ogImageUrl = data.value.image?.startsWith('http') 
-    ? data.value.image 
-    : `${siteUrl}${data.value.image}`
+  const post = data.value
+  const postUrl = `${SITE_URL}${route.path.replace(/\/$/, '')}`
+  const ogImageUrl = post.image?.startsWith('http') ? post.image : `${SITE_URL}${post.image}`
 
+  usePageSeo({
+    title: post.title,
+    description: post.description,
+    path: route.path.replace(/\/$/, ''),
+    image: ogImageUrl,
+    type: 'article',
+  })
   useSeoMeta({
-    title: data.value.title,
-    description: data.value.description,
-    ogType: 'article',
-    ogUrl: `${siteUrl}${route.path}`,
-    ogTitle: data.value.title,
-    ogDescription: data.value.description,
-    ogImage: ogImageUrl,
-    twitterCard: 'summary_large_image',
-    twitterTitle: data.value.title,
-    twitterDescription: data.value.description,
-    twitterImage: ogImageUrl,
-    articlePublishedTime: data.value.createdAt,
-    articleModifiedTime: data.value.updatedAt || data.value.createdAt,
-    articleAuthor: [data.value.author],
-    articleSection: data.value.category,
-    articleTag: data.value.tags,
+    robots: post.published ? 'index, follow, max-image-preview:large' : 'noindex, nofollow',
+    articlePublishedTime: post.createdAt,
+    articleModifiedTime: post.updatedAt || post.createdAt,
+    articleAuthor: [post.author],
+    articleSection: post.category,
+    articleTag: post.tags,
   })
 
-  const postUrl = `${siteUrl}${route.path}`
-  const authorSlug = data.value.author.toLowerCase().replace(/\s+/g, '-')
+  const person = authorRecord.value
+    ? personSchema(authorRecord.value)
+    : {
+        '@type': 'Person',
+        name: post.author,
+        jobTitle: post.authorTitle,
+        url: `${SITE_URL}/authors/${authorSlugOf(post.author)}`,
+      }
 
-  // Structured data so search engines and AI assistants can read post facts exactly
   const blogPostingSchema = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
-    headline: data.value.title,
-    description: data.value.description,
+    headline: post.title,
+    description: post.description,
     image: ogImageUrl,
-    datePublished: data.value.createdAt,
-    dateModified: data.value.updatedAt || data.value.createdAt,
-    author: {
-      '@type': 'Person',
-      name: data.value.author,
-      jobTitle: data.value.authorTitle,
-      url: `${siteUrl}/authors/${authorSlug}`,
-    },
-    publisher: {
-      '@type': 'Person',
-      name: 'Sachin Ghait',
-      url: siteUrl,
-    },
+    datePublished: post.createdAt,
+    dateModified: post.updatedAt || post.createdAt,
+    author: person,
+    publisher: publisherSchema(),
+    isPartOf: { '@id': WEBSITE_ID },
     mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
     url: postUrl,
-    articleSection: data.value.category,
-    keywords: data.value.tags,
+    articleSection: post.category,
+    keywords: post.tags,
     inLanguage: 'en',
+    wordCount: wordCountOf(post.body),
+    timeRequired: isoDurationOf(post.readingTime),
+    abstract: post.description,
+    proficiencyLevel: post.proficiency,
   }
 
-  useHead({
-    link: [{ rel: 'canonical', href: postUrl }],
-    script: [
-      {
-        type: 'application/ld+json',
-        innerHTML: JSON.stringify(blogPostingSchema),
-      },
-    ],
-  })
+  useJsonLd([
+    blogPostingSchema,
+    faqSchema(post.body),
+    breadcrumbSchema([
+      { name: 'Home', url: SITE_URL },
+      { name: 'Blog', url: `${SITE_URL}/blog` },
+      { name: post.category, url: `${SITE_URL}/blog/${post.category.toLowerCase()}` },
+      { name: post.title, url: postUrl },
+    ]),
+  ])
 }
 
 // Handle 404 if post not found

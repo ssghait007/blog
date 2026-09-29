@@ -1,6 +1,6 @@
 ---
 title: How the Claude Code Browser Plugin Helped Me Debug Faster
-description: Learn how the Claude Code browser plugin bridges browser context to the CLI, enabling cross-context AI workflows that speed up debugging cloud infrastructure issues like database performance bottlenecks.
+description: 'How the Claude Code browser plugin passes browser context to the CLI so you can debug cloud problems like slow database queries in one AI workflow.'
 category: Developer
 published: true
 createdAt: 2026-03-02T10:00:00.000Z

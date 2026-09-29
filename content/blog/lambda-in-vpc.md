@@ -1,6 +1,6 @@
 ---
 title: Lambda Function In A VPC The Right Way.
-description: Discover the right way to use AWS Lambda function in a VPC. This post covers the reasons why a Lambda function loses internet access in a VPC, and explains how to route traffic through a NAT to allow access to the internet.
+description: 'Why an AWS Lambda function loses internet access inside a VPC, and how to fix it by routing traffic through a NAT gateway in a public subnet.'
 category: Cloud
 published: true
 createdAt: 2021-08-14T07:00:13.392Z
@@ -60,7 +60,7 @@ Now your lambda function can access outside internet.
 
 Below diagram shows this setup. Lambda function can access SNS APIs, as traffic is routed through NAT and then internet gateway.
 
-![Example diagram](/assets/lambda-in-VPC.webp)
+![Diagram of a Lambda function in a private subnet routing internet traffic through a NAT gateway](/assets/lambda-in-VPC.webp)
 
 Read more about the solution [in this aws article](https://aws.amazon.com/premiumsupport/knowledge-center/internet-access-lambda-function/)
 

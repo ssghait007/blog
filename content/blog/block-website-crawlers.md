@@ -1,6 +1,6 @@
 ---
 title: Block Google search bots from indexing your website.
-description: Prevent your website from appearing in Google search results by temporarily using the Google Search Console or permanently by modifying your robots.txt file. Learn how to block all crawler bots or specific bots and pages in this post.
+description: 'How to keep your site out of Google results: use Search Console for a temporary removal, or robots.txt to block all bots, specific bots or specific pages.'
 category: Frontend
 published: true
 createdAt: 2021-08-01T07:00:13.392Z
@@ -34,7 +34,7 @@ Webpage block or website block request lasts only for about 6 months, After that
 
 Blocking a URL does not prevent Google from crawling your page, only from showing it in Search results.
 
-![google search console](/assets/google-console.webp)
+![Google Search Console page for requesting temporary removal of a URL](/assets/google-console.webp)
 
 ## How do I block crawlers permanently with robots.txt?
 

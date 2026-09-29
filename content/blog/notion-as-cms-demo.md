@@ -1,6 +1,6 @@
 ---
 title: Use Notion as CMS for your website
-description: The post describes the step-by-step process of creating a simple website and loading data from a json file. Also, learn how to set up CICD using netlify, create a board in Notion, integrate it with your website, and fetch data from Notion at build time
+description: 'Use Notion as a CMS: build a static site from JSON, set up Netlify CI/CD, connect a Notion board and fetch its data at build time.'
 category: Frontend
 published: true
 createdAt: 2022-07-03T07:00:13.392Z
@@ -75,7 +75,7 @@ Follow the below given video to setup CICD for your github repo.
 
 `https://www.notion.so/{DB_ID}?v={VIEW_ID}`
 
-![notion board](/assets/team_before.webp)
+![Notion team board before the update](/assets/team_before.webp)
 
 > Names from the Done column should appear on website
 
@@ -87,7 +87,7 @@ This would give you a API key to use within your queries.
 
 Make sure not to commit this to github (or any other SCM).
 
-![notion integration](/assets/notion_integration.webp)
+![Creating a Notion integration to get an API token](/assets/notion_integration.webp)
 
 > Navigate to Notion developer --> my-integrations
 
@@ -95,7 +95,7 @@ Make sure not to commit this to github (or any other SCM).
 
 - By using share page button, share you board with notion integration you created in last step.
 
-![share page](/assets/share_notion_page.webp)
+![Sharing a Notion page with the integration](/assets/share_notion_page.webp)
 
 > This makes your content available to the integration, can be accessed using API now.
 
@@ -103,7 +103,7 @@ Make sure not to commit this to github (or any other SCM).
 
 - Add `NOTION_API_KEY` and `NOTION_DB_ID` in env variables.
 
-![netlify_env](/assets/netlify_env.webp)
+![Netlify environment variables for the Notion token](/assets/netlify_env.webp)
 
 > Navigate to your site --> build and deploy --> environment
 
@@ -167,19 +167,19 @@ axios(config)
 
 1. This is how the website looks initially.
 
-![website before](/assets/site_before.webp)
+![Website before loading data from Notion](/assets/site_before.webp)
 
 2. Suppose Hiring manager finalise to **hire two new developers** and that should show on your website. Move their entries to the `Done` column in notion.
 
-![team_after](/assets/team_after.webp)
+![Notion team board after the update](/assets/team_after.webp)
 
 3. Now **trigger a new build** in netlify to deploy these changes (with `clear cache and deploy site` option).
 
-![trigger deploy](/assets/netlify_deploy.webp)
+![Triggering a Netlify deploy](/assets/netlify_deploy.webp)
 
 4. After deploy the **new members** will show on the website
 
-![website after](/assets/site_after.webp)
+![Website after loading data from Notion](/assets/site_after.webp)
 
 > Website has been deployed with new data fetched at build time.
 

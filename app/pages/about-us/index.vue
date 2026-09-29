@@ -21,11 +21,49 @@
         <span
           class="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6"
         />
-        <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">
+        <h1 class="text-gray-900 font-medium title-font tracking-wider text-sm">
           Sachin Ghait
-        </h2>
+        </h1>
         <p class="text-gray-500">Lead Developer</p>
+        <div class="text-left mt-10 leading-relaxed space-y-4">
+          <h2 class="text-gray-900 font-medium text-lg">What you'll find here</h2>
+          <p>
+            Practical guides on cloud (AWS and GCP), DevOps, web security, Git, Raspberry Pi, automation and AI
+            tooling. Every post starts with a short summary and ends with FAQs and the sources it relies on.
+          </p>
+          <h2 class="text-gray-900 font-medium text-lg">Editorial policy</h2>
+          <p>
+            I write about things I have actually set up or built. Posts show a published date and, when the content
+            changes, an updated date. Corrections are welcome through the
+            <NuxtLink to="/contact" class="underline">contact page</NuxtLink>.
+          </p>
+          <h2 class="text-gray-900 font-medium text-lg">Find me elsewhere</h2>
+          <p>
+            <a href="https://github.com/ssghait007" rel="me noopener" class="underline">GitHub</a>,
+            <a href="https://www.linkedin.com/in/sachin-ghait-02977794" rel="me noopener" class="underline">LinkedIn</a>
+            and <NuxtLink to="/authors/sachin-ghait" class="underline">my author profile</NuxtLink>.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 </template>
+
+<script setup>
+usePageSeo({
+  title: 'About Sachin Ghait, lead developer and author',
+  description:
+    'Sachin Ghait is a lead developer who writes tested guides on cloud, DevOps, web security, Git and automation. Learn about the blog and its editorial policy.',
+  path: '/about-us',
+})
+useJsonLd([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: 'About Sachin Ghait',
+    url: `${SITE_URL}/about-us`,
+    isPartOf: { '@id': WEBSITE_ID },
+    about: { '@id': PERSON_ID },
+  },
+])
+</script>

@@ -216,18 +216,26 @@ const { data: _authorPosts } = await useAsyncData(`author-posts-${slug}`, () =>
   queryCollection('blog').where('author', '=', author.value.name).all()
 )
 
-// SEO
-useSeoMeta({
-  title: `${author.value.name} - Author Profile`,
+// SEO and structured data
+usePageSeo({
+  title: `${author.value.name}: Author profile`,
   description: author.value.bio,
-  ogTitle: `${author.value.name} - Author Profile`,
-  ogDescription: author.value.bio,
-  ogImage: author.value.avatar,
-  twitterCard: 'summary',
-  twitterTitle: `${author.value.name} - Author Profile`,
-  twitterDescription: author.value.bio,
-  twitterImage: author.value.avatar,
+  path: `/authors/${author.value.slug}`,
+  image: author.value.avatar,
 })
+useJsonLd([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    url: `${SITE_URL}/authors/${author.value.slug}`,
+    isPartOf: { '@id': WEBSITE_ID },
+    mainEntity: personSchema(author.value),
+  },
+  breadcrumbSchema([
+    { name: 'Home', url: SITE_URL },
+    { name: author.value.name, url: `${SITE_URL}/authors/${author.value.slug}` },
+  ]),
+])
 
 const _formatDate = (date) => {
   return format(new Date(date), 'MMM dd, yyyy')

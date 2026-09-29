@@ -1,6 +1,6 @@
 ---
 title: Build a blog using Nuxt and Tailwind CSS
-description: Learn how to build a blog using Nuxt and Tailwind CSS. In this post, I walk you through the process of creating a blog using Nuxt, Tailwind CSS, and Tailblocks. The post covers creating the Nuxt app, adding CSS blocks, writing content, displaying blog data, creating a static build, and hosting on Netlify.
+description: 'Build a blog with Nuxt and Tailwind CSS: create the app, add Tailblocks, write content, render posts, generate a static build and deploy to Netlify.'
 category: Frontend
 published: true
 createdAt: 2021-02-01T07:00:13.392Z

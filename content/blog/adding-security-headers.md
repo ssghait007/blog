@@ -60,7 +60,7 @@ More explanation can be found in the `Additional Information` section at [securi
 ## What score did I get after adding the headers?
 This is the score after adding all required security headers
 
-![image alt text](/assets/securityHeaders.webp)
+![Security headers scan result for a website](/assets/securityHeaders.webp)
 
 ## Frequently Asked Questions
 

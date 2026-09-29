@@ -1,6 +1,6 @@
 ---
 title: Schedule Google Compute Engine Instances to Save Big Money.
-description: Maximize cost savings on your Google Compute Engine Instances with this guide on scheduling your VMs. Discover how to manage your virtual machine state, utilize the pay-as-you-go model, and implement a solution using cloud scheduler and cloud functions. 
+description: 'Cut Google Compute Engine costs by suspending and resuming VMs on a schedule with Cloud Scheduler, Pub/Sub and Cloud Functions.'
 category: Cloud
 published: true
 createdAt: 2021-10-04T07:00:13.392Z
@@ -55,7 +55,7 @@ Use [pricing calculator](https://cloud.google.com/products/calculator) to calcul
 ## Implementation
 
 Cloud function has a `pub-sub` trigger.
-![pub-sub](/assets/vm-auto-trigger.webp)
+![Cloud Function trigger configured with a Pub/Sub topic](/assets/vm-auto-trigger.webp)
 Cloud function code is as below, `change_vm_state` function is invoked when pub-sub message is received.
 
 ```python{1,3-5}
@@ -98,13 +98,13 @@ We need to reference the `beta` APIs using this library.
 Read more on `GCP beta APIs` [here](https://cloud.google.com/compute/docs/reference/rest/beta).
 
 Keep in mind that you have to attach a service account which has compute engine permissions to start/stop/suspend/resume VM.
-![sa](/assets/vm-auto-service-acc.webp)
+![Service account and IAM roles for the VM scheduler function](/assets/vm-auto-service-acc.webp)
 
 Using cloud scheduler you can send a message to pubsub on a cron schedule.
-![cloud-scheduler](/assets/vm-auto-cluod-scheduler.webp)
+![Cloud Scheduler job that publishes to a Pub/Sub topic on a cron schedule](/assets/vm-auto-cluod-scheduler.webp)
 
 In next step you can define what message to send to pub-sub.
-![pub-sub](/assets/vm-auto-pub-sub.webp)
+![Pub/Sub topic used to trigger VM start and stop](/assets/vm-auto-pub-sub.webp)
 
 This way you dont have to remember to suspend the VM when you are done working. \
 ![gif](https://media0.giphy.com/media/26xBzL5fpjhJ9dQNa/200.webp?cid=ecf05e47wnymqyqvko2pn52q3ieue2lyhw821z1hj56yy1dl&rid=200.webp&ct=g)

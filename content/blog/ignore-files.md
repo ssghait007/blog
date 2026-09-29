@@ -1,7 +1,7 @@
 ---
 title: Ignoring Files - A Guide to .gitignore, .dockerignore, and More
-description: Learn about the usage and importance of ignore files such as .gitignore, .dockerignore, .npmignore, and more. Discover how these files help in managing version control, optimizing Docker image builds, and enhancing development workflows.
-category: Development
+description: 'What .gitignore, .dockerignore and .npmignore do, when to use each, and how they keep repos clean, Docker images small and packages lean.'
+category: Developer
 published: true
 createdAt: 2023-05-28T00:00:00.000Z
 updatedAt: 2026-09-28T00:00:00.000Z

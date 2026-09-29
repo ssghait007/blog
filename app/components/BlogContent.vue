@@ -82,4 +82,34 @@ const _filteredPosts = computed(() => {
     return dateB - dateA
   })
 })
+
+// SEO and structured data for the blog index
+const publishedPosts = (posts.value || []).filter((post) => post.published)
+usePageSeo({
+  title: 'Blog: cloud, DevOps, security and automation guides | Sachin Ghait',
+  description:
+    'All posts by Sachin Ghait: tested how-tos on AWS, GCP, Git, web security, Raspberry Pi, automation and AI tooling.',
+  path: '/blog',
+})
+useJsonLd([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    '@id': `${SITE_URL}/blog#blog`,
+    name: `${SITE_NAME}: all posts`,
+    url: `${SITE_URL}/blog`,
+    inLanguage: 'en',
+    author: { '@id': PERSON_ID },
+    blogPost: publishedPosts.map((post) => ({
+      '@type': 'BlogPosting',
+      headline: post.title,
+      url: `${SITE_URL}${post.path}`,
+      datePublished: post.createdAt,
+    })),
+  },
+  breadcrumbSchema([
+    { name: 'Home', url: SITE_URL },
+    { name: 'Blog', url: `${SITE_URL}/blog` },
+  ]),
+])
 </script>
