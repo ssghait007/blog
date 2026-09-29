@@ -4,7 +4,7 @@ description: 'Run Selenium WebDriver on a Raspberry Pi Zero W with the chromium-
 category: Developer
 published: true
 createdAt: 2021-09-11T07:00:13.392Z
-updatedAt: 2026-09-28T00:00:00.000Z
+updatedAt: 2026-09-29T00:00:00.000Z
 image: /assets/selenium-on-raspberry-pi.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
@@ -73,6 +73,25 @@ installed, and run them from CLI commands.
 Later on I used ngrok to access these from anywhere, more about that in below post
 
 See the post [How to use ngrok to access your Raspberry Pi from anywhere](/blog/using-ngrok-to-access-raspberry-pi-from-anywhere).
+
+## What does a minimal headless script look like?
+
+This is Selenium 4 syntax. I wrote the original setup on the Pi Zero W with an older Selenium and haven't re-tested this exact snippet on that device. Passing the system chromedriver path stops Selenium from trying to download a driver that may not exist for ARMv6:
+
+```python
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+
+options = webdriver.ChromeOptions()
+options.add_argument('--headless')
+
+driver = webdriver.Chrome(service=Service('/usr/bin/chromedriver'), options=options)
+driver.get('https://example.com')
+print(driver.title)
+driver.quit()
+```
+
+If the package isn't found, run `apt-cache policy chromium-chromedriver` first. Package names and availability differ between Raspberry Pi OS releases.
 
 ## Frequently Asked Questions
 

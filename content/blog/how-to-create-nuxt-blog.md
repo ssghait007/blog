@@ -4,7 +4,7 @@ description: 'Build a blog with Nuxt and Tailwind CSS: create the app, add Tailb
 category: Frontend
 published: true
 createdAt: 2021-02-01T07:00:13.392Z
-updatedAt: 2026-09-28T00:00:00.000Z
+updatedAt: 2026-09-29T00:00:00.000Z
 image: /assets/nuxt.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
@@ -134,6 +134,16 @@ You can easily host project from github on netlify.
 - Choose the directory that you will publish from. It will contain files such as index.html. — _in our case its `dist`._
 - Select “Build Site”.
 
+## How do I host it on Cloudflare Pages?
+
+This blog is now hosted on Cloudflare Pages. In the Pages project I connect the GitHub repository, then set:
+
+- Production branch: `main`
+- Build command: `bun install && bun run generate`
+- Build output directory: `dist`
+
+Every push to `main` triggers a new deploy automatically. See the [Cloudflare Pages docs](https://developers.cloudflare.com/pages/) for the full setup.
+
 ## Source code
 
 - [ssghait007/blog on GitHub](https://github.com/ssghait007/blog)
@@ -152,7 +162,7 @@ Use `queryCollection('blog').order('createdAt', 'DESC').all()` inside `useAsyncD
 
 A small static blog fits in Netlify's free plan. Check [Netlify's pricing page](https://www.netlify.com/pricing/) for the current limits.
 
-## Useful links
+## References
 
 - [Nuxt](https://nuxt.com/)
 - [Nuxt Content](https://content.nuxt.com/)

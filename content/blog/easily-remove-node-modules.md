@@ -4,7 +4,7 @@ description: Say goodbye to hours of manually deleting unused node modules with 
 category: Developer
 published: true
 createdAt: 2021-05-05T07:00:13.392Z
-updatedAt: 2026-09-28T00:00:00.000Z
+updatedAt: 2026-09-29T00:00:00.000Z
 image: /assets/node-modules-app-performance_.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
@@ -66,6 +66,32 @@ You can find out how to use it here.
 It is very well documented.
 
 - [NPKill official site](https://npkill.js.org/)
+
+## What keys and options does NPKill have?
+
+Inside the list, these keys work (from `npx npkill --help`):
+
+| Key | Action |
+|---|---|
+| Space or Del | Delete the selected `node_modules` |
+| Up / Down (or `k` / `j`) | Move through the list |
+| `o` | Open the parent folder of the selected result |
+| `e` | Show the errors popup |
+
+Useful options:
+
+| Option | What it does |
+|---|---|
+| `-d, --directory` | Start searching from a given folder |
+| `-s, --sort` | Sort by `size`, `path` or `last-mod` |
+| `-E, --exclude` | Skip folders, e.g. `"ignore1, ignore2"` |
+| `-gb` | Show sizes in gigabytes |
+| `--dry-run` | Simulate deleting without removing anything |
+| `-t, --target` | Search for another folder name instead of `node_modules` |
+
+For example, list the biggest folders first: `npx npkill --sort size`.
+
+Not every `node_modules` is safe to delete. NPKill highlights folders that belong to applications such as VS Code or Discord with a warning, because deleting them can break those apps until the dependencies are reinstalled.
 
 ## Frequently Asked Questions
 

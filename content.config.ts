@@ -34,6 +34,8 @@ export default defineContentConfig({
         bio: z.string(),
         location: z.string().optional(),
         website: z.string().optional(),
+        worksFor: z.string().optional(),
+        alumniOf: z.string().optional(),
         joinedDate: z.string().optional(),
         social: z
           .object({

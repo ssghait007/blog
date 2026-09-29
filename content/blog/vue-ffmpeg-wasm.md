@@ -4,7 +4,7 @@ description: 'Convert video to GIF in the browser with FFmpeg WebAssembly: impor
 category: Frontend
 published: true
 createdAt: 2021-02-06T07:00:13.392Z
-updatedAt: 2026-09-28T00:00:00.000Z
+updatedAt: 2026-09-29T00:00:00.000Z
 image: /assets/ffmpeg-wasm.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
@@ -84,6 +84,30 @@ await ffmpeg.run(
 ```
 
 Read more on ffmpeg commands in the [FFmpeg documentation](https://ffmpeg.org/ffmpeg.html).
+
+## How do I do the same with ffmpeg.wasm 0.12?
+
+The code below follows the 0.12 API from the [ffmpeg.wasm documentation](https://ffmpegwasm.netlify.app/). I originally tested the 0.11 code above, so treat this newer example as a starting point and check it against the docs for your version.
+
+```js
+import { FFmpeg } from '@ffmpeg/ffmpeg'
+import { fetchFile, toBlobURL } from '@ffmpeg/util'
+
+const ffmpeg = new FFmpeg()
+const baseURL = 'https://unpkg.com/@ffmpeg/core@0.12.6/dist/umd'
+
+await ffmpeg.load({
+  coreURL: await toBlobURL(`${baseURL}/ffmpeg-core.js`, 'text/javascript'),
+  wasmURL: await toBlobURL(`${baseURL}/ffmpeg-core.wasm`, 'application/wasm'),
+})
+
+await ffmpeg.writeFile('test.mp4', await fetchFile(videoFile))
+await ffmpeg.exec(['-ss', '5', '-t', '5', '-i', 'test.mp4', '-vf', 'fps=10,scale=480:-1:flags=lanczos', 'out.gif'])
+const data = await ffmpeg.readFile('out.gif')
+const gifUrl = URL.createObjectURL(new Blob([data.buffer], { type: 'image/gif' }))
+```
+
+`fps=10,scale=480:-1` makes the GIF smaller: 10 frames per second and 480 pixels wide, with the height kept in proportion. The default single-thread 0.12 core doesn't need `SharedArrayBuffer`; only the multi-thread core does.
 
 ## What does the finished app look like?
 

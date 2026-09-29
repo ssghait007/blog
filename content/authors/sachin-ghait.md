@@ -3,8 +3,8 @@ name: "Sachin Ghait"
 slug: "sachin-ghait"
 avatar: "https://lh3.googleusercontent.com/ogw/AF2bZyinBRHZRfihgW4IchXTsq4yutH1G5Q2-iTZZuaiAnqzslIe=s64-c-mo"
 title: "Lead Developer"
-bio: "Lead Developer based in India. Since 2021 I write tested, step-by-step guides on cloud (AWS, GCP), DevOps, web security, Git, Raspberry Pi projects, automation and AI tooling, each with sources and update dates."
-location: "India"
+bio: "Lead Developer in Pune, India with 10 years of experience (Wipro, CloudCover, Ollion, The Non-Functional Co.), working mainly in Golang, AWS and Node.js. Writes tested guides on cloud, DevOps, security and automation."
+location: "Pune, India"
 website: "https://onthegoalways.com"
 social:
   github: "ssghait007"
@@ -12,38 +12,44 @@ social:
   linkedin: "sachin-ghait-02977794"
   email: "ssghait007@gmail.com"
 specialties:
-  - "Full Stack Development"
-  - "Cloud Infrastructure"
-  - "DevOps & Automation"
-  - "Web Security"
-  - "API Development"
+  - "Golang and Node.js development"
+  - "AWS and cloud infrastructure"
+  - "DevOps and automation"
+  - "Web security"
+  - "API development"
+worksFor: "The Non-Functional Co."
+alumniOf: "College of Engineering Pune"
 joinedDate: "2021-01-01"
 ---
 
 # About Sachin Ghait
 
-I'm a Lead Developer with a passion for creating robust, scalable web applications and sharing knowledge with the developer community. My journey in tech spans across various domains including full-stack development, cloud infrastructure, and automation.
+I'm a Lead Developer based in Pune, India. I have worked in software since August 2016, mostly on cloud and backend systems in Golang, AWS and Node.js, and I write this blog to document what I build and fix.
 
-## What I Do
+## Experience
 
-I specialize in building modern web applications using cutting-edge technologies. My expertise includes:
+- **Software Developer, The Non-Functional Co.** (Aug 2024 to present, remote). Works on [Stance](https://stance.ai/).
+- **Lead Developer, Ollion** (Oct 2023 to Nov 2024, remote). Ollion is a global cloud consultancy formed by the integration of 2nd Watch, CloudCover and Cloud Comrade.
+- **CloudCover** (Dec 2019 to Sep 2023): Developer, then Senior Developer, then Lead Developer.
+- **Software Developer, Aditech LLP** (Dec 2018 to Dec 2019). Front-end work in the financial domain.
+- **Associate Consultant, Wipro** (Aug 2016 to Dec 2018). Worked in the telecom domain.
 
-- **Frontend Development**: Vue.js, Nuxt.js, React, and modern CSS frameworks
-- **Backend Development**: Node.js, Python, and serverless architectures
-- **Cloud & DevOps**: AWS, GCP, Docker, and CI/CD pipelines
-- **Database Design**: PostgreSQL, Redis, and data modeling
-- **Security**: Curious about security best practices.
+## Education and certifications
+
+- Electronics and Telecommunication, College of Engineering Pune.
+- Microsoft Certified: Azure Developer Associate (issued Jan 2021, expired Jan 2023).
+- Microsoft Certified: DevOps Engineer Expert (issued Sep 2021, expired Sep 2022).
+
+## Projects
+
+- [Starchitect.ai](https://starchitect.ai): checks Terraform code against CIS benchmarks and reports a compliance score.
+- [MultiMic](https://multimic.onthegoalways.com): records from up to 10 microphones at once so you can compare them.
+- [YouTube Cleaner Firefox extension](/blog/youtube-cleaner-firefox-extension).
 
 ## Topics I write about
 
 Cloud (AWS Lambda, VPC, CloudFront, GCP cost control), web security (CORS, security headers, crawler control), Git workflows, Raspberry Pi and home-network projects, browser automation with Selenium, and AI-assisted development with Claude Code and MCP servers.
 
-<!-- TODO(author): add verifiable credentials here (employer/role, years of experience, certifications, talks, open-source projects). AI answer engines favour authors with concrete, checkable expertise. -->
-
-## My Writing
-
-Through this blog, I share practical tutorials, insights, and experiences from real-world projects. I believe in making complex technical concepts accessible to developers at all levels.
-
 ## Let's Connect
 
-I'm always excited to connect with fellow developers and discuss technology, best practices, or potential collaborations. Feel free to reach out through any of the social platforms listed above!
+Find me on [LinkedIn](https://www.linkedin.com/in/sachin-ghait-02977794/) and [GitHub](https://github.com/ssghait007), or use the [contact page](/contact).

@@ -29,6 +29,9 @@ export const personSchema = (author) => {
     description: author.bio,
     url: `${SITE_URL}/authors/${author.slug}`,
     image: author.avatar,
+    ...(author.worksFor ? { worksFor: { '@type': 'Organization', name: author.worksFor } } : {}),
+    ...(author.alumniOf ? { alumniOf: { '@type': 'CollegeOrUniversity', name: author.alumniOf } } : {}),
+    ...(author.location ? { homeLocation: { '@type': 'Place', name: author.location } } : {}),
     ...(sameAs.length ? { sameAs } : {}),
     ...(author.specialties?.length ? { knowsAbout: author.specialties } : {}),
   }

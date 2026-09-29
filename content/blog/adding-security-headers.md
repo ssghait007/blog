@@ -4,7 +4,7 @@ description: Learn how to improve your website security with HTTP security heade
 category: Frontend
 published: true
 createdAt: 2021-02-02T07:00:13.392Z
-updatedAt: 2026-09-28T00:00:00.000Z
+updatedAt: 2026-09-29T00:00:00.000Z
 image: /assets/http-security-headers.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
@@ -62,6 +62,34 @@ This is the score after adding all required security headers
 
 ![Security headers scan result for a website](/assets/securityHeaders.webp)
 
+## Which security headers matter most?
+
+| Header | What it does | Example value |
+|---|---|---|
+| `Strict-Transport-Security` | Tells browsers to use HTTPS only for your site | `max-age=31536000; includeSubDomains` |
+| `Content-Security-Policy` | Limits where scripts, styles and frames can load from, which mitigates XSS | `default-src 'self'` |
+| `X-Content-Type-Options` | Stops the browser guessing a file's type | `nosniff` |
+| `X-Frame-Options` | Blocks your page from being framed (clickjacking). The CSP `frame-ancestors` directive is the modern replacement | `DENY` |
+| `Referrer-Policy` | Controls how much URL information is sent to other sites | `strict-origin-when-cross-origin` |
+| `Permissions-Policy` | Turns browser features such as camera or geolocation on or off | `camera=(), microphone=(), geolocation=()` |
+
+Test a new Content-Security-Policy with the `Content-Security-Policy-Report-Only` header first. It reports violations without blocking anything, so a strict policy doesn't break your site on day one.
+
+## How do I add security headers on Cloudflare Pages?
+
+This blog now runs on Cloudflare Pages instead of Netlify. Pages reads a plain-text `_headers` file from your build output folder (for this blog, `dist`). Add rules like these to it. If your framework already generates that file, as Nuxt does for its cache rules, merge these lines into the generated file instead of creating a second one:
+
+```
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+```
+
+The Netlify example above is the setup I used when this post was first written.
+
 ## Frequently Asked Questions
 
 ### What do HTTP security headers protect against?
@@ -82,3 +110,5 @@ A common value is `max-age=31536000; includeSubDomains`. 31,536,000 seconds is o
 - [MDN: Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP)
 - [MDN: HTTP headers reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers)
 - [OWASP Secure Headers Project](https://owasp.org/www-project-secure-headers/)
+- [Cloudflare Pages: Headers](https://developers.cloudflare.com/pages/configuration/headers/)
+- [Netlify: Custom headers](https://docs.netlify.com/manage/routing/headers/)

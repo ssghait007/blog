@@ -4,7 +4,7 @@ description: 'Why an AWS Lambda function loses internet access inside a VPC, and
 category: Cloud
 published: true
 createdAt: 2021-08-14T07:00:13.392Z
-updatedAt: 2026-09-28T00:00:00.000Z
+updatedAt: 2026-09-29T00:00:00.000Z
 image: /assets/lambda-vpc.webp
 author: Sachin Ghait
 authorTitle: Lead Developer

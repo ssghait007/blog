@@ -4,7 +4,7 @@ description: 'Three personal tools I built: a stock exit validator, a media comp
 category: Developer
 published: true
 createdAt: 2026-03-19T00:00:00.000Z
-updatedAt: 2026-09-28T00:00:00.000Z
+updatedAt: 2026-09-29T00:00:00.000Z
 image: /assets/use-it-first.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
@@ -185,3 +185,10 @@ My rule: if V1 takes more than two evenings to build, the scope is too big. Cut 
 ### When should I share a personal tool with others?
 
 Only after you have used it regularly and it has proven useful over time. That decision comes after real use, not at the idea stage.
+
+## References
+
+- [Atomic Habits by James Clear](https://jamesclear.com/atomic-habits)
+- [Shamir's Secret Sharing: the full write-up](/blog/shamirs-secret-sharing)
+- [Pi-hole documentation](https://docs.pi-hole.net/)
+- [Claude Code overview](https://docs.anthropic.com/en/docs/claude-code/overview)

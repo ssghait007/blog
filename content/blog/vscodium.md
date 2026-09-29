@@ -4,7 +4,7 @@ description: Discover VSCodium, a community-driven alternative to Visual Studio 
 category: Developer
 published: true
 createdAt: 2021-02-16T07:00:13.392Z
-updatedAt: 2026-09-28T00:00:00.000Z
+updatedAt: 2026-09-29T00:00:00.000Z
 image: /assets/vscodium.webp
 author: Sachin Ghait
 authorTitle: Lead Developer
@@ -63,6 +63,17 @@ Your settings are stored in json file `settings.json` in location `%APPDATA%\Cod
 Keep a backup of this file and Copy this file to `%APPDATA%\VSCodium\User`
 
 Same can be done for `keybindings.json`
+
+## How does VSCodium differ from Microsoft's VS Code build?
+
+| | VS Code (Microsoft build) | VSCodium |
+|---|---|---|
+| Source code | Open source (MIT) | Same source code |
+| Binary license | Microsoft product license | MIT |
+| Telemetry | Enabled by default | Disabled |
+| Extension marketplace | Microsoft Marketplace | Open VSX Registry |
+
+Some extensions published by Microsoft, such as the Remote Development extensions and Pylance, are licensed for Microsoft's builds only, so they may not install or work in VSCodium. Check the extension's page before you switch, and see the [VSCodium docs](https://github.com/VSCodium/vscodium/blob/master/DOCS.md) for the current list of differences.
 
 ## Conclusion
 
