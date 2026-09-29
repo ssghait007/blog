@@ -16,13 +16,11 @@ proficiency: intermediate
 
 > **TL;DR:** Browser ad blockers only protect one device at a time. Pi-hole is a network-level ad blocker that runs on a Raspberry Pi and acts as your DNS server, blocking ad-serving domains before they reach any device on your network. This is especially useful for protecting non-tech-savvy family members (kids, elderly parents) who might click on dangerous ads. The post covers how Pi-hole works, installation on Raspberry Pi, and configuring your router to use it as the DNS server.
 
-# Ad Blocker for Your Whole Network. 🛡️
-
 The Online advertising market was valued at USD 304.0 billion in 2019 and is expected to reach USD 982.82 billion by 2025, at a CAGR of 21.6%. With increase in smartphone users these predictions look obvious.
 
 Sometimes Ads can be a bit invasive and annoying. For mobile devices, there are different types of advertisements, including click to download, click to call, image text, banner ads and full screen ads.
 
-## Why block ads at the network level? 🤷
+## Why block ads at the network level?
 
 There are some ads that simply advertise some content or product, which does not bother me. But there is also the other dangerous side to it. These ads show fake things or ask people to download something on their devices.
 
@@ -52,7 +50,7 @@ NOTE: Since the ads were not downloaded in the first place, they do not need to 
 - Raspberry Pi device (I have used Raspberry Pi zero w)
 - Access to your router
 
-## How do I set up Pi-hole on a Raspberry Pi? 🔨
+## How do I set up Pi-hole on a Raspberry Pi?
 
 #### Setup Raspberry Pi
 
@@ -89,7 +87,7 @@ Like blocking certain type of content on your network.
 Categories are as below
 ![OpenDNS web content filtering settings](/assets/opendns-wen-content-filter.webp)
 
-## Conclusion ✔️ - What I observed after 2 weeks of use.
+## Conclusion  - What I observed after 2 weeks of use.
 
 Pihole is working seamlessly, No issues so far. It does not require much compute, works quite fine with 15% memory usage. Also, As I am using raspberry-pi zero w, It's not consuming much power.
 
@@ -100,7 +98,7 @@ On average 30% - 45% daily unique requested domains are ads or tracking. Knowing
 And this is how you say no to Ads,
 ![image No to ads](https://media1.giphy.com/media/l4FGIgsVPdoRd2wbS/giphy.gif?cid=790b7611da37642de1a3e196dd373a47a5aa2632e723bb14&rid=giphy.gif&ct=g)
 
-## Things to keep in mind 🤨
+## Things to keep in mind
 
 1. When you switch off pihole, make sure to revert DNS settings of your router. Otherwise, internet will not work on devices.
 2. As with every software, pihole is not 100% accurate. Pihole only blocks ads which are in its adlist. So sometimes you will have to manually allow/disallow some domains
@@ -119,7 +117,7 @@ Devices using it for DNS can't resolve websites, so the internet seems down. Don
 
 Run `pihole -g` to rebuild the block list (Pi-hole calls it "gravity"). You can also run it from the web admin panel.
 
-## References 🖊️
+## References
 
 - [Pi-hole official site](https://pi-hole.net/)
 - [OpenDNS](https://www.opendns.com/)

@@ -17,6 +17,13 @@
         :src="data.image"
       >
 
+      <h1
+        v-if="data"
+        class="lg:w-4/6 md:w-5/6 w-full text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2"
+      >
+        {{ data.title }}
+      </h1>
+
       <div v-if="data" class="lg:w-4/6 md:w-5/6 w-full flex flex-wrap items-center gap-3 text-sm text-gray-500 dark:text-gray-400 mt-4 mb-6">
         <NuxtLink
           :to="`/authors/${authorSlugOf(data.author)}`"
@@ -166,6 +173,10 @@ if (data.value) {
     abstract: post.description,
     proficiencyLevel: post.proficiency,
   }
+
+  useHead({
+    link: [{ rel: 'alternate', type: 'text/markdown', href: `${postUrl}.md` }],
+  })
 
   useJsonLd([
     blogPostingSchema,

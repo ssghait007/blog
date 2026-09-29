@@ -16,8 +16,6 @@ proficiency: intermediate
 
 > **TL;DR:** If you only use a GCP Compute Engine VM for a few hours daily, you're overpaying. This guide shows how to automate VM start/stop (or suspend/resume) on a cron schedule using Cloud Scheduler, Pub/Sub, and Cloud Functions. When stopped, you only pay for disk and network -- not compute. Note that suspend/resume (like hibernate) only works on N2+ instances, not E2. The post covers the full setup including IAM permissions and function deployment.
 
-# Schedule Google Compute Engine Instances to Save Big Money.
-
 Virtual machine is first type of compute for someone starting with the cloud. As per many reports 80-85% enterprise workload have migrated to cloud. \
 With this increased cloud adoptions, individuals also thinking of shifting some heavy compute tasks on cloud VMs, rather than building a machine at home. As there is a benefit of `pay-as-you-go` model in cloud resources and no mainteance required.
 
@@ -95,7 +93,7 @@ def change_vm_state(event, context):
 
 This scripts require `google-api-python-client==1.10.0` library as dependancy.
 We need to reference the `beta` APIs using this library.
-Read more on `GCP beta APIs` [here](https://cloud.google.com/compute/docs/reference/rest/beta).
+Read more in the [Compute Engine beta REST API reference](https://cloud.google.com/compute/docs/reference/rest/beta).
 
 Keep in mind that you have to attach a service account which has compute engine permissions to start/stop/suspend/resume VM.
 ![Service account and IAM roles for the VM scheduler function](/assets/vm-auto-service-acc.webp)

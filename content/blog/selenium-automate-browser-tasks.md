@@ -16,8 +16,6 @@ proficiency: advanced
 
 > **TL;DR:** Selenium lets you control a browser programmatically with Python, turning multi-step manual tasks into a single command. This post demonstrates automating an everyday task -- opening an online epaper that normally requires opening the browser, searching, clicking through pages, and zooming. With Selenium and a chromedriver, you script the entire flow. The walkthrough covers setup, element selection, clicking, and handling browser interactions.
 
-# Selenium - Web automation made easy.
-
 I went through a course on udemy ( Automate boring stuff with python ) back in 2018, from there I got that we can automate many tasks from daily life.
 
 ## What is Selenium?
@@ -111,7 +109,7 @@ browser = webdriver.Firefox(options=options,
 
 ![screengrab](https://raw.githubusercontent.com/ssghait007/pyclone/master/images/sg.gif)
 
-Find the complete code [here](https://github.com/ssghait007/pyclone/blob/e967c5c72047f056c73f4ed129653145b9f4a720/pyclone/__main__.py#L31)
+Find the [complete pyclone source code on GitHub](https://github.com/ssghait007/pyclone/blob/e967c5c72047f056c73f4ed129653145b9f4a720/pyclone/__main__.py#L31)
 
 Some other ideas you can try out.
 

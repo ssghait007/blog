@@ -35,6 +35,7 @@ ${sections}
 ## Site pages
 
 - [About](${SITE_URL}/about-us): who writes this blog and its editorial policy
+- [Glossary](${SITE_URL}/glossary): short definitions of terms used on the blog (CORS, NAT gateway, MCP, git bisect…)
 - [Contact](${SITE_URL}/contact): send feedback or corrections
 `
 })

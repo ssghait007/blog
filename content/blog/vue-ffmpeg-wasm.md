@@ -16,8 +16,6 @@ proficiency: Intermediate
 
 > **TL;DR:** FFmpeg is a powerful multimedia processing tool, and thanks to WebAssembly, you can now run it entirely in the browser with no server-side processing needed. This post shows how to integrate `@ffmpeg/ffmpeg` (the WASM build) into a Vue.js app to convert video files to GIFs client-side. It covers importing the library, loading the WASM script, running native FFmpeg commands in the browser, and handling the file input/output flow.
 
-# Convert Video to GIF with FFmpeg
-
 This post describes how to use Ffmpeg directly in browser, and use native commands.
 Ffmpeg loads web assembly script in browser, and gives APIs that we can consume.
 

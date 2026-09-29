@@ -92,6 +92,14 @@
               </li>
               <li>
                 <NuxtLink
+                  to="/glossary"
+                  class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
+                >
+                  Glossary
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink
                   to="/privacy-policy"
                   class="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                 >

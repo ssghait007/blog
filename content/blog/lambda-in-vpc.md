@@ -16,8 +16,6 @@ proficiency: intermediate
 
 > **TL;DR:** When you associate an AWS Lambda function with a VPC, it silently loses internet access -- all external API calls will time out. This happens because Lambda functions don't get public IPs, so they can't route through the Internet Gateway. The fix: place your Lambda in a private subnet and route its traffic through a NAT Gateway (which does have a public IP via an Elastic Network Interface). This post covers the problem, the networking explanation, and step-by-step setup with public/private subnets and route tables.
 
-# Lambda Function In A VPC The Right Way.
-
 In this post I have added my experience of working with lambda function in a VPC.
 
 ## Why does my Lambda function time out after I attach it to a VPC?
@@ -71,6 +69,21 @@ Read more about the solution [in this aws article](https://aws.amazon.com/premiu
 - Don't create NAT if lambda function only need to get access to internal VPC resources.
 
 - Lambda function can't be invoked from outside VPC, Invocations can come via AWS Lambda API, or API gateway or other internal aws triggers
+
+## How much does a NAT gateway cost compared with VPC endpoints?
+
+These figures are my own calculation from AWS list prices in US East (N. Virginia), checked on 2026-09-29 against the [Amazon VPC pricing](https://aws.amazon.com/vpc/pricing/) and [AWS PrivateLink pricing](https://aws.amazon.com/privatelink/pricing/) pages. They are not a benchmark. Prices vary by region, so recheck before you decide.
+
+Rates used: NAT gateway $0.045 per hour plus $0.045 per GB processed. Interface endpoint $0.01 per hour per Availability Zone plus $0.01 per GB. Gateway endpoints for S3 and DynamoDB have no charge. A month is 730 hours.
+
+| Setup (per month) | Fixed cost | 100 GB processed | 1,000 GB processed |
+|---|---|---|---|
+| 1 NAT gateway (1 AZ) | $32.85 | $37.35 | $77.85 |
+| 1 interface endpoint (1 AZ) | $7.30 | $8.30 | $17.30 |
+| 1 interface endpoint (2 AZs) | $14.60 | $15.60 | $24.60 |
+| S3 or DynamoDB gateway endpoint | $0 | $0 | $0 |
+
+The takeaway: if your Lambda only talks to AWS services such as SNS, SQS or Secrets Manager, interface endpoints are usually cheaper than a NAT gateway, and S3 or DynamoDB gateway endpoints cost nothing. Keep the NAT gateway only if the function must call the public internet, such as third-party APIs.
 
 ## Frequently Asked Questions
 

@@ -16,11 +16,9 @@ proficiency: intermediate
 
 > **TL;DR:** Want to run Selenium-based browser automation on a Raspberry Pi Zero W? Firefox's geckodriver dropped ARM support in 2018, so it's a dead end. The solution is using the `chromium-chromedriver` package that comes pre-built for ARM on Raspbian. This post covers the challenges of running browser automation on ARM hardware, the geckodriver vs chromedriver decision, and the full setup for headless Chromium with Selenium on Pi Zero W.
 
-# Selenium Webdriver on Raspberry Pi Zero W.
-
 I have earlier written a post on how selenium can be used to automate browser based tasks.
 
-Find that post [here](https://onthegoalways.com/blog/selenium-automate-browser-tasks).
+See the post [Selenium: Easy Web Automation with Python](/blog/selenium-automate-browser-tasks).
 
 I recently bought a raspberry-pi, So wanted to add some tasks like making changes in router settings on raspberry-pi device.
 
@@ -37,7 +35,7 @@ $ uname -a
 Linux raspber 5.10.17+ #1414 Fri Apr 30 13:16:27 IST 2021 armv6l GNU/Linux
 ```
 
-## Why didn't geckodriver work on the Raspberry Pi? 😞
+## Why didn't geckodriver work on the Raspberry Pi?
 
 I decided to go for firefox and geckodriver combination along with selenium. I thought this will be lightweight than chromium.
 
@@ -53,7 +51,7 @@ I was getting error for OS mismatch with all geckodriver executables I tried.
 Firefox - OSError: [Errno 8] Exec format error
 ```
 
-## How do I run Selenium on a Raspberry Pi Zero W? ✔️
+## How do I run Selenium on a Raspberry Pi Zero W?
 
 I thought I have stuck dead-end and was about to keep this thing on the side.
 Then I found [an article about the chromium-chromedriver package](https://ivanderevianko.com/2020/01/selenium-chromedriver-for-raspberrypi) supported by the Raspbian project.
@@ -74,7 +72,7 @@ installed, and run them from CLI commands.
 
 Later on I used ngrok to access these from anywhere, more about that in below post
 
-Find that post [here](https://onthegoalways.com/blog/using-ngrok-to-access-raspberry-pi-from-anywhere).
+See the post [How to use ngrok to access your Raspberry Pi from anywhere](/blog/using-ngrok-to-access-raspberry-pi-from-anywhere).
 
 ## Frequently Asked Questions
 
@@ -90,7 +88,7 @@ Yes. chromedriver only works with the matching major Chromium version. Installin
 
 Create `webdriver.ChromeOptions()`, call `options.add_argument('--headless')`, and pass the options to `webdriver.Chrome(options=options)`.
 
-## References 🖊️
+## References
 
 - [Selenium chromedriver for Raspberry Pi (Ivan Derevianko)](https://ivanderevianko.com/2020/01/selenium-chromedriver-for-raspberrypi)
 - [Mozilla: Building geckodriver for ARM](https://firefox-source-docs.mozilla.org/testing/geckodriver/ARM.html)

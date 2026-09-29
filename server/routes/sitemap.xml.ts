@@ -1,7 +1,7 @@
 // Pages whose content changes when posts change get the latest post date.
 // Standalone pages (about, contact, privacy) are left without a lastmod
 // rather than claiming a date that isn't real.
-const LISTING_PAGES = ['/', '/blog', '/blog/frontend', '/blog/backend', '/blog/cloud', '/blog/developer']
+const LISTING_PAGES = ['/', '/blog', '/blog/frontend', '/blog/backend', '/blog/cloud', '/blog/developer', '/glossary']
 const STANDALONE_PAGES = ['/about-us', '/contact', '/privacy-policy']
 
 const toDay = (date: string) => new Date(date).toISOString().slice(0, 10)

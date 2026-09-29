@@ -16,11 +16,9 @@ proficiency: intermediate
 
 > **TL;DR:** The Model Context Protocol (MCP) lets AI assistants like Claude interact with external systems in real time. This guide walks through building a complete MCP server in TypeScript with PostgreSQL that handles employee info lookups, leave balance checks, leave applications, and admin functions. You'll learn the MCP architecture, how to define tools with validation, connect to a database, and integrate with Claude Desktop.
 
-# Building a Model Context Protocol (MCP) Server
-
 The Model Context Protocol (MCP) is revolutionizing how AI assistants interact with external systems and data sources. Instead of being limited to their training data, AI models can now access real-time information and perform actions through MCP servers. In this guide, we'll build a MCP server for employee management that integrates with data sources like a PostgreSQL database.
 
-## What is MCP and Why Should You Care? 🤔
+## What is MCP and Why Should You Care?
 
 MCP is an open protocol that enables AI assistants like Claude to connect to external data sources and tools. Think of it as a bridge between AI and your applications - allowing the AI to read databases, call APIs, and perform complex operations on your behalf.
 
@@ -37,7 +35,7 @@ Anthropic introduced MCP in November 2024. Under the hood it uses JSON-RPC 2.0 m
 - **Extensibility**: Add new capabilities to AI assistants without retraining models
 - **Security**: Controlled access with proper authentication and validation
 
-## What will we build? 🏗️
+## What will we build?
 
 Our employee management MCP server will provide these powerful tools:
 
@@ -49,7 +47,7 @@ Our employee management MCP server will provide these powerful tools:
 
 ![Architecture of the MCP server connecting Claude Desktop to PostgreSQL](/assets/mcp_arch.png)
 
-## Prerequisites 📋
+## Prerequisites
 
 Before we start, make sure you have:
 - **Node.js** (v18 or higher)
@@ -57,7 +55,7 @@ Before we start, make sure you have:
 - **Claude Desktop** app installed
 - Basic knowledge of TypeScript and SQL
 
-## Step 1: Setting Up the Project 🚀
+## Step 1: Setting Up the Project
 
 Create the MCP server using the official TypeScript template:
 
@@ -69,7 +67,7 @@ npm install pg @types/pg dotenv
 
 This creates a well-structured project with all the necessary MCP server boilerplate and PostgreSQL dependencies.
 
-## Step 2: Database Setup with Docker 🐳
+## Step 2: Database Setup with Docker
 
 If you have Docker, start a PostgreSQL container:
 
@@ -88,7 +86,7 @@ The setup script creates 4 tables (employees, leave_types, leave_balances, leave
 
 ![Employee database schema in PostgreSQL](/assets/mcp_emp_db_schema.png)
 
-## Step 3: Environment Configuration ⚙️
+## Step 3: Environment Configuration
 
 Create a `.env` file with your database credentials:
 
@@ -106,7 +104,7 @@ DB_USER=postgres
 DB_PASSWORD=postgres
 ```
 
-## Step 4: Building the Server 🔨
+## Step 4: Building the Server
 
 The project structure includes:
 - **Database layer**: Connection pooling and query utilities
@@ -129,7 +127,7 @@ You should see: "Database connection successful" and "Employee Management MCP se
 
 ![MCP server running in the terminal](/assets/mcp_running.png)
 
-## Step 5: Claude Desktop Integration 🤖
+## Step 5: Claude Desktop Integration
 
 Configure Claude Desktop to use your MCP server. Edit the configuration file:
 
@@ -167,7 +165,7 @@ Add your server configuration:
 
 **Important:** Use the absolute path to your project directory.
 
-## Step 6: Testing the Integration 🧪
+## Step 6: Testing the Integration
 
 Restart Claude Desktop completely. You should now see the MCP tools available in the interface.
 
@@ -186,7 +184,7 @@ Test with these commands:
 
 - "Apply for annual leave for alice.johnson@company.com from 2024-09-01 to 2024-09-05"
 
-## How do I fix common MCP server issues? 🔧
+## How do I fix common MCP server issues?
 
 **Server not appearing in Claude Desktop:**
 ```bash
@@ -208,7 +206,7 @@ npm run build
 ```
 
 
-## Conclusion ✅
+## Conclusion
 
 Building an MCP server opens up powerful possibilities, So do keep this in mind when you are building your next application
 
@@ -235,7 +233,7 @@ Check that the path in `claude_desktop_config.json` is absolute, the JSON is val
 
 Use a database user with the smallest permissions it needs, ideally read-only. Validate every tool input on the server, because the AI decides what arguments to send.
 
-## Resources 📚
+## Resources
 
 - [MCP Official Documentation](https://modelcontextprotocol.io/)
 - [Claude Desktop Download](https://claude.ai/download)

@@ -15,8 +15,6 @@ proficiency: Beginner
 
 > **TL;DR:** Tired of manually checking product prices? This post walks through building a custom Python script that monitors prices on any website by scraping the DOM using XPath selectors and the `requests` module. The script runs every 30 minutes, compares the current price against your target, and sends a Slack alert when the price drops. It's a practical alternative to browser extensions that require you to keep checking email notifications.
 
-# Monitor product price for any website.
-
 In this post I am going to discuss the custom solution I built to monitor the product price of any website.
 
 I was searching for a good laptop for my sister. I had shortlisted 2 options. When looking at price fluctuations using browser extenstion, It seemed that price has chances of coming down.

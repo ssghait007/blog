@@ -16,8 +16,6 @@ proficiency: Beginner
 
 > **TL;DR:** Slack is more than a chat app -- knowing its features well can save you significant time daily. This post covers 7 productivity tips: keyboard shortcuts (Cmd+K, Cmd+F, arrow keys), grouping channels into custom sections, slash commands for quick actions, muting noisy channels, powerful search for messages/files/people, using saved items as a bookmark system, and integrating apps like GitHub, Jira, and Google Calendar directly into your workspace.
 
-# The complete guide for Slack productivity.
-
 Slack has become much more than a communication platform.
 There are tons of features and integrations in slack.
 
@@ -35,7 +33,7 @@ Below 7 tips and tricks will help you do more and save time.
 
   You can find and remember other shortcuts if you have any actions you do repeatedly.
 
-  Find more shortcuts [here](https://slack.com/intl/en-in/help/articles/201374536-Slack-keyboard-shortcuts-and-commands)
+  Find more in Slack's [keyboard shortcuts and commands list](https://slack.com/intl/en-in/help/articles/201374536-Slack-keyboard-shortcuts-and-commands)
 
 ## 2. How do I organise channels into sections?
 
@@ -46,7 +44,7 @@ You can name these section anything(ex. Org, Team, Project channels)
 
 It visually organises the conversations, and helps you get to important messages first.
 
-Read further [here](https://slack.com/intl/en-gb/help/articles/360043207674-Organise-your-sidebar-with-customised-sections)
+Read further in Slack's guide to [customised sidebar sections](https://slack.com/intl/en-gb/help/articles/360043207674-Organise-your-sidebar-with-customised-sections)
 
 ## 3. Which slash commands are worth learning?
 

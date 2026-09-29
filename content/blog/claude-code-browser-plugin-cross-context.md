@@ -16,15 +16,13 @@ proficiency: intermediate
 
 > **TL;DR:** Debugging production issues means constantly switching between cloud dashboards and your terminal, losing context each time. The Claude Code browser plugin solves this by letting AI natively read and interpret visual data -- graphs, metrics, timestamps -- from your browser. You can then copy that distilled analysis directly into the Claude Code CLI to correlate infrastructure metrics with code changes. This post walks through a real database performance debugging scenario showing the full cross-context workflow.
 
-# How the Claude Code Browser Plugin Helped Me Debug Faster
-
 ![lets debug](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjl4eGd6bG80cGlocjFtazhtZmd3a3lubGl2MmoxeWM4d2Rxb3prbiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/26tPnAAJxXTvpLwJy/200.webp)
 
 I was staring at a database monitoring dashboard in our cloud console, trying to figure out why our database connections were spiking and performance was degraded. The graphs were all spiking — CPU, memory all hitting the roof. But translating what I saw visually into something actionable for my local debugging session felt like running two separate investigations.
 
 That's when I realized the [Claude Code browser plugin](https://docs.anthropic.com/en/docs/claude-code/browser-tool) could do something really powerful — not just analyze what's on screen, but distill that complex visual data into accurate context that I could feed into my terminal where Claude Code CLI was already helping me dig through application and infrastructure code.
 
-## Why did I need the Claude Code browser plugin? 🤔
+## Why did I need the Claude Code browser plugin?
 
 The Claude Code browser plugin is a browser extension that gives Claude native access to interact with, analyze, and extract information from web pages. Think of it as Claude's eyes for the browser — it can read dashboards, interpret graphs, navigate complex UIs, and pull out structured data.
 
@@ -36,7 +34,7 @@ But the real magic happens when you combine it with the [Claude Code CLI](https:
 - **Rich context bridge** between what you see in the browser and what you debug locally
 - **Faster root cause analysis** by connecting accurate infrastructure metrics to code changes
 
-## Why is context switching so costly when debugging? 🔄
+## Why is context switching so costly when debugging?
 
 Here's the typical debugging flow most of us follow when something goes wrong in production:
 
@@ -51,7 +49,7 @@ Here's the typical debugging flow most of us follow when something goes wrong in
 
 Every context switch costs you mental energy. By the time you're back to the terminal, you've already forgotten half of what the graph was telling you. I've lost count of how many times I've gone back to the same dashboard just to re-read a metric I saw 2 minutes ago.
 
-## My Debugging Story: The Connection Spike Mystery 🕵️
+## My Debugging Story: The Connection Spike Mystery
 
 We had a production issue — our primary database was extremely slow, causing intermittent 500 errors. The usual suspects were checked: connection pool size, idle timeouts, query performance. Nothing obvious.
 
@@ -83,7 +81,7 @@ Instead of me manually re-interpreting the graphs or risking confirmation bias, 
 With the browser context in hand, Claude Code CLI suggested running diagnostic queries directly against the database. We ran `SHOW shared_buffers`, `SHOW work_mem`, and `SHOW effective_cache_size` — and the values were shockingly low. Our cloud provider had shipped the managed database instance with stock PostgreSQL defaults, completely untuned for the 15GB machine it was running on. `shared_buffers` was set to 128MB instead of the recommended 3840MB. The database was constantly reading from disk instead of memory, explaining every spike in the dashboards. We updated our IaC config with properly tuned flags — `shared_buffers=3840MB`, `effective_cache_size=10752MB`, `work_mem=32MB` — applied them, and the database performance was immediately restored.
 
 
-## How does the cross-context flow work? ⚙️
+## How does the cross-context flow work?
 
 Let me break down what's actually happening in this workflow:
 
@@ -95,7 +93,7 @@ Let me break down what's actually happening in this workflow:
 
 While manual copy-pasting is involved, it is fundamentally different from reviewing dashboards yourself. Instead of feeding your CLI vague human assumptions, you are feeding it cold, hard, AI-parsed facts from your browser.
 
-## Other Ways I Use This Workflow 🛠️
+## Other Ways I Use This Workflow
 
 **Analyzing Cloud Cost Explorers**
 I use the browser plugin to navigate clunky cloud cost explorer UIs, find the right filters and graph configurations, and then pass those cost insights to the CLI to correlate with infrastructure changes in our infrastructure-as-code configs.
@@ -106,7 +104,7 @@ Setting up observability dashboards in any tool involves navigating through a lo
 **Navigating Cloud IAM Policies**
 Ever tried to debug IAM permission issues in a cloud console? The nested roles, service accounts, and policy bindings are a maze. The browser plugin maps out the current state, and the CLI uses that to suggest the minimal permission changes needed.
 
-## How do I get the most out of it? 💡
+## How do I get the most out of it?
 
 1. **Be specific with what you want analyzed** — Don't just say "look at this page." Tell the plugin to focus on specific graphs or metrics.
 
@@ -118,13 +116,13 @@ Ever tried to debug IAM permission issues in a cloud console? The nested roles, 
 
 5. **Don't forget about hidden options** — The browser plugin is surprisingly good at finding buried settings and options that you might miss manually.
 
-## Conclusion ✅
+## Conclusion
 
 The Claude Code browser plugin turned what used to be a frustrating context-switching exercise into a smooth, connected debugging workflow. Instead of relying on my own flawed visual memory when moving from browser to terminal, I let the AI distill the truth for me first.
 
 The key insight is simple: **AI that can see what you see in the browser AND work with your code in the terminal is exponentially more useful than either capability alone.**
 
-### Future Improvements 🚀
+### Future Improvements
 
 While this manual copy-paste workflow is incredible, the next logical step is full automation. In the future, we could build **read-only MCP (Model Context Protocol) servers** for these monitoring tools (cloud consoles, cost explorers, observability platforms). With an MCP server providing direct API access, the Claude Code CLI could pull these metrics and perform the initial analysis entirely on its own, without needing the browser plugin as an intermediary.
 
@@ -147,7 +145,7 @@ We ran `SHOW shared_buffers`, `SHOW work_mem` and `SHOW effective_cache_size`. A
 
 Give them read-only access only. Don't give AI tools write access to production databases or cloud infrastructure.
 
-## Resources 📚
+## Resources
 
 - [Claude Code Browser Tool Docs](https://docs.anthropic.com/en/docs/claude-code/browser-tool)
 - [Claude Code CLI Overview](https://docs.anthropic.com/en/docs/claude-code/overview)

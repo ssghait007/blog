@@ -16,8 +16,6 @@ proficiency: intermediate
 
 > **TL;DR:** Notion can serve as a free headless CMS for any website. This post demonstrates the concept by building a team page for a startup where a hiring manager updates candidate statuses in a Notion board, and the website automatically reflects those changes. It covers creating a simple HTML site, integrating the Notion API to fetch database content at build time, and setting up Netlify CI/CD with build hooks to trigger redeployments when content changes.
 
-# Use Notion as CMS for your website
-
 Notion is a note-taking software that I recently started using. It is very flexible and easy to use.
 
 It can be a used as a writing repository, task management tool, a workout calendar, a database, and so much more. I manage my long term, short term goals, blog ideas scratch pad within notion.

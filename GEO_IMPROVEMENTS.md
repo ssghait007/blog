@@ -35,12 +35,19 @@ GEO = how likely ChatGPT, Perplexity, Claude, Gemini and Google AI Overviews are
 - [ ] **Image dimensions.** Add `width`/`height` to in-post images and check header images are ≥1200px wide for social/AI previews.
 - [ ] **CSP header.** Not added because it needs testing against GA and Giscus.
 
-## Extra ideas beyond the original list
+## Extra ideas: status
 
-1. **IndexNow + Bing.** Bing feeds ChatGPT search and Copilot. Add an IndexNow key file and ping it on deploy so new/updated posts are picked up in minutes.
-2. **Markdown mirrors.** Serve each post as `/blog/<slug>.md` and link it with `<link rel="alternate" type="text/markdown">`. Clean markdown is cheaper for AI crawlers to read than HTML.
-3. **Original data and quotable stats.** Publish one small original benchmark or cost table per quarter (e.g. Lambda NAT cost vs VPC endpoints). Unique numbers are what AI answers cite.
-4. **A "Glossary / Start here" hub.** One page defining recurring terms (CORS, NAT gateway, MCP, preflight) with links to the posts. It builds topical authority and gives AI a short definition to quote.
+1. **IndexNow + Bing: done.** Key file in `public/`, `npm run indexnow` submits the sitemap URLs (or the URLs you pass). Run it after each deploy. Also verify the site in Bing Webmaster Tools.
+2. **Markdown mirrors: done.** `scripts/postgenerate.mjs` (part of `npm run generate`) writes `dist/blog/<slug>.md` for every published post. Posts link to it with `rel="alternate" type="text/markdown"`. Your Cloudflare build command must run `npm run generate` (or `bun run generate`), not `nuxt generate` directly.
+3. **Original data: started.** The Lambda post now has a NAT gateway vs VPC endpoint cost table, calculated from AWS list prices checked on 2026-09-29. Add your own measured benchmarks over time.
+4. **Glossary: done.** `/glossary` has 15 terms linked to their posts, with `DefinedTermSet` schema.
+
+## Post review (all 27 published posts)
+
+- Added a real `<h1>` to every post (3 had none) and removed the duplicate body H1s.
+- Removed emoji from headings, replaced "here" link text with descriptive text.
+- Still open: posts under ~600 words (`adding-security-headers`, `easily-remove-node-modules`, `vscodium`, `vue-ffmpeg-wasm`, `running-selenium-webdriver-on-raspberry-pi-zero`) need more depth from your own experience.
+- Still open: `build-personal-tools-solve-one-problem` and `how-to-create-nuxt-blog` have no References section.
 
 ## Caveats
 

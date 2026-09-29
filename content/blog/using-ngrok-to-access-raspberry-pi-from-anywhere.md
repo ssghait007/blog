@@ -16,13 +16,11 @@ proficiency: intermediate
 
 > **TL;DR:** After setting up Pi-hole and Selenium automations on a Raspberry Pi, the next challenge was accessing them remotely -- but the router didn't support port forwarding. Ngrok solves this by creating secure tunnels from the internet to your local device. This post shows how to set up ngrok on a Raspberry Pi to expose both the Pi-hole web admin panel (HTTP tunnel) and SSH access (TCP tunnel), so you can manage your Pi from anywhere on any network.
 
-# How to use ngrok to access your raspberry pi from anywhere.
-
 I have posted some blog posts regarding setting up pihole on raspberry-pi, and running selenium based tasks on raspberry-pi.
 
 Check these here in [blog posts section](https://onthegoalways.com/blog).
 
-## Why did I need remote access to my Raspberry Pi? 🤷
+## Why did I need remote access to my Raspberry Pi?
 
 After putting these tasks as CLI commands on raspberry-pi, I wanted more accessibility for these. Like running these even if I am not in local network (at home).
 
@@ -31,19 +29,19 @@ There are two things that I wanted to access.
 1. Pihole web interface that runs on pihole's address at `http://192.168.0.X/admin/`
 2. SSH into pihole device to run the CLI commands that I made for some automations.
 
-## Why not use port forwarding? ✨
+## Why not use port forwarding?
 
 In many routers these are sections where you can configure `remote management` or do `port-forwarding`. But my browser did not have these settings available.
 
 It had a section to configure `port-triggering`, which is similar to port-forwarding but just inside the WAN network. That meant I can not access these things from mobile network or outside WAN.
 
-## Solution ✔️
+## Solution
 
 Because of all these restrictions of my router I decided to use `ngrok`.
 
 Ngrok is a useful utility to create secure tunnels to locally hosted applications using a reverse proxy. It is a utility to expose any locally hosted application over the web.
 
-## How do I set up ngrok on a Raspberry Pi? 🔨
+## How do I set up ngrok on a Raspberry Pi?
 
 1. log on to your device
 

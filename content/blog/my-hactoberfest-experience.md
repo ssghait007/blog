@@ -15,4 +15,3 @@ proficiency: Beginner
 
 > **TL;DR:** A personal reflection on participating in Hacktoberfest 2020 -- the annual open source contribution event. Covers the experience of finding projects to contribute to, navigating unfamiliar codebases, submitting pull requests, and the lessons learned about open source collaboration along the way.
 
-# My hacktoberfest experience.

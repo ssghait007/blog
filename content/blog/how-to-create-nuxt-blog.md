@@ -16,8 +16,6 @@ proficiency: intermediate
 
 > **TL;DR:** A walkthrough of how this blog was built using Nuxt, Tailwind CSS, and Tailblocks for pre-made UI components. Covers creating the Nuxt app, adding the content module for Markdown-based blog posts, styling with Tailwind, and displaying blog data dynamically. The post also covers generating a static build and deploying it to Netlify for free hosting with automatic deploys.
 
-# Build a blog using Nuxt and Tailwind CSS
-
 In this post I will walk you through how I created this blog
 
 **Version note:** this post shows the original Nuxt 2 setup with Nuxt Content v1 (`$content`). This blog now runs on Nuxt 4 with Nuxt Content v3, where you fetch posts with `queryCollection('blog')` instead. The overall steps are the same.

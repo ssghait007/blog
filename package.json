@@ -6,11 +6,12 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate && pagefind --site dist",
+    "generate": "nuxt generate && node scripts/postgenerate.mjs && pagefind --site dist",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "npx ultracite@latest lint",
-    "format": "npx ultracite@latest format"
+    "format": "npx ultracite@latest format",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@nuxt/content": "^3.12.0",
