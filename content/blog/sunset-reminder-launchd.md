@@ -2,7 +2,7 @@
 title: I Built a System to Remind Me to Watch the Sunset
 description: 'A spoken macOS sunset reminder, and how it went from a Python script polling for 90 minutes to a bucketed launchd schedule that costs almost nothing.'
 category: Developer
-published: true
+published: false
 createdAt: 2026-09-30T00:00:00.000Z
 image: /assets/placeholder.webp
 author: Sachin Ghait
