@@ -1,5 +1,5 @@
 ---
-title: Selenium Webdriver on Raspberry Pi Zero W.
+title: Selenium Webdriver on Raspberry Pi Zero W
 description: 'Run Selenium WebDriver on a Raspberry Pi Zero W with the chromium-chromedriver package to automate browser tasks on a tiny device.'
 category: Developer
 published: true

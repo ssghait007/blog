@@ -1,5 +1,5 @@
 ---
-title: Block Google search bots from indexing your website.
+title: Block Google search bots from indexing your website
 description: 'How to keep your site out of Google results: use Search Console for a temporary removal, or robots.txt to block all bots, specific bots or specific pages.'
 category: Frontend
 published: true

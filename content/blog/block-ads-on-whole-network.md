@@ -1,5 +1,5 @@
 ---
-title: Ad Blocker for Your Whole Network.
+title: Ad Blocker for Your Whole Network
 description: 'Install Pi-hole on a Raspberry Pi to block ads for every device on your network, and set it as your router''s DNS server.'
 category: Developer
 published: true

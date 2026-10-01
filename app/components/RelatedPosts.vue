@@ -1,12 +1,25 @@
 <template>
   <nav v-if="related.length" class="not-prose my-10" aria-label="Related posts">
-    <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">Related posts</h2>
-    <ul class="space-y-3">
-      <li v-for="post in related" :key="post.path">
-        <NuxtLink :to="post.path" class="font-medium text-gray-900 dark:text-gray-100 hover:underline">
-          {{ post.title }}
+    <h2 class="text-left text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">Related posts</h2>
+    <ul class="space-y-4 text-left">
+      <li v-for="post in related" :key="post.path" class="flex gap-4 items-start">
+        <NuxtLink :to="post.path" class="shrink-0" tabindex="-1" aria-hidden="true">
+          <img
+            :src="post.image"
+            alt=""
+            width="96"
+            height="64"
+            loading="lazy"
+            decoding="async"
+            class="w-24 h-16 object-cover rounded-md bg-gray-200 dark:bg-gray-700"
+          >
         </NuxtLink>
-        <p class="text-sm text-gray-600 dark:text-gray-400">{{ post.description }}</p>
+        <div>
+          <NuxtLink :to="post.path" class="font-medium text-gray-900 dark:text-gray-100 hover:underline">
+            {{ post.title }}
+          </NuxtLink>
+          <p class="text-sm text-gray-600 dark:text-gray-400">{{ post.description }}</p>
+        </div>
       </li>
     </ul>
   </nav>
@@ -22,7 +35,7 @@ const props = defineProps({
 const { data: posts } = await useAsyncData(`related-${props.currentPath}`, () =>
   queryCollection('blog')
     .where('published', '=', true)
-    .select('path', 'title', 'description', 'tags', 'category', 'createdAt')
+    .select('path', 'title', 'description', 'image', 'tags', 'category', 'createdAt')
     .all()
 )
 

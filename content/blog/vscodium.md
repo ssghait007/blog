@@ -1,5 +1,5 @@
 ---
-title: Meet VSCodium. A Visual Studio Code Alternative.
+title: "Meet VSCodium: A Visual Studio Code Alternative"
 description: Discover VSCodium, a community-driven alternative to Visual Studio Code. Learn why I switched from VSCode and how to install VSCodium on Windows
 category: Developer
 published: true
@@ -18,7 +18,7 @@ proficiency: intermediate
 
 This post describes how and why I switched to VSCodium from VSCode.
 
-## What is VSCodium ?
+## What is VSCodium?
 
 VSCodium is a community-driven, freely-licensed binary distribution of Microsoft’s editor VSCode.
 In simple words you can download VSCode binary open source build, instead of downloading from Microsoft.

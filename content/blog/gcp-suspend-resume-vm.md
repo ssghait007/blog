@@ -1,5 +1,5 @@
 ---
-title: Schedule Google Compute Engine Instances to Save Big Money.
+title: Schedule Google Compute Engine Instances to Save Big Money
 description: 'Cut Google Compute Engine costs by suspending and resuming VMs on a schedule with Cloud Scheduler, Pub/Sub and Cloud Functions.'
 category: Cloud
 published: true

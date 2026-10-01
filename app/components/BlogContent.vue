@@ -4,6 +4,38 @@
     aria-label="Blog posts"
   >
     <div class="container px-5 py-12 mx-auto">
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+        <div class="flex flex-wrap gap-2" role="group" aria-label="Filter posts by category">
+          <button
+            v-for="chip in categoryChips"
+            :key="chip.name"
+            type="button"
+            class="px-3 py-1.5 rounded-full text-sm border transition-colors"
+            :class="
+              activeCategory === chip.name
+                ? 'bg-indigo-600 border-indigo-600 text-white'
+                : 'bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:border-indigo-400'
+            "
+            :aria-pressed="activeCategory === chip.name"
+            @click="activeCategory = chip.name"
+          >
+            {{ chip.name }} <span class="opacity-70">({{ chip.count }})</span>
+          </button>
+        </div>
+        <label class="text-sm text-gray-600 dark:text-gray-300 flex items-center gap-2">
+          Sort by
+          <select
+            v-model="sortBy"
+            class="rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-2 py-1 text-sm"
+          >
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+            <option value="title">Title A to Z</option>
+            <option value="shortest">Shortest read</option>
+          </select>
+        </label>
+      </div>
+      <p class="sr-only" aria-live="polite">{{ _filteredPosts.length }} posts shown</p>
       <div v-if="_filteredPosts.length" class="flex flex-wrap -m-4" role="list">
         <article
           v-for="post in _filteredPosts"
@@ -59,27 +91,63 @@ await useAsyncData('preload-authors', async () => {
   return true
 })
 
-// Filter posts based on published status and ensure they remain sorted
-const _filteredPosts = computed(() => {
+// Visible (published) posts, unless the dev override is set
+const visiblePosts = computed(() => {
   if (!posts.value) {
     return []
   }
-
-  // Check if we should show unpublished posts (for development)
   const show = import.meta.client ? localStorage.getItem('show') : null
-  let filtered = []
+  return show ? posts.value : posts.value.filter((post) => post.published)
+})
 
-  if (show) {
-    filtered = posts.value
-  } else {
-    filtered = posts.value.filter((post) => post.published)
+// Category chips with counts, plus the active filter and sort (kept in the URL)
+const route = useRoute()
+const router = useRouter()
+const activeCategory = ref('All')
+const sortBy = ref('newest')
+
+const categoryChips = computed(() => {
+  const counts = new Map()
+  for (const post of visiblePosts.value) {
+    counts.set(post.category, (counts.get(post.category) || 0) + 1)
   }
+  return [
+    { name: 'All', count: visiblePosts.value.length },
+    ...[...counts.entries()].sort().map(([name, count]) => ({ name, count })),
+  ]
+})
 
-  // Sort by createdAt in descending order (newest first)
-  return filtered.sort((a, b) => {
-    const dateA = new Date(a.createdAt)
-    const dateB = new Date(b.createdAt)
-    return dateB - dateA
+const minutesOf = (post) => Number.parseInt(post.readingTime, 10) || 0
+
+const _filteredPosts = computed(() => {
+  const list = visiblePosts.value.filter(
+    (post) => activeCategory.value === 'All' || post.category === activeCategory.value
+  )
+  const sorters = {
+    newest: (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
+    oldest: (a, b) => new Date(a.createdAt) - new Date(b.createdAt),
+    title: (a, b) => a.title.localeCompare(b.title),
+    shortest: (a, b) => minutesOf(a) - minutesOf(b),
+  }
+  return [...list].sort(sorters[sortBy.value] || sorters.newest)
+})
+
+// Read filters from the URL after hydration, and keep the URL in sync
+onMounted(() => {
+  const { category, sort } = route.query
+  if (typeof category === 'string' && categoryChips.value.some((chip) => chip.name === category)) {
+    activeCategory.value = category
+  }
+  if (typeof sort === 'string') {
+    sortBy.value = sort
+  }
+  watch([activeCategory, sortBy], () => {
+    router.replace({
+      query: {
+        ...(activeCategory.value !== 'All' ? { category: activeCategory.value } : {}),
+        ...(sortBy.value !== 'newest' ? { sort: sortBy.value } : {}),
+      },
+    })
   })
 })
 

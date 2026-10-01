@@ -46,15 +46,25 @@
         </ClientOnly>
       </div>
 
-      <div v-if="data?.toc?.links?.length > 0" class="lg:mt-16 mb-8">
-        <LazyInteractiveTableOfContents :toc-data="data.toc.links" />
-      </div>
+      <!-- Table of contents: collapsible on small screens (shown only for longer posts) -->
+      <details v-if="tocLinks.length >= 4" class="xl:hidden lg:w-4/6 md:w-5/6 w-full mb-8 toc-details">
+        <summary class="cursor-pointer text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">
+          On this page
+        </summary>
+        <LazyInteractiveTableOfContents :toc-data="tocLinks" />
+      </details>
 
-      <div class="lg:w-4/6 md:w-5/6 w-full m-auto">
+      <div class="relative lg:w-4/6 md:w-5/6 w-full m-auto">
+        <!-- Sticky table of contents in the right margin on wide screens -->
+        <aside v-if="tocLinks.length >= 4" class="hidden xl:block absolute top-0 left-full ml-10 w-60 h-full" aria-label="Table of contents">
+          <div class="sticky top-24">
+            <LazyInteractiveTableOfContents :toc-data="tocLinks" />
+          </div>
+        </aside>
         <ClientOnly>
           <ReadingModeToggle
             :description="data?.description"
-            :toc="data?.toc?.links"
+            :toc="tocLinks"
           >
             <ContentRenderer
               v-if="data"
@@ -111,6 +121,14 @@ const { data } = await useAsyncData(`blog-${slug}`, () =>
 const { data: authorRecord } = await useAsyncData(`post-author-${slug}`, () =>
   data.value ? queryCollection('authors').where('name', '=', data.value.author).first() : null
 )
+
+// Table of contents: only top-level (h2) sections, from the parsed article body
+const tocLinks = computed(() =>
+  (data.value?.body?.toc?.links || []).map((link) => ({ id: link.id, text: link.text, depth: link.depth }))
+)
+
+// Add a "Copy" button to every code block
+useCodeCopy()
 
 // Track reading history
 const { trackVisit } = useReadingHistory()

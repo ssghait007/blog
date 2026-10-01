@@ -19,7 +19,7 @@ proficiency: Intermediate
 This post describes how to use Ffmpeg directly in browser, and use native commands.
 Ffmpeg loads web assembly script in browser, and gives APIs that we can consume.
 
-## What is Ffmpeg ?
+## What is Ffmpeg?
 
 FFmpeg is a free and open-source software project consisting of a large suite of libraries and programs for handling video, audio, and other multimedia files and streams.
 

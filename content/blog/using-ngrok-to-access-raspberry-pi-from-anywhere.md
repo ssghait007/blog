@@ -1,5 +1,5 @@
 ---
-title: How to use ngrok to access your raspberry pi from anywhere.
+title: How to use ngrok to access your raspberry pi from anywhere
 description: The post describes how you can access raspberry-pi from anywhere in two modes (web portal and ssh).
 category: Developer
 published: true

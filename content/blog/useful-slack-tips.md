@@ -1,5 +1,5 @@
 ---
-title: The complete guide for Slack productivity.
+title: The complete guide for Slack productivity
 description: '7 Slack tips for developers: shortcuts, channel groups, slash commands, muting, search, saved items, and apps and integrations.'
 category: Developer
 published: true

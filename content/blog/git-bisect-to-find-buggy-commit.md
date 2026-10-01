@@ -18,18 +18,18 @@ proficiency: Beginner
 
 This blog discusses how we can use git bisect command to find commit that has introduced bug recently.
 
-## What is git bisect ?
+## What is git bisect?
 
 > "Use binary search to find the commit that introduced a bug" — [Git documentation](https://git-scm.com/docs/git-bisect)
 
 Binary search halves the list of suspect commits at every step. With 1,000 commits between a good and a bad version, bisect needs only about 10 steps, because 2^10 = 1,024.
 
-## When to use git bisect ?
+## When to use git bisect?
 
 1. You can use git bisect to find out which commit caused the bug
 2. You might be looking for the commit that introduced a particular fix/feature, I this caseyou can use the terms "old" and "new", respectively, in place of "good" and "bad". git bisect will report which commit introduced the feature/fix
 
-## How to use git bisect ?
+## How to use git bisect?
 
 I will take very easy example of a button that is supposed to navigate user to `/blog` path.
 But in recent commits this is broken.

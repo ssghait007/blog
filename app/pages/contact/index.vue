@@ -15,7 +15,21 @@
           Contact Us
         </h1>
         <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
-          Drop your feedback or query using the form below.
+          Drop your feedback, a correction or a question about a post. I read every message and usually reply within a few days.
+        </p>
+        <p class="lg:w-2/3 mx-auto leading-relaxed text-base mt-3">
+          Found a mistake in a post? You can also
+          <a
+            href="https://github.com/ssghait007/blog/issues"
+            rel="noopener"
+            class="text-indigo-600 hover:underline"
+          >open an issue on GitHub</a>
+          or message me on
+          <a
+            href="https://www.linkedin.com/in/sachin-ghait-02977794/"
+            rel="me noopener"
+            class="text-indigo-600 hover:underline"
+          >LinkedIn</a>.
         </p>
       </div>
       <div class="lg:w-1/2 md:w-2/3 mx-auto">

@@ -1,7 +1,7 @@
 <template>
   <aside
     v-if="author"
-    class="not-prose my-10 rounded-lg border border-gray-200 dark:border-gray-700 p-5 flex gap-4 items-start"
+    class="not-prose text-left my-10 rounded-lg border border-gray-200 dark:border-gray-700 p-5 flex gap-4 items-start"
     aria-label="About the author"
   >
     <img

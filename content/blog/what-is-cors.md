@@ -15,7 +15,7 @@ proficiency: Beginner
 
 > **TL;DR:** CORS (Cross-Origin Resource Sharing) is a browser security mechanism that blocks web pages from making requests to different domains unless the server explicitly allows it via HTTP headers like `Access-Control-Allow-Origin`. This post explains why CORS exists (preventing unauthorized cross-domain requests), how the preflight mechanism works, the key CORS headers you can configure, and practical solutions for common CORS errors developers hit during local development and API integrations.
 
-## What is CORS ?
+## What is CORS?
 
 ### Introduction to Cross-Origin Resource Sharing:
 CORS is a security feature in web browsers that prevents web pages from sending requests to domains other than the one that delivered them. It enables secure cross-domain data transfer and communication.

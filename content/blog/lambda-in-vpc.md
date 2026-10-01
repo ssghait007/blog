@@ -1,5 +1,5 @@
 ---
-title: Lambda Function In A VPC The Right Way.
+title: Lambda Function In A VPC The Right Way
 description: 'Why an AWS Lambda function loses internet access inside a VPC, and how to fix it by routing traffic through a NAT gateway in a public subnet.'
 category: Cloud
 published: true
