@@ -3,12 +3,12 @@
     <div class="container px-5 py-12 mx-auto">
       <div v-if="_filteredPosts.length" class="flex flex-wrap -m-4">
         <div
-          v-for="post in _filteredPosts"
+          v-for="(post, index) in _filteredPosts"
           ref="cardRefs"
           :key="post.path"
           class="p-4 md:w-1/3"
         >
-          <BlogCard :post="post" />
+          <BlogCard :post="post" :eager="index < 6" />
         </div>
       </div>
       <div v-else class="flex flex-wrap -m-4 text-gray-900 dark:text-gray-100">

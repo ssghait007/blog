@@ -47,7 +47,7 @@
       </div>
 
       <!-- Table of contents: collapsible on small screens (shown only for longer posts) -->
-      <details v-if="tocLinks.length >= 4" class="xl:hidden lg:w-4/6 md:w-5/6 w-full mb-8 toc-details">
+      <details v-if="tocLinks.length >= 4" class="min-[1500px]:hidden lg:w-4/6 md:w-5/6 w-full mb-8 toc-details">
         <summary class="cursor-pointer text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">
           On this page
         </summary>
@@ -56,7 +56,7 @@
 
       <div class="relative lg:w-4/6 md:w-5/6 w-full m-auto">
         <!-- Sticky table of contents in the right margin on wide screens -->
-        <aside v-if="tocLinks.length >= 4" class="hidden xl:block absolute top-0 left-full ml-10 w-60 h-full" aria-label="Table of contents">
+        <aside v-if="tocLinks.length >= 4" class="hidden min-[1500px]:block absolute top-0 left-full ml-8 w-56 h-full" aria-label="Table of contents">
           <div class="sticky top-24">
             <LazyInteractiveTableOfContents :toc-data="tocLinks" />
           </div>

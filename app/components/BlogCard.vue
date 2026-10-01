@@ -9,7 +9,7 @@
           class="w-full h-full object-cover object-center transition-transform duration-400 ease-out"
           :src="post.image"
           :alt="`Featured image for ${post.title}`"
-          loading="lazy"
+          :loading="eager ? 'eager' : 'lazy'"
           decoding="async"
         />
         <!-- Gradient overlay for badge readability -->
@@ -120,6 +120,11 @@ const props = defineProps({
   post: {
     type: Object,
     required: true,
+  },
+  // First visible row: load images right away instead of lazily
+  eager: {
+    type: Boolean,
+    default: false,
   },
 })
 

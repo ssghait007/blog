@@ -38,13 +38,13 @@
       <p class="sr-only" aria-live="polite">{{ _filteredPosts.length }} posts shown</p>
       <div v-if="_filteredPosts.length" class="flex flex-wrap -m-4" role="list">
         <article
-          v-for="post in _filteredPosts"
+          v-for="(post, index) in _filteredPosts"
           ref="cardRefs"
           :key="post.path"
           class="p-4 md:w-1/3"
           role="listitem"
         >
-          <BlogCard :post="post" />
+          <BlogCard :post="post" :eager="index < 6" />
         </article>
       </div>
       <div
