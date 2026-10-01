@@ -1,5 +1,5 @@
 ---
-title: Three Lessons From Teaching My AI to Talk Back
+title: Three Lessons From Giving My AI a Voice
 description: 'I gave my AI a voice with Kokoro TTS on my Mac. Along the way I learned three things: start rough, benchmark before you decide, and steal good ideas from the software you use.'
 category: Developer
 published: true
@@ -12,7 +12,7 @@ tags: ['text-to-speech', 'kokoro', 'apple-silicon', 'benchmarking', 'ai-tools']
 proficiency: beginner
 ---
 
-> **TL;DR:** I already talk to my AI with [Handy](https://handy.computer). I wanted it to talk back, so I set up Kokoro, a tiny local text-to-speech model. It crackled once in a while (mostly on low battery), it was slow to start, and new models launch every week. So I benchmarked 8 of them, moved to MLX, and borrowed a "keep the model warm" trick from Handy. Now my AI starts speaking in 0.2 seconds. Three lessons came out of it: start rough, measure before you decide, and steal good ideas from the software you use.
+> **TL;DR:** I already talk to my AI with [Handy](https://handy.computer). I wanted it to talk back, so I gave it a voice: Kokoro, a tiny local text-to-speech model that reads its answers out loud. It crackled once in a while (mostly on low battery), it was slow to start, and new models launch every week. So I benchmarked 8 of them, moved to MLX, and borrowed a "keep the model warm" trick from Handy. Now my AI starts speaking in 0.2 seconds. Three lessons came out of it: start rough, measure before you decide, and steal good ideas from the software you use.
 
 ![placeholder: a laptop with a speech bubble coming out of the screen](/assets/placeholder.webp)
 
@@ -22,7 +22,7 @@ I gave it a mouth.
 
 And it taught me three things I want to share with you.
 
-## Why did I want my AI to talk back?
+## Why did I want to listen instead of read?
 
 I use [Handy](https://handy.computer) every day.
 
