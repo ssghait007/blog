@@ -141,7 +141,19 @@ onMounted(() => {
   if (typeof sort === 'string') {
     sortBy.value = sort
   }
-  watch([activeCategory, sortBy], () => {
+  if (activeCategory.value !== 'All' || sortBy.value !== 'newest') {
+    nextTick(() => {
+      for (const el of cardRefs.value || []) {
+        el?.classList?.add('scroll-reveal', 'revealed')
+      }
+    })
+  }
+  watch([activeCategory, sortBy], async () => {
+    // Cards re-render when filtering; show them straight away instead of waiting for scroll-reveal
+    await nextTick()
+    for (const el of cardRefs.value || []) {
+      el?.classList?.add('scroll-reveal', 'revealed')
+    }
     router.replace({
       query: {
         ...(activeCategory.value !== 'All' ? { category: activeCategory.value } : {}),
