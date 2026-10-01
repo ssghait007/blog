@@ -10,7 +10,7 @@
           <dt class="text-lg font-semibold text-gray-900 dark:text-gray-100">{{ item.term }}</dt>
           <dd class="mt-1 leading-relaxed">
             {{ item.definition }}
-            <NuxtLink :to="item.post" class="underline">{{ item.postLabel }}</NuxtLink>
+            <NuxtLink :to="item.post" class="text-indigo-600 hover:underline dark:text-indigo-400">{{ item.postLabel }}</NuxtLink>
           </dd>
         </div>
       </dl>

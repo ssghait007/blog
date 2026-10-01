@@ -35,13 +35,13 @@
           <p>
             I write about things I have actually set up or built. Posts show a published date and, when the content
             changes, an updated date. Corrections are welcome through the
-            <NuxtLink to="/contact" class="underline">contact page</NuxtLink>.
+            <NuxtLink to="/contact" class="text-indigo-600 hover:underline dark:text-indigo-400">contact page</NuxtLink>.
           </p>
           <h2 class="text-gray-900 font-medium text-lg">Find me elsewhere</h2>
           <p>
-            <a href="https://github.com/ssghait007" rel="me noopener" class="underline">GitHub</a>,
-            <a href="https://www.linkedin.com/in/sachin-ghait-02977794" rel="me noopener" class="underline">LinkedIn</a>
-            and <NuxtLink to="/authors/sachin-ghait" class="underline">my author profile</NuxtLink>.
+            <a href="https://github.com/ssghait007" rel="me noopener" class="text-indigo-600 hover:underline dark:text-indigo-400">GitHub</a>,
+            <a href="https://www.linkedin.com/in/sachin-ghait-02977794" rel="me noopener" class="text-indigo-600 hover:underline dark:text-indigo-400">LinkedIn</a>
+            and <NuxtLink to="/authors/sachin-ghait" class="text-indigo-600 hover:underline dark:text-indigo-400">my author profile</NuxtLink>.
           </p>
         </div>
       </div>

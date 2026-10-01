@@ -44,21 +44,21 @@
         What this blog covers
       </h2>
       <p class="leading-relaxed max-w-3xl mb-4">
-        I'm <NuxtLink to="/authors/sachin-ghait" class="underline">Sachin Ghait</NuxtLink>, a lead developer. Since
+        I'm <NuxtLink to="/authors/sachin-ghait" class="text-indigo-600 hover:underline dark:text-indigo-400">Sachin Ghait</NuxtLink>, a lead developer. Since
         2021 I've written down what I learn while building and fixing things: tested, step-by-step guides on cloud
         (AWS, GCP), DevOps, web security, Git, Raspberry Pi projects, automation and AI tooling. Each post opens with a
         short summary, lists its sources and shows when it was last updated.
       </p>
       <ul class="space-y-2 max-w-3xl mb-6">
         <li v-for="topic in topics" :key="topic.to">
-          <NuxtLink :to="topic.to" class="underline font-medium">{{ topic.label }}</NuxtLink>:
+          <NuxtLink :to="topic.to" class="text-indigo-600 hover:underline dark:text-indigo-400 font-medium">{{ topic.label }}</NuxtLink>:
           {{ topic.about }}
         </li>
       </ul>
       <p class="max-w-3xl mb-6">
-        New to the blog? Start with the <NuxtLink to="/glossary" class="underline">developer glossary</NuxtLink> for
+        New to the blog? Start with the <NuxtLink to="/glossary" class="text-indigo-600 hover:underline dark:text-indigo-400">developer glossary</NuxtLink> for
         short definitions of terms like CORS, NAT gateway and MCP, or read the
-        <NuxtLink to="/about-us" class="underline">about page</NuxtLink> to see how the posts are written and updated.
+        <NuxtLink to="/about-us" class="text-indigo-600 hover:underline dark:text-indigo-400">about page</NuxtLink> to see how the posts are written and updated.
       </p>
       <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3">Latest posts</h2>
       <ul class="space-y-2 max-w-3xl">

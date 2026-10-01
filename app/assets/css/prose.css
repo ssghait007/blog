@@ -32,3 +32,10 @@
   border-radius: 0.5rem;
   padding: 1rem 1.25rem;
 }
+
+.prose > blockquote:first-of-type p:first-child {
+  margin-top: 0;
+}
+.prose > blockquote:first-of-type p:last-child {
+  margin-bottom: 0;
+}
