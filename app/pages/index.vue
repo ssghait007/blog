@@ -2,7 +2,7 @@
   <div>
     <section class="text-gray-600 dark:text-gray-300 body-font">
       <div
-        class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center"
+        class="hero-container container mx-auto flex px-5 py-12 md:flex-row flex-col items-center"
       >
         <div
           class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center"
@@ -39,7 +39,7 @@
         </div>
       </div>
     </section>
-    <section class="container mx-auto px-5 pb-12 text-gray-600 dark:text-gray-300" aria-labelledby="about-blog">
+    <section class="max-w-6xl mx-auto px-5 pb-12 text-left text-gray-600 dark:text-gray-300" aria-labelledby="about-blog">
       <h2 id="about-blog" class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3">
         What this blog covers
       </h2>
@@ -173,7 +173,8 @@ button,
 @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
 */
-.container {
+/* Hero only. This used to target every .container on the site once the home page had loaded. */
+.hero-container {
   margin: 0 auto;
   min-height: 100vh;
   display: flex;

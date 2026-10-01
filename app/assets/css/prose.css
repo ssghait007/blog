@@ -1,0 +1,34 @@
+/* Article typography fixes */
+
+/* Tailwind Typography adds curly quotes around blockquotes, but our markdown quotes
+   already carry their own quote marks, which produced doubled quotes. */
+.prose blockquote p:first-of-type::before,
+.prose blockquote p:last-of-type::after {
+  content: none;
+}
+
+/* Inline code does not need visible backticks */
+.prose :where(code):not(:where(pre *))::before,
+.prose :where(code):not(:where(pre *))::after {
+  content: none;
+}
+
+/* Headings are wrapped in anchor links by Nuxt Content; do not underline them like links */
+.prose :where(h2, h3, h4) a {
+  text-decoration: none;
+  color: inherit;
+}
+.prose :where(h2, h3, h4) a:hover {
+  text-decoration: underline;
+}
+
+/* The first blockquote of a post is its TL;DR summary: show it as a callout card */
+.prose > blockquote:first-of-type {
+  font-style: normal;
+  quotes: none;
+  border-left-width: 4px;
+  border-left-color: #6366f1;
+  background: rgb(99 102 241 / 0.08);
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+}

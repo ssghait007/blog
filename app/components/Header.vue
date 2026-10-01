@@ -235,7 +235,7 @@ watch(search, (query) => {
       results.results.slice(0, MAX_SEARCH_RESULTS).map((r) => r.data())
     )
     _pagefindResults.value = items.map((item) => ({
-      path: new URL(item.url, 'http://localhost').pathname.replace(/\/$/, ''),
+      path: new URL(item.url, 'http://localhost').pathname.replace(/\.html$/, '').replace(/\/$/, ''),
       title: item.meta?.title || item.url,
       excerpt: item.excerpt,
     }))

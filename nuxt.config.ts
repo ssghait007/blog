@@ -50,7 +50,12 @@ export default defineNuxtConfig({
   },
 
   // Global CSS
-  css: ['~/assets/css/fonts.css', '~/assets/css/buttons.css', '~/assets/css/animations.css'],
+  css: [
+    '~/assets/css/fonts.css',
+    '~/assets/css/buttons.css',
+    '~/assets/css/animations.css',
+    '~/assets/css/prose.css',
+  ],
 
   // Modules
   modules: [

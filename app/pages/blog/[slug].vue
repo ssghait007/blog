@@ -9,14 +9,6 @@
     <div
       class="text-left container mx-auto flex flex-col px-5 py-0 justify-center items-center"
     >
-      <img
-        v-if="data?.image"
-        ref="heroImage"
-        class="lg:w-4/6 md:w-5/6 w-6/6 mb-10 object-cover object-center rounded"
-        :alt="data.title"
-        :src="data.image"
-      >
-
       <h1
         v-if="data"
         class="lg:w-4/6 md:w-5/6 w-full text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2"
@@ -34,14 +26,19 @@
         </NuxtLink>
         <span>&middot;</span>
         <time :datetime="data.createdAt">{{ _formatDate(data.createdAt) }}</time>
-        <template v-if="data.updatedAt">
-          <span>&middot;</span>
-          <span>Updated <time :datetime="data.updatedAt">{{ _formatDate(data.updatedAt) }}</time></span>
-        </template>
         <span>&middot;</span>
         <span>{{ data.readingTime }}</span>
         <FreshnessBadge v-if="data.createdAt" :date="data.updatedAt || data.createdAt" variant="detailed" />
       </div>
+
+      <img
+        v-if="data?.image"
+        ref="heroImage"
+        class="lg:w-4/6 md:w-5/6 w-6/6 mb-8 max-h-[28rem] object-cover object-center rounded"
+        :alt="data.title"
+        :src="data.image"
+      >
+
 
       <div class="lg:w-4/6 md:w-5/6 w-full">
         <ClientOnly>
