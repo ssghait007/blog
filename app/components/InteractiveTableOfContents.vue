@@ -3,13 +3,13 @@
     class="interactive-toc bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4 shadow-sm dark:shadow-gray-900/10"
   >
     <h2
-      id="toc-heading"
+      :id="headingId"
       class="uppercase text-purple-500 font-bold text-lg tracking-wider mb-4"
     >
       Table of contents
     </h2>
 
-    <nav class="toc-navigation" role="navigation" aria-labelledby="toc-heading">
+    <nav class="toc-navigation" role="navigation" :aria-labelledby="headingId">
       <ul class="space-y-1">
         <li
           v-for="link in tocData"
@@ -38,6 +38,9 @@ const props = defineProps({
     default: () => [],
   },
 })
+
+// Unique per instance: the TOC is rendered twice (collapsible + wide-screen sidebar)
+const headingId = `toc-heading-${useId()}`
 
 const _handleLinkClick = (event, sectionId) => {
   event.preventDefault()

@@ -57,8 +57,13 @@ const props = defineProps({
   },
 })
 
+const emit = defineEmits(['update:mode'])
+
 const STORAGE_KEY = 'readingMode'
 const mode = ref('deep')
+
+// Let the page know which mode is active (the table of contents is hidden in quick mode)
+watch(mode, (value) => emit('update:mode', value), { immediate: true })
 
 // Extract section headings as takeaways for quick read
 const takeaways = computed(() => {

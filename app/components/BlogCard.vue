@@ -121,7 +121,7 @@ const props = defineProps({
     type: Object,
     required: true,
   },
-  // First visible row: load images right away instead of lazily
+  // First few cards (one row on desktop): load images right away instead of lazily
   eager: {
     type: Boolean,
     default: false,

@@ -8,7 +8,7 @@
           :key="post.path"
           class="p-4 md:w-1/3"
         >
-          <BlogCard :post="post" :eager="index < 6" />
+          <BlogCard :post="post" :eager="index < 3" />
         </div>
       </div>
       <div v-else class="flex flex-wrap -m-4 text-gray-900 dark:text-gray-100">

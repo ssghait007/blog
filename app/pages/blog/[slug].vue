@@ -47,7 +47,7 @@
       </div>
 
       <!-- Table of contents: collapsible on small screens (shown only for longer posts) -->
-      <details v-if="tocLinks.length >= 4" class="min-[1500px]:hidden lg:w-4/6 md:w-5/6 w-full mb-8 toc-details">
+      <details v-if="showToc" class="min-[1500px]:hidden lg:w-4/6 md:w-5/6 w-full mb-8 toc-details">
         <summary class="cursor-pointer text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">
           On this page
         </summary>
@@ -56,15 +56,17 @@
 
       <div class="relative lg:w-4/6 md:w-5/6 w-full m-auto">
         <!-- Sticky table of contents in the right margin on wide screens -->
-        <aside v-if="tocLinks.length >= 4" class="hidden min-[1500px]:block absolute top-0 left-full ml-8 w-56 h-full" aria-label="Table of contents">
+        <aside v-if="showToc" class="hidden min-[1500px]:block absolute top-0 left-full ml-8 w-56 h-full" aria-label="Table of contents">
           <div class="sticky top-24">
             <LazyInteractiveTableOfContents :toc-data="tocLinks" />
           </div>
         </aside>
+        <div id="article-body">
         <ClientOnly>
           <ReadingModeToggle
             :description="data?.description"
             :toc="tocLinks"
+            @update:mode="readingMode = $event"
           >
             <ContentRenderer
               v-if="data"
@@ -82,6 +84,7 @@
             />
           </template>
         </ClientOnly>
+        </div>
 
         <AuthorBox v-if="data" :author-name="data.author" :verified="data.updatedAt || data.createdAt" />
         <RelatedPosts v-if="data" :current-path="data.path" :tags="data.tags" :category="data.category" />
@@ -124,11 +127,42 @@ const { data: authorRecord } = await useAsyncData(`post-author-${slug}`, () =>
 
 // Table of contents: only top-level (h2) sections, from the parsed article body
 const tocLinks = computed(() =>
-  (data.value?.body?.toc?.links || []).map((link) => ({ id: link.id, text: link.text, depth: link.depth }))
+  (data.value?.body?.toc?.links || [])
+    .filter((link) => link.depth === 2)
+    .map((link) => ({ id: link.id, text: link.text, depth: link.depth }))
 )
 
-// Add a "Copy" button to every code block
-useCodeCopy()
+// The article body is hidden in quick-read mode, so the TOC would link to nothing
+const readingMode = ref('deep')
+const showToc = computed(() => tocLinks.value.length >= 4 && readingMode.value === 'deep')
+
+// Add a "Copy" button to every code block inside the article
+useCodeCopy('#article-body')
+
+// Heading ids lost a trailing dash when "Title ?" became "Title?". Keep old links working.
+// The article renders client-side, so wait for the heading to appear.
+let hashTimer
+onMounted(() => {
+  const hash = decodeURIComponent(window.location.hash.slice(1))
+  if (!hash) return
+  let tries = 0
+  const timer = setInterval(() => {
+    tries += 1
+    if (document.getElementById(hash)) {
+      clearInterval(timer) // the browser handles the exact id
+      return
+    }
+    const target = document.getElementById(hash.replace(/-+$/, ''))
+    if (target) {
+      clearInterval(timer)
+      target.scrollIntoView()
+    } else if (tries > 40) {
+      clearInterval(timer)
+    }
+  }, 100)
+  hashTimer = timer
+})
+onBeforeUnmount(() => clearInterval(hashTimer))
 
 // Track reading history
 const { trackVisit } = useReadingHistory()

@@ -44,6 +44,10 @@
 .prose pre {
   position: relative;
 }
+/* Reserve a strip for the button so it never covers the first line of code */
+.prose pre[data-copy-ready] {
+  padding-top: 2.5rem;
+}
 .code-copy-btn {
   position: absolute;
   top: 0.5rem;
@@ -75,4 +79,9 @@
 }
 .toc-details > summary::-webkit-details-marker {
   display: none;
+}
+
+/* Keep anchored headings clear of the fixed site header */
+.prose :where(h2, h3, h4) {
+  scroll-margin-top: 6rem;
 }

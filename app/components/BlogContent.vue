@@ -44,7 +44,7 @@
           class="p-4 md:w-1/3"
           role="listitem"
         >
-          <BlogCard :post="post" :eager="index < 6" />
+          <BlogCard :post="post" :eager="index < 3" />
         </article>
       </div>
       <div
@@ -103,6 +103,7 @@ const visiblePosts = computed(() => {
 // Category chips with counts, plus the active filter and sort (kept in the URL)
 const route = useRoute()
 const router = useRouter()
+const SORT_KEYS = ['newest', 'oldest', 'title', 'shortest']
 const activeCategory = ref('All')
 const sortBy = ref('newest')
 
@@ -138,7 +139,7 @@ onMounted(() => {
   if (typeof category === 'string' && categoryChips.value.some((chip) => chip.name === category)) {
     activeCategory.value = category
   }
-  if (typeof sort === 'string') {
+  if (typeof sort === 'string' && SORT_KEYS.includes(sort)) {
     sortBy.value = sort
   }
   if (activeCategory.value !== 'All' || sortBy.value !== 'newest') {
@@ -154,8 +155,11 @@ onMounted(() => {
     for (const el of cardRefs.value || []) {
       el?.classList?.add('scroll-reveal', 'revealed')
     }
+    // Keep any other query params (utm_*, etc.); only manage category and sort
+    const { category: _category, sort: _sort, ...rest } = route.query
     router.replace({
       query: {
+        ...rest,
         ...(activeCategory.value !== 'All' ? { category: activeCategory.value } : {}),
         ...(sortBy.value !== 'newest' ? { sort: sortBy.value } : {}),
       },
